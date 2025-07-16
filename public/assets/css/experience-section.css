@@ -1,0 +1,222 @@
+/* Experience Section Custom Styles */
+.experience-tabs, .experience-accordion {
+  margin-top: 1rem;
+}
+.experience-tab-nav {
+  background: transparent;
+  border-radius: 2rem;
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.experience-tab-btn {
+  border: none;
+  background: #eaf6ff;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+  padding: 0.7rem 2rem;
+  transition: background 0.2s, color 0.2s;
+}
+.experience-tab-btn.active, .experience-tab-btn:focus, .experience-tab-btn[aria-selected="true"] {
+  background: #003e6b;
+  color: #fff;
+}
+.experience-tab-content {
+  margin-top: 2rem;
+}
+.experience-card {
+  background: #19c2ff0d;
+  border-radius: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 24px 0 #003e6b0d;
+  flex-wrap: wrap;
+}
+.experience-card-icon-bg {
+  background: #fff;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px 0 #003e6b0d;
+  margin-right: 2rem;
+}
+.experience-card-icon {
+  width: 90px;
+  height: 90px;
+}
+.experience-card-content {
+  flex: 1;
+  min-width: 220px;
+}
+.experience-card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #003e6b;
+  margin-bottom: 0.5rem;
+}
+.experience-card-desc {
+  color: #222;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.experience-card-textarea {
+  width: 100%;
+  min-height: 90px;
+  border-radius: 1rem;
+  border: 1px solid #b3e0ff;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  resize: none;
+  background: #fff;
+}
+.experience-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.experience-card-select {
+  border-radius: 1rem;
+  border: 1px solid #b3e0ff;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  background: #fff;
+  color: #003e6b;
+}
+.experience-card-avatar img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #19c2ff;
+}
+.experience-card-play {
+  background: #003e6b;
+  color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+}
+.experience-card-play:hover {
+  background: #19c2ff;
+  color: #003e6b;
+}
+.experience-stt-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.experience-stt-mic, .experience-stt-upload {
+  background: #19c2ff;
+  color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.experience-stt-mic:hover, .experience-stt-upload:hover {
+  background: #003e6b;
+  color: #fff;
+}
+.experience-stt-results {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 12px 0 #003e6b0d;
+}
+.experience-stt-audio-bar {
+  height: 18px;
+  background: linear-gradient(90deg, #19c2ff 0%, #003e6b 100%);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+.experience-stt-table {
+  width: 100%;
+  font-size: 1rem;
+  color: #003e6b;
+}
+.experience-stt-table td {
+  padding: 0.3rem 0.7rem;
+}
+.experience-ttt-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+.experience-ttt-to {
+  font-weight: 700;
+  color: #003e6b;
+  font-size: 1.1rem;
+}
+.experience-ttt-textareas {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.experience-ttt-textareas textarea {
+  flex: 1;
+}
+.experience-ttt-actions {
+  display: flex;
+  gap: 1rem;
+}
+.experience-ttt-btn {
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #eaf6ff;
+  color: #003e6b;
+  transition: background 0.2s, color 0.2s;
+}
+.experience-ttt-btn-active {
+  background: #003e6b;
+  color: #fff;
+}
+.experience-ttt-btn-inactive {
+  background: #eaf6ff;
+  color: #003e6b;
+}
+@media (max-width: 767.98px) {
+  .experience-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+  .experience-card-icon-bg {
+    margin: 0 auto 1rem auto;
+    width: 100px;
+    height: 100px;
+  }
+  .experience-card-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .experience-ttt-textareas {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+} 
