@@ -1,6 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -11,6 +11,14 @@ const D2C = () => {
     <>
   <Helmet>
     <title>D2C Translation Solution | Devnagri</title>
+     <meta 
+    name="description" 
+    content="" 
+  />
+  <meta 
+    name="keywords" 
+    content="" 
+  />
   </Helmet>
   {/* Hero Section */}
   <section
@@ -31,11 +39,11 @@ const D2C = () => {
           </p>
           <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
             {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-        <a href="#" class="blue"> Start Free </a>
+        <Link to="#" class="blue"> Start Free </Link>
       </button> */}
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Connect With Us
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -225,9 +233,9 @@ const D2C = () => {
             between promotion and customer connection in a D2C chain.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Start Now
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -252,10 +260,10 @@ const D2C = () => {
             built in from the start.
           </p>
           <div className="wow fadeInUp">
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Know More{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-5 z-1 mt-4 mt-md-5 mt-lg-0">
@@ -292,10 +300,10 @@ const D2C = () => {
             where most brands lose it, after the checkout.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -407,10 +415,10 @@ const D2C = () => {
               D2C is about being close to your customer.{" "}
             </p>
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-              <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+              <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Book a Call{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
           <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -763,11 +771,11 @@ const D2C = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -802,11 +810,11 @@ const D2C = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="/resources/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -842,10 +850,10 @@ const D2C = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -881,10 +889,10 @@ const D2C = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="/resources/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -919,10 +927,10 @@ const D2C = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="/resources/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -959,10 +967,10 @@ const D2C = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1132,10 +1140,10 @@ const D2C = () => {
   </div>
 </div> */}
       <div className="text-center wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

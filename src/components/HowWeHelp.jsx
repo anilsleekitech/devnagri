@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 import howWeHelpData from '../data/howWeHelpData.json';
@@ -166,9 +166,9 @@ const HowWeHelp = () => {
                             <div className="how-help-card-head">
                               <h3 className="f-24 f-600 white">{content.title}</h3>
                               <p className="f-400 white">{content.description}</p>
-                              <a href={card.link} className="learn-more-btn mt-3">
+                              <Link to={card.link} className="learn-more-btn mt-3">
                                 Learn More
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="how-help-card-secondary">

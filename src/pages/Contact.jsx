@@ -53,6 +53,14 @@ const Contact = () => {
     <>
   <Helmet>
     <title>Contact | Devnagri</title>
+     <meta 
+    name="description" 
+    content="" 
+  />
+  <meta 
+    name="keywords" 
+    content="Contact" 
+  />
   </Helmet>
   {/* Hero Banner with Breadcrumbs */}
   <section
@@ -61,7 +69,7 @@ const Contact = () => {
     <div className="container">
       {/* <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html" class="f-500">Home</a></li>
+              <li class="breadcrumb-item"><Link to="index.html" class="f-500">Home</Link></li>
               <li class="breadcrumb-item active f-500" aria-current="page">Contact Us</li>
           </ol>
       </nav> */}
@@ -125,9 +133,9 @@ const Contact = () => {
               <div className="contact-info-content">
                 {/* <h4 class="f-20 f-600 black">Call Us</h4> */}
                 <p className="f-16 f-400 black">
-                  <a href="tel:+917302020284" className="black f-400">
+                  <Link to="tel:+917302020284" className="black f-400">
                     +91-7302020284
-                  </a>
+                  </Link>
                   <br />
                   <small className=" black f-400">Mon-Fri, 9am — 7pm</small>
                 </p>
@@ -143,13 +151,13 @@ const Contact = () => {
               <div className="contact-info-content">
                 {/* <h4 class="f-20 f-600 black">Email Us</h4> */}
                 <p className="f-16 f-400 black">
-                  <a href="mailto:sales@devnagri.com" className="black f-400">
+                  <Link to="mailto:sales@devnagri.com" className="black f-400">
                     sales@devnagri.com
-                  </a>
+                  </Link>
                   <br />
-                  <a href="mailto:info@devnagri.com" className="black f-400">
+                  <Link to="mailto:info@devnagri.com" className="black f-400">
                     info@devnagri.com
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

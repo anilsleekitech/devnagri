@@ -1,6 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -11,6 +11,14 @@ const Govt = () => {
 <>
   <Helmet>
       <title>Government Translation Solution | Devnagri</title>
+       <meta 
+    name="description" 
+    content="" 
+  />
+  <meta 
+    name="keywords" 
+    content="" 
+  />
    </Helmet>
   {/* Hero Section */}
   <section
@@ -32,11 +40,11 @@ const Govt = () => {
           </p>
           <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
             {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-        <a href="#" class="blue"> Start Free </a>
+        <Link to="#" class="blue"> Start Free </Link>
       </button> */}
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Get in touch
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -225,9 +233,9 @@ const Govt = () => {
             that feels familiar.
           </p>
           <div className="wow fadeInUp">
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Talk to a Strategist{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -253,10 +261,10 @@ const Govt = () => {
             accessible, and reliable.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-5 z-1 mt-4 mt-md-5 mt-lg-0">
@@ -293,10 +301,10 @@ const Govt = () => {
             real time and monitor progress, accelerating the process.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -411,10 +419,10 @@ const Govt = () => {
               every citizen.
             </p>
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-              <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+              <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Get Started{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
           <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -773,11 +781,11 @@ const Govt = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="leading-indito-an-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indito-an-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -812,11 +820,11 @@ const Govt = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="prestigious-to-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-to-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -852,10 +860,10 @@ const Govt = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="devnagri-ai-to-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-to-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -891,10 +899,10 @@ const Govt = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-midsized-ito-ndian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-ito-ndian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -929,10 +937,10 @@ const Govt = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-governmentto--organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-governmentto--organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -969,10 +977,10 @@ const Govt = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="how-dota-is-to-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-to-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1142,10 +1150,10 @@ const Govt = () => {
   </div>
 </div> */}
       <div className="text-center wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

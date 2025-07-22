@@ -12,7 +12,15 @@ const EcommerceTranslation = () => {
     <>
     <Helmet>
       <title>eCommerce Translation Solution | Devnagri</title>
-      <meta name="description" content="Devnagri offers eCommerce translation solutions for retailers of any size. Translate product descriptions and user reviews in a single click." />
+      <meta 
+    name="description" 
+    content="Devnagri offers eCommerce translation solutions for retailers of any size. Translate product descriptions and user reviews in a single click." 
+  />
+  <meta 
+    name="keywords" 
+    content="eCommerce Translation" 
+  />
+
   </Helmet>
   {/* Hero Section */}
   <section
@@ -33,7 +41,7 @@ const EcommerceTranslation = () => {
           </p>
           <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
             {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-        <a href="#" class="blue"> Start Free </a>
+        <Link to="#" class="blue"> Start Free </Link>
       </button> */}
             <Link to="/signup" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Localize Smarter
@@ -778,7 +786,7 @@ const EcommerceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
@@ -817,7 +825,7 @@ const EcommerceTranslation = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <Link to="prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
@@ -857,7 +865,7 @@ const EcommerceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
                         </button></Link>
@@ -896,7 +904,7 @@ const EcommerceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                        <Link to="a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                         </button></Link>
@@ -934,7 +942,7 @@ const EcommerceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                        <Link to="a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                         </button></Link>
@@ -974,7 +982,7 @@ const EcommerceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                         </button></Link>

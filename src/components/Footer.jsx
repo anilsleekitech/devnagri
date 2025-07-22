@@ -70,9 +70,9 @@ const Footer = () => {
                     <li className="para-color f-400 mb-2">Case Studies</li>
                       </Link>
                       {/* Keep external links as a tags */}
-                  <a href="https://docs.devnagri.com/">
+                  <Link to="https://docs.devnagri.com/">
                     <li className="para-color f-400 mb-2">Developer Hub</li>
-                  </a>
+                  </Link>
                       <Link to="/contact-us">
                     <li className="para-color f-400 mb-2">Contact Us</li>
                       </Link>
@@ -85,24 +85,24 @@ const Footer = () => {
                   Machine Translation
                 </h6>
                 <ul className="p-0">
-                      <Link to="/dota-web">
+                      <Link to="/website-translation">
                     <li className="para-color f-400 mb-2">DOTA (Web)</li>
                       </Link>
-                      <Link to="/dota-app">
+                      <Link to="/app-localization">
                     <li className="para-color f-400 mb-2">DOTA (APP)</li>
                       </Link>
                       <Link to="/machine-translation-api">
                     <li className="para-color f-400 mb-2">Translation API</li>
                       </Link>
-                      <Link to="/machine-translitration-api">
+                      <Link to="/translitration-api">
                     <li className="para-color f-400 mb-2">
                       Transliteration API
                     </li>
                       </Link>
-                      <Link to="/document-translation-workflow">
+                      <Link to="/document-translation">
                     <li className="para-color f-400 mb-2">Document Engine</li>
                       </Link>
-                      <Link to="/text-translation/english/hindi">
+                      <Link to="/english-to-hindi-translation">
                     <li className="para-color f-400 mb-2">Translate Any Text</li>
                       </Link>
                 </ul>
@@ -196,21 +196,21 @@ const Footer = () => {
           <div className="col-lg-3">
             <div className="social-icons d-flex gap-3 justify-content-end">
                   {/* Keep social media links as a tags since they're external */}
-              <a href="https://in.linkedin.com/company/devnagriai">
+              <Link to="https://in.linkedin.com/company/devnagriai">
                 <i className="bi bi-linkedin f-18" />
-              </a>
-              <a href="https://www.facebook.com/DevnagriAI">
+              </Link>
+              <Link to="https://www.facebook.com/DevnagriAI">
                 <i className="bi bi-facebook f-18" />
-              </a>
-              <a href="https://x.com/devnagriai">
+              </Link>
+              <Link to="https://x.com/devnagriai">
                 <i className="fab fa-x-twitter f-18" />
-              </a>
-              <a href="https://www.instagram.com/devnagriai/">
+              </Link>
+              <Link to="https://www.instagram.com/devnagriai/">
                 <i className="bi bi-instagram f-18" />
-              </a>
-              <a href="https://www.youtube.com/@devnagriAI">
+              </Link>
+              <Link to="https://www.youtube.com/@devnagriAI">
                 <i className="bi bi-youtube f-18" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -250,21 +250,21 @@ const Footer = () => {
           <div className="col-lg-6 col-12 mt-2">
                 <div className="social-icons d-flex gap-3 justify-content-start">
                   {/* Keep social media links as a tags since they're external */}
-              <a href="https://in.linkedin.com/company/devnagriai">
+              <Link to="https://in.linkedin.com/company/devnagriai">
                 <i className="bi bi-linkedin f-18" />
-              </a>
-              <a href="https://www.facebook.com/DevnagriAI">
+              </Link>
+              <Link to="https://www.facebook.com/DevnagriAI">
                 <i className="bi bi-facebook f-18" />
-              </a>
-              <a href="https://x.com/devnagriai">
+              </Link>
+              <Link to="https://x.com/devnagriai">
                 <i className="fab fa-x-twitter f-18" />
-              </a>
-              <a href="https://www.instagram.com/devnagriai/">
+              </Link>
+              <Link to="https://www.instagram.com/devnagriai/">
                 <i className="bi bi-instagram f-18" />
-              </a>
-              <a href="https://www.youtube.com/@devnagriAI">
+              </Link>
+              <Link to="https://www.youtube.com/@devnagriAI">
                 <i className="bi bi-youtube f-18" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

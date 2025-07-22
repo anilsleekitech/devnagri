@@ -1,10 +1,22 @@
 import React from 'react'
 import { getImagePath } from '@/utils/imageUtils';
+import { Helmet } from 'react-helmet-async';
 
 export default function RefundPolicy() {
   return (
     <div>
       <>
+      <Helmet>
+            <title>Refund Policy | Devnagri</title>
+             <meta 
+          name="description" 
+          content="" 
+        />
+        <meta 
+          name="keywords" 
+          content="Refund Policy" 
+        />
+         </Helmet>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"

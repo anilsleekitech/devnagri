@@ -1,10 +1,23 @@
 import React from 'react'
 import { getImagePath } from '@/utils/imageUtils';  
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function TermsandConditions() {
   return (
     <div>
       <>
+      <Helmet>
+            <title>Terms and Conditioms | Devnagri</title>
+             <meta 
+          name="description" 
+          content="" 
+        />
+        <meta 
+          name="keywords" 
+          content="Terms and Conditioms" 
+        />
+         </Helmet>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"
@@ -124,9 +137,9 @@ export default function TermsandConditions() {
             Devnagri solely holds the rights to refuse the request for revision
             without any explanation. Further to have discussion in this regard
             user can contact at{" "}
-            <a href="mailto:sales@devnagri.com" className="blue">
+            <Link to="mailto:sales@devnagri.com" className="blue">
               sales@devnagri.com
-            </a>
+            </Link>
           </p>
         </div>
       </div>
@@ -152,9 +165,9 @@ export default function TermsandConditions() {
             the user type than also other impacting parts will remain constant.
             Further, for any question or concern about terms, policies and
             general discussion free to write at{" "}
-            <a href="mailto:sales@devnagri.com" className="blue">
+            <Link to="mailto:sales@devnagri.com" className="blue">
               sales@devnagri.com
-            </a>
+            </Link>
           </p>
         </div>
       </div>

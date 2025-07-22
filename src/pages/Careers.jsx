@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
+import { Link } from 'react-router-dom';
 
 const Careers = () => {
     // Job data
@@ -178,6 +179,14 @@ const Careers = () => {
     <>
   <Helmet>
       <title>Career | Devnagri</title>
+      <meta 
+    name="description" 
+    content="" 
+  />
+  <meta 
+    name="keywords" 
+    content="Career" 
+  />
   </Helmet>
   {/* Hero Section */}
   <section
@@ -203,11 +212,11 @@ const Careers = () => {
             communication challenges excites you, join us on our journey.
           </p>
           <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
-            <a href="#our-open-roles" className="white">
+            <Link to="#our-open-roles" className="white">
             <button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Explore Open Roles{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -774,8 +783,8 @@ const Careers = () => {
                 </div>
               </li>
             </ul>
-            {/* <div class="wow fadeInUp"><button type="btn" class="devnagri-btn mt-3"><a href="#" class="white"> Start Now
-          </a></button></div> */}
+            {/* <div class="wow fadeInUp"><button type="btn" class="devnagri-btn mt-3"><Link to="#" class="white"> Start Now
+          </Link></button></div> */}
           </div>
         </div>
       </div>
@@ -934,15 +943,15 @@ const Careers = () => {
   {/*get started section*/}
   <section className="get-strated bg-img">
     <div className="container">
-      {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <a href="mailto:info@devnagri.com" style="color: #05a1f4;">Upload your resume</a>, and we’ll keep you in mind.</h2> */}
+      {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <Link to="mailto:info@devnagri.com" style="color: #05a1f4;">Upload your resume</Link>, and we’ll keep you in mind.</h2> */}
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 wow fadeInUp">
         No Perfect Match Today? Upload Your Resume, Let's Keep in Touch!
       </h2>
       <div className="text-center wow fadeInUp mt-5">
-        <a href="mailto:info@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="mailto:info@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Upload Your Resume{" "}
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

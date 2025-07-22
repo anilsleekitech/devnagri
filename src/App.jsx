@@ -33,6 +33,10 @@ import Voicebot from './pages/Voicebot';
 import DotaWeb from './pages/DotaWeb';
 import EcommerceTranslation from './pages/EcommerceTranslation';
 import Govt from './pages/Govt';
+import BookDemo from './pages/BookDemo';
+import TermsandConditions from './pages/TermsandConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import RefundPolicy from './pages/RefundPolicy';
 
 import { initializeWow } from './utils/initializeAnimations';
 import { initializeCounters, initializeFAQs, initializeSliders } from './utils/homeUtils';
@@ -48,6 +52,7 @@ function App() {
         initializeSliders();
         initializeCounters();
         initializeFAQs();
+        initializeWow();
     // Initialize background images
     updateBackgroundImages();
   }, []);
@@ -116,7 +121,7 @@ function App() {
 
   return (
     <HelmetProvider>
-      <Router basename="/devnagri-react">
+      <Router>
         <ScrollToTop />
         <div className="App">
           <Navbar />
@@ -128,20 +133,23 @@ function App() {
               <Route path="/banking-finance-translation" element={<BankingFinanceTranslation />} /> 
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact-us" element={<Contact />} />
-              <Route path="/chat-bots" element={<ChatBots />} />
               <Route path="/d2c" element={<D2C />} />
-              <Route path="/document-translation-workflow" element={<DocumentTranslationWorkflow />} />
-              <Route path="/dota-app" element={<DotaApp />} />
-              <Route path="/dota-web" element={<DotaWeb />} />
+              <Route path="/document-translation" element={<DocumentTranslationWorkflow />} />
+              <Route path="/app-localization" element={<DotaApp />} />
+              <Route path="/website-translation" element={<DotaWeb />} />
               <Route path="/ecommerce-translation" element={<EcommerceTranslation />} />  {/* Fixed typo in route */}
               <Route path="/govt" element={<Govt />} />
               <Route path="/machine-translation-api" element={<MachineTranslationApi />} />
-              <Route path="/machine-translitration-api" element={<MachineTranslitrationApi />} />
+              <Route path="/translitration-api" element={<MachineTranslitrationApi />} />
               <Route path="/multilingual-conversational-ai-bot" element={<ChatBots />} />
               <Route path="/ocr" element={<Ocr />} />
               <Route path="/voicebot" element={<Voicebot />} />
               <Route path="/industry" element={<Industry />} />
               <Route path="/blogs" element={<Resources />} />
+              <Route path="/book-a-demo" element={<BookDemo />} />
+              <Route path="/terms-and-conditions" element={<TermsandConditions />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/refund-and-cancellation-policy" element={<RefundPolicy />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/pricing" element={<Navigate to="https://devnagri.com/pricing" replace />} />
 

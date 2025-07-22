@@ -1,6 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -33,14 +33,14 @@ const DocumentTranslationWorkflow = () => {
             and review-friendly process powered by Devnagri's AI Technology.
           </p>
           <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeIn">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Schedule Call{" "}
-            </button></a>
-            <a href="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
+            </button></Link>
+            <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
                 {" "}
                 Start Now{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -229,13 +229,13 @@ const DocumentTranslationWorkflow = () => {
             accurately.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button
+            <Link to="https://account.devnagri.com/login" className="white"><button
               type="btn"
               className="devnagri-btn wow fadeIn animated mt-3"
             >
                 <i className="bi bi-upload" />
                 &nbsp;&nbsp;Upload &amp; Try Now
-            </button></a>
+                </button></Link>
           </div>
         </div>
       </div>
@@ -255,10 +255,10 @@ const DocumentTranslationWorkflow = () => {
             and context.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Start Now
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-2 mt-md-5 mt-lg-0">
@@ -290,9 +290,9 @@ const DocumentTranslationWorkflow = () => {
             encrypted, processed securely, and never reused.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Experience Now
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -423,21 +423,21 @@ const DocumentTranslationWorkflow = () => {
               </li>
             </ul>
             <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeInUp">
-              <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+              <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath('video-play-btn.png')}
                     className="pe-1"
                     style={{ filter: "brightness(0) invert(1)" }}
                   />{" "}
                   Book a Demo{" "}
-              </button></a>
-              <a href="https://account.devnagri.com/login" className=""><button
+              </button></Link>
+              <Link to="https://account.devnagri.com/login" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
                   {" "}
                   Get Strated{" "}
-              </button></a>
+                </button></Link>
             </div>
           </div>
         </div>
@@ -469,10 +469,10 @@ const DocumentTranslationWorkflow = () => {
                 type="btn"
                 className="devnagri-btn mt-3"
               >
-                <a href="/contact-us" className="white">
+                <Link to="/contact-us" className="white">
                   {" "}
                   Talk to an Expert{" "}
-                </a>
+                  </Link>
               </button>
             </div>
           </div>
@@ -731,11 +731,11 @@ const DocumentTranslationWorkflow = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                          </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -770,11 +770,11 @@ const DocumentTranslationWorkflow = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -810,10 +810,10 @@ const DocumentTranslationWorkflow = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                          </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -849,10 +849,10 @@ const DocumentTranslationWorkflow = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -887,10 +887,10 @@ const DocumentTranslationWorkflow = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -927,10 +927,10 @@ const DocumentTranslationWorkflow = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1254,10 +1254,10 @@ const DocumentTranslationWorkflow = () => {
   </div> */}
       </div>
       <div className="text-center wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

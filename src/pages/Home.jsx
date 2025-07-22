@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import { getImagePath, getVideoPath } from '../utils/imageUtils';
+import { getImagePath } from '../utils/imageUtils';
 
 
 const Home = () => {
@@ -48,11 +48,42 @@ const Home = () => {
     setIsEnd(swiper.isEnd);
   };
 
+$(document).ready(function(){
+  $('.resources-blogs-slider').slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 }
+      },
+      {
+        breakpoint: 768.99,
+        settings: { slidesToShow: 1 }
+      }
+    ]
+  });
+});	
+
   return (
     <>
     <Helmet>
       <title>Devnagri -India's 1st AI-Powered Translation Engine For Indian Languages</title>
-      <meta name="keywords" content="Devnagri, Devnagri AI" />
+       <meta 
+    name="description" 
+    content="Devnagri, India's #1 AI-powered translation engine, helps brands to localize their content 5x faster and more accurately." 
+  />
+  <meta 
+    name="keywords" 
+    content="Devnagri, Devnagri AI" 
+  />
     </Helmet>
     {/* Hero Section */}
     <section className="hero-home bg-img overflow-hidden">
@@ -68,7 +99,7 @@ const Home = () => {
               build trust through its industry-leading AI-powered multilingual
               technology solutions.
             </p>
-            <a href="https://account.devnagri.com/login" className="white"><button
+            <Link to="https://account.devnagri.com/login" className="white"><button
               type="btn"
               className="devnagri-btn wow fadeIn animated"
               style={{ visibility: "visible" }}
@@ -76,7 +107,7 @@ const Home = () => {
               
                 Get Started
               
-            </button></a>
+            </button></Link>
           </div>
           <div className="col-lg-6 mt-md-5 mt-lg-0 mt-4">
             <div className="swiper campaignSwiper wow fadeIn">
@@ -149,7 +180,7 @@ const Home = () => {
                       className="w-100 rounded-4"
                     />
                     <div className="campaign-content text-center">
-                      <a href="/voicebot" className="white">
+                      <Link to="/voicebot" className="white">
                       <button
                         type="btn"
                         className="devnagri-btn wow fadeIn animated"
@@ -157,7 +188,7 @@ const Home = () => {
                       >
                           Learn More
                         
-                      </button></a>
+                      </button></Link>
                     </div>
                   </div>
                 </div>
@@ -511,7 +542,7 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                     <source
-                                      src={getVideoPath('product-offering/dota-web-products.mp4')}
+                                      src={getImagePath('product-offering/dota-web-products.mp4')}
                                       type="video/mp4"
                                     />
                                     Your browser does not support the video tag.
@@ -567,8 +598,8 @@ const Home = () => {
                                 A govt website increased its traffic by 200%.
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/website-translation"
+                                <Link
+                                  to="/website-translation"
                                   className="white"
                                 >
                                   <button
@@ -577,7 +608,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -660,8 +691,8 @@ const Home = () => {
                                 by 63%
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/app-localization"
+                                <Link
+                                  to="/app-localization"
                                   className="white"
                                 >
                                   <button
@@ -670,7 +701,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -753,8 +784,8 @@ const Home = () => {
                                 Housing Finance Company Support Tickets drop by 41%.
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/document-translation"
+                                <Link
+                                  to="/document-translation"
                                   className="white"
                                 >
                                   <button
@@ -763,7 +794,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -847,8 +878,8 @@ const Home = () => {
                                 the Right Translation.
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/machine-translation-api"
+                                <Link
+                                  to="/machine-translation-api"
                                   className="white"
                                 >
                                   <button
@@ -857,7 +888,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -940,8 +971,8 @@ const Home = () => {
                                 Signups.
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/transliteration-api"
+                                <Link
+                                  to="/transliteration-api"
                                   className="white"
                                 >
                                   <button 
@@ -950,7 +981,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -1095,8 +1126,8 @@ const Home = () => {
                                 NBFC institutions received 3X Loan Applications.
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/voicebot"
+                                <Link
+                                  to="/voicebot"
                                   className="white"
                                 >
                                   <button
@@ -1105,7 +1136,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -1174,8 +1205,8 @@ const Home = () => {
                                 Sentences
                               </h6>
                               <div className="register-btn">
-                                <a
-                                  href="/multilingual-conversational-ai-bot"
+                                <Link
+                                  to="/multilingual-conversational-ai-bot"
                                   className="white"
                                 >
                                   <button
@@ -1184,7 +1215,7 @@ const Home = () => {
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -1306,14 +1337,14 @@ const Home = () => {
                                 across service requests.
                               </h6>
                               <div className="register-btn">
-                                <a href="/ocr" className="white">
+                                <Link to="/ocr" className="white">
                                   <button
                                     type="btn"
                                     className="devnagri-btn mt-3"
                                   >
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -1433,11 +1464,11 @@ const Home = () => {
                               A govt website increased its traffic by 200%.
                             </h6>
                             <div className="register-btn">
-                              <a href="/website-translation" className="white">
+                              <Link to="/website-translation" className="white">
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -1539,11 +1570,11 @@ const Home = () => {
                               by 63%
                             </h6>
                             <div className="register-btn">
-                              <a href="/app-localization" className="white">
+                              <Link to="/app-localization" className="white">
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -1650,14 +1681,14 @@ const Home = () => {
                               Housing Finance Company Support Tickets drop by 41%.
                             </h6>
                             <div className="register-btn">
-                              <a
+                              <Link
                                 href="/document-translation"
                                 className="white"
                               >
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -1762,14 +1793,14 @@ const Home = () => {
                               the Right Translation.
                             </h6>
                             <div className="register-btn">
-                              <a
+                              <Link
                                 href="/machine-translation-api"
                                 className="white"
                               >
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -1876,14 +1907,14 @@ const Home = () => {
                               Signups.
                             </h6>
                             <div className="register-btn">
-                              <a
+                              <Link
                                 href="/transliteration-api"
                                 className="white"
                               >
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -1993,14 +2024,14 @@ const Home = () => {
                               NBFC institutions received 3X Loan Applications.
                             </h6>
                             <div className="register-btn">
-                              <a
+                              <Link
                                 href="/voicebot"
                                 className="white"
                               >
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -2093,11 +2124,11 @@ const Home = () => {
                               Sentences
                             </h6>
                             <div className="register-btn">
-                              <a href="/multilingual-conversational-ai-bot" className="white">
+                              <Link to="/multilingual-conversational-ai-bot" className="white">
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -2201,11 +2232,11 @@ const Home = () => {
                               service requests.
                             </h6>
                             <div className="register-btn">
-                              <a href="/ocr" className="white">
+                              <Link to="/ocr" className="white">
                                 <button type="btn" className="devnagri-btn mt-3">
                                   Learn More
                                 </button>
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -2215,6 +2246,17 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className='pb-5'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-12 wow fadeInUp'>
+            <Link to='/english-to-hindi-translation'>
+                <img src={getImagePath('ttt-translation-home-bannertwo.png')} className='w-100 rounded-4'></img>
+            </Link>
           </div>
         </div>
       </div>
@@ -2290,9 +2332,9 @@ const Home = () => {
                           Make it possible for banking apps to work in more than
                           one language, translate compliance docs, &amp; more.
                         </p>
-                        <a href="/banking-finance-translation" className="learn-more-btn mt-3">
+                        <Link to="/banking-finance-translation" className="learn-more-btn mt-3">
                           Learn More
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="how-help-card-secondary">
@@ -2315,9 +2357,9 @@ const Home = () => {
                           Translate RTI documents, government programs, and
                           service portals into the local languages.
                         </p>
-                        <a href="/govt" className="learn-more-btn mt-3">
+                        <Link to="/govt" className="learn-more-btn mt-3">
                           Learn More
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="how-help-card-secondary">
@@ -2338,9 +2380,9 @@ const Home = () => {
                           Translate product listings, reviews, and notifications
                           so that people can shop in their own language.
                         </p>
-                        <a href="/ecommerce-translation" className="learn-more-btn mt-3">
+                        <Link to="/ecommerce-translation" className="learn-more-btn mt-3">
                           Learn More
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="how-help-card-secondary">
@@ -2361,9 +2403,9 @@ const Home = () => {
                           Expand globally &amp; boost sales through culturally
                           tailored, multilingual customer experiences.
                         </p>
-                        <a href="/d2c" className="learn-more-btn mt-3">
+                        <Link to="/d2c" className="learn-more-btn mt-3">
                           Learn More
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="how-help-card-secondary">
@@ -2381,17 +2423,7 @@ const Home = () => {
         </div>
       </div>
     </section>
-    <section className='pb-5'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-12 wow fadeInUp'>
-            <a href='/text-translation/english/hindi'>
-                <img src={getImagePath('ttt-translation-home-bannertwo.png')} className='w-100 rounded-4'></img>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     {/*How we do it*/}
     <section className="how-wedo-it">
       <div className="container">
@@ -3088,7 +3120,7 @@ const Home = () => {
     <section className="our-awards bg-img">
       <div className="container">
         <h2 className="f-600 f-40 black pb-3 text-center">
-          Creating <span className="blue">Impact</span>
+        Recognitions
         </h2>
         <div className="row align-items-center justify-content-center">
           <div className="col-lg-10 p-4">
@@ -3423,7 +3455,7 @@ const Home = () => {
           translation for marketing or
           product, we designed Smartling's TMS to address the translation needs of your entire organization.</p>
         <button type="btn" class="devnagri-btn mt-3">
-          <a href="#" class="white"><img src={getImagePath(video-play-btn.png" class="pe-1"
+          <Link to="#" class="white"><img src={getImagePath(video-play-btn.png" class="pe-1"
               style="filter: brightness(0) invert(1);"> Request a Demo </a>
         </button>
       </div>
@@ -3515,12 +3547,12 @@ const Home = () => {
           </div>
         </div>
         <div className="text-center wow fadeInUp mt-5">
-          <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+          <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             
               {" "}
               Start Now
             
-          </button></a>
+          </button></Link>
         </div>
       </div>
     </section>

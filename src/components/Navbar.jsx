@@ -175,7 +175,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/machine-translitration-api"
+                                to="/translitration-api"
                                 onClick={handleMobileMenuClose}
                               >
                                 <div className="tab_innerimg_icon">
@@ -197,7 +197,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/document-translation-workflow"
+                                to="/document-translation"
                                 onClick={handleMobileMenuClose}
                               >
                                 <div className="tab_innerimg_icon">
@@ -223,7 +223,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/dota-web"
+                                to="/website-translation"
                                 onClick={handleMobileMenuClose}
                               >
                                 <div className="tab_innerimg_icon">
@@ -243,7 +243,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/dota-app"
+                                to="/app-localization"
                                 onClick={handleMobileMenuClose}
                               >
                                 <div className="tab_innerimg_icon">
@@ -347,7 +347,7 @@ const Navbar = () => {
                       </div>
                       <div className='row'>
                         <div className='col-12'>
-                          <Link to='/text-translation/english/hindi'>
+                          <Link to='/english-to-hindi-translation'>
                           <img src={getImagePath('ttt-translation-nav-banner.png')} className='w-100 rounded-4'></img>
                           </Link>
                         </div>
@@ -667,6 +667,17 @@ const Navbar = () => {
                   Pricing
                 </Link>
               </li>
+              <li className="nav-item">
+              <Link className="mx-2 white" to="https://account.devnagri.com/login"> <button
+                type="button"
+                className="devnagri-btn"
+                style={{ padding: "10px 18px" }}
+              >
+                
+                  Get Started
+                
+              </button></Link>
+            </li>
               {/* Language Selector */}
               <li className="nav-item dropdown" ref={dropdownRef}>
                 <Link

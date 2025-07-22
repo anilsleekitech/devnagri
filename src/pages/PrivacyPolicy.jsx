@@ -1,10 +1,22 @@
 import React from 'react'
 import { getImagePath } from '@/utils/imageUtils';
+import { Helmet } from 'react-helmet-async';
 
 export default function PrivacyPolicy() {
   return (
     <div>
       <>
+      <Helmet>
+            <title>Privacy Policy | Devnagri</title>
+             <meta 
+          name="description" 
+          content="" 
+        />
+        <meta 
+          name="keywords" 
+          content="Privacy Policy" 
+        />
+         </Helmet>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"

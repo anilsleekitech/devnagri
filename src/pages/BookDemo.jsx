@@ -1,7 +1,20 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const BookDemo = () => {
   return (
+    <>
+    <Helmet>
+      <title>Book Demo - Devnagri</title>
+      <meta 
+    name="description" 
+    content="" 
+  />
+  <meta 
+    name="keywords" 
+    content="Book Demo" 
+  />
+    </Helmet>
     <section className="book-demo-section">
       <div className="container">
         <div className="row main-contact-info py-5">
@@ -108,6 +121,7 @@ const BookDemo = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

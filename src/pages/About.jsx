@@ -1,13 +1,21 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
+import { Helmet } from 'react-helmet-async';
 
 const About = () => {
   return (
     <>
     <Helmet>
       <title>About - Devnagri</title>
+      <meta 
+    name="description" 
+    content="Learn about Devnagri, India's leading AI-powered translation platform, and our mission to break language barriers for businesses." 
+  />
+  <meta 
+    name="keywords" 
+    content="About Devnagri, Devnagri Mission" 
+  />
     </Helmet>
       {/* Hero Section */}
       <section
@@ -28,7 +36,7 @@ const About = () => {
       connects authentically across cultures. With Devnagri, going global becomes seamless and impactful.</p> */}
               <div className="d-flex align-items-center justify-content-center gap-3 wow fadeInUp">
                 {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3 ">
-        <a href="#" class="blue"> Sign up </a>
+        <Link to="#" class="blue"> Sign up </Link>
       </button> */}
                 <Link to="/careers" className="white">
                 <button type="btn" className="devnagri-btn mt-3">
@@ -289,7 +297,7 @@ const About = () => {
             </div>
             {/* <div class="text-center wow fadeInUp">
     <button type="btn" class="devnagri-btn mt-3">
-      <a href="#" class="white"><img src={getImagePath('video-play-btn.png')}" class="pe-1"
+      <Link to="#" class="white"><img src={getImagePath('video-play-btn.png')}" class="pe-1"
           style="filter: brightness(0) invert(1);"> Request a Demo </a>
     </button>
   </div> */}
@@ -342,7 +350,7 @@ const About = () => {
       </li>
     </ul>
     <div class="register-btn">
-      <button type="btn" class="devnagri-btn mt-3"><a href="#" class="white">Contact Us</a></button>
+      <button type="btn" class="devnagri-btn mt-3"><Link to="#" class="white">Contact Us</Link></button>
     </div>
   </div>
 </div>
@@ -430,9 +438,9 @@ const About = () => {
                     of both public and private organizations.
                   </p>
                   <span className="follow-icon">
-                    <a href="#">
+                    <Link to="#">
                       <i className="bi bi-linkedin" />
-                    </a>
+                    </Link>
                   </span>
                 </div>
               </div>
@@ -466,9 +474,9 @@ const About = () => {
                     systems.
                   </p>
                   <span className="follow-icon">
-                    <a href="#">
+                    <Link to="#">
                       <i className="bi bi-linkedin" />
-                    </a>
+                    </Link>
                   </span>
                 </div>
               </div>
@@ -514,9 +522,9 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <a href="#">
+                      <Link to="#">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -538,9 +546,9 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <a href="#">
+                      <Link to="#">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -562,9 +570,9 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <a href="#">
+                      <Link to="#">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -586,9 +594,9 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <a href="#">
+                      <Link to="#">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </Link>
                     </span>
                   </div>
                 </div>
@@ -610,9 +618,9 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <a href="#">
+                      <Link to="#">
                         <i className="bi bi-linkedin" />
-                      </a>
+                      </Link>
                     </span>
                   </div>
                 </div>

@@ -473,7 +473,7 @@ const MachineTranslitrationApi = () => {
                 </button>
               </Link>
               {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-          <a href="#" class="blue"> Talk to an Expert </a>
+          <Link to="#" class="blue"> Talk to an Expert </Link>
         </button> */}
             </div>
           </div>
@@ -730,7 +730,7 @@ const MachineTranslitrationApi = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
@@ -770,7 +770,7 @@ const MachineTranslitrationApi = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <Link to="prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
@@ -811,7 +811,7 @@ const MachineTranslitrationApi = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
                         </button>
@@ -851,7 +851,7 @@ const MachineTranslitrationApi = () => {
                             </p>
                           </div>
                         </div>
-                        <Link to="a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                         </button>
@@ -890,7 +890,7 @@ const MachineTranslitrationApi = () => {
                             </p>
                           </div>
                         </div>
-                        <Link to="a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                         </button>
@@ -931,7 +931,7 @@ const MachineTranslitrationApi = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                         </button>
@@ -1228,7 +1228,7 @@ const MachineTranslitrationApi = () => {
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Already trusted by over 200 customers. Experience accurate, 
   automated transliteration built for enterprise scale.</p> */}
       {/* <div class="text-center"><button type="btn" class="devnagri-btn">
-    <a href="#" class="white"> Get Started Now</a></button>
+    <link to="#" class="white"> Get Started Now</link></button>
 </div> */}
       {/* Stats */}
       <div className="row mt-5 text-center custom-stats-row">

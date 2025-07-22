@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import fullDataset from '../data/howWeHelpData.json';
 import { getImagePath } from '@/utils/imageUtils';
+import { Helmet } from 'react-helmet-async';
   
 const contentTypes = {
   blogs: { name: 'Blogs' },
@@ -22,7 +23,7 @@ const generateResourceLink = (item) => {
     return `/${fromLang}-${toLang}-translation`;
   }
 
-  return `/resources/${(item.link || item.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^\/+|\/+$/g, '')}`;
+  return `/${(item.link || item.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^\/+|\/+$/g, '')}`;
 };
 
 const ResourcesDetail = () => {
@@ -46,7 +47,7 @@ const ResourcesDetail = () => {
     if (match) {
       const [, fromLang, , toLang] = match;
       // Redirect to the text translation page
-      navigate(`/text-translation/${fromLang}/${toLang}`);
+      navigate(`/${fromLang}-to-${toLang}-translation`);
       setIsLoading(false); // Clear loading before redirect
       return;
     }
@@ -69,7 +70,7 @@ const ResourcesDetail = () => {
 
           toLang = toLang || 'hindi';
           setIsLoading(false);
-          navigate(`/text-translation/${fromLang}/${toLang}`);
+          navigate(`/${fromLang}-to-${toLang}-translation`);
           return true;
         }
         setItem(location.state.item);
@@ -122,7 +123,7 @@ const ResourcesDetail = () => {
           toLang = toLang || 'hindi';
 
           setIsLoading(false);
-          navigate(`/text-translation/${fromLang}/${toLang}`);
+          navigate(`/${fromLang}-to-${toLang}-translation`);
           return true;
         }
         setItem(foundItem);
@@ -133,7 +134,7 @@ const ResourcesDetail = () => {
 
       // If item not found, redirect to TextTotext with default languages
       setIsLoading(false);
-      navigate('/text-translation/english/hindi');
+      navigate('/english-to-hindi-translation');
       return true;
     };
 
@@ -141,7 +142,7 @@ const ResourcesDetail = () => {
       findItem();
     } catch (error) {
       setIsLoading(false);
-      navigate('/text-translation/english/hindi');
+      navigate('/english-to-hindi-translation');
     }
   }, [link, navigate, location.state]);
 
@@ -235,7 +236,7 @@ const ResourcesDetail = () => {
       <div className="container py-5 text-center">
         <h2>Resource not found</h2>
         <p>The requested resource could not be found.</p>
-        <Link to="/resources" className="btn btn-primary">
+        <Link to="/blogs" className="btn btn-primary">
           Return to Resources
         </Link>
       </div>
@@ -248,6 +249,17 @@ const ResourcesDetail = () => {
 
   return (
     <>
+    <Helmet>
+          <title>Blog Detail | Devnagri</title>
+           <meta 
+        name="description" 
+        content="" 
+      />
+      <meta 
+        name="keywords" 
+        content="Blog Detail" 
+      />
+       </Helmet>
       {/* Hero Section */}
       <section className="post-hero bg-img" style={{ backgroundImage: `url(${getImagePath("simple-banner-background.png")})` }}>
         <div className="container">

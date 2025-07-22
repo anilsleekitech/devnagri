@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import fullDataset from '../data/howWeHelpData.json';
 import { translateText, languageOptions } from '../utils/translationUtils';
 import { getImagePath } from '@/utils/imageUtils';
@@ -24,7 +24,7 @@ const ResourcesDetail = () => {
         if (match) {
             const [, fromLang, , toLang] = match;
             // Redirect to the text translation page
-            navigate(`/text-translation/${fromLang}/${toLang}`);
+            navigate(`/english-to-${toLang}-translation`);
             setIsLoading(false); // Clear loading before redirect
             return;
         }
@@ -47,7 +47,7 @@ const ResourcesDetail = () => {
                     
                     toLang = toLang || 'hindi';
                     setIsLoading(false);
-                    navigate(`/text-translation/${fromLang}/${toLang}`);
+                    navigate(`/english-to-${toLang}-translation`);
                     return true;
                 }
                 setItem(location.state.item);
@@ -100,7 +100,7 @@ const ResourcesDetail = () => {
                     toLang = toLang || 'hindi';
                     
                     setIsLoading(false);
-                    navigate(`/text-translation/${fromLang}/${toLang}`);
+                    navigate(`/english-to-${toLang}-translation`);
                     return true;
                 }
                 setItem(foundItem);
@@ -111,7 +111,7 @@ const ResourcesDetail = () => {
 
             // If item not found, redirect to TextTotext with default languages
             setIsLoading(false);
-            navigate('/text-translation/english/hindi');
+            navigate('/english-to-hindi-translation');
             return true;
         };
 
@@ -119,7 +119,7 @@ const ResourcesDetail = () => {
             findItem();
         } catch (error) {
             setIsLoading(false);
-            navigate('/text-translation/english/hindi');
+            navigate('/english-to-hindi-translation');
         }
     }, [link, navigate, location.state]);
 
@@ -175,7 +175,7 @@ const ResourcesDetail = () => {
                 <p>The requested resource could not be found.</p>
                 <button 
                     className="btn btn-primary" 
-                    onClick={() => navigate('/resources')}
+                    onClick={() => navigate('/blogs')}
                 >
                     Return to Resources
                 </button>
@@ -234,7 +234,7 @@ const ResourcesDetail = () => {
                                 <div className="left">
                                     {/* <div className="author-list">
                                         <div className="multiple-author-list">
-                                            <a href="#" className="author-details d-flex gap-3 align-items-center">
+                                            <Link to="#" className="author-details d-flex gap-3 align-items-center">
                                                 <div className="profile">
                                                     <img width={36}
                                                         height={36}
@@ -245,7 +245,7 @@ const ResourcesDetail = () => {
                                                 <p className="p1 medium m-0 f-20 f-600 black">
                                                     {item.author || "Robin Ravinutala"}
                                                 </p>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div> */}
                                     <div className="date-section pt-2">
@@ -258,19 +258,19 @@ const ResourcesDetail = () => {
                                     <h6 className="f-18 f-500 black">Share Article on:</h6>
                                     <div className="share-buttons">
                                         {item.socialSharing?.facebook && (
-                                            <a href={item.socialSharing.facebook} className="share-btn facebook" title="Share on Facebook" target="_blank" rel="noopener noreferrer">
+                                            <Link to={item.socialSharing.facebook} className="share-btn facebook" title="Share on Facebook" target="_blank" rel="noopener noreferrer">
                                                 <i className="fab fa-facebook-f"/>
-                                            </a>
+                                            </Link>
                                         )}
                                         {item.socialSharing?.twitter && (
-                                            <a href={item.socialSharing.twitter} className="share-btn twitter" title="Share on Twitter" target="_blank" rel="noopener noreferrer">
+                                            <Link to={item.socialSharing.twitter} className="share-btn twitter" title="Share on Twitter" target="_blank" rel="noopener noreferrer">
                                                 <i className="fab fa-twitter"/>
-                                            </a>
+                                            </Link>
                                         )}
                                         {item.socialSharing?.linkedin && (
-                                            <a href={item.socialSharing.linkedin} className="share-btn linkedin" title="Share on LinkedIn" target="_blank" rel="noopener noreferrer">
+                                            <Link to={item.socialSharing.linkedin} className="share-btn linkedin" title="Share on LinkedIn" target="_blank" rel="noopener noreferrer">
                                                 <i className="fab fa-linkedin-in"/>
-                                            </a>
+                                            </Link>
                                         )}
                                     </div>
                                 </div>
@@ -313,9 +313,9 @@ const ResourcesDetail = () => {
                                         <div className="col-md-12 pt-3">
                                             <button type="button" className="devnagri-btn"
                                                 style={{padding: "7px 21px"}}>
-                                                <a href="#" className="white">
+                                                <Link to="#" className="white">
                                                     Subscribe
-                                                </a>
+                                                </Link>
                                             </button>
                                         </div>
                                     </form>
@@ -331,7 +331,7 @@ const ResourcesDetail = () => {
                                             />
                                             <div className="latest-post-content">
                                             <h4>
-                                                <a href="#">Localization Best Practices for E-commerce</a>
+                                                <Link to="#">Localization Best Practices for E-commerce</Link>
                                             </h4>
                                             <div className="latest-post-meta">
                                                 <span>
@@ -349,7 +349,7 @@ const ResourcesDetail = () => {
                                             />
                                             <div className="latest-post-content">
                                             <h4>
-                                                <a href="#">Machine Translation vs Human Translation</a>
+                                                <Link to="#">Machine Translation vs Human Translation</Link>
                                             </h4>
                                             <div className="latest-post-meta">
                                                 <span>
@@ -367,7 +367,7 @@ const ResourcesDetail = () => {
                                             />
                                             <div className="latest-post-content">
                                             <h4>
-                                                <a href="#">Breaking Language Barriers in Healthcare</a>
+                                                <Link to="#">Breaking Language Barriers in Healthcare</Link>
                                             </h4>
                                             <div className="latest-post-meta">
                                                 <span>

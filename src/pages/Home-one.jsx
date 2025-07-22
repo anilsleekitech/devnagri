@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -19,8 +20,8 @@ const Home = () => {
       <p class="m-0 f-20 f-500 black pb-4 wow fadeIn">
         "Talk Local with Multilingual Conversational AI Bot"
       </p>
-      <button type="btn" class="devnagri-btn wow fadeIn"><a href="#devnagri-offering" class="white">Learn
-          More</a></button> */}
+      <button type="btn" class="devnagri-btn wow fadeIn"><Link to="#devnagri-offering" class="white">Learn
+          More</Link></button> */}
               <h1 className="f-40 f-700 black pb-2 wow fadeIn">
                 Language is <span className="blue">Local.</span> Impact is <span className="blue">Global.</span>
               </h1>
@@ -35,9 +36,9 @@ const Home = () => {
                 className="devnagri-btn wow fadeIn animated"
                 style={{ visibility: "visible" }}
               >
-                <a href="#devnagri-offering" className="white">
+                <Link to="#devnagri-offering" className="white">
                   Get Started
-                </a>
+                </Link>
               </button>
               {/* <div class="hero-stats pt-4">
         <div class="row flex-column flex-md-row g-3">
@@ -102,9 +103,9 @@ const Home = () => {
                           className="devnagri-btn wow fadeIn animated"
                           style={{ visibility: "visible" }}
                         >
-                          <a href="#devnagri-offering" className="white">
+                          <Link to="#devnagri-offering" className="white">
                             Learn More
-                          </a>
+                          </Link>
                         </button>
                       </div>
                     </div>
@@ -127,9 +128,9 @@ const Home = () => {
                           className="devnagri-btn wow fadeIn animated"
                           style={{ visibility: "visible" }}
                         >
-                          <a href="#devnagri-offering" className="white">
+                          <Link to="#devnagri-offering" className="white">
                             Learn More
-                          </a>
+                          </Link>
                         </button>
                       </div>
                     </div>
@@ -152,9 +153,9 @@ const Home = () => {
                           className="devnagri-btn wow fadeIn animated"
                           style={{ visibility: "visible" }}
                         >
-                          <a href="#devnagri-offering" className="white">
+                          <Link to="#devnagri-offering" className="white">
                             Learn More
-                          </a>
+                          </Link>
                         </button>
                       </div>
                     </div>
@@ -177,9 +178,9 @@ const Home = () => {
                           className="devnagri-btn wow fadeIn animated"
                           style={{ visibility: "visible" }}
                         >
-                          <a href="#devnagri-offering" className="white">
+                          <Link to="#devnagri-offering" className="white">
                             Learn More
-                          </a>
+                          </Link>
                         </button>
                       </div>
                     </div>
@@ -351,7 +352,7 @@ const Home = () => {
             {/* <div class="cta-for-order-demo text-center">
       <p class="f-20 f-500 black wow fadeInUp pt-2">Experience Our Emotionally Intelligent Bot Live</p>
       <button type="btn" class="devnagri-btn">
-        <a href="#" class="white"><img src="/assets/images/video-play-btn.png" class="pe-1"
+        <Link to="#" class="white"><img src="/assets/images/video-play-btn.png" class="pe-1"
             style="filter: brightness(0) invert(1);"> Order Demo</a></button>
     </div> */}
           </div>
@@ -710,8 +711,8 @@ const Home = () => {
                                   Satisfaction by 63%
                                 </h6>
                                 <div className="register-btn">
-                                  <a
-                                    href="/devnagri/DOTA-app.html"
+                                  <Link
+                                    to="/devnagri/DOTA-app.html"
                                     className="white"
                                   >
                                     <button
@@ -720,7 +721,7 @@ const Home = () => {
                                     >
                                       Learn More
                                     </button>
-                                  </a>
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -1383,14 +1384,14 @@ const Home = () => {
                                   across service requests.
                                 </h6>
                                 <div className="register-btn">
-                                  <a href="/devnagri/OCR.html" className="white">
+                                  <Link to="/devnagri/OCR.html" className="white">
                                     <button
                                       type="btn"
                                       className="devnagri-btn mt-3"
                                     >
                                       Learn More
                                     </button>
-                                  </a>
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -1515,11 +1516,11 @@ const Home = () => {
                                 A govt website increased its traffic by 200%.
                               </h6>
                               <div className="register-btn">
-                                <a href="/devnagri/DOTA-Web.html" className="white">
+                                <Link to="/devnagri/DOTA-Web.html" className="white">
                                   <button type="btn" className="devnagri-btn mt-3">
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -1626,11 +1627,11 @@ const Home = () => {
                                 by 63%
                               </h6>
                               <div className="register-btn">
-                                <a href="/devnagri/DOTA-app.html" className="white">
+                                <Link to="/devnagri/DOTA-app.html" className="white">
                                   <button type="btn" className="devnagri-btn mt-3">
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -2207,11 +2208,11 @@ const Home = () => {
                                 Sentences
                               </h6>
                               <div className="register-btn">
-                                <a href="/devnagri/chat-bot.html" className="white">
+                                <Link to="/devnagri/chat-bot.html" className="white">
                                   <button type="btn" className="devnagri-btn mt-3">
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -2320,11 +2321,11 @@ const Home = () => {
                                 service requests.
                               </h6>
                               <div className="register-btn">
-                                <a href="/devnagri/OCR.html" className="white">
+                                <Link to="/devnagri/OCR.html" className="white">
                                   <button type="btn" className="devnagri-btn mt-3">
                                     Learn More
                                   </button>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -2385,9 +2386,9 @@ const Home = () => {
                               Make it possible for banking apps to work in more than
                               one language, translate compliance docs, &amp; more.
                             </p>
-                            <a href="#" className="learn-more-btn mt-3">
+                            <Link to="#" className="learn-more-btn mt-3">
                               Learn More
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="how-help-card-secondary">
@@ -2410,9 +2411,9 @@ const Home = () => {
                               Translate RTI documents, government programs, and
                               service portals into the local languages.
                             </p>
-                            <a href="#" className="learn-more-btn mt-3">
+                            <Link to="#" className="learn-more-btn mt-3">
                               Learn More
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="how-help-card-secondary">
@@ -2433,9 +2434,9 @@ const Home = () => {
                               Translate product listings, reviews, and notifications
                               so that people can shop in their own language.
                             </p>
-                            <a href="#" className="learn-more-btn mt-3">
+                            <Link to="#" className="learn-more-btn mt-3">
                               Learn More
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="how-help-card-secondary">
@@ -2456,9 +2457,9 @@ const Home = () => {
                               Expand globally &amp; boost sales through culturally
                               tailored, multilingual customer experiences.
                             </p>
-                            <a href="#" className="learn-more-btn mt-3">
+                            <Link to="#" className="learn-more-btn mt-3">
                               Learn More
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="how-help-card-secondary">
@@ -2477,9 +2478,9 @@ const Home = () => {
                 <h3 class="f-24 f-600 white">Legal & Compliance</h3>
                     <p class="f-400 white">Automate the translation of regulatory, legal, & policy documents with
                       format retention & data security.</p>
-                    <a href="#" class="learn-more-btn mt-3">
+                    <Link to="#" class="learn-more-btn mt-3">
                       Learn More
-                    </a>
+                    </Link>
               </div>
             </div>
                 <div class="how-help-card-secondary">
@@ -2494,9 +2495,9 @@ const Home = () => {
                 <h3 class="f-24 f-600 white">Media & Publishing</h3>
                     <p class="f-400 white">From headlines to long-form content, we help media houses & publishers
                       perform cross-lingual communication.</p>
-                    <a href="#" class="learn-more-btn mt-3">
+                    <Link to="#" class="learn-more-btn mt-3">
                       Learn More
-                    </a>
+                    </Link>
               </div>
             </div>
                 <div class="how-help-card-secondary">
@@ -2884,9 +2885,9 @@ const Home = () => {
                             </div>
                           </div>
                           <button type="btn" className="devnagri-btn mt-5">
-                            <a href="#" className="white">
+                            <Link to="#" className="white">
                               View Case Studies
-                            </a>
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-7">
@@ -2923,9 +2924,9 @@ const Home = () => {
                             </div>
                           </div>
                           <button type="btn" className="devnagri-btn mt-5">
-                            <a href="#" className="white">
+                            <Link to="#" className="white">
                               View Case Studies
-                            </a>
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-7">
@@ -2963,9 +2964,9 @@ const Home = () => {
                             </div>
                           </div>
                           <button type="btn" className="devnagri-btn mt-5">
-                            <a href="#" className="white">
+                            <Link to="#" className="white">
                               View Case Studies
-                            </a>
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-7">
@@ -3003,9 +3004,9 @@ const Home = () => {
                             </div>
                           </div>
                           <button type="btn" className="devnagri-btn mt-5">
-                            <a href="#" className="white">
+                            <Link to="#" className="white">
                               View Case Studies
-                            </a>
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-7">
@@ -3042,9 +3043,9 @@ const Home = () => {
                             </div>
                           </div>
                           <button type="btn" className="devnagri-btn mt-5">
-                            <a href="#" className="white">
+                            <Link to="#" className="white">
                               View Case Studies
-                            </a>
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-7">
@@ -3083,9 +3084,9 @@ const Home = () => {
                             </div>
                           </div>
                           <button type="btn" className="devnagri-btn mt-5">
-                            <a href="#" className="white">
+                            <Link to="#" className="white">
                               View Case Studies
-                            </a>
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-7">
@@ -3639,7 +3640,7 @@ const Home = () => {
           translation for marketing or
           product, we designed Smartling's TMS to address the translation needs of your entire organization.</p>
         <button type="btn" class="devnagri-btn mt-3">
-          <a href="#" class="white"><img src="/assets/images/video-play-btn.png" class="pe-1"
+          <Link to="#" class="white"><img src="/assets/images/video-play-btn.png" class="pe-1"
               style="filter: brightness(0) invert(1);"> Request a Demo </a>
         </button>
       </div>
@@ -3735,10 +3736,10 @@ const Home = () => {
           </div>
           <div className="text-center wow fadeInUp mt-5">
             <button type="btn" className="devnagri-btn">
-              <a href="#" className="white">
+              <Link to="#" className="white">
                 {" "}
                 Start Now
-              </a>
+              </Link>
             </button>
           </div>
         </div>

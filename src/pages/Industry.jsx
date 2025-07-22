@@ -1,8 +1,22 @@
 import React from 'react';
 import { getImagePath } from '@/utils/imageUtils';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Industry = () => {
   return (
+    <>
+    <Helmet>
+          <title>Industry | Devnagri</title>
+           <meta 
+        name="description" 
+        content="" 
+      />
+      <meta 
+        name="keywords" 
+        content="Industry" 
+      />
+       </Helmet>
     <div className="industry-page">
       {/* Hero Section */}
       <section className="industry-hero py-5 bg-light">
@@ -123,7 +137,7 @@ const Industry = () => {
                 <img src={getImagePath("kotak-bank-casestudy.png")} alt="Kotak Bank" className="img-fluid mb-3" />
                 <h4>Kotak Bank</h4>
                 <p>Transforming banking experience with multilingual support</p>
-                <a href="#" className="btn btn-outline-primary">Read More</a>
+                <Link to="#" className="btn btn-outline-primary">Read More</Link>
               </div>
             </div>
             <div className="col-md-4">
@@ -131,7 +145,7 @@ const Industry = () => {
                 <img src={getImagePath("zomato-casestudy.png")} alt="Zomato" className="img-fluid mb-3" />
                 <h4>Zomato</h4>
                 <p>Enhancing food delivery platform with local language support</p>
-                <a href="#" className="btn btn-outline-primary">Read More</a>
+                <Link to="#" className="btn btn-outline-primary">Read More</Link>
               </div>
             </div>
             <div className="col-md-4">
@@ -139,7 +153,7 @@ const Industry = () => {
                   <img src={getImagePath("messho-case-study.png")} alt="Meesho" className="img-fluid mb-3" />
                 <h4>Meesho</h4>
                 <p>Empowering small businesses with multilingual e-commerce</p>
-                <a href="#" className="btn btn-outline-primary">Read More</a>
+                <Link to="#" className="btn btn-outline-primary">Read More</Link>
               </div>
             </div>
           </div>
@@ -151,10 +165,11 @@ const Industry = () => {
         <div className="container text-center">
           <h2 className="mb-4">Ready to Go Global?</h2>
           <p className="mb-4">Let us help you reach new markets with our industry-specific solutions</p>
-          <a href="/contact" className="btn btn-light btn-lg">Get Started</a>
+          <Link to="/contact" className="btn btn-light btn-lg">Get Started</Link>
         </div>
       </section>
     </div>
+</>
   );
 };
 

@@ -34,18 +34,18 @@ const DotaWeb = () => {
             copy-paste.
           </p>
           <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeIn">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath('video-play-btn.png')}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Request Demo{" "}
-            </button></a>
-            <a href="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
+            </button></Link>
+            <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
                 {" "}
                 Start Now{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -235,10 +235,10 @@ const DotaWeb = () => {
             existing workflows.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Plugin{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -260,10 +260,10 @@ const DotaWeb = () => {
             experience every time they interact with your site.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-2 mt-md-5 mt-lg-0">
@@ -298,14 +298,14 @@ const DotaWeb = () => {
             your global web presence with ease.
           </p>
           <div className="wow fadeInUp">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath('video-play-btn.png')}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -416,7 +416,7 @@ const DotaWeb = () => {
               </li>
             </ul>
             <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeInUp">
-              <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath('video-play-btn.png')}
                     className="pe-1"
@@ -424,13 +424,13 @@ const DotaWeb = () => {
                   />{" "}
                   Request Demo{" "}
               </button></Link>
-              <a href="https://account.devnagri.com/login" className="blue"><button
+              <Link to="https://account.devnagri.com/login" className="blue"><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3"
               >
                   {" "}
                   Get Strated{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -457,12 +457,12 @@ const DotaWeb = () => {
             </h4>
             {/* <p class="f-400 para-color m-0 pb-3 ps-5">Over 200 brands already use Devnagri AI's chatbot to break language barriers, reduce user churn, and boost customer satisfaction.</p> */}
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-              <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                   Book a Demo{" "}
-              </button></a>
+              </button></Link>
               {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-          <a href="#" class="blue"> Talk to an Expert </a>
+          <Link to="#" class="blue"> Talk to an Expert </Link>
         </button> */}
             </div>
           </div>
@@ -723,11 +723,11 @@ const DotaWeb = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -762,11 +762,11 @@ const DotaWeb = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -802,10 +802,10 @@ const DotaWeb = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -841,10 +841,10 @@ const DotaWeb = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -879,10 +879,10 @@ const DotaWeb = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -919,10 +919,10 @@ const DotaWeb = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1269,10 +1269,10 @@ const DotaWeb = () => {
         </div>
       </div>
       <div className="text-center wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Get Started Now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

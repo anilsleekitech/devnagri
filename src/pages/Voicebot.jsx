@@ -1,14 +1,25 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
+import { Helmet } from 'react-helmet-async';
 
 const Voicebot = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
   return (
     <>
-
+<Helmet>
+      <title>Voice Chat | Devnagri</title>
+       <meta 
+    name="description" 
+    content="" 
+  />
+  <meta 
+    name="keywords" 
+    content="Voice Chat" 
+  />
+   </Helmet>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"
@@ -28,18 +39,18 @@ const Voicebot = () => {
             language customers speak or switch to mid-conversation.
           </p>
           <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeIn">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath("video-play-btn.png")}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo{" "}
-            </button></a>
-            <a href="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
+            </button></Link>
+            <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
                 {" "}
                 Start Now{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -225,10 +236,10 @@ const Voicebot = () => {
             context, so every conversation feels human and local.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -248,10 +259,10 @@ const Voicebot = () => {
             no confusion.
           </p>
           <div className="wow fadeInUp">
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Contact Now{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-3 mt-md-3 mt-lg-0">
@@ -283,14 +294,14 @@ const Voicebot = () => {
             any question at any point, no IVR-style menus.
           </p>
           <div className="wow fadeInUp">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath("video-play-btn.png")}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -401,21 +412,21 @@ const Voicebot = () => {
               </li>
             </ul>
             <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeInUp">
-              <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+              <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath("video-play-btn.png")}
                     className="pe-1"
                     style={{ filter: "brightness(0) invert(1)" }}
                   />{" "}
                   Book a Demo{" "}
-              </button></a>
-              <a href="https://account.devnagri.com/login" className=""><button
+              </button></Link>
+              <Link to="https://account.devnagri.com/login" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
                   {" "}
                   Get Strated{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -444,16 +455,16 @@ const Voicebot = () => {
               smarter, multilingual conversations. Why wait?
             </p>
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-              <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+                          <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath("video-play-btn.png")}
                     className="pe-1"
                     style={{ filter: "brightness(0) invert(1)" }}
                   />{" "}
                   Book a Demo{" "}
-              </button></a>
+              </button></Link>
               {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-          <a href="#" class="blue"> Talk to an Expert </a>
+          <Link to="#" class="blue"> Talk to an Expert </Link>
         </button> */}
             </div>
           </div>
@@ -748,11 +759,11 @@ const Voicebot = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -787,11 +798,11 @@ const Voicebot = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -827,10 +838,10 @@ const Voicebot = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -866,10 +877,10 @@ const Voicebot = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -904,10 +915,10 @@ const Voicebot = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -944,10 +955,10 @@ const Voicebot = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1248,7 +1259,7 @@ const Voicebot = () => {
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}
       {/* <div class="text-center"><button type="btn" class="devnagri-btn">
-    <a href="#" class="white"> Get Demo</a></button>
+    <Link to="#" class="white"> Get Demo</Link></button>
 </div> */}
       {/* Stats */}
       <div className="row mt-5 text-center custom-stats-row">
@@ -1290,9 +1301,9 @@ const Voicebot = () => {
   </div> */}
       </div>
       <div className="text-center mt-5 wow fadeInUp">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             Start Now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

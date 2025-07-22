@@ -246,13 +246,13 @@ const Navbar = () => {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="sub-menu-nested-heading mb-3">
-                          <a href="/ocr">
+                          <Link to="/ocr">
                             <h6 className="f-20 f-600 blue m-0">OCR</h6>
                             <p className="f-12 f-400 black m-0">
                               AI-powered text recognition for accurate document
                               digitization
                             </p>
-                          </a>
+                          </Link>
                         </div>
                         {/* <div class="menu-banner-item">
                     <img src="/assets/images/product-menu-img.png" class="cust-width">
@@ -260,7 +260,7 @@ const Navbar = () => {
                       </div>
                       <div className="col-md-6">
                         <div className="sub-menu-nested-heading mb-3">
-                          <a href="#">
+                          <Link to="#">
                             <h6 className="f-20 f-600 blue m-0">
                               The Brain (SLM's)
                             </h6>
@@ -268,7 +268,7 @@ const Navbar = () => {
                               Next-gen AI-powered language models for smarter,
                               context-aware solutions
                             </p>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>

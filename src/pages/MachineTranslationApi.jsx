@@ -1,6 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -34,18 +34,18 @@ const MachineTranslationApi = () => {
             enables fast and accurate translation into 40+ languages at scale.
           </p>
           <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeIn">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath("video-play-btn.png")}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo{" "}    
-            </button></a>
-            <a href="/contact-us" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
+            </button></Link>
+              <Link to="/contact-us" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
                 {" "}
                 Talk to Experts{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -235,14 +235,14 @@ const MachineTranslationApi = () => {
             slowing things down.
           </p>
           <div className="wow fadeInUp">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath("video-play-btn.png")}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -264,10 +264,10 @@ const MachineTranslationApi = () => {
             diverse user bases.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+           <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Try Free{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-2 mt-md-5 mt-lg-0">
@@ -299,10 +299,10 @@ const MachineTranslationApi = () => {
             make localization frictionless.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+           <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -413,21 +413,21 @@ const MachineTranslationApi = () => {
               </li>
             </ul>
             <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeInUp">
-              <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+             <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath("video-play-btn.png")}
                     className="pe-1"
                     style={{ filter: "brightness(0) invert(1)" }}
                   />{" "}
                   Book a Demo{" "}
-              </button></a>
-              <a href="https://account.devnagri.com/login" className=""><button
+              </button></Link>
+             <Link to="https://account.devnagri.com/login" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
                   {" "}
                   Get Strated{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -454,12 +454,12 @@ const MachineTranslationApi = () => {
               Monitor usage, performance, and accuracy in one place
             </p>
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-              <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+             <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                   Get Started{" "}
-              </button></a>
+              </button></Link>
               {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-          <a href="#" class="blue"> Talk to an Expert </a>
+         <Link to="#" class="blue"> Talk to an Expert </a>
         </button> */}
             </div>
           </div>
@@ -716,11 +716,11 @@ const MachineTranslationApi = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                         <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -755,11 +755,11 @@ const MachineTranslationApi = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="/resources/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                         <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                              </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -795,10 +795,10 @@ const MachineTranslationApi = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                         <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -834,10 +834,10 @@ const MachineTranslationApi = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="/resources/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                       <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                          </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -872,11 +872,11 @@ const MachineTranslationApi = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="/resources/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                       <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
-                      </div>
+                            </button></Link>
+                      </div>  
                       <div className="col-lg-7">
                         <img
                           src={getImagePath("case-study/Case-Study-5.png")}
@@ -912,10 +912,10 @@ const MachineTranslationApi = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                         <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1203,7 +1203,7 @@ const MachineTranslationApi = () => {
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Already trusted by over 200 customers. Experience accurate, 
   automated transliteration built for enterprise scale.</p> */}
       {/* <div class="text-center"><button type="btn" class="devnagri-btn">
-    <a href="#" class="white"> Get Started Now</a></button>
+   <Link to="#" class="white"> Get Started Now</a></button>
 </div> */}
       {/* Stats */}
       <div className="row mt-5 text-center custom-stats-row">
@@ -1246,10 +1246,10 @@ const MachineTranslationApi = () => {
         </div>
       </div>
       <div className="text-center mt-5 wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+       <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

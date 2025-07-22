@@ -166,6 +166,10 @@ const Resources = () => {
     <Helmet>
       <title>Resources - Devnagri</title>
       <meta name="description" content="Why Language translation is important for business growth? Browse Devnagri blog now." />
+      <meta 
+          name="keywords" 
+          content="Resources" 
+        />
   </Helmet>
       {/* Hero Banner */}
       <section className="resources-hero">

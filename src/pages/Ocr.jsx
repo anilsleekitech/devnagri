@@ -44,10 +44,10 @@ const Ocr = () => {
                 Book a Demo{" "}
             </button>
             </Link>
-            <a href="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
+            <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
                 {" "}
                 Get Now{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -237,10 +237,10 @@ const Ocr = () => {
             of skipping crucial details, just fast, reliable results.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Start Now
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -302,9 +302,9 @@ const Ocr = () => {
             solution.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Try Today
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -425,13 +425,13 @@ const Ocr = () => {
                   Book a Demo{" "}
               </button>
               </Link>
-              <a href="https://account.devnagri.com/login" className=""><button
+              <Link to="https://account.devnagri.com/login" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
                   {" "}
                   Get Strated{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
         </div>
@@ -461,7 +461,7 @@ const Ocr = () => {
               and streamline communication across languages.
             </p>
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5 wow fadeInUp">
-              <Link to="/book-a-demo" className="white">
+                <Link to="/book-a-demo" className="white">
                 <button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath("video-play-btn.png")}
@@ -472,7 +472,7 @@ const Ocr = () => {
               </button>
               </Link>
               {/* <button type="btn" class="devnagri-btn mt-3">
-        <a href="#" class="white"> Get Now </a>
+        <Link to="#" class="white"> Get Now </Link>
       </button> */}
             </div>
           </div>
@@ -732,7 +732,7 @@ const Ocr = () => {
                             </p>
                           </div>
                         </div>
-                          <Link to="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
@@ -1242,7 +1242,7 @@ const Ocr = () => {
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Over 110 mobile teams have already launched localized apps using
   DOTA.</p>
 <div class="text-center"><button type="btn" class="devnagri-btn">
-    <a href="#" class="white"> Get Started Now</a></button>
+    <Link to="#" class="white"> Get Started Now</Link></button>
 </div> */}
       {/* Stats */}
       <div className="row mt-5 text-center custom-stats-row">

@@ -1,6 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -11,7 +11,14 @@ const BankingFinanceTranslation = () => {
     <>
   <Helmet>
         <title>Banking Finance Translation Solution | Devnagri</title>
-        <meta name="description" content="Devnagri provides professional banking, finance translation in Indian languages online. Localize your banking, finance websites, apps in real-time. Explore Devnagri now." />
+        <meta 
+    name="description" 
+    content="Devnagri provides professional banking and finance translations in Indian languages online. Localize your banking and finance websites and apps in real-time. Explore Devnagri now." 
+  />
+  <meta 
+    name="keywords" 
+    content="Banking Finance Translation" 
+  />
   </Helmet>
 
   {/* Hero Section */}
@@ -34,11 +41,11 @@ const BankingFinanceTranslation = () => {
           </p>
           <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
             {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-        <a href="#" class="blue"> Start Free </a>
+        <Link to="#" class="blue"> Start Free </Link>
       </button> */}
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Schedule a Call
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -229,10 +236,10 @@ const BankingFinanceTranslation = () => {
             audience while maintaining compliance requirements.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get Started{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -259,10 +266,10 @@ const BankingFinanceTranslation = () => {
             knowledge to give customers unmatched value.
           </p>
           <div className="wow fadeInUp">
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Let's Discuss{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-5 z-1 mt-4 mt-md-5 mt-lg-0">
@@ -301,10 +308,10 @@ const BankingFinanceTranslation = () => {
             around the world.
           </p>
           <div className="wow fadeInUp">
-            <a href="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/contact-us" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Contact Us Today{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -418,10 +425,10 @@ const BankingFinanceTranslation = () => {
               accuracy.
             </p>
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-              <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+              <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Get Started Today{" "}
-              </button></a>
+              </button></Link>
             </div>
           </div>
           <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -778,11 +785,11 @@ const BankingFinanceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -817,11 +824,11 @@ const BankingFinanceTranslation = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -857,10 +864,10 @@ const BankingFinanceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -896,10 +903,10 @@ const BankingFinanceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -934,10 +941,10 @@ const BankingFinanceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -974,10 +981,10 @@ const BankingFinanceTranslation = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1147,10 +1154,10 @@ const BankingFinanceTranslation = () => {
   </div>
 </div> */}
       <div className="text-center wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>

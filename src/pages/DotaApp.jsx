@@ -1,6 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -33,18 +33,18 @@ const DotaApp = () => {
             access. Just one SDK and your app is available in 40+ languages.
           </p>
           <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeIn">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath('video-play-btn.png')}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo{" "}
-            </button></a>
-            <a href="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
+            </button></Link>
+            <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
                 {" "}
                 Start Translating{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -233,10 +233,10 @@ const DotaApp = () => {
             consistent multilingual experience from beta to release.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Get SDK{" "}
-            </button></a>
+            </button></Link>
           </div>
         </div>
       </div>
@@ -257,14 +257,14 @@ const DotaApp = () => {
             upload your strings, and go live faster than ever.
           </p>
           <div className="wow fadeInUp">
-            <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                 <img
                   src={getImagePath('video-play-btn.png')}
                   className="pe-1"
                   style={{ filter: "brightness(0) invert(1)" }}
                 />{" "}
                 Book a Demo{" "}
-            </button></a>
+                    </button></Link>
           </div>
         </div>
         <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -297,9 +297,9 @@ const DotaApp = () => {
             speaks to users in their native language, without extra effort.
           </p>
           <div className="wow fadeInUp">
-            <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Start Now
-            </button></a>
+                </button></Link>
           </div>
         </div>
       </div>
@@ -408,15 +408,15 @@ const DotaApp = () => {
               </li>
             </ul>
             <div className="d-flex flex-wrap align-items-center justify-content-start gap-3 wow fadeInUp">
-              <a href="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
+              <Link to="/book-a-demo" className="white"><button type="btn" className="devnagri-btn mt-3">
                   <img
                     src={getImagePath('video-play-btn.png')}
                     className="pe-1"
                     style={{ filter: "brightness(0) invert(1)" }}
                   />{" "}
                   Book a Demo{" "}
-              </button></a>
-              <a href="https://account.devnagri.com/login" className=""><button
+              </button></Link>
+              <Link to="https://account.devnagri.com/login" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
@@ -424,7 +424,7 @@ const DotaApp = () => {
                   {" "}
                   Get Started{" "}
                 
-              </button></a>
+                </button></Link>
             </div>
           </div>
         </div>
@@ -450,12 +450,12 @@ const DotaApp = () => {
             {/* <p class="f-400 para-color m-0 pb-3 ps-5">Over 200 brands already use Devnagri AI's chatbot to break language barriers, reduce user churn, and boost customer satisfaction.</p> */}
             <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
               <button type="btn" className="devnagri-btn mt-3">
-                <a href="/contact-us" className="white">{" "}
+                <Link to="/contact-us" className="white">{" "}
                   Contact Us{" "}
-                </a>
+                </Link>
               </button>
               {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-          <a href="#" class="blue"> Talk to an Expert </a>
+          <Link to="#" class="blue"> Talk to an Expert </a>
         </button> */}
             </div>
           </div>
@@ -714,11 +714,11 @@ const DotaApp = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
                             <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -753,11 +753,11 @@ const DotaApp = () => {
                             <p className="f-400 m-0 black">cost savings</p>
                           </div>
                         </div>
-                          <a href="/resources/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
                           
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -793,10 +793,10 @@ const DotaApp = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies                          
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -832,10 +832,10 @@ const DotaApp = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="/resources/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                        <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -870,10 +870,10 @@ const DotaApp = () => {
                             </p>
                           </div>
                         </div>
-                        <a href="/resources/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                        <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                          </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -910,10 +910,10 @@ const DotaApp = () => {
                             </p>
                           </div>
                         </div>
-                          <a href="/resources/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
+                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
                         <button type="btn" className="devnagri-btn mt-5">
                             View Case Studies
-                        </button></a>
+                        </button></Link>
                       </div>
                       <div className="col-lg-7">
                         <img
@@ -1263,10 +1263,10 @@ const DotaApp = () => {
   </div> */}
       </div>
       <div className="text-center wow fadeInUp mt-5">
-        <a href="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+          <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now{" "}
-        </button></a>
+        </button></Link>
       </div>
     </div>
   </section>
