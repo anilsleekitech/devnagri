@@ -206,8 +206,8 @@ const ResourcesDetail = () => {
     };
 
     return (
-      <a
-        href={shareUrls[platform]}
+      <Link
+        to={shareUrls[platform]}
         target="_blank"
         rel="noopener noreferrer"
         className={`share-btn ${platform}`}
@@ -217,7 +217,7 @@ const ResourcesDetail = () => {
         }}
       >
         <i className={`fab fa-${platform} fa-lg`}></i>
-      </a>
+      </Link>
     );
   };
 

@@ -348,7 +348,7 @@ const Navbar = () => {
                       <div className='row'>
                         <div className='col-12'>
                           <Link to='/english-to-hindi-translation'>
-                          <img src={getImagePath('ttt-translation-nav-banner.png')} className='w-100 rounded-4'></img>
+                          <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4'></img>
                           </Link>
                         </div>
                       </div>
@@ -662,11 +662,11 @@ const Navbar = () => {
                 </div>
               </li>
               {/* Pricing */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/pricing">
                   Pricing
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
               <Link className="mx-2 white" to="https://account.devnagri.com/login"> <button
                 type="button"

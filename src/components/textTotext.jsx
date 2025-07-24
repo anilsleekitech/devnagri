@@ -67,7 +67,7 @@ const TextTotext = ({ fromResources }) => {
     // API Configuration
     const API_KEY = 'devnagri_8c5d67a41e9a11f0bf4942010aa00fc7';
     const API_URL = 'https://api.devnagri.com/machine-translation/v2/translate';
-    const TRANSLITERATION_URL = 'https://api.devnagri.com/machine-translation/v2/transliterate';
+    const TRANSLITERATION_URL = 'https://api.devnagri.com/transliteration/v2/transliterate';
     // const TRANSLITERATION_URL = 'https://devnagri.com/wp-json/api/v1/transliterate';
 
     // Language options with their display names
@@ -216,8 +216,8 @@ const TextTotext = ({ fromResources }) => {
 
             // Create form data for transliteration
             const translitFormData = new FormData();
-            translitFormData.append('key', API_KEY);
-            translitFormData.append('sentence', sourceText);
+            translitFormData.append('key', 'devnagri_43587452272111efbd7942010aa0001f');
+            translitFormData.append('input_text', sourceText);
             translitFormData.append('src_lang', sourceLangCode);
             translitFormData.append('dest_lang', targetLangCode);
 
@@ -227,8 +227,8 @@ const TextTotext = ({ fromResources }) => {
                 }
             });
 
-            if (translitResponse.data && translitResponse.data.transliterated_text) {
-                setTransliteratedText(translitResponse.data.transliterated_text);
+            if (translitResponse.data && translitResponse.data.result) {
+                setTransliteratedText(translitResponse.data.result);
             } else {
                 throw new Error('Transliteration failed');
             }

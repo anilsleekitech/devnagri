@@ -72,7 +72,10 @@ digital@34.100.147.33:~/devnagri-react/
 
 ### Deploy project excluding node_modules using rsync
 ```
-rsync -avz -e "ssh -i /home/digital/.ssh/devnagri" --exclude 'node_modules' --exclude '.git' "/home/digital/Downloads/dev-nagri-data - Copy/" digital@34.100.147.33:~/devnagri-react/
+rsync -avz -e "ssh -i /home/digital/.ssh/devnagri" --exclude 'node_modules' --exclude '.git' --exclude '.gitignore' "/home/digital/Downloads/dev-nagri-data - Copy/" digital@34.100.147.33:~/devnagri-react/
+
+
+rsync -avz -e "ssh -i /home/digital/.ssh/devnagri" --exclude 'node_modules' --exclude 'dist' --exclude '.git' --exclude '.gitignore' "/home/digital/Pictures/devnagri/" digital@34.100.147.33:~/devnagri-react/
 ```
 
 Replace `<package-name>` with the actual package you want to install.
