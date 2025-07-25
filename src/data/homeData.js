@@ -103,7 +103,7 @@ export const offerTabs = [
     title: "DOTA Web",
     content: {
       title: "DOTA Web",
-      description: "Translate your website with Devnagri's API",
+      description: "Translate your website in minutes",
       features: [
         "plug -n- play",
         "Real-time Translation",
@@ -120,7 +120,7 @@ export const offerTabs = [
     title: "DOTA App",
     content: {
       title: "DOTA App",
-      description: "Translate your Mobile app with an APK.",
+      description: "APK or SDK",
       features: [
         "Instant Access",
         "Notification Translation",
@@ -156,10 +156,10 @@ export const offerTabs = [
       title: "Document Translation Workflow",
       description: "Translate multiple documents using an AI-driven engine.",
       features: [
-        "Contextual AI",
-        "File Uploads",
+        "Contextual Translation",
         "Format Retention",
-        "Secure Access"
+        "Multi-File Support",
+        "Secure Processing"
       ],
       caseStudy: "Housing Finance Company Support Tickets drop by 41%.",
       image: "/assets/images/brand-img.png"

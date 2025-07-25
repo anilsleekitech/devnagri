@@ -133,17 +133,17 @@ function App() {
               <Route path="/banking-finance-translation" element={<BankingFinanceTranslation />} /> 
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact-us" element={<Contact />} />
-              <Route path="/d2c" element={<D2C />} />
+              <Route path="/direct-to-consumer-translation" element={<D2C />} />
               <Route path="/document-translation" element={<DocumentTranslationWorkflow />} />
               <Route path="/app-localization" element={<DotaApp />} />
               <Route path="/website-translation" element={<DotaWeb />} />
               <Route path="/ecommerce-translation" element={<EcommerceTranslation />} />  {/* Fixed typo in route */}
-              <Route path="/govt" element={<Govt />} />
-              <Route path="/machine-translation-api" element={<MachineTranslationApi />} />
-              <Route path="/translitration-api" element={<MachineTranslitrationApi />} />
-              <Route path="/multilingual-conversational-ai-bot" element={<ChatBots />} />
+              <Route path="/government-translation" element={<Govt />} />
+              <Route path="/translation-api" element={<MachineTranslationApi />} />
+              <Route path="/transliteration-api" element={<MachineTranslitrationApi />} />
+              <Route path="/chatbot" element={<ChatBots />} />
               <Route path="/ocr" element={<Ocr />} />
-              <Route path="/voicebot" element={<Voicebot />} />
+              <Route path="/voice-bot" element={<Voicebot />} />
               <Route path="/industry" element={<Industry />} />
               <Route path="/blogs" element={<Resources />} />
               <Route path="/book-a-demo" element={<BookDemo />} />

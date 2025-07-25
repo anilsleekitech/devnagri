@@ -411,7 +411,7 @@ const TextTotext = ({ fromResources }) => {
                     <div className="row align-items-center">
                         <div className="col-md-6">
                             <h1 className="f-40 f-700 black pb-2 wow fadeIn">
-                                {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)} To {selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)} <span className="text-primary">Translation</span>
+                                {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)} To {selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)} <span className="text-primary">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</span>
                             </h1>
                             <p className="f-400 pb-2 pe-3 wow fadeIn">
                                 Our Text to Text Translation tool instantly converts written content

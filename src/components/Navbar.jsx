@@ -153,7 +153,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/machine-translation-api"
+                                to="/translation-api"
                                 onClick={handleMobileMenuClose}
                               >
                                 <div className="tab_innerimg_icon">
@@ -175,7 +175,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/translitration-api"
+                                to="/transliteration-api"
                                 onClick={handleMobileMenuClose}
                               >
                                 <div className="tab_innerimg_icon">
@@ -278,7 +278,7 @@ const Navbar = () => {
                         <li>
                           <Link
                             className="dropdown-item"
-                            to="/multilingual-conversational-ai-bot"
+                            to="/chatbot"
                           >
                             <div className="tab_innerimg_icon">
                               <img
@@ -297,7 +297,7 @@ const Navbar = () => {
                         <li>
                           <Link
                             className="dropdown-item"
-                            to="/voicebot"
+                            to="/voice-bot"
                           >
                             <div className="tab_innerimg_icon">
                               <img
@@ -398,7 +398,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/d2c"
+                                to="/direct-to-consumer-translation"
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -440,7 +440,7 @@ const Navbar = () => {
                             <li>
                               <Link
                                 className="dropdown-item"
-                                to="/govt"
+                                to="/government-translation"
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -709,7 +709,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://bn-website.devnagri.dev/">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
                           Bengali (বাংলা)
                         </Link>
@@ -727,19 +727,19 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://gu-website.devnagri.dev/">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
                           Gujarati (ગુજરાતી)
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://hi-website.devnagri.dev/">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
                           Hindi (हिंदी)
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://kn-website.devnagri.dev/">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
                           Kannada (ಕನ್ನಡ)
                         </Link>
@@ -775,7 +775,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://mr-website.devnagri.dev/">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
                           Marathi (मराठी)
                         </Link>
@@ -817,7 +817,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://ta-website.devnagri.dev/">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
                           Tamil (தமிழ்)
                         </Link>
@@ -851,7 +851,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://ja-website.devnagri.dev/">
                           <img src="https://flagcdn.com/jp.svg" width={18} />{" "}
                           Japanese (日本語)
                         </Link>
@@ -893,7 +893,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="#">
+                        <Link className="dropdown-item" to="https://de-website.devnagri.dev/">
                           <img src="https://flagcdn.com/de.svg" width={18} />{" "}
                           German (Deutsch)
                         </Link>

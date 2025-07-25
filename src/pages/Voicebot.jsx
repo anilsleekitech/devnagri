@@ -315,7 +315,7 @@ const Voicebot = () => {
     <div className="container">
       <h2 className="text-center f-40 f-600 pb-4 black wow fadeInUp">
         Why are businesses switching to Devnagri Emotionally
-        <span className="blue">Intelligent Voice Agent?</span>
+        <span className="blue"> Intelligent Voice Agent?</span>
       </h2>
       <div className="row align-items-center">
         <div className="col-lg-6">
@@ -1254,7 +1254,7 @@ const Voicebot = () => {
   <section className="get-strated bg-img">
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's AI Voice Agent is Transforming Hundreds of Businesses. Why
+        Devnagri's AI Voice Agent is Transforming Hundreds or 2 Hundreds of Businesses Why
         Wait?
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}

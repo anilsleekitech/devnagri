@@ -660,7 +660,7 @@ const Home = () => {
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    Translate your Mobile app with an APK.
+                                    APK or SDK
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -768,16 +768,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Contextual AI</div>
-                                    </li>
-                                    <li className="f-400 para-color mb-2 d-flex gap-2">
-                                      <div className="width-8">
-                                        <img
-                                          src="/assets/images/tick-circle.png"
-                                          className="w-100"
-                                        />
-                                      </div>
-                                      <div>File Uploads</div>
+                                      <div>Contextual Translation</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -795,7 +786,16 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Secure Access</div>
+                                      <div>Format Retention</div>
+                                    </li>
+                                    <li className="f-400 para-color mb-2 d-flex gap-2">
+                                      <div className="width-8">
+                                        <img
+                                          src="/assets/images/tick-circle.png"
+                                          className="w-100"
+                                        />
+                                      </div>
+                                      <div>Secure AccProcessingess</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -1576,7 +1576,7 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  Translate your Mobile app with an APK.
+                                  APK or SDK
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -1703,16 +1703,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Contextual AI</div>
-                                  </li>
-                                  <li className="f-400 para-color mb-2 d-flex gap-2">
-                                    <div className="width-3">
-                                      <img
-                                        src="/assets/images/tick-circle.png"
-                                        className="w-100"
-                                      />
-                                    </div>
-                                    <div>File Uploads</div>
+                                    <div>Contextual Translation</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -1730,7 +1721,16 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Secure Access</div>
+                                    <div>Format Retention</div>
+                                  </li>
+                                  <li className="f-400 para-color mb-2 d-flex gap-2">
+                                    <div className="width-3">
+                                      <img
+                                        src="/assets/images/tick-circle.png"
+                                        className="w-100"
+                                      />
+                                    </div>
+                                    <div>Secure Processing</div>
                                   </li>
                                 </ul>
                               </div>

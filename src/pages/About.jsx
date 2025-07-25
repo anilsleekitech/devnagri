@@ -438,7 +438,7 @@ const About = () => {
                     of both public and private organizations.
                   </p>
                   <span className="follow-icon">
-                    <Link to="#">
+                    <Link to="https://www.linkedin.com/in/kundra-nakul/">
                       <i className="bi bi-linkedin" />
                     </Link>
                   </span>
@@ -474,7 +474,7 @@ const About = () => {
                     systems.
                   </p>
                   <span className="follow-icon">
-                    <Link to="#">
+                    <Link to="https://www.linkedin.com/in/ihimansh/">
                       <i className="bi bi-linkedin" />
                     </Link>
                   </span>
@@ -522,7 +522,7 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <Link to="#">
+                      <Link to="https://www.linkedin.com/in/arpit-sharma-51884b50/">
                         <i className="bi bi-linkedin" />
                       </Link>
                     </span>
@@ -546,7 +546,7 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <Link to="#">
+                      <Link to="https://www.linkedin.com/in/manmeetka/">
                         <i className="bi bi-linkedin" />
                       </Link>
                     </span>
@@ -594,7 +594,7 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <Link to="#">
+                      <Link to="https://www.linkedin.com/in/jasoberoi/">
                         <i className="bi bi-linkedin" />
                       </Link>
                     </span>
@@ -618,7 +618,7 @@ const About = () => {
                   </div>
                   <div className="team-car-detils-right">
                     <span className="follow-icon">
-                      <Link to="#">
+                      <Link to="https://www.linkedin.com/in/shima-m-kundra-a113961aa/">
                         <i className="bi bi-linkedin" />
                       </Link>
                     </span>
@@ -633,7 +633,7 @@ const About = () => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's AI-powered Multilingual Solutions Transforming Hundreds of
+            Devnagri's AI-powered Multilingual Solutions Transforming Hundreds or 2 Hundreds of
             Businesses. Why Wait?
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Automate your project with a tap. Trusted by elite brands. Let's

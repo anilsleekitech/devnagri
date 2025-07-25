@@ -230,7 +230,7 @@ const MachineTranslationApi = () => {
             Platform
           </h2>
           <p className="f-400 para-color m-0 wow fadeInUp">
-            Whether you're translating thousands of words or millions, our API
+            Whether you're translating thousands or millions of words, our API
             handles it all in seconds. Translate content on the fly without
             slowing things down.
           </p>

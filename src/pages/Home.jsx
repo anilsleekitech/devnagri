@@ -338,7 +338,7 @@ const Home = () => {
                         className="w-100 rounded-4"
                       />
                       <div className="campaign-content text-center">
-                        <Link to="/voicebot" className="white">
+                        <Link to="/voice-bot" className="white">
                           <button
                             type="btn"
                             className="devnagri-btn wow fadeIn animated"
@@ -709,7 +709,7 @@ const Home = () => {
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    Translate your website with Devnagri's API
+                                    Translate your website in minutes
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -801,7 +801,7 @@ const Home = () => {
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    Translate your Mobile app with an APK.
+                                    APK or SDK
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -811,7 +811,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Instant Access</div>
+                                      <div>Plug-n-Play SDK</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -820,7 +820,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Notification Translation</div>
+                                      <div>Real-Time Translation</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -829,7 +829,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Easy Plugin</div>
+                                      <div>Translation Analytics</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -905,16 +905,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Contextual AI</div>
-                                    </li>
-                                    <li className="f-400 para-color mb-2 d-flex gap-2">
-                                      <div className="width-8">
-                                        <img
-                                          src={getImagePath('tick-circle.png')}
-                                          className="w-100"
-                                        />
-                                      </div>
-                                      <div>File Uploads</div>
+                                      <div>Contextual Translation</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -932,7 +923,16 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Secure Access</div>
+                                      <div>Multi-File Support</div>
+                                    </li>
+                                    <li className="f-400 para-color mb-2 d-flex gap-2">
+                                      <div className="width-8">
+                                        <img
+                                          src={getImagePath('tick-circle.png')}
+                                          className="w-100"
+                                        />
+                                      </div>
+                                      <div>Secure Processing</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -998,7 +998,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Instant Results</div>
+                                      <div>Contextual Translation</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1007,7 +1007,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Scalable Integration</div>
+                                      <div>Custom Glossary</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1016,7 +1016,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Contextual Accuracy</div>
+                                      <div>Post-Editing Support</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1025,7 +1025,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Nuanced Output</div>
+                                      <div>Data Privacy Controls</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -1037,7 +1037,7 @@ const Home = () => {
                                 </h6>
                                 <div className="register-btn">
                                   <Link
-                                    to="/machine-translation-api"
+                                    to="/translation-api"
                                     className="white"
                                   >
                                     <button
@@ -1091,7 +1091,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Script Conversion</div>
+                                      <div>Real-Time Transliteration</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1100,7 +1100,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Real-time Output</div>
+                                      <div>Custom Glossary</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1109,7 +1109,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Phonetic Matching</div>
+                                      <div>Multiple Script Support</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1118,7 +1118,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Easy Typing</div>
+                                      <div>Data Privacy Controls</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -1130,7 +1130,7 @@ const Home = () => {
                                 </h6>
                                 <div className="register-btn">
                                   <Link
-                                    to="/translitration-api"
+                                    to="/transliteration-api"
                                     className="white"
                                   >
                                     <button
@@ -1238,15 +1238,15 @@ const Home = () => {
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
-                                      <div className="width-15">
+                                      <div className="width-8">
                                         <img
                                           src={getImagePath('tick-circle.png')}
                                           className="w-100"
                                         />
                                       </div>
                                       <div>
-                                        Understand and communicate in Indian &amp;
-                                        International Languages
+                                         Emotion &amp;
+                                      Sentiment Detection
                                       </div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -1256,7 +1256,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Empathy Trained</div>
+                                      <div>Multi-Turn Conversations</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1265,7 +1265,8 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Sentiment Analysis</div>
+                                      <div>AI Training &amp;
+                                      Continous  Learning</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1274,7 +1275,8 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Easy IVR Integration</div>
+                                      <div>Security &amp;
+                                      Compliance</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -1285,7 +1287,7 @@ const Home = () => {
                                 </h6>
                                 <div className="register-btn">
                                   <Link
-                                    to="/voicebot"
+                                    to="/voice-bot"
                                     className="white"
                                   >
                                     <button
@@ -1334,7 +1336,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Context-Aware Conversations</div>
+                                      <div>Auto Language Detection</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1343,7 +1345,7 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Emotionally Tuned Responses</div>
+                                      <div>Smooth Language Switching</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1352,7 +1354,16 @@ const Home = () => {
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Easy CRM &amp; Web Integration</div>
+                                      <div>Culturally localized replies</div>
+                                    </li>
+                                    <li className="f-400 para-color mb-2 d-flex gap-2">
+                                      <div className="width-8">
+                                        <img
+                                          src={getImagePath('tick-circle.png')}
+                                          className="w-100"
+                                        />
+                                      </div>
+                                      <div>Multilingual NLP Support</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -1364,7 +1375,7 @@ const Home = () => {
                                 </h6>
                                 <div className="register-btn">
                                   <Link
-                                    to="/multilingual-conversational-ai-bot"
+                                    to="/chatbot"
                                     className="white"
                                   >
                                     <button
@@ -1550,7 +1561,7 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  Translate your website with Devnagri's API
+                                  Translate your website in minutes
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -1655,7 +1666,7 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  Translate your Mobile app with an APK.
+                                  APK or SDK
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -1777,16 +1788,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Contextual AI</div>
-                                  </li>
-                                  <li className="f-400 para-color mb-2 d-flex gap-2">
-                                    <div className="width-3">
-                                      <img
-                                        src={getImagePath('tick-circle.png')}
-                                        className="w-100"
-                                      />
-                                    </div>
-                                    <div>File Uploads</div>
+                                    <div>Contextual Translation</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -1804,7 +1806,16 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Secure Access</div>
+                                    <div>Multi-File Support</div>
+                                  </li>
+                                  <li className="f-400 para-color mb-2 d-flex gap-2">
+                                    <div className="width-3">
+                                      <img
+                                        src={getImagePath('tick-circle.png')}
+                                        className="w-100"
+                                      />
+                                    </div>
+                                    <div>Secure Processing</div>
                                   </li>
                                 </ul>
                               </div>
@@ -1888,7 +1899,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Instant Results</div>
+                                    <div>Contextual Translation</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -1897,7 +1908,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Scalable Integration</div>
+                                    <div>Custom Glossary</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -1906,7 +1917,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Contextual Accuracy</div>
+                                    <div>Post-Editing Support</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -1915,7 +1926,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Nuanced Output</div>
+                                    <div>Data Privacy Controls</div>
                                   </li>
                                 </ul>
                               </div>
@@ -1927,7 +1938,7 @@ const Home = () => {
                               </h6>
                               <div className="register-btn">
                                 <Link
-                                  to="/machine-translation-api"
+                                  to="/translation-api"
                                   className="white"
                                 >
                                   <button type="btn" className="devnagri-btn mt-3">
@@ -2041,7 +2052,7 @@ const Home = () => {
                               </h6>
                               <div className="register-btn">
                                 <Link
-                                  to="/translitration-api"
+                                  to="/transliteration-api"
                                   className="white"
                                 >
                                   <button type="btn" className="devnagri-btn mt-3">
@@ -2118,8 +2129,8 @@ const Home = () => {
                                       />
                                     </div>
                                     <div>
-                                      Understand and communicate in Indian &amp;
-                                      International Languages
+                                      Emotion &amp;
+                                      Sentiment Detection
                                     </div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -2129,7 +2140,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Empathy Trained</div>
+                                    <div>Multi-Turn Conversations</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -2138,7 +2149,9 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Sentiment Analysis</div>
+                                    <div>AI Training &amp;
+                                      Continous Learning
+                                    </div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -2147,7 +2160,9 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Easy IVR Integration</div>
+                                    <div>Security &amp;
+                                      Compliance
+                                    </div>
                                   </li>
                                 </ul>
                               </div>
@@ -2158,7 +2173,7 @@ const Home = () => {
                               </h6>
                               <div className="register-btn">
                                 <Link
-                                  to="/voicebot"
+                                  to="/voice-bot"
                                   className="white"
                                 >
                                   <button type="btn" className="devnagri-btn mt-3">
@@ -2228,7 +2243,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Context-Aware Conversations</div>
+                                    <div>CAuto Language Detection</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -2237,7 +2252,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Emotionally Tuned Responses</div>
+                                    <div>Smooth Language Switching</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
@@ -2246,7 +2261,16 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Easy CRM &amp; Web Integration</div>
+                                    <div>Culturally localized replies</div>
+                                  </li>
+                                  <li className="f-400 para-color mb-2 d-flex gap-2">
+                                    <div className="width-3">
+                                      <img
+                                        src={getImagePath('tick-circle.png')}
+                                        className="w-100"
+                                      />
+                                    </div>
+                                    <div>Multilingual NLP Support</div>
                                   </li>
                                 </ul>
                               </div>
@@ -2257,7 +2281,7 @@ const Home = () => {
                                 Sentences
                               </h6>
                               <div className="register-btn">
-                                <Link to="/multilingual-conversational-ai-bot" className="white">
+                                <Link to="/chatbot" className="white">
                                   <button type="btn" className="devnagri-btn mt-3">
                                     Learn More
                                   </button>
@@ -2483,7 +2507,7 @@ const Home = () => {
                             Translate RTI documents, government programs, and
                             service portals into the local languages.
                           </p>
-                          <Link to="/govt" className="learn-more-btn mt-3">
+                          <Link to="/government-translation" className="learn-more-btn mt-3">
                             Learn More
                           </Link>
                         </div>
@@ -2529,7 +2553,7 @@ const Home = () => {
                             Expand globally &amp; boost sales through culturally
                             tailored, multilingual customer experiences.
                           </p>
-                          <Link to="/d2c" className="learn-more-btn mt-3">
+                          <Link to="/direct-to-consumer-translation" className="learn-more-btn mt-3">
                             Learn More
                           </Link>
                         </div>
@@ -3624,7 +3648,7 @@ const Home = () => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's AI-powered Multilingual Solutions Transforming Hundreds of
+            Devnagri's AI-powered Multilingual Solutions Transforming Hundreds or 2 Hundreds of
             Businesses. Why Wait?
           </h2>
           <div className="row mt-5 text-center custom-stats-row">

@@ -1283,7 +1283,7 @@ const ChatBots = () => {
   <section className="get-strated bg-img" style={{ padding: "60px 0px" }}>
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's Multilingual Chat Bot is Transforming Hundreds of Businesses.
+        Devnagri's Multilingual Chat Bot is Transforming Hundreds or 2 Hundreds of Businesses
         Why Wait?
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}

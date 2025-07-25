@@ -943,12 +943,12 @@ const Careers = () => {
   {/*get started section*/}
   <section className="get-strated bg-img">
     <div className="container">
-      {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <Link to="mailto:info@devnagri.com" style="color: #05a1f4;">Upload your resume</Link>, and we’ll keep you in mind.</h2> */}
+      {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <Link to="mailto.com" style="color: #05a1f4;">Upload your resume</Link>, and we’ll keep you in mind.</h2> */}
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 wow fadeInUp">
         No Perfect Match Today? Upload Your Resume, Let's Keep in Touch!
       </h2>
       <div className="text-center wow fadeInUp mt-5">
-        <Link to="mailto:info@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="mailto:demo@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Upload Your Resume{" "}
         </button></Link>

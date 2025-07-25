@@ -91,10 +91,10 @@ const Footer = () => {
                       <Link to="/app-localization">
                     <li className="para-color f-400 mb-2">DOTA (APP)</li>
                       </Link>
-                      <Link to="/machine-translation-api">
+                      <Link to="/translation-api">
                     <li className="para-color f-400 mb-2">Translation API</li>
                       </Link>
-                      <Link to="/translitration-api">
+                      <Link to="/transliteration-api">
                     <li className="para-color f-400 mb-2">
                       Transliteration API
                     </li>
@@ -116,10 +116,10 @@ const Footer = () => {
               <div className="">
                 <h6 className="f-600 f-20 blue pb-2 m-0">Multilingual Bots</h6>
                 <ul className="p-0">
-                      <Link to="/multilingual-conversational-ai-bot">
+                      <Link to="/chatbot">
                     <li className="para-color f-400 mb-2">Chat Bot</li>
                       </Link>
-                      <Link to="/voicebot">
+                      <Link to="/voice-bot">
                     <li className="para-color f-400 mb-2">Voice Bot</li>
                       </Link>
                 </ul>
@@ -142,10 +142,10 @@ const Footer = () => {
                       <Link to="/banking-finance-translation">
                     <li className="para-color f-400 mb-2">BFSI</li>
                       </Link>
-                      <Link to="/govt">
+                      <Link to="/government-translation">
                     <li className="para-color f-400 mb-2">Government</li>
                       </Link>
-                      <Link to="/d2c">
+                      <Link to="/direct-to-consumer-translation">
                     <li className="para-color f-400 mb-2">D2C</li>
                       </Link>
                       <Link to="/ecommerce-translation">

@@ -155,8 +155,8 @@ const Contact = () => {
                     sales@devnagri.com
                   </Link>
                   <br />
-                  <Link to="mailto:info@devnagri.com" className="black f-400">
-                    info@devnagri.com
+                  <Link to="mailto:demo@devnagri.com" className="black f-400">
+                    demo@devnagri.com
                   </Link>
                 </p>
               </div>

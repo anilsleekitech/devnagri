@@ -1236,7 +1236,7 @@ const Ocr = () => {
   <section className="get-strated bg-img" style={{ padding: "60px 0px" }}>
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's OCR Translation is Transforming Hundreds of Businesses. Why
+        Devnagri's OCR Translation is Transforming Hundreds or 2 Hundreds of Businesses Why
         Wait?
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Over 110 mobile teams have already launched localized apps using

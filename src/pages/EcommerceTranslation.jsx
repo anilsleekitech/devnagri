@@ -1131,7 +1131,7 @@ const EcommerceTranslation = () => {
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
         Devnagri's AI-powered eCommerce Industry-focused Multilingual Solutions
-        Transforming Hundreds of Businesses. Why Wait?
+        Transforming Hundreds or 2 Hundreds of Businesses Why Wait?
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Automate your project with a tap. Trusted by elite brands. Let's
   make your content speak every language.</p> */}

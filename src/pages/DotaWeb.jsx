@@ -1224,7 +1224,7 @@ const DotaWeb = () => {
   <section className="get-strated bg-img">
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's DOTA Web is Transforming Hundreds of Businesses. Why Wait?
+        Devnagri's DOTA Web is Transforming Hundreds or 2 Hundreds of Businesses Why Wait?
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Already trusted by over 200 customers. Experience accurate, 
   automated transliteration built for enterprise scale.</p> */}
