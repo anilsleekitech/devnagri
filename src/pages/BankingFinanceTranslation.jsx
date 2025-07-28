@@ -33,7 +33,7 @@ const BankingFinanceTranslation = () => {
         <div className="col-lg-6">
           <h1 className="f-40 f-700 black pb-2 wow fadeIn">
             Localize your financial communications with{" "}
-            <span className="blue">Multilingual Technologies</span>
+            <span className="blue">Multilingual Solution</span>
           </h1>
           <p className="f-400 pb-2 wow fadeIn">
             Reduce manual workload using AI-powered process automation in

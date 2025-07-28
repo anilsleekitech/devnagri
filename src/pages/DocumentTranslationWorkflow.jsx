@@ -25,7 +25,7 @@ const DocumentTranslationWorkflow = () => {
       <div className="row align-items-center">
         <div className="col-lg-6">
           <h1 className="f-40 f-700 black pb-2 wow fadeIn">
-            Multilingual Enterprise Grade{" "}
+            Enterprise Grade Multilingual{" "}
             <span className="blue">Document Translation</span>
           </h1>
           <p className="f-400 pb-2 pe-3 wow fadeIn">

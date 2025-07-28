@@ -414,7 +414,7 @@ const TextTotext = ({ fromResources }) => {
                                 {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)} To {selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)} <span className="text-primary">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</span>
                             </h1>
                             <p className="f-400 pb-2 pe-3 wow fadeIn">
-                                Our Text to Text Translation tool instantly converts written content
+                                Our Text to Text {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} tool instantly converts written content
                                 from {fromLang} to {selectedLanguage}, making global communication
                                 effortless.
                             </p>
