@@ -88,7 +88,7 @@ const Contact = () => {
         </div>
         <div className="col-lg-4">
           <img
-            src={getImagePath("contact-us-banner.png")}
+            src={getImagePath("products-images/Contact us .jpg")}
             alt="contat us banner"
             className="w-100 wow fadeIn"
           />

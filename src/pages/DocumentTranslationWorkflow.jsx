@@ -11,6 +11,8 @@ const DocumentTranslationWorkflow = () => {
     <>
   <Helmet>
     <title>Document Translation - Devnagri</title>
+    </Helmet>
+    <Helmet>
     <meta name="description" content="Document translation is very necessary for doing business globally. Translate your documents word to word according to your requirements." />
     <meta name="keywords" content="Document Translation" />
   </Helmet>
@@ -55,7 +57,7 @@ const DocumentTranslationWorkflow = () => {
               style={{ width: "100%", height: "100%" }}
             >
               <source
-                src={getImagePath('product-pages-viedos/Document-Translation.mp4')}
+                src={getImagePath('product-pages-viedos/Document Translation_4.mp4')}
                 type="video/mp4"
               />
               Your browser does not support the video tag.
@@ -654,8 +656,8 @@ const DocumentTranslationWorkflow = () => {
     <section className="case-study bg-img">
       <div className="container">
         <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
-          How Devnagri is Creating{" "}
-          <span className="blue">Real Business Impact?</span>
+          How Our Solutions
+          <span className="blue">Translate to Real-World ROI?</span>
         </h2>
         <div className="">
           <div

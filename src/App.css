@@ -1358,6 +1358,7 @@ header .dropdown {
   max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
+  left: -213px !important;
 }
 
 .scrollable-menu::-webkit-scrollbar {
@@ -3025,7 +3026,7 @@ textarea::placeholder {
 }
 
 .post-hero {
-  padding: 50px 0px 0px;
+  padding: 50px 0px 50px 0px;
 }
 
 /* .post-hero .container {
@@ -3050,18 +3051,22 @@ textarea::placeholder {
   /* height: 100%; */
 /* } */ */
 
-.post-featured-image img {
+/* .post-featured-image img {
     object-fit: contain;
     height: 100%;
     width: 100%;
     overflow: hidden;
-}
+} */
 .post-featured-image {
     width: 100%;
     overflow: hidden;
     height: auto;
-    border-radius: 2rem 2rem 0 0;
+    border-radius: 2rem;
     box-sizing: border-box;
+  
+}
+.post-featured-image img {
+  max-width: 100%;
 }
 
 /* Sticky Sidebar */
@@ -3646,6 +3651,9 @@ textarea {
 @media (min-width: 992px) {
   .mobile-menu-header {
     display: none;
+  }
+  .language-menu{
+left: -153px;
   }
 }
 

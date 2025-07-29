@@ -149,7 +149,7 @@ const Footer = () => {
                     <li className="para-color f-400 mb-2">D2C</li>
                       </Link>
                       <Link to="/ecommerce-translation">
-                    <li className="para-color f-400 mb-2">E-commerce</li>
+                    <li className="para-color f-400 mb-2">E&#8209;commerce</li>
                       </Link>
                 </ul>
               </div>

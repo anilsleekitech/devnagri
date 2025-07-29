@@ -250,7 +250,7 @@ const ResourcesDetail = () => {
   return (
     <>
     <Helmet>
-          <title>Blog Detail | Devnagri</title>
+          <title>{item.title}</title>
            <meta 
         name="description" 
         content="" 

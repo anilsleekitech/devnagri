@@ -120,7 +120,7 @@ export const offerTabs = [
     title: "DOTA App",
     content: {
       title: "DOTA App",
-      description: "APK or SDK",
+      description: "Localize your mobile app with SDK",
       features: [
         "Instant Access",
         "Notification Translation",

@@ -382,6 +382,21 @@ const TextTotext = ({ fromResources }) => {
     };
 
 
+    const languageImageMap = {
+        hindi: "products-images/Hindi-8.png",
+        marathi: "products-images/Marathi-8.png",
+        tamil: "products-images/Tamil-8.png",
+        telugu: "products-images/Telugu -8.png",
+        kannada: "products-images/Kannada-8.png",
+        malayalam: "products-images/Malayalam -8.png",
+        punjabi: "products-images/Punjabi-8.png",
+        gujarati: "products-images/Gujarati -8.png",
+        bengali: "products-images/Bengali-8.png",
+        odia: "products-images/Odia-8.png",
+        assamese: "products-images/Assamese-8.png",
+        urdu: "products-images/Urdu-8.png"
+    };
+
 
     // Rest of the component JSX remains the same, but we'll add loading and error states
     return (
@@ -438,7 +453,7 @@ const TextTotext = ({ fromResources }) => {
                         </div>
                         <div className="col-md-6">
                             <div className="position-relative rounded-4 overflow-hidden">
-                                <video
+                                {/* <video
                                     controls
                                     autoPlay
                                     loop
@@ -451,7 +466,13 @@ const TextTotext = ({ fromResources }) => {
                                         type="video/mp4"
                                     />
                                     Your browser does not support the video tag.
-                                </video>
+                                </video> */}
+                                <img
+                                    src={getImagePath(languageImageMap[selectedLanguage] || "products-images/Hindi-8.png")}
+                                    className="w-100 rounded-4"
+                                    alt={`${selectedLanguage} representation`}
+                                />
+
                             </div>
                         </div>
                     </div>

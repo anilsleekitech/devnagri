@@ -679,7 +679,7 @@ const Navbar = () => {
               </button></Link>
             </li>
               {/* Language Selector */}
-              <li className="nav-item dropdown" ref={dropdownRef}>
+              <li className="nav-item dropdown position-relative" ref={dropdownRef}>
                 <Link
                   className={`nav-link dropdown-toggle ${isDropdownOpen ? 'show' : ''}`}
                   to="#"
@@ -693,7 +693,7 @@ const Navbar = () => {
                   EN
                   <i className="dropdown-icon fas fa-chevron-down" />
                 </Link>
-                <ul className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
+                <ul className={`dropdown-menu language-menu ${isDropdownOpen ? 'show' : ''}`}>
                   {/* Indian Languages */}
                   <li className="dropdown-submenu">
                     <Link className="dropdown-item dropdown-toggle" to="#">

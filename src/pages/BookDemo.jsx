@@ -1,3 +1,4 @@
+import { getImagePath } from '@/utils/imageUtils';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
@@ -22,7 +23,8 @@ const BookDemo = () => {
           {/* Left Side - Image */}
           <div className="col-lg-6 mb-4 mb-lg-0">
             <img
-              src="/assets/images/career-images/Mission-and-Vision.png"
+            src={getImagePath("products-images/book-a-demo.png")}
+              // src="/assets/images/career-images/Mission-and-Vision.png"
               alt="Book a Demo"
               className="img-fluid rounded shadow"
             />

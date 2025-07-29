@@ -687,8 +687,8 @@ const ChatBots = () => {
     <section className="case-study bg-img">
       <div className="container">
         <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
-          How Devnagri is Creating{" "}
-          <span className="blue">Real Business Impact?</span>
+          How Our Solutions
+          <span className="blue">Translate to Real-World ROI?</span>
         </h2>
         <div className="">
           <div

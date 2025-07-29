@@ -314,7 +314,7 @@ const Voicebot = () => {
   >
     <div className="container">
       <h2 className="text-center f-40 f-600 pb-4 black wow fadeInUp">
-        Why are businesses switching to Devnagri Emotionally
+        Why are businesses switching to Devnagri's Emotionally
         <span className="blue"> Intelligent Voice Agent?</span>
       </h2>
       <div className="row align-items-center">
@@ -682,8 +682,8 @@ const Voicebot = () => {
     <section className="case-study bg-img">
       <div className="container">
         <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
-          How Devnagri is Creating{" "}
-          <span className="blue">Real Business Impact?</span>
+          How Our Solutions
+          <span className="blue">Translate to Real-World ROI?</span>
         </h2>
         <div className="">
           <div

@@ -801,7 +801,7 @@ const Home = () => {
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    APK or SDK
+                                    Localize your mobile app with SDK
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -1666,7 +1666,7 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  APK or SDK
+                                  Localize your mobile app with SDK
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -2848,8 +2848,8 @@ const Home = () => {
       <section className="case-study bg-img">
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
-            How Devnagri is Creating{" "}
-            <span className="blue">Real Business Impact?</span>
+            How Our Solutions
+            <span className="blue">Translate to Real-World ROI?</span>
           </h2>
           <div className="">
             <div

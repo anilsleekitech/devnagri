@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
 
 // Import components
 import Navbar from './components/Navbar';
@@ -120,7 +119,7 @@ function App() {
   }, []);
 
   return (
-    <HelmetProvider>
+    
       <Router>
         <ScrollToTop />
         <div className="App">
@@ -191,7 +190,6 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </HelmetProvider>
   );
 }
 
