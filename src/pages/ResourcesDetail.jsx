@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import fullDataset from '../data/howWeHelpData.json';
 import { getImagePath } from '@/utils/imageUtils';
-import { Helmet } from 'react-helmet-async';
-  
+
 const contentTypes = {
   blogs: { name: 'Blogs' },
   'case-studies': { name: 'Case Studies' },
@@ -247,19 +246,67 @@ const ResourcesDetail = () => {
   const currentUrl = window.location.href;
   const latestPostData = fullDataset?.howWeHelpCards.slice(0, 3);
 
+  const SEO = ({ title, description, keywords }) => {
+    useEffect(() => {
+      // Update document title
+      if (title) {
+        document.title = title;
+      }
+
+      // Function to update or create meta tag
+      const updateMetaTag = (name, content, attribute = 'name') => {
+        if (!content) return;
+
+        let element = document.querySelector(`meta[${attribute}="${name}"]`);
+
+        if (element) {
+          element.setAttribute('content', content);
+        } else {
+          element = document.createElement('meta');
+          element.setAttribute(attribute, name);
+          element.setAttribute('content', content);
+          document.head.appendChild(element);
+        }
+      };
+
+      // Update meta tags
+      updateMetaTag('description', description);
+      updateMetaTag('keywords', keywords);
+
+      // Cleanup function
+      return () => {
+        // Reset title to default
+        document.title = 'Devnagri - AI Translation & Localization';
+
+        // Remove dynamically added meta tags
+        const removeMetaTag = (name, attribute = 'name') => {
+          const element = document.querySelector(`meta[${attribute}="${name}"]`);
+          if (element && element.parentNode === document.head) {
+            document.head.removeChild(element);
+          }
+        };
+
+        removeMetaTag('description');
+        removeMetaTag('keywords');
+      };
+    }, [title, description, keywords]);
+
+    return null;
+  };
+
   return (
     <>
-    <Helmet>
-          <title>{item.title}</title>
-           <meta 
-        name="description" 
-        content="" 
-      />
-      <meta 
-        name="keywords" 
-        content="Blog Detail" 
-      />
-       </Helmet>
+      <head>
+        <title>{item.title}</title>
+        <meta
+          name="description"
+          content={item.description}
+        />
+        <meta
+          name="keywords"
+          content={item.meta || "Blog Detail"}
+        />
+      </head>
       {/* Hero Section */}
       <section className="post-hero bg-img" style={{ backgroundImage: `url(${getImagePath("simple-banner-background.png")})` }}>
         <div className="container">

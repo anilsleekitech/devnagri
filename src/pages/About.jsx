@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
-import { Helmet } from 'react-helmet-async';
+
 
 const About = () => {
   return (
     <>
-    <Helmet>
-      <title>About - Devnagri</title>
-      <meta 
-    name="description" 
-    content="Learn about Devnagri, India's leading AI-powered translation platform, and our mission to break language barriers for businesses." 
-  />
-  <meta 
-    name="keywords" 
-    content="About Devnagri, Devnagri Mission" 
-  />
-    </Helmet>
+      <head>
+        <title>About - Devnagri</title>
+        <meta
+          name="description"
+          content="Learn about Devnagri, India's leading AI-powered translation platform, and our mission to break language barriers for businesses."
+        />
+        <meta
+          name="keywords"
+          content="About Devnagri, Devnagri Mission"
+        />
+      </head>
       {/* Hero Section */}
       <section
         className="hero-section bg-img"
@@ -39,10 +39,10 @@ const About = () => {
         <Link to="#" class="blue"> Sign up </Link>
       </button> */}
                 <Link to="/careers" className="white">
-                <button type="btn" className="devnagri-btn mt-3">
+                  <button type="btn" className="devnagri-btn mt-3">
                     {" "}
                     Join US{" "}
-                </button></Link>
+                  </button></Link>
               </div>
             </div>
             {/* <div class="col-lg-6">
@@ -135,7 +135,7 @@ const About = () => {
       {/*Our Story*/}
       <section
         className="our-story py-5 position-relative bg-img"
-          style={{ backgroundImage: `url(${getImagePath('testimonil-bg.png')})` }}
+        style={{ backgroundImage: `url(${getImagePath('testimonil-bg.png')})` }}
       >
         <div className="container">
           <div className="row">
@@ -487,7 +487,7 @@ const About = () => {
       {/*our team*/}
       <section
         className="our-team py-5 bg-img"
-          style={{ backgroundImage: `url(${getImagePath('testimonil-bg.png')})` }}
+        style={{ backgroundImage: `url(${getImagePath('testimonil-bg.png')})` }}
       >
         <div className="container">
           <div className=" row justify-content-center">

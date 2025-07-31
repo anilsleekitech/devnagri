@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 
 // Import your full dataset (410 items)
 import fullDataset from '../data/howWeHelpData.json';
+
 
 
 // Define content types and categories
@@ -41,7 +41,7 @@ const categoryNames = {
 const ITEMS_PER_PAGE = 9;
 
 const Resources = () => {
-  const [searchParams] = useSearchParams(); 
+  const [searchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState(
     searchParams.get('tab') || 'blogs'
   );
@@ -73,7 +73,7 @@ const Resources = () => {
 
     // Sort by date (newest first)
     filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
     setFilteredContent(filtered);
     setCurrentPage(1); // Reset to first page when filters change
   }, [activeTab, activeCategory]);
@@ -114,8 +114,8 @@ const Resources = () => {
     // Previous button
     pages.push(
       <li key="prev" className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-        <button 
-          className="page-link" 
+        <button
+          className="page-link"
           onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
           aria-label="Previous"
         >
@@ -138,8 +138,8 @@ const Resources = () => {
     // Next button
     pages.push(
       <li key="next" className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-        <button 
-          className="page-link" 
+        <button
+          className="page-link"
           onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
           aria-label="Next"
         >
@@ -151,26 +151,26 @@ const Resources = () => {
     return pages;
   };
 
-    // Handle tab changes
-    const handleTabChange = (type) => {
-      setActiveTab(type);
-      setActiveCategory('all');
-      // Update URL without page reload
-      navigate(`/blogs?tab=${type}`, { replace: true });
-    };
+  // Handle tab changes
+  const handleTabChange = (type) => {
+    setActiveTab(type);
+    setActiveCategory('all');
+    // Update URL without page reload
+    navigate(`/blogs?tab=${type}`, { replace: true });
+  };
 
 
 
   return (
     <>
-    <Helmet>
-      <title>Resources - Devnagri</title>
-      <meta name="description" content="Why Language translation is important for business growth? Browse Devnagri blog now." />
-      <meta 
-          name="keywords" 
-          content="Resources" 
+      <head>
+        <title>Resources - Devnagri</title>
+        <meta name="description" content="Why Language translation is important for business growth? Browse Devnagri blog now." />
+        <meta
+          name="keywords"
+          content="resources, case studies, translation insights, localization guides"
         />
-  </Helmet>
+      </head>
       {/* Hero Banner */}
       <section className="resources-hero">
         <div className="container">
@@ -183,19 +183,19 @@ const Resources = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Resource Tabs */}
       <section className="resource-tabs">
         <div className="container">
           {/* Tabs Navigation */}
           <div className="d-flex justify-content-center align-items-center resource-tabs-inner-nav">
             <ul className="nav nav-tabs" id="resourceTab" role="tablist">
-            {Object.entries(contentTypes).map(([type, data]) => (
-          <li className="nav-item" role="presentation" key={type}>
-            <button
-              className={`nav-link f-20 f-500 ${activeTab === type ? 'active' : ''}`}
-              onClick={() => handleTabChange(type)} // Updated handler
-            >
+              {Object.entries(contentTypes).map(([type, data]) => (
+                <li className="nav-item" role="presentation" key={type}>
+                  <button
+                    className={`nav-link f-20 f-500 ${activeTab === type ? 'active' : ''}`}
+                    onClick={() => handleTabChange(type)} // Updated handler
+                  >
                     {data.name}
                   </button>
                 </li>
@@ -218,7 +218,7 @@ const Resources = () => {
               </div>
             </div> */}
           </div>
-          
+
           {/* Category Filter */}
           <div className="blog-categories mb-3">
             <div className="d-flex flex-wrap gap-2 justify-content-center">
@@ -233,42 +233,42 @@ const Resources = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="tab-content mt-5" id="resourceTabContent">
             <div className="tab-pane fade show active">
               <div className="row g-4">
                 {getCurrentPageItems().length > 0 ? (
                   getCurrentPageItems().map((item) => (
                     <div className="col-md-4" key={item.id}>
-                      <div className="resource-card wow fadeInUp" 
-                      onClick={() => {
-                        // Check if this is a translation or transliteration resource
-                        if (item.translation === true || item.type === 'translation') {
-                          // Get language pairs from item or use defaults
-                          const fromLang = item.fromLanguage || 'english';
-                          const toLang = item.toLanguage || 'hindi';
-                          
-                          // Regular translation URL
-                          navigate(`/${fromLang}-to-${toLang}-translation`);
-                          return;
-                        }
-                        
-                        // Handle regular resources
-                        const link = (item.link || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
-                          .replace(/^\/+|\/+$/g, ''); // Remove leading/trailing slashes
-                        navigate(`/${link}`, { 
-                          state: { 
-                            item: {
-                              ...item,
-                              link // Ensure the generated link is included in the state
+                      <div className="resource-card wow fadeInUp"
+                        onClick={() => {
+                          // Check if this is a translation or transliteration resource
+                          if (item.translation === true || item.type === 'translation') {
+                            // Get language pairs from item or use defaults
+                            const fromLang = item.fromLanguage || 'english';
+                            const toLang = item.toLanguage || 'hindi';
+
+                            // Regular translation URL
+                            navigate(`/${fromLang}-to-${toLang}-translation`);
+                            return;
+                          }
+
+                          // Handle regular resources
+                          const link = (item.link || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
+                            .replace(/^\/+|\/+$/g, ''); // Remove leading/trailing slashes
+                          navigate(`/${link}`, {
+                            state: {
+                              item: {
+                                ...item,
+                                link // Ensure the generated link is included in the state
+                              }
                             }
-                          } 
-                        });
-                      }}>
-                        <img 
-                          src={item.image || null} 
-                          alt={item.title} 
-                          className="resource-img" 
+                          });
+                        }}>
+                        <img
+                          src={item.image || null}
+                          alt={item.title}
+                          className="resource-img"
                         />
                         <div className="p-4">
                           <span className={`f-500 resource-tag tag-${item.type}`}>
@@ -296,7 +296,7 @@ const Resources = () => {
                   </div>
                 )}
               </div>
-              
+
               {/* Pagination */}
               {totalPages > 1 && (
                 <nav className="d-flex justify-content-center mt-5">

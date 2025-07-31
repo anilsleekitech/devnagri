@@ -1,17 +1,16 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { getImagePath } from '@/utils/imageUtils';
+import { getImagePath } from '../utils/imageUtils';
 
 const DocumentTranslationWorkflow = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
   return (
     <>
-  <Helmet>
+  <head>
     <title>Document Translation - Devnagri</title>
-    </Helmet>
+    </head>
     <Helmet>
     <meta name="description" content="Document translation is very necessary for doing business globally. Translate your documents word to word according to your requirements." />
     <meta name="keywords" content="Document Translation" />

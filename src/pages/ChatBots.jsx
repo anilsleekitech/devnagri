@@ -1,7 +1,6 @@
 import React from 'react';
 import fullDataset from '../data/howWeHelpData.json';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 
@@ -10,7 +9,7 @@ const ChatBots = () => {
   const navigate = useNavigate();
   return (
     <>
-  <Helmet>
+  <head>
     <title>Multilingual Conversational AI Bot - Devnagri</title>
       <meta 
     name="description" 
@@ -21,7 +20,7 @@ const ChatBots = () => {
     content="Conversational AI Bot, Conversational Bot" 
   />
 
-  </Helmet>
+  </head>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"

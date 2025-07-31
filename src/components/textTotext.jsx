@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Helmet } from 'react-helmet-async';
-import { getImagePath, getVideoPath } from '../utils/imageUtils';
+import { getImagePath } from '../utils/imageUtils';
 
 const TextTotext = ({ fromResources }) => {
     const navigate = useNavigate();
@@ -273,6 +272,54 @@ const TextTotext = ({ fromResources }) => {
         }
     };
 
+    const SEO = ({ title, description, keywords }) => {
+        useEffect(() => {
+            // Update document title
+            if (title) {
+                document.title = title;
+            }
+
+            // Function to update or create meta tag
+            const updateMetaTag = (name, content, attribute = 'name') => {
+                if (!content) return;
+
+                let element = document.querySelector(`meta[${attribute}="${name}"]`);
+
+                if (element) {
+                    element.setAttribute('content', content);
+                } else {
+                    element = document.createElement('meta');
+                    element.setAttribute(attribute, name);
+                    element.setAttribute('content', content);
+                    document.head.appendChild(element);
+                }
+            };
+
+            // Update meta tags
+            updateMetaTag('description', description);
+            updateMetaTag('keywords', keywords);
+
+            // Cleanup function
+            return () => {
+                // Reset title to default
+                document.title = 'Devnagri - AI Translation & Localization';
+
+                // Remove dynamically added meta tags
+                const removeMetaTag = (name, attribute = 'name') => {
+                    const element = document.querySelector(`meta[${attribute}="${name}"]`);
+                    if (element && element.parentNode === document.head) {
+                        document.head.removeChild(element);
+                    }
+                };
+
+                removeMetaTag('description');
+                removeMetaTag('keywords');
+            };
+        }, [title, description, keywords]);
+
+        return null;
+    };
+
     const helmetMetaMap = {
         translation: {
             hindi: {
@@ -400,41 +447,42 @@ const TextTotext = ({ fromResources }) => {
 
     // Rest of the component JSX remains the same, but we'll add loading and error states
     return (
-
-        <div className="translation-page">
-            {/* Add back button if coming from resources */}
-            {fromResources && (
-                <div className="container mt-3">
-                    <button
-                        className="btn btn-outline-primary mb-3"
-                        onClick={() => navigate('/blogs')}
-                    >
-                        <i className="bi bi-arrow-left me-2"></i>
-                        Back to Blogs
-                    </button>
-                </div>
-            )}
-            <Helmet>
+        <>
+            <head>
                 <title>{helmetMetaMap?.[activeTab]?.[selectedLanguage]?.title || 'Devnagri Translation Tool'}</title>
                 <meta name="description" content={helmetMetaMap?.[activeTab]?.[selectedLanguage]?.description || 'Devnagri AI translation and transliteration tool'} />
                 <meta name="keywords" content={helmetMetaMap?.[activeTab]?.[selectedLanguage]?.keywords || 'AI Translation, Transliteration'} />
-            </Helmet>
+            </head>
+            <div className="translation-page">
+                {/* Add back button if coming from resources */}
+                {fromResources && (
+                    <div className="container mt-3">
+                        <button
+                            className="btn btn-outline-primary mb-3"
+                            onClick={() => navigate('/blogs')}
+                        >
+                            <i className="bi bi-arrow-left me-2"></i>
+                            Back to Blogs
+                        </button>
+                    </div>
+                )}
 
-            {/* Hero section remains the same */}
-            <section className="hero-section bg-img translationbg">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-md-6">
-                            <h1 className="f-40 f-700 black pb-2 wow fadeIn">
-                                {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)} To {selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)} <span className="text-primary">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</span>
-                            </h1>
-                            <p className="f-400 pb-2 pe-3 wow fadeIn">
-                                Our Text to Text {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} tool instantly converts written content
-                                from {fromLang} to {selectedLanguage}, making global communication
-                                effortless.
-                            </p>
-                            <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
-                                {/* <Link to="#" className="white">
+
+                {/* Hero section remains the same */}
+                <section className="hero-section bg-img translationbg">
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-md-6">
+                                <h1 className="f-40 f-700 black pb-2 wow fadeIn">
+                                    {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)} To {selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)} <span className="text-primary">{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</span>
+                                </h1>
+                                <p className="f-400 pb-2 pe-3 wow fadeIn">
+                                    Our Text to Text {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} tool instantly converts written content
+                                    from {fromLang} to {selectedLanguage}, making global communication
+                                    effortless.
+                                </p>
+                                <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
+                                    {/* <Link to="#" className="white">
                                     <button type="btn" className="devnagri-btn mt-3">
                                     <img
                                         src="assets/images/video-play-btn.png"
@@ -444,16 +492,16 @@ const TextTotext = ({ fromResources }) => {
                                     Book a Demo
                                     </button>
                                 </Link> */}
-                                <Link to="#translation-box" className="blue">
-                                    <button type="btn" className="devnagri-btn mt-3">
-                                        Try Now
-                                    </button>
-                                </Link>
+                                    <Link to="#translation-box" className="blue">
+                                        <button type="btn" className="devnagri-btn mt-3">
+                                            Try Now
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="position-relative rounded-4 overflow-hidden">
-                                {/* <video
+                            <div className="col-md-6">
+                                <div className="position-relative rounded-4 overflow-hidden">
+                                    {/* <video
                                     controls
                                     autoPlay
                                     loop
@@ -467,173 +515,174 @@ const TextTotext = ({ fromResources }) => {
                                     />
                                     Your browser does not support the video tag.
                                 </video> */}
-                                <img
-                                    src={getImagePath(languageImageMap[selectedLanguage] || "products-images/Hindi-8.png")}
-                                    className="w-100 rounded-4"
-                                    alt={`${selectedLanguage} representation`}
-                                />
+                                    <img
+                                        src={getImagePath(languageImageMap[selectedLanguage] || "products-images/Hindi-8.png")}
+                                        className="w-100 rounded-4"
+                                        alt={`${selectedLanguage} representation`}
+                                    />
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section id="translation-box" className="py-5">
-                <div className="container">
-                    <div className="card shadow-sm">
-                        <div className="card-body translator-card">
-                            {/* Language selection */}
-                            <div className="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-4">
-                                <span className="btn active f-500">{fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)}</span>
-                                <button className="btn btn-outline-primary disabled f-500">To</button>
-                                <select
-                                    value={selectedLanguage}
-                                    onChange={handleLanguageChange}
-                                    className="form-select f-500 w-auto"
-                                >
-                                    {languageOptions.map((lang) => (
-                                        <option key={lang.value} value={lang.value}>
-                                            {lang.display}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
+                <section id="translation-box" className="py-5">
+                    <div className="container">
+                        <div className="card shadow-sm">
+                            <div className="card-body translator-card">
+                                {/* Language selection */}
+                                <div className="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-4">
+                                    <span className="btn active f-500">{fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)}</span>
+                                    <button className="btn btn-outline-primary disabled f-500">To</button>
+                                    <select
+                                        value={selectedLanguage}
+                                        onChange={handleLanguageChange}
+                                        className="form-select f-500 w-auto"
+                                    >
+                                        {languageOptions.map((lang) => (
+                                            <option key={lang.value} value={lang.value}>
+                                                {lang.display}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
 
-                            <div className="row g-4">
-                                {/* Left column */}
-                                <div className="col-md-6 d-flex flex-column">
-                                    <label className="mb-2 f-500">
-                                        {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)}
-                                    </label>
-                                    <textarea
-                                        className={`form-control flex-fill f-500 ${wordCount === WORD_LIMIT ? 'border-warning' : ''}`}
-                                        rows="6"
-                                        placeholder={`Type or paste text here (maximum ${WORD_LIMIT} words)`}
-                                        value={sourceText}
-                                        onChange={handleTextChange}
-                                        disabled={isLoading}
-                                    />
-                                    <div className="d-flex justify-content-between align-items-center mt-2">
-                                        <small className={`${wordCount === WORD_LIMIT ? 'text-warning' : 'text-muted'} f-500`}>
-                                            {wordCount}/{WORD_LIMIT} words
-                                            {wordCount === WORD_LIMIT && ' (limit reached)'}
-                                        </small>
-                                        {activeTab === 'translation' ? (
-                                            <button
-                                                className="btn translate-btn f-500"
-                                                onClick={handleTranslate}
-                                                disabled={!sourceText.trim() || isLoading || wordCount > WORD_LIMIT}
-                                            >
-                                                {isLoading ? (
-                                                    <>
-                                                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                                        Translating...
-                                                    </>
-                                                ) : 'Translate'}
-                                            </button>
-                                        ) : (
-                                            <button
-                                                className="btn translate-btn f-500"
-                                                onClick={handleTransliterate}
-                                                disabled={!sourceText.trim() || isLoading || wordCount > WORD_LIMIT}
-                                            >
-                                                {isLoading ? (
-                                                    <>
-                                                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                                                        Transliterating...
-                                                    </>
-                                                ) : 'Transliterate'}
-                                            </button>
+                                <div className="row g-4">
+                                    {/* Left column */}
+                                    <div className="col-md-6 d-flex flex-column">
+                                        <label className="mb-2 f-500">
+                                            {fromLang?.charAt(0).toUpperCase() + fromLang?.slice(1)}
+                                        </label>
+                                        <textarea
+                                            className={`form-control flex-fill f-500 ${wordCount === WORD_LIMIT ? 'border-warning' : ''}`}
+                                            rows="6"
+                                            placeholder={`Type or paste text here (maximum ${WORD_LIMIT} words)`}
+                                            value={sourceText}
+                                            onChange={handleTextChange}
+                                            disabled={isLoading}
+                                        />
+                                        <div className="d-flex justify-content-between align-items-center mt-2">
+                                            <small className={`${wordCount === WORD_LIMIT ? 'text-warning' : 'text-muted'} f-500`}>
+                                                {wordCount}/{WORD_LIMIT} words
+                                                {wordCount === WORD_LIMIT && ' (limit reached)'}
+                                            </small>
+                                            {activeTab === 'translation' ? (
+                                                <button
+                                                    className="btn translate-btn f-500"
+                                                    onClick={handleTranslate}
+                                                    disabled={!sourceText.trim() || isLoading || wordCount > WORD_LIMIT}
+                                                >
+                                                    {isLoading ? (
+                                                        <>
+                                                            <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                                            Translating...
+                                                        </>
+                                                    ) : 'Translate'}
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    className="btn translate-btn f-500"
+                                                    onClick={handleTransliterate}
+                                                    disabled={!sourceText.trim() || isLoading || wordCount > WORD_LIMIT}
+                                                >
+                                                    {isLoading ? (
+                                                        <>
+                                                            <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                                            Transliterating...
+                                                        </>
+                                                    ) : 'Transliterate'}
+                                                </button>
+                                            )}
+                                        </div>
+                                        {error && (
+                                            <div className="alert alert-warning mt-2 py-2 mb-0">
+                                                {error}
+                                            </div>
                                         )}
                                     </div>
-                                    {error && (
-                                        <div className="alert alert-warning mt-2 py-2 mb-0">
-                                            {error}
-                                        </div>
-                                    )}
-                                </div>
 
-                                {/* Right column */}
-                                <div className="col-md-6 d-flex flex-column">
-                                    <h6 className="mb-2 f-500">{selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)}</h6>
-                                    <div className="d-flex flex-column flex-fill border rounded p-2 bg-light">
-                                        {/* Tabs */}
-                                        <ul className="nav nav-tabs tabs mb-2" role="tablist">
-                                            <li className="nav-item" role="presentation">
-                                                <button
-                                                    className={`nav-link f-500 ${activeTab === 'translation' ? 'active' : ''}`}
-                                                    id="translation-tab"
-                                                    data-bs-toggle="tab"
-                                                    data-bs-target="#translation"
-                                                    type="button"
-                                                    role="tab"
-                                                    onClick={() => handleTabChange('translation')}
-                                                >
-                                                    Translation
-                                                </button>
-                                            </li>
-                                            <li className="nav-item" role="presentation">
-                                                <button
-                                                    className={`nav-link f-500 ${activeTab === 'transliteration' ? 'active' : ''}`}
-                                                    id="transliteration-tab"
-                                                    data-bs-toggle="tab"
-                                                    data-bs-target="#transliteration"
-                                                    type="button"
-                                                    role="tab"
-                                                    onClick={() => handleTabChange('transliteration')}
-                                                >
-                                                    Transliteration
-                                                </button>
-                                            </li>
-                                        </ul>
+                                    {/* Right column */}
+                                    <div className="col-md-6 d-flex flex-column">
+                                        <h6 className="mb-2 f-500">{selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)}</h6>
+                                        <div className="d-flex flex-column flex-fill border rounded p-2 bg-light">
+                                            {/* Tabs */}
+                                            <ul className="nav nav-tabs tabs mb-2" role="tablist">
+                                                <li className="nav-item" role="presentation">
+                                                    <button
+                                                        className={`nav-link f-500 ${activeTab === 'translation' ? 'active' : ''}`}
+                                                        id="translation-tab"
+                                                        data-bs-toggle="tab"
+                                                        data-bs-target="#translation"
+                                                        type="button"
+                                                        role="tab"
+                                                        onClick={() => handleTabChange('translation')}
+                                                    >
+                                                        Translation
+                                                    </button>
+                                                </li>
+                                                <li className="nav-item" role="presentation">
+                                                    <button
+                                                        className={`nav-link f-500 ${activeTab === 'transliteration' ? 'active' : ''}`}
+                                                        id="transliteration-tab"
+                                                        data-bs-toggle="tab"
+                                                        data-bs-target="#transliteration"
+                                                        type="button"
+                                                        role="tab"
+                                                        onClick={() => handleTabChange('transliteration')}
+                                                    >
+                                                        Transliteration
+                                                    </button>
+                                                </li>
+                                            </ul>
 
-                                        {/* Tab Content */}
-                                        <div className="tab-content flex-grow-1">
-                                            <div className={`tab-pane fade h-100 ${activeTab === 'translation' ? 'show active' : ''}`}
-                                                id="translation" role="tabpanel">
-                                                <div className="translated-box d-flex justify-content-between align-items-start h-100">
-                                                    <span className="f-500">
-                                                        {translatedText || 'Translation will appear here.'}
-                                                    </span>
-                                                    {translatedText && (
-                                                        <i className="bi bi-clipboard copy-icon" onClick={() => handleCopy(translatedText, 'Translated')}></i>
-                                                    )}
+                                            {/* Tab Content */}
+                                            <div className="tab-content flex-grow-1">
+                                                <div className={`tab-pane fade h-100 ${activeTab === 'translation' ? 'show active' : ''}`}
+                                                    id="translation" role="tabpanel">
+                                                    <div className="translated-box d-flex justify-content-between align-items-start h-100">
+                                                        <span className="f-500">
+                                                            {translatedText || 'Translation will appear here.'}
+                                                        </span>
+                                                        {translatedText && (
+                                                            <i className="bi bi-clipboard copy-icon" onClick={() => handleCopy(translatedText, 'Translated')}></i>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className={`tab-pane fade h-100 ${activeTab === 'transliteration' ? 'show active' : ''}`}
-                                                id="transliteration" role="tabpanel">
-                                                <div className="translated-box d-flex justify-content-between align-items-start h-100">
-                                                    <span className="f-500">
-                                                        {transliteratedText || 'Transliteration will appear here.'}
-                                                    </span>
-                                                    {transliteratedText && (
-                                                        <i className="bi bi-clipboard copy-icon" onClick={() => handleCopy(transliteratedText, 'Transliterated')}></i>
-                                                    )}
+                                                <div className={`tab-pane fade h-100 ${activeTab === 'transliteration' ? 'show active' : ''}`}
+                                                    id="transliteration" role="tabpanel">
+                                                    <div className="translated-box d-flex justify-content-between align-items-start h-100">
+                                                        <span className="f-500">
+                                                            {transliteratedText || 'Transliteration will appear here.'}
+                                                        </span>
+                                                        {transliteratedText && (
+                                                            <i className="bi bi-clipboard copy-icon" onClick={() => handleCopy(transliteratedText, 'Transliterated')}></i>
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                {/* Copy notification */}
+                                {copyNotification && (
+                                    <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1050 }}>
+                                        <div className="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                            <div className="toast-body bg-success text-white rounded">
+                                                <i className="bi bi-check-circle me-2"></i>
+                                                {copyNotification}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-
-                            {/* Copy notification */}
-                            {copyNotification && (
-                                <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1050 }}>
-                                    <div className="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                                        <div className="toast-body bg-success text-white rounded">
-                                            <i className="bi bi-check-circle me-2"></i>
-                                            {copyNotification}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-        </div>
+            </div>
+        </>
     );
 };
 

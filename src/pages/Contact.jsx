@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { getImagePath } from '@/utils/imageUtils';
+import { getImagePath } from '../utils/imageUtils';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -51,17 +50,17 @@ const Contact = () => {
 
   return (
     <>
-  <Helmet>
+  <head>
     <title>Contact | Devnagri</title>
      <meta 
     name="description" 
-    content="" 
+    content="Get in touch with Devnagri for AI-powered translation solutions. Contact our experts for multilingual localization services." 
   />
   <meta 
     name="keywords" 
-    content="Contact" 
+    content="Contact Devnagri, translation services, multilingual support, AI translation contact" 
   />
-  </Helmet>
+  </head>
   {/* Hero Banner with Breadcrumbs */}
   <section
   className="hero bg-img overflow-hidden"

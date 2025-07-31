@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 import { Link } from 'react-router-dom';
 
 const Careers = () => {
-    // Job data
+  // Job data
   const [jobs] = useState([
     {
       id: 1,
@@ -91,21 +90,21 @@ const Careers = () => {
   // Filter jobs based on search and location
   useEffect(() => {
     let filtered = jobs;
-    
+
     if (searchTerm) {
-      filtered = filtered.filter(job => 
+      filtered = filtered.filter(job =>
         job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         job.function.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    
+
     if (locationFilter) {
-      filtered = filtered.filter(job => 
+      filtered = filtered.filter(job =>
         job.location.toLowerCase().includes(locationFilter.toLowerCase())
       );
     }
-    
+
     setFilteredJobs(filtered);
   }, [searchTerm, locationFilter, jobs]);
 
@@ -177,79 +176,79 @@ const Careers = () => {
   };
   return (
     <>
-  <Helmet>
-      <title>Career | Devnagri</title>
-      <meta 
-    name="description" 
-    content="" 
-  />
-  <meta 
-    name="keywords" 
-    content="Career" 
-  />
-  </Helmet>
-  {/* Hero Section */}
-  <section
-    className="hero-section bg-img"
-    style={{
-      backgroundImage: `url(${getImagePath("simple-banner-background.png")})`
-    }}
-  >
-    <div className="container">
-      <div className="row align-items-center">
-        <div className="col-lg-6">
-          <h6 className="f-22 f-600 pb-3 black">
-            <span className="blue">Here Passion Meets Purpose, </span>Join the
-            Journey at Devnagri
-          </h6>
-          <h1 className="f-40 f-700 black pb-2 wow fadeIn">
-            Bring Your Energy and Ideas.{" "}
-            <span className="blue">Shape the Future With Us.</span>
-          </h1>
-          <p className="f-400 pb-2 pe-3 wow fadeIn">
-            At Devnagri AI, we're reimagining how businesses, governments, and
-            communities connect across languages. If solving real-world
-            communication challenges excites you, join us on our journey.
-          </p>
-          <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
-            <Link to="#our-open-roles" className="white">
-            <button type="btn" className="devnagri-btn mt-3">
-                {" "}
-                Explore Open Roles{" "}
-            </button></Link>
-          </div>
-        </div>
-        <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
-          <div
-            id="fadeCarousel"
-            className="carousel slide carousel-fade"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  src={getImagePath("career-images/team-1.jpg")}
-                  className="d-block w-100 rounded-4"
-                  alt="Slide 1"
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={getImagePath("career-images/team-2.jpg")}
-                  className="d-block w-100 rounded-4"
-                  alt="Slide 2"
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={getImagePath("career-images/team-3.jpg")}
-                  className="d-block w-100 rounded-4"
-                  alt="Slide 3"
-                />
+      <head>
+        <title>Career | Devnagri</title>
+        <meta
+          name="description"
+          content="Join the Devnagri team and help build the future of AI-powered translation technology."
+        />
+        <meta
+          name="keywords"
+          content="careers, jobs, devnagri jobs, AI translation careers, tech jobs"
+        />
+      </head>
+      {/* Hero Section */}
+      <section
+        className="hero-section bg-img"
+        style={{
+          backgroundImage: `url(${getImagePath("simple-banner-background.png")})`
+        }}
+      >
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <h6 className="f-22 f-600 pb-3 black">
+                <span className="blue">Here Passion Meets Purpose, </span>Join the
+                Journey at Devnagri
+              </h6>
+              <h1 className="f-40 f-700 black pb-2 wow fadeIn">
+                Bring Your Energy and Ideas.{" "}
+                <span className="blue">Shape the Future With Us.</span>
+              </h1>
+              <p className="f-400 pb-2 pe-3 wow fadeIn">
+                At Devnagri AI, we're reimagining how businesses, governments, and
+                communities connect across languages. If solving real-world
+                communication challenges excites you, join us on our journey.
+              </p>
+              <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
+                <Link to="#our-open-roles" className="white">
+                  <button type="btn" className="devnagri-btn mt-3">
+                    {" "}
+                    Explore Open Roles{" "}
+                  </button></Link>
               </div>
             </div>
-            {/* Controls */}
-            {/* <button class="carousel-control-prev" type="button" data-bs-target="#fadeCarousel" data-bs-slide="prev">
+            <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
+              <div
+                id="fadeCarousel"
+                className="carousel slide carousel-fade"
+                data-bs-ride="carousel"
+              >
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img
+                      src={getImagePath("career-images/team-1.jpg")}
+                      className="d-block w-100 rounded-4"
+                      alt="Slide 1"
+                    />
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src={getImagePath("career-images/team-2.jpg")}
+                      className="d-block w-100 rounded-4"
+                      alt="Slide 2"
+                    />
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src={getImagePath("career-images/team-3.jpg")}
+                      className="d-block w-100 rounded-4"
+                      alt="Slide 3"
+                    />
+                  </div>
+                </div>
+                {/* Controls */}
+                {/* <button class="carousel-control-prev" type="button" data-bs-target="#fadeCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
@@ -257,36 +256,36 @@ const Careers = () => {
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button> */}
-            {/* Indicators */}
-            <div className="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#fadeCarousel"
-                data-bs-slide-to={0}
-                className="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              />
-              <button
-                type="button"
-                data-bs-target="#fadeCarousel"
-                data-bs-slide-to={1}
-                aria-label="Slide 2"
-              />
-              <button
-                type="button"
-                data-bs-target="#fadeCarousel"
-                data-bs-slide-to={2}
-                aria-label="Slide 3"
-              />
+                {/* Indicators */}
+                <div className="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#fadeCarousel"
+                    data-bs-slide-to={0}
+                    className="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#fadeCarousel"
+                    data-bs-slide-to={1}
+                    aria-label="Slide 2"
+                  />
+                  <button
+                    type="button"
+                    data-bs-target="#fadeCarousel"
+                    data-bs-slide-to={2}
+                    aria-label="Slide 3"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  {/*our major brand*/}
-  {/* <section
+      </section>
+      {/*our major brand*/}
+      {/* <section
     className="brand-stats-section bg-img"
     style={{ backgroundImage: "none", padding: "50px 0px" }}
   >
@@ -362,80 +361,80 @@ const Careers = () => {
       </div>
     </div>
   </section> */}
-  {/*life at devnagri*/}
-  <section
-    className="py-5 bg-img"
-    style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
-  >
-    <div className="container">
-      <h2 className="f-40 f-600 m-0 pb-5 text-center black wow fadeInUp">
-        Life at <span className="blue">DEVNAGRI AI</span>
-      </h2>
-      <div className="row justify-content-between">
-        <div className="col-lg-8">
-          <div className="about-value-content wow fadeInUp">
-            <p className="f-400 para-color f-18">
-              <span className="">D</span>
-              <strong className="f-700 black">Dedication:</strong> We’re
-              committed to driving collective success.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">E</span>
-              <strong className="f-700 black">Empathy:</strong> We understand
-              before we act.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">V</span>
-              <strong className="f-700 black">Vision:</strong> Every milestone
-              is driven by a clear purpose.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">N</span>
-              <strong className="f-700 black">Novelty:</strong> We embrace
-              innovation and challenge.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">A</span>
-              <strong className="f-700 black">Accountability:</strong> Ownership
-              isn’t assigned here, it’s instinctive.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">G</span>
-              <strong className="f-700 black">Growth:</strong> Everyone learns,
-              evolves, and levels up.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">R</span>
-              <strong className="f-700 black">Respect:</strong> We value ideas
-              over titles.
-            </p>
-            <p className="f-400 para-color f-18">
-              <span className="">I</span>
-              <strong className="f-700 black">Impact:</strong> We create
-              meaningful change.
-            </p>
+      {/*life at devnagri*/}
+      <section
+        className="py-5 bg-img"
+        style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
+      >
+        <div className="container">
+          <h2 className="f-40 f-600 m-0 pb-5 text-center black wow fadeInUp">
+            Life at <span className="blue">DEVNAGRI AI</span>
+          </h2>
+          <div className="row justify-content-between">
+            <div className="col-lg-8">
+              <div className="about-value-content wow fadeInUp">
+                <p className="f-400 para-color f-18">
+                  <span className="">D</span>
+                  <strong className="f-700 black">Dedication:</strong> We’re
+                  committed to driving collective success.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">E</span>
+                  <strong className="f-700 black">Empathy:</strong> We understand
+                  before we act.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">V</span>
+                  <strong className="f-700 black">Vision:</strong> Every milestone
+                  is driven by a clear purpose.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">N</span>
+                  <strong className="f-700 black">Novelty:</strong> We embrace
+                  innovation and challenge.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">A</span>
+                  <strong className="f-700 black">Accountability:</strong> Ownership
+                  isn’t assigned here, it’s instinctive.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">G</span>
+                  <strong className="f-700 black">Growth:</strong> Everyone learns,
+                  evolves, and levels up.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">R</span>
+                  <strong className="f-700 black">Respect:</strong> We value ideas
+                  over titles.
+                </p>
+                <p className="f-400 para-color f-18">
+                  <span className="">I</span>
+                  <strong className="f-700 black">Impact:</strong> We create
+                  meaningful change.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="video-container mt-3 wow fadeInUp">
+                <iframe
+                  src="https://www.youtube.com/embed/kqYyV0QjV4s"
+                  width="100%"
+                  height={510}
+                  className="rounded-4"
+                  title="YouTube Shorts Embed"
+                  frameBorder={0}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen=""
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="col-lg-4">
-          <div className="video-container mt-3 wow fadeInUp">
-            <iframe
-              src="https://www.youtube.com/embed/kqYyV0QjV4s"
-              width="100%"
-              height={510}
-              className="rounded-4"
-              title="YouTube Shorts Embed"
-              frameBorder={0}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen=""
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  {/*our mission vission*/}
-  {/* <section
+      {/*our mission vission*/}
+      {/* <section
     className="py-5 bg-img"
     style={{ backgroundImage: 'url("getImagePath(testimonil-bg.png")' }}
   >
@@ -475,8 +474,8 @@ const Careers = () => {
       </div>
     </div>
   </section> */}
-  {/*employee testimonial section*/}
-  {/* <section class="employee-testimonial-section py-5" style="background-color: #EEF5FF;">
+      {/*employee testimonial section*/}
+      {/* <section class="employee-testimonial-section py-5" style="background-color: #EEF5FF;">
     <div class="container">
 <div class="testimonial-heading">
   <h2 class="f-600 f-40 pb-5 black text-center wow fadeInUp">
@@ -543,418 +542,418 @@ const Careers = () => {
 
     </div>
   </section> */}
-  {/*Our hiring timeline*/}
-  <section
-    className="timeline-section py-5"
-    style={{ backgroundColor: "#EEF5FF" }}
-  >
-    <div className="container">
-      <div className="timeline-title">
-        <h2 className="f-40 f-600 m-0 pb-3 text-center black wow fadeInUp">
-          Hiring <span className="blue">Process</span>
-        </h2>
-        <p className="f-500 f-20 para-color m-0 pb-3 text-center wow fadeInUp">
-          What to Expect
-        </p>
-      </div>
-      <div className="row jus">
-        <div className="col-lg-6">
-          <div className="timeline-step mt-4 wow fadeInUp">
-            <div className="timeline-icon">
-              <i className="bi bi-person-lines-fill" />
-            </div>
-            <div className="timeline-content">
-              <h5 className="f-24 black f-600">Application Review</h5>
-              <p className=" f-400 para-color m-0">
-                We screen every profile with care.
-              </p>
-            </div>
+      {/*Our hiring timeline*/}
+      <section
+        className="timeline-section py-5"
+        style={{ backgroundColor: "#EEF5FF" }}
+      >
+        <div className="container">
+          <div className="timeline-title">
+            <h2 className="f-40 f-600 m-0 pb-3 text-center black wow fadeInUp">
+              Hiring <span className="blue">Process</span>
+            </h2>
+            <p className="f-500 f-20 para-color m-0 pb-3 text-center wow fadeInUp">
+              What to Expect
+            </p>
           </div>
-          <div className="timeline-step wow fadeInUp" data-wow-delay=".2s">
-            <div className="timeline-icon">
-              <i className="bi bi-chat-dots" />
-            </div>
-            <div className="timeline-content">
-              <h5 className="f-24 black f-600">Intro Call</h5>
-              <p className=" f-400 para-color m-0">
-                A quick chat to get to know each other.
-              </p>
-            </div>
-          </div>
-          <div className="timeline-step wow fadeInUp" data-wow-delay=".3s">
-            <div className="timeline-icon">
-              <i className="bi bi-pencil-square" />
-            </div>
-            <div className="timeline-content">
-              <h5 className="f-24 black f-600">Technical Task</h5>
-              <p className=" f-400 para-color m-0">
-                Role-based exercise to understand your thinking.
-              </p>
-            </div>
-          </div>
-          <div className="timeline-step wow fadeInUp" data-wow-delay=".2s">
-            <div className="timeline-icon">
-              <i className="bi bi-people" />
-            </div>
-            <div className="timeline-content">
-              <h5 className="f-24 black f-600">Panel Interviews</h5>
-              <p className=" f-400 para-color m-0">
-                Meet your future teammates and decision-makers.
-              </p>
-            </div>
-          </div>
-          <div className="timeline-step wow fadeInUp" data-wow-delay=".3s">
-            <div className="timeline-icon">
-              <i className="bi bi-send-check" />
-            </div>
-            <div className="timeline-content">
-              <h5 className="f-24 black f-600">Offer &amp; Onboarding</h5>
-              <p className=" f-400 para-color m-0">
-                We move fast and value your time.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-6 px-5 mt-4 mt-md-5 mt-lg-0">
-          <div className="sticky-block wow fadeInUp">
-            <img
-              src={getImagePath("career-images/hiring-timeline-1.jpg")}
-              alt="hiring-timeline"
-              className="w-100 mt-4 rounded-4"
-            />
-            <div className="row mt-3">
-              <div className="col-md-6 d-none d-md-block">
-                <img
-                  src={getImagePath("career-images/hiring-timeline-2.jpg")}
-                  alt="hiring-timeline"
-                  className="w-100 rounded-4"
-                />
+          <div className="row jus">
+            <div className="col-lg-6">
+              <div className="timeline-step mt-4 wow fadeInUp">
+                <div className="timeline-icon">
+                  <i className="bi bi-person-lines-fill" />
+                </div>
+                <div className="timeline-content">
+                  <h5 className="f-24 black f-600">Application Review</h5>
+                  <p className=" f-400 para-color m-0">
+                    We screen every profile with care.
+                  </p>
+                </div>
               </div>
-              <div className="col-md-6 d-none d-md-block">
-                <img
-                  src={getImagePath("career-images/hiring-timeline-3.jpg")}
-                  alt="hiring-timeline"
-                  className="w-100 rounded-4"
-                />
+              <div className="timeline-step wow fadeInUp" data-wow-delay=".2s">
+                <div className="timeline-icon">
+                  <i className="bi bi-chat-dots" />
+                </div>
+                <div className="timeline-content">
+                  <h5 className="f-24 black f-600">Intro Call</h5>
+                  <p className=" f-400 para-color m-0">
+                    A quick chat to get to know each other.
+                  </p>
+                </div>
+              </div>
+              <div className="timeline-step wow fadeInUp" data-wow-delay=".3s">
+                <div className="timeline-icon">
+                  <i className="bi bi-pencil-square" />
+                </div>
+                <div className="timeline-content">
+                  <h5 className="f-24 black f-600">Technical Task</h5>
+                  <p className=" f-400 para-color m-0">
+                    Role-based exercise to understand your thinking.
+                  </p>
+                </div>
+              </div>
+              <div className="timeline-step wow fadeInUp" data-wow-delay=".2s">
+                <div className="timeline-icon">
+                  <i className="bi bi-people" />
+                </div>
+                <div className="timeline-content">
+                  <h5 className="f-24 black f-600">Panel Interviews</h5>
+                  <p className=" f-400 para-color m-0">
+                    Meet your future teammates and decision-makers.
+                  </p>
+                </div>
+              </div>
+              <div className="timeline-step wow fadeInUp" data-wow-delay=".3s">
+                <div className="timeline-icon">
+                  <i className="bi bi-send-check" />
+                </div>
+                <div className="timeline-content">
+                  <h5 className="f-24 black f-600">Offer &amp; Onboarding</h5>
+                  <p className=" f-400 para-color m-0">
+                    We move fast and value your time.
+                  </p>
+                </div>
               </div>
             </div>
+            <div className="col-lg-6 px-5 mt-4 mt-md-5 mt-lg-0">
+              <div className="sticky-block wow fadeInUp">
+                <img
+                  src={getImagePath("career-images/hiring-timeline-1.jpg")}
+                  alt="hiring-timeline"
+                  className="w-100 mt-4 rounded-4"
+                />
+                <div className="row mt-3">
+                  <div className="col-md-6 d-none d-md-block">
+                    <img
+                      src={getImagePath("career-images/hiring-timeline-2.jpg")}
+                      alt="hiring-timeline"
+                      className="w-100 rounded-4"
+                    />
+                  </div>
+                  <div className="col-md-6 d-none d-md-block">
+                    <img
+                      src={getImagePath("career-images/hiring-timeline-3.jpg")}
+                      alt="hiring-timeline"
+                      className="w-100 rounded-4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  {/*our befinifts*/}
-  <section
-    className="problem-we-solve py-5 bg-img"
-    style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
-  >
-    <div className="container">
-      <h2 className="text-center f-40 f-600 pb-4 black wow fadeInUp">
-        Our <span className="blue">Benefits</span>
-      </h2>
-      <div className="row align-items-center">
-        <div className="col-lg-6">
-          <img
-            src={getImagePath("our-benifits.jpg")}
-            className="w-100 rounded-4 wow fadeInUp"
-          />
-        </div>
-        <div className="col-lg-6 px-3 mt-4 mt-md-5 mt-lg-0">
-          <div className="key-feature mb-2 wow fadeInUp">
-            <ul className="check-list p-0">
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
-                    src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-20 f-400">
-                    Healthy, collaborative work environment
-                  </p>
-                </div>
-              </li>
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
-                    src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-20 f-400">
-                    Direct access to leadership and cross-functional teams
-                  </p>
-                </div>
-              </li>
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
-                    src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-20 f-400">
-                    Projects with visible, real-world impact
-                  </p>
-                </div>
-              </li>
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
-                    src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-20 f-400">
-                    Flexible work model as per profile and location
-                  </p>
-                </div>
-              </li>
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
-                    src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-20 f-400">
-                    Transparent career growth paths
-                  </p>
-                </div>
-              </li>
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
+      </section>
+      {/*our befinifts*/}
+      <section
+        className="problem-we-solve py-5 bg-img"
+        style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
+      >
+        <div className="container">
+          <h2 className="text-center f-40 f-600 pb-4 black wow fadeInUp">
+            Our <span className="blue">Benefits</span>
+          </h2>
+          <div className="row align-items-center">
+            <div className="col-lg-6">
+              <img
+                src={getImagePath("our-benifits.jpg")}
+                className="w-100 rounded-4 wow fadeInUp"
+              />
+            </div>
+            <div className="col-lg-6 px-3 mt-4 mt-md-5 mt-lg-0">
+              <div className="key-feature mb-2 wow fadeInUp">
+                <ul className="check-list p-0">
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
                         src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-20 f-400">
-                    Competitive salary opportunities
-                  </p>
-                </div>
-              </li>
-              <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
-                <div
-                  className="width-5"
-                  style={{ position: "relative", top: 0 }}
-                >
-                  <img
-                    src={getImagePath("tick-circle.png")}
-                    width={26}
-                    height={26}
-                  />
-                </div>
-                <div>
-                  <p className="m-0 pb-1 f-18 f-400">
-                    A mission-driven company building the future of Indian and
-                    global communicational AI
-                  </p>
-                </div>
-              </li>
-            </ul>
-            {/* <div class="wow fadeInUp"><button type="btn" class="devnagri-btn mt-3"><Link to="#" class="white"> Start Now
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-20 f-400">
+                        Healthy, collaborative work environment
+                      </p>
+                    </div>
+                  </li>
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
+                        src={getImagePath("tick-circle.png")}
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-20 f-400">
+                        Direct access to leadership and cross-functional teams
+                      </p>
+                    </div>
+                  </li>
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
+                        src={getImagePath("tick-circle.png")}
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-20 f-400">
+                        Projects with visible, real-world impact
+                      </p>
+                    </div>
+                  </li>
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
+                        src={getImagePath("tick-circle.png")}
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-20 f-400">
+                        Flexible work model as per profile and location
+                      </p>
+                    </div>
+                  </li>
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
+                        src={getImagePath("tick-circle.png")}
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-20 f-400">
+                        Transparent career growth paths
+                      </p>
+                    </div>
+                  </li>
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
+                        src={getImagePath("tick-circle.png")}
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-20 f-400">
+                        Competitive salary opportunities
+                      </p>
+                    </div>
+                  </li>
+                  <li className="f-400 para-color mb-2 d-flex gap-3 gap-md-1">
+                    <div
+                      className="width-5"
+                      style={{ position: "relative", top: 0 }}
+                    >
+                      <img
+                        src={getImagePath("tick-circle.png")}
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div>
+                      <p className="m-0 pb-1 f-18 f-400">
+                        A mission-driven company building the future of Indian and
+                        global communicational AI
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+                {/* <div class="wow fadeInUp"><button type="btn" class="devnagri-btn mt-3"><Link to="#" class="white"> Start Now
           </Link></button></div> */}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  {/*our Gallery*/}
-  <section className="py-5">
-    <div className="container">
-      <h2 className="f-600 f-40 m-0 black pb-5 text-center wow fadeInUp">
-        Behind The <span className="blue">Hustle</span>
-      </h2>
-      <div className="row g-3">
-        <div className="col-sm-6 col-lg-4 mb-3">
-          <div className="gallery-item">
-            <img
-              src={getImagePath("aboutus-image/Our-Story.jpg")}
-              alt="Gallery 1"
-            />
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 mb-3">
-          <div className="gallery-item">
-            <img src={getImagePath("career-images/team-1.jpg")} alt="Gallery 2" />
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 mb-3">
-          <div className="gallery-item">
-            <img src={getImagePath("career-images/team-2.jpg")} alt="Gallery 3" />
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 mb-3">
-          <div className="gallery-item">
-            <img src={getImagePath("career-images/team-3.jpg")} alt="Gallery 4" />
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 mb-3">
-          <div className="gallery-item">
-            <img src={getImagePath("career-images/team-4.jpg")} alt="Gallery 5" />
-          </div>
-        </div>
-        <div className="col-sm-6 col-lg-4 mb-3">
-          <div className="gallery-item">
-            <img src={getImagePath("career-images/team-5.jpg")} alt="Gallery 6" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  {/*Open role section*/}
-  <section id="our-open-roles" className="open-roles py-5">
-    <div className="container">
-      <h4 className="text-center f-40 black m-0 pb-5 f-600 wow fadeInUp">
-        Current <span className="blue">Openings</span>
-      </h4>
-      {/* Search Filter */}
-      <div className="row mb-4 justify-content-center wow fadeInUp">
-        <div className="col-md-4 mb-2">
-          <input
-            type="text"
-            className="form-control form-control-lg f-400 f-18"
-            placeholder="Search for job title, function, or description"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-        <div className="col-md-3 mb-2">
-          <select
-            className="form-select form-select-lg f-400 f-18"
-            value={locationFilter}
-            onChange={(e) => setLocationFilter(e.target.value)}
-          >
-            <option value="">All Locations</option>
-            <option value="Gurgaon">Gurgaon</option>
-            <option value="Bangalore">Bangalore</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Remote">Remote</option>
-          </select>
-        </div>
-        <div className="col-md-2 mb-2 d-grid">
-          <button 
-            className="devnagri-btn"
-            onClick={() => {
-              setSearchTerm('');
-              setLocationFilter('');
-            }}
-          >
-            Clear
-          </button>
-        </div>
-      </div>
-      {/* Results count */}
-      <div className="text-center mb-4">
-        <p className="f-16 f-400 para-color">
-          Showing {filteredJobs.length} of {jobs.length} positions
-        </p>
-      </div>
-      {/* Job Cards */}
-      <div className="row g-4">
-        {filteredJobs.length > 0 ? (
-          filteredJobs.map((job) => (
-            <div key={job.id} className="col-lg-4 col-md-6">
-              <div className="card h-100 shadow-sm wow fadeInUp">
-                <div className="card-body">
-                  <h5 className="card-title d-flex align-items-center mb-3 f-22 f-600 black">
-                    {job.title}
-                  </h5>
-                  <ul className="list-unstyled mb-3">
-                    <li className="f-400">
-                      <span className="f-500">Experience:</span> {job.experience}
-                    </li>
-                    <li className="f-400">
-                      <span className="f-500">Location:</span> {job.location}
-                    </li>
-                    <li className="f-400">
-                      <span className="f-500">Function:</span> {job.function}
-                    </li>
-                  </ul>
-                  <p className="card-text f-400 para-color m-0">
-                    {job.description}
-                  </p>
-                </div>
-                <div className="card-footer bg-transparent border-0 pb-3">
-                  <button 
-                    type="btn" 
-                    className="devnagri-btn mt-3"
-                    onClick={() => handleApplyNow(job)}
-                  >
-                    <span className="white">Apply Now</span>
-                  </button>
-                </div>
               </div>
             </div>
-          ))
-        ) : (
-          <div className="col-12 text-center">
-            <div className="py-5">
-              <h4 className="f-24 f-500 para-color mb-3">No positions found</h4>
-              <p className="f-16 f-400 para-color">
-                Try adjusting your search criteria or check back later for new opportunities.
-              </p>
-              <button 
-                className="devnagri-btn mt-3"
+          </div>
+        </div>
+      </section>
+      {/*our Gallery*/}
+      <section className="py-5">
+        <div className="container">
+          <h2 className="f-600 f-40 m-0 black pb-5 text-center wow fadeInUp">
+            Behind The <span className="blue">Hustle</span>
+          </h2>
+          <div className="row g-3">
+            <div className="col-sm-6 col-lg-4 mb-3">
+              <div className="gallery-item">
+                <img
+                  src={getImagePath("aboutus-image/Our-Story.jpg")}
+                  alt="Gallery 1"
+                />
+              </div>
+            </div>
+            <div className="col-sm-6 col-lg-4 mb-3">
+              <div className="gallery-item">
+                <img src={getImagePath("career-images/team-1.jpg")} alt="Gallery 2" />
+              </div>
+            </div>
+            <div className="col-sm-6 col-lg-4 mb-3">
+              <div className="gallery-item">
+                <img src={getImagePath("career-images/team-2.jpg")} alt="Gallery 3" />
+              </div>
+            </div>
+            <div className="col-sm-6 col-lg-4 mb-3">
+              <div className="gallery-item">
+                <img src={getImagePath("career-images/team-3.jpg")} alt="Gallery 4" />
+              </div>
+            </div>
+            <div className="col-sm-6 col-lg-4 mb-3">
+              <div className="gallery-item">
+                <img src={getImagePath("career-images/team-4.jpg")} alt="Gallery 5" />
+              </div>
+            </div>
+            <div className="col-sm-6 col-lg-4 mb-3">
+              <div className="gallery-item">
+                <img src={getImagePath("career-images/team-5.jpg")} alt="Gallery 6" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*Open role section*/}
+      <section id="our-open-roles" className="open-roles py-5">
+        <div className="container">
+          <h4 className="text-center f-40 black m-0 pb-5 f-600 wow fadeInUp">
+            Current <span className="blue">Openings</span>
+          </h4>
+          {/* Search Filter */}
+          <div className="row mb-4 justify-content-center wow fadeInUp">
+            <div className="col-md-4 mb-2">
+              <input
+                type="text"
+                className="form-control form-control-lg f-400 f-18"
+                placeholder="Search for job title, function, or description"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            <div className="col-md-3 mb-2">
+              <select
+                className="form-select form-select-lg f-400 f-18"
+                value={locationFilter}
+                onChange={(e) => setLocationFilter(e.target.value)}
+              >
+                <option value="">All Locations</option>
+                <option value="Gurgaon">Gurgaon</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Remote">Remote</option>
+              </select>
+            </div>
+            <div className="col-md-2 mb-2 d-grid">
+              <button
+                className="devnagri-btn"
                 onClick={() => {
                   setSearchTerm('');
                   setLocationFilter('');
                 }}
               >
-                <span className="white">View All Positions</span>
+                Clear
               </button>
             </div>
           </div>
-        )}
-      </div>
-    </div>
-  </section>
-  {/*get started section*/}
-  <section className="get-strated bg-img">
-    <div className="container">
-      {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <Link to="mailto.com" style="color: #05a1f4;">Upload your resume</Link>, and we’ll keep you in mind.</h2> */}
-      <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 wow fadeInUp">
-        No Perfect Match Today? Upload Your Resume, Let's Keep in Touch!
-      </h2>
-      <div className="text-center wow fadeInUp mt-5">
-        <Link to="mailto:demo@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
-            {" "}
-            Upload Your Resume{" "}
-        </button></Link>
-      </div>
-    </div>
-  </section>
+          {/* Results count */}
+          <div className="text-center mb-4">
+            <p className="f-16 f-400 para-color">
+              Showing {filteredJobs.length} of {jobs.length} positions
+            </p>
+          </div>
+          {/* Job Cards */}
+          <div className="row g-4">
+            {filteredJobs.length > 0 ? (
+              filteredJobs.map((job) => (
+                <div key={job.id} className="col-lg-4 col-md-6">
+                  <div className="card h-100 shadow-sm wow fadeInUp">
+                    <div className="card-body">
+                      <h5 className="card-title d-flex align-items-center mb-3 f-22 f-600 black">
+                        {job.title}
+                      </h5>
+                      <ul className="list-unstyled mb-3">
+                        <li className="f-400">
+                          <span className="f-500">Experience:</span> {job.experience}
+                        </li>
+                        <li className="f-400">
+                          <span className="f-500">Location:</span> {job.location}
+                        </li>
+                        <li className="f-400">
+                          <span className="f-500">Function:</span> {job.function}
+                        </li>
+                      </ul>
+                      <p className="card-text f-400 para-color m-0">
+                        {job.description}
+                      </p>
+                    </div>
+                    <div className="card-footer bg-transparent border-0 pb-3">
+                      <button
+                        type="btn"
+                        className="devnagri-btn mt-3"
+                        onClick={() => handleApplyNow(job)}
+                      >
+                        <span className="white">Apply Now</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="col-12 text-center">
+                <div className="py-5">
+                  <h4 className="f-24 f-500 para-color mb-3">No positions found</h4>
+                  <p className="f-16 f-400 para-color">
+                    Try adjusting your search criteria or check back later for new opportunities.
+                  </p>
+                  <button
+                    className="devnagri-btn mt-3"
+                    onClick={() => {
+                      setSearchTerm('');
+                      setLocationFilter('');
+                    }}
+                  >
+                    <span className="white">View All Positions</span>
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+      {/*get started section*/}
+      <section className="get-strated bg-img">
+        <div className="container">
+          {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <Link to="mailto.com" style="color: #05a1f4;">Upload your resume</Link>, and we’ll keep you in mind.</h2> */}
+          <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 wow fadeInUp">
+            No Perfect Match Today? Upload Your Resume, Let's Keep in Touch!
+          </h2>
+          <div className="text-center wow fadeInUp mt-5">
+            <Link to="mailto:demo@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
+              {" "}
+              Upload Your Resume{" "}
+            </button></Link>
+          </div>
+        </div>
+      </section>
 
       {/* Application Form Popup */}
       {showApplicationForm && (
@@ -984,7 +983,7 @@ const Careers = () => {
               <h3 className="f-24 f-600 black m-0">
                 Apply for {selectedJob?.title}
               </h3>
-              <button 
+              <button
                 onClick={closePopup}
                 style={{
                   background: 'none',
@@ -997,7 +996,7 @@ const Careers = () => {
                 ×
               </button>
             </div>
-            
+
             <form onSubmit={handleSubmitApplication}>
               <div className="row g-3">
                 <div className="col-md-6">
@@ -1117,8 +1116,8 @@ const Careers = () => {
                   </div>
                 </div>
                 <div className="col-12">
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="devnagri-btn w-100"
                     disabled={isSubmitting}
                   >
@@ -1138,8 +1137,8 @@ const Careers = () => {
         </div>
       )}
 
- 
-</>
+
+    </>
 
   )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { getImagePath } from '@/utils/imageUtils';
 
 const DotaApp = () => {
@@ -9,11 +8,11 @@ const DotaApp = () => {
   const navigate = useNavigate();
   return (
     <>
-  <Helmet>
+  <head>
     <title>Mobile App Translation | App Translation | Localization - Devnagri</title>
     <meta name="description" content="Devnagri is the ideal choice for mobile app translation solutions. Translate your mobile app into regional languages with ultra-high accuracy. Try Devnagri today" />
     <meta name="keywords" content="App Localization, Mobile App Localization" />
-  </Helmet>
+  </head>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"

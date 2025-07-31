@@ -5,7 +5,6 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import fullDataset from '../data/howWeHelpData.json';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { getImagePath } from '../utils/imageUtils';
@@ -74,12 +73,12 @@ const Home = () => {
     });
   });
 
-   const leftTabs = [
+  const leftTabs = [
     {
       id: 'identity-verification',
       title: 'Identity & Verification',
       img: 'menu-icon/Identity & Verification.png',
-       contentImage: 'products-images/ocr/Identity & Verification.jpg',
+      contentImage: 'products-images/ocr/Identity & Verification.jpg',
       description: '',
       link: '/ocr',
       features: [
@@ -232,7 +231,7 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
+      <head>
         <title>Devnagri -India's 1st AI-Powered Translation Engine For Indian Languages</title>
         <meta
           name="description"
@@ -242,7 +241,7 @@ const Home = () => {
           name="keywords"
           content="Devnagri, Devnagri AI"
         />
-      </Helmet>
+      </head>
       {/* Hero Section */}
       <section className="hero-home bg-img overflow-hidden">
         <div className="container">
@@ -1245,8 +1244,8 @@ const Home = () => {
                                         />
                                       </div>
                                       <div>
-                                         Emotion &amp;
-                                      Sentiment Detection
+                                        Emotion &amp;
+                                        Sentiment Detection
                                       </div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
@@ -1266,7 +1265,7 @@ const Home = () => {
                                         />
                                       </div>
                                       <div>AI Training &amp;
-                                      Continous  Learning</div>
+                                        Continous  Learning</div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
@@ -1276,7 +1275,7 @@ const Home = () => {
                                         />
                                       </div>
                                       <div>Security &amp;
-                                      Compliance</div>
+                                        Compliance</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -1395,108 +1394,108 @@ const Home = () => {
                   </div>
                 </div>
                 {/* ocr tab start */}
-               <div className="tab-pane fade" id="ttt" role="tabpanel">
-      <div className="services_content">
-        <div className="services_title_main">
-          <div className="services_title">
-            <ul className="nav nav-pills flex-column" id="pills-tab" role="tablist">
-              {leftTabs.map((tab) => (
-                <li className="nav-item" role="presentation" key={tab.id}>
-                  <button
-                    className={`nav-link services-nav-link ${activeTab === tab.id ? 'active' : ''}`}
-                    onClick={() => setActiveTab(tab.id)}
-                  >
-                    <div className="tab_innerimg_icon">
-                      <img
-                        src={getImagePath(tab.img)}
-                        alt={tab.title}
-                      />
+                <div className="tab-pane fade" id="ttt" role="tabpanel">
+                  <div className="services_content">
+                    <div className="services_title_main">
+                      <div className="services_title">
+                        <ul className="nav nav-pills flex-column" id="pills-tab" role="tablist">
+                          {leftTabs.map((tab) => (
+                            <li className="nav-item" role="presentation" key={tab.id}>
+                              <button
+                                className={`nav-link services-nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                                onClick={() => setActiveTab(tab.id)}
+                              >
+                                <div className="tab_innerimg_icon">
+                                  <img
+                                    src={getImagePath(tab.img)}
+                                    alt={tab.title}
+                                  />
+                                </div>
+                                <div className="nav_btncontent f-20 f-600">
+                                  {tab.title}
+                                </div>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="nav_btncontent f-20 f-600">
-                      {tab.title}
-                    </div>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        
-        <div className="home_services_inners">
-          <div className="tab-content" id="pills-tabContent">
-            <div className="inner_tab_content">
-              <div className="main_tab_content">
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="product-viedo-box">
-                      {activeContent.media === 'video' ? (
-                        <video
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="rounded-4"
-                          style={{ width: "100%", height: "100%" }}
-                        >
-                          <source
-                            src={getImagePath(activeContent.src)}
-                            type="video/mp4"
-                          />
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <img
-                          src={getImagePath(activeContent.contentImage)}
-                          alt={activeContent.title}
-                          className="rounded-4"
-                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        />
-                      )}
-                    </div>
-                  </div>
-                  <div className="col-md-12">
-                     <p className="m-0 f-400 para-color pt-3 pb-3"></p>
-                    {/* Feature list for all tabs */}
-                    {activeContent.features && activeContent.features.length > 0 && (
-                      <ul className="check-list p-0 product-showcase-feature">
-                        {activeContent.features.map((feature, index) => (
-                          <li key={index} className="f-400 para-color mb-2 d-flex gap-2">
-                            <div className="width-8">
-                              <img
-                                src={getImagePath('tick-circle.png')}
-                                className="w-100"
-                                alt="tick"
-                              />
+
+                    <div className="home_services_inners">
+                      <div className="tab-content" id="pills-tabContent">
+                        <div className="inner_tab_content">
+                          <div className="main_tab_content">
+                            <div className="row">
+                              <div className="col-md-12">
+                                <div className="product-viedo-box">
+                                  {activeContent.media === 'video' ? (
+                                    <video
+                                      autoPlay
+                                      muted
+                                      loop
+                                      playsInline
+                                      className="rounded-4"
+                                      style={{ width: "100%", height: "100%" }}
+                                    >
+                                      <source
+                                        src={getImagePath(activeContent.src)}
+                                        type="video/mp4"
+                                      />
+                                      Your browser does not support the video tag.
+                                    </video>
+                                  ) : (
+                                    <img
+                                      src={getImagePath(activeContent.contentImage)}
+                                      alt={activeContent.title}
+                                      className="rounded-4"
+                                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                              <div className="col-md-12">
+                                <p className="m-0 f-400 para-color pt-3 pb-3"></p>
+                                {/* Feature list for all tabs */}
+                                {activeContent.features && activeContent.features.length > 0 && (
+                                  <ul className="check-list p-0 product-showcase-feature">
+                                    {activeContent.features.map((feature, index) => (
+                                      <li key={index} className="f-400 para-color mb-2 d-flex gap-2">
+                                        <div className="width-8">
+                                          <img
+                                            src={getImagePath('tick-circle.png')}
+                                            className="w-100"
+                                            alt="tick"
+                                          />
+                                        </div>
+                                        <div>{feature}</div>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+
+                                <p className="m-0 f-400 para-color pt-3 pb-3">
+                                  {activeContent.description}
+                                </p>
+                              </div>
                             </div>
-                            <div>{feature}</div>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    
-                    <p className="m-0 f-400 para-color pt-3 pb-3">
-                      {activeContent.description}
-                    </p>
+                            <div className="pt-2">
+                              <div className="register-btn">
+                                <Link to={activeContent.link} className="white">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
+                                    Learn More
+                                  </button>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="pt-2">
-                  <div className="register-btn">
-                    <Link to={activeContent.link} className="white">
-                      <button
-                        type="btn"
-                        className="devnagri-btn mt-3"
-                      >
-                        Learn More
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
               </div>
             </div>
@@ -2294,106 +2293,106 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="accordion" id="servicesAccordion">
-      {tabs.map((tab) => (
-        <div className="accordion-item" key={tab.id}>
-          <h2 className="accordion-header" id={`heading_${tab.id}`}>
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target={`#collapse_${tab.id}`}
-              aria-expanded="false"
-              aria-controls={`collapse_${tab.id}`}
-            >
-              <div className="tab_innerimg_icon">
-                <img
-                  src={getImagePath(tab.icon)}
-                  alt={tab.title}
-                />
-              </div>
-              <div className="nav_btncontent f-20 f-600">
-                {tab.title}
-              </div>
-            </button>
-          </h2>
-          <div
-            id={`collapse_${tab.id}`}
-            className="accordion-collapse collapse"
-            aria-labelledby={`heading_${tab.id}`}
-            data-bs-parent="#servicesAccordion"
-          >
-            <div className="accordion-body">
-              <div className="inner_tab_content">
-                <div className="main_mobile_tab_content">
-                  <div className="row">
-                    <div className="col-12">
-                      {tab.mediaType === 'video' ? (
-                        <video
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="rounded-4"
-                          style={{ width: "100%", height: "100%" }}
+                    {tabs.map((tab) => (
+                      <div className="accordion-item" key={tab.id}>
+                        <h2 className="accordion-header" id={`heading_${tab.id}`}>
+                          <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target={`#collapse_${tab.id}`}
+                            aria-expanded="false"
+                            aria-controls={`collapse_${tab.id}`}
+                          >
+                            <div className="tab_innerimg_icon">
+                              <img
+                                src={getImagePath(tab.icon)}
+                                alt={tab.title}
+                              />
+                            </div>
+                            <div className="nav_btncontent f-20 f-600">
+                              {tab.title}
+                            </div>
+                          </button>
+                        </h2>
+                        <div
+                          id={`collapse_${tab.id}`}
+                          className="accordion-collapse collapse"
+                          aria-labelledby={`heading_${tab.id}`}
+                          data-bs-parent="#servicesAccordion"
                         >
-                          <source
-                            src={getImagePath(tab.mediaSrc)}
-                            type="video/mp4"
-                          />
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <img
-                          src={getImagePath(tab.mediaSrc)}
-                          alt={tab.title}
-                          className="rounded-4"
-                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        />
-                      )}
-                    </div>
-                    <div className="col-12">
-                      <p className="m-0 f-400 para-color pt-3 pb-3">
-                        {tab.description}
-                      </p>
-                      {tab.features && tab.features.length > 0 && (
-                        <ul className="check-list p-0">
-                          {tab.features.map((feature, index) => (
-                            <li key={index} className="f-400 para-color mb-2 d-flex gap-2">
-                              <div className="width-3">
-                                <img
-                                  src={getImagePath('tick-circle.png')}
-                                  className="w-100"
-                                  alt="tick"
-                                />
+                          <div className="accordion-body">
+                            <div className="inner_tab_content">
+                              <div className="main_mobile_tab_content">
+                                <div className="row">
+                                  <div className="col-12">
+                                    {tab.mediaType === 'video' ? (
+                                      <video
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        className="rounded-4"
+                                        style={{ width: "100%", height: "100%" }}
+                                      >
+                                        <source
+                                          src={getImagePath(tab.mediaSrc)}
+                                          type="video/mp4"
+                                        />
+                                        Your browser does not support the video tag.
+                                      </video>
+                                    ) : (
+                                      <img
+                                        src={getImagePath(tab.mediaSrc)}
+                                        alt={tab.title}
+                                        className="rounded-4"
+                                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                      />
+                                    )}
+                                  </div>
+                                  <div className="col-12">
+                                    <p className="m-0 f-400 para-color pt-3 pb-3">
+                                      {tab.description}
+                                    </p>
+                                    {tab.features && tab.features.length > 0 && (
+                                      <ul className="check-list p-0">
+                                        {tab.features.map((feature, index) => (
+                                          <li key={index} className="f-400 para-color mb-2 d-flex gap-2">
+                                            <div className="width-3">
+                                              <img
+                                                src={getImagePath('tick-circle.png')}
+                                                className="w-100"
+                                                alt="tick"
+                                              />
+                                            </div>
+                                            <div>{feature}</div>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="pt-2">
+                                  {tab.testimonial && (
+                                    <h6 className="f-600 f-20 black">
+                                      {/* {tab.testimonial} */}
+                                    </h6>
+                                  )}
+                                  <div className="register-btn">
+                                    <Link to={tab.link} className="white">
+                                      <button type="btn" className="devnagri-btn mt-3">
+                                        Learn More
+                                      </button>
+                                    </Link>
+                                  </div>
+                                </div>
                               </div>
-                              <div>{feature}</div>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="pt-2">
-                    {tab.testimonial && (
-                      <h6 className="f-600 f-20 black">
-                        {/* {tab.testimonial} */}
-                      </h6>
-                    )}
-                    <div className="register-btn">
-                      <Link to={tab.link} className="white">
-                        <button type="btn" className="devnagri-btn mt-3">
-                          Learn More
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
                 </div>
               </div>
             </div>
