@@ -2,6 +2,7 @@ import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
+import FAQAccordion from '@/components/FAQAccordion';
 
 const MachineTranslitrationApi = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);

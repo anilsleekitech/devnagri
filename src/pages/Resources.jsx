@@ -98,7 +98,7 @@ const Resources = () => {
   };
 
   // Generate pagination buttons
-  const renderPagination = () => {
+ const renderPagination = () => {
     if (totalPages <= 1) return null;
 
     const pages = [];
@@ -106,12 +106,10 @@ const Resources = () => {
     let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
     let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
-    // Adjust if we're at the end
     if (endPage - startPage + 1 < maxVisiblePages) {
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
 
-    // Previous button
     pages.push(
       <li key="prev" className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
         <button
@@ -124,7 +122,6 @@ const Resources = () => {
       </li>
     );
 
-    // Page numbers
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
         <li key={i} className={`page-item ${currentPage === i ? 'active' : ''}`}>
@@ -135,7 +132,6 @@ const Resources = () => {
       );
     }
 
-    // Next button
     pages.push(
       <li key="next" className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
         <button
@@ -148,9 +144,17 @@ const Resources = () => {
       </li>
     );
 
+    // Add total pages display (visible on medium screens and up)
+    pages.push(
+      <li key="total" className="page-item disabled d-none d-md-block">
+        <span className="page-link page-count">
+          Page {currentPage} of {totalPages}
+        </span>
+      </li>
+    );
+
     return pages;
   };
-
   // Handle tab changes
   const handleTabChange = (type) => {
     setActiveTab(type);
