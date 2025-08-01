@@ -120,6 +120,23 @@ const TextTotext = ({ fromResources }) => {
         }
     }, [fromLang]);
 
+    useEffect(() => {
+  const savedText = sessionStorage.getItem('sourceText');
+  if (savedText) {
+    setSourceText(savedText);
+  }
+}, []);
+
+useEffect(() => {
+  sessionStorage.setItem('sourceText', sourceText);
+}, [sourceText]);
+
+useEffect(() => {
+  return () => {
+    sessionStorage.removeItem('sourceText');
+  };
+}, []);
+
     // Handle language change
     const handleLanguageChange = (e) => {
         const newToLang = e.target.value;
