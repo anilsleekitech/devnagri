@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { getImagePath } from '../utils/imageUtils';
+import FAQAccordion from '@/components/FAQAccordion';
 
 
 const Home = () => {
@@ -3454,145 +3455,7 @@ const Home = () => {
         </div>
       </section>
       {/*accordian section*/}
-      <section className="accrordian-sec">
-        <div className="container">
-          <h2 className="f-40 f-600 pb-2 black wow fadeInUp text-center">FAQs</h2>
-          <div className="row justify-content-center">
-            <div className="col-lg-8 col-md-12 wow fadeInUp">
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      How do you maintain the accuracy of AI-generated translations?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      We combine neural machine translation with quality technology.
-                      Our in-house patent AI is highly secure and learns from
-                      industry-specific glossaries, and all critical content is
-                      reviewed for accuracy, tone, and cultural relevance.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Can you handle industrial terms?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Yes, we train our translation engine on datasets that are
-                      specific to multiple niches. To keep things consistent across
-                      complicated, specialized information, we keep glossaries or
-                      term banks.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      Do you integrate with third-party platforms?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseThree"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Of course. Devnagri has APIs and SDKs that work perfectly with
-                      CMS platforms, mobile apps, internet platforms, and systems
-                      that are created just for you.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFour"
-                      aria-expanded="false"
-                      aria-controls="collapseFour"
-                    >
-                      How do you keep client information private and safe?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFour"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      We are VAPT certified and encrypt all customer data while it
-                      is being sent. We are ISO 9001:2015 certified and adhere to
-                      GDPR, HIPAA, CCPA, and ISO standards.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFive"
-                      aria-expanded="false"
-                      aria-controls="collapseFive"
-                    >
-                      Do you provide support post-deployment?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFive"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      We provide dedicated customer success managers, ongoing
-                      language updates, bug resolution, and custom feature support
-                      to ensure your localization runs smoothly as your needs
-                      evolve.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+       <FAQAccordion page="home" />
       {/*Showcase section*/}
       {/* <section class="py-5 translation-managemnt">
       <div class="container">

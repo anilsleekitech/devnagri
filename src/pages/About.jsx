@@ -1,9 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
 
 
 const About = () => {
+useEffect(() => {
+  const $ = window.$; // assuming jQuery is available globally
+
+  if ($ && $('.team-slider').length && !$('.team-slider').hasClass('slick-initialized')) {
+    $('.team-slider').slick({
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+      nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+      responsive: [
+        {
+          breakpoint: 1399.99,
+          settings: { slidesToShow: 3 },
+        },
+        {
+          breakpoint: 1080,
+          settings: { slidesToShow: 2 },
+        },
+        {
+          breakpoint: 768.99,
+          settings: { slidesToShow: 1 },
+        },
+      ],
+    });
+  }
+
+  // Optional: Cleanup on unmount
+  return () => {
+    if ($ && $('.team-slider').hasClass('slick-initialized')) {
+      $('.team-slider').slick('unslick');
+    }
+  };
+}, []);
+   
   return (
     <>
       <head>

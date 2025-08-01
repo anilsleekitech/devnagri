@@ -2,6 +2,7 @@ import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
+import FAQAccordion from '@/components/FAQAccordion';
 
 
 const Voicebot = () => {
@@ -1101,140 +1102,7 @@ const Voicebot = () => {
       </section>
 
       {/*FAQ's Section*/}
-      <section
-        className="accrordian-sec bg-img"
-        style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
-      >
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-9 col-sm-12 wow fadeInUp">
-              <h2 className="f-40 f-700 black pb-3 text-center">FAQs</h2>
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      Can it understand when a user changes language mid-sentence?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Yes. The AI Agent detects and adapts to language shifts
-                      instantly, without needing a restart.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      How do I train it for my business vocabulary?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      You can upload sample phrases or industry terminology. Our
-                      system learns and fine-tunes quickly.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      How many journeys can it handle?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseThree"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      The Voice Agent can handle multiple conversation journeys,
-                      customized per use case (e.g., KYC, feedback, reminders).
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFour"
-                      aria-expanded="false"
-                      aria-controls="collapseFour"
-                    >
-                      Do we have a barge-in feature?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFour"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Yes, the Voice Agent supports barge-in, allowing users to
-                      interrupt and guide the conversation naturally.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFive"
-                      aria-expanded="false"
-                      aria-controls="collapseFive"
-                    >
-                      Can we change the tone of the bot to make it sound more real?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFive"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Yes, you can customize the tone, pitch, and delivery to match
-                      your brand personality.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQAccordion page="voicebot" />
       {/*bottom-messge section*/}
       {/* <section class="bottom-message-section pb-5">
     <div class="container">

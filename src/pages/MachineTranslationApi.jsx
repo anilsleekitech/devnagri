@@ -2,6 +2,7 @@ import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
+import FAQAccordion from '@/components/FAQAccordion';
 
 const MachineTranslationApi = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -1056,142 +1057,7 @@ const MachineTranslationApi = () => {
         </div>
       </section>
       {/*FAQ's Section*/}
-      <section
-        className="accrordian-sec bg-img"
-        style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
-      >
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-9 col-sm-12 wow fadeInUp">
-              <h2 className="f-40 f-700 black pb-3 text-center">FAQs</h2>
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      What process do you follow?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Content is securely submitted via API. Our system understands
-                      context, applies domain-trained translation, and delivers
-                      accurate, real-time output, ready to use at scale.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Is this solution safe for official or regulated content?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Yes. It's purpose-built for government, financial, and legal
-                      use cases, with complete data security protocols.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      How do you handle data safety?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseThree"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      All data is encrypted during transfer and at rest. We follow
-                      industry-grade standards for data security and compliance.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFour"
-                      aria-expanded="false"
-                      aria-controls="collapseFour"
-                    >
-                      Can the API manage large-scale content?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFour"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      Absolutely. Our infrastructure handles millions of words in a
-                      single cycle without compromising performance or quality.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed f-500"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseFive"
-                      aria-expanded="false"
-                      aria-controls="collapseFive"
-                    >
-                      How accurate are the translations for all regional languages?
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseFive"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body f-400 para-color">
-                      95% translation accuracy across all supported Indian and
-                      International languages, maintaining context, tone, and
-                      domain-specific terminology.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQAccordion page="machineTranslationApi" />
       {/*get started section*/}
       <section className="get-strated bg-img">
         <div className="container">

@@ -2,6 +2,7 @@ import React from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
+import FAQAccordion from '@/components/FAQAccordion';
 
 const DocumentTranslationWorkflow = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -10,11 +11,10 @@ const DocumentTranslationWorkflow = () => {
     <>
   <head>
     <title>Document Translation - Devnagri</title>
-    </head>
-    <Helmet>
+  
     <meta name="description" content="Document translation is very necessary for doing business globally. Translate your documents word to word according to your requirements." />
     <meta name="keywords" content="Document Translation" />
-  </Helmet>
+  </head>
   {/* Hero Section */}
   <section
     className="hero-section bg-img"
@@ -1073,138 +1073,7 @@ const DocumentTranslationWorkflow = () => {
     </div>
   </section>
   {/*FAQ's Section*/}
-  <section
-    className="accrordian-sec bg-img"
-    style={{ backgroundImage: 'url(${getImagePath(testimonil-bg.png")' }}
-  >
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-lg-9 col-sm-12 wow fadeInUp">
-          <h2 className="f-40 f-700 black pb-3 text-center">FAQs</h2>
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button f-500"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  How are duplicate words handled?
-                </button>
-              </h2>
-              <div
-                id="collapseOne"
-                className="accordion-collapse collapse show"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body f-400 para-color">
-                  We use translation memory to avoid rework and ensure
-                  consistency.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed f-500"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  Will I receive real-time updates?
-                </button>
-              </h2>
-              <div
-                id="collapseTwo"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body f-400 para-color">
-                  Yes, you get live status tracking and notifications.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed f-500"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  I have marketing brochures. Will your system also retain the
-                  formatting of regional versions?
-                </button>
-              </h2>
-              <div
-                id="collapseThree"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body f-400 para-color">
-                  Yes, we provide format-preserved regional outputs (DTP-ready).
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed f-500"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFour"
-                  aria-expanded="false"
-                  aria-controls="collapseFour"
-                >
-                  How can I share my feedback in case of wrong translations?
-                </button>
-              </h2>
-              <div
-                id="collapseFour"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body f-400 para-color">
-                  You can flag content directly or comment via the review
-                  dashboard.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed f-500"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFive"
-                  aria-expanded="false"
-                  aria-controls="collapseFive"
-                >
-                  Do you maintain the Glossary?
-                </button>
-              </h2>
-              <div
-                id="collapseFive"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body f-400 para-color">
-                  Yes, we build and manage glossaries per project or domain.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+   <FAQAccordion page="documentTranslation" />
   {/*get started section*/}
   <section className="get-strated bg-img">
     <div className="container">
