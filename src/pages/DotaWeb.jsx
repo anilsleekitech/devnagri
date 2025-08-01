@@ -261,7 +261,7 @@ const DotaWeb = () => {
                 experience every time they interact with your site.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Get Started{" "}
                 </button></Link>

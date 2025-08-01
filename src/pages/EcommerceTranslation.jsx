@@ -42,7 +42,7 @@ const EcommerceTranslation = () => {
                 {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
         <Link to="#" class="blue"> Start Free </Link>
       </button> */}
-                <Link to="/signup" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="/website-translation" className="white"><button type="btn" className="devnagri-btn mt-3">
                   Localize Smarter
                 </button></Link>
               </div>

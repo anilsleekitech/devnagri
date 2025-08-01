@@ -230,7 +230,7 @@ const DocumentTranslationWorkflow = () => {
             accurately.
           </p>
           <div className="wow fadeInUp">
-            <Link to="https://account.devnagri.com/login" className="white"><button
+            <Link to="https://account.devnagri.com/register" className="white"><button
               type="btn"
               className="devnagri-btn wow fadeIn animated mt-3"
             >
@@ -291,7 +291,7 @@ const DocumentTranslationWorkflow = () => {
             encrypted, processed securely, and never reused.
           </p>
           <div className="wow fadeInUp">
-            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Experience Now
             </button></Link>
           </div>

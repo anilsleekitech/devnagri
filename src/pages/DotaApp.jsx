@@ -416,7 +416,7 @@ const DotaApp = () => {
                   />{" "}
                   Book a Demo{" "}
               </button></Link>
-              <Link to="https://account.devnagri.com/login" className=""><button
+              <Link to="https://account.devnagri.com/register" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
