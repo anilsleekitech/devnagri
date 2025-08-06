@@ -540,7 +540,7 @@ const DocumentTranslationWorkflow = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                  src={getImagePath('testmonial-1.jpg')}
+                  src={getImagePath('1.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />
@@ -577,7 +577,7 @@ const DocumentTranslationWorkflow = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                  src={getImagePath('testimonial-2.png')}
+                  src={getImagePath('2.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />
@@ -618,7 +618,7 @@ const DocumentTranslationWorkflow = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                    src={getImagePath('testimonial-3.jpg')}
+                    src={getImagePath('3.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />
@@ -656,7 +656,7 @@ const DocumentTranslationWorkflow = () => {
       <div className="container">
         <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
           How Our Solutions
-          <span className="blue">Translate to Real-World ROI?</span>
+          <span className="blue"> Translate to Real-World ROI?</span>
         </h2>
         <div className="">
           <div

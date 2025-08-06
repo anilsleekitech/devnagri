@@ -597,7 +597,7 @@ const Navbar = () => {
                 className="devnagri-btn"
                 style={{ padding: "10px 18px" }}
               >
-                <a className="mx-2 white" href="#">
+                <a className="mx-2 white" href="">
                   Get Started
                 </a>
               </button>

@@ -4679,3 +4679,129 @@ footer.footer  li.para-color.f-20 {
     width: 300px;
   }
 }
+
+.post-content img {
+    max-width: 100%;
+}
+
+.mobile-menu-header a.nav-link.dropdown-toggle.show {
+    color: var(--blue-color);;
+}
+
+/* section css start------------------------------------------- */
+
+.coidi-wrap {
+  display: flex;
+  position: relative;
+}
+.coidi-box {
+  min-width: 20%;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+.coidi-wrap .content-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+}
+.coidi-wrap .coidi-box-cntnt {
+    padding: 10px 0;
+    background: #E5F0FF;
+    border-radius: 45px;
+    color: #214774;
+}
+.outer-linesimg {
+  position: relative;
+  z-index: 1;
+}
+.coidi-box-cntnt li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.coidi-box.white .coidi-box-cntnt {
+  background-color: transparent;
+}
+.coidi-box .coidi-box-cntnt h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.coidi-box.first {
+  padding-left: 20px;
+}
+.coidi-box.first .coidi-box-cntnt {
+  margin-top: 96px
+}
+.coidi-box.second .coidi-box-cntnt {
+  margin-top: 26px
+}
+.coidi-box.third {
+   padding: 0 12px 0 7px;
+}
+.coidi-box.third .coidi-box-cntnt {
+  margin-top: 10px
+}
+.coidi-box.fourth {
+  padding-right: 20px;
+}
+.coidi-box.fourth .coidi-box-cntnt {
+  margin-top: 116px
+}
+.coidi-box.fifth {
+  padding-right: 20px;
+}
+.coidi-box.fifth .coidi-box-cntnt {
+  margin-top: 96px
+}
+.cpblts-sec {
+  padding: 60px 0;
+}
+@media only screen and (max-width: 1023.98px) {
+  .coidi-box {
+    min-width: 100%;
+  }
+  .outer-linesimg {
+    display: none;
+  }
+  .coidi-box.first {
+    padding-left: 0px;
+  }
+  .coidi-wrap .content-box {
+    position: relative;
+    display: block;
+  }
+  .coidi-box.second .coidi-box-cntnt {
+    margin-top: 40px;
+  }
+  .coidi-box.third {
+    padding: 0px;
+  }
+  .coidi-box.fourth .coidi-box-cntnt {
+      margin-top: 40px;
+  }
+  .coidi-box.fifth .coidi-box-cntnt {
+    margin-top: 40px;
+}
+.coidi-box.fifth ul {
+    padding-left: 60px !important;
+}
+.coidi-box.fourth ul {
+    padding-left: 60px !important;
+}
+.coidi-box.third ul {
+    padding-left: 32px !important;
+}
+.coidi-box.second ul {
+  padding-left: 40px!important;
+}
+.coidi-box.first ul {
+  padding-left: 30px!important;
+}
+.coidi-box.first .coidi-box-cntnt {
+  margin-top: 0px;
+}
+} 

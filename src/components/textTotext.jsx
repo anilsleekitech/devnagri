@@ -121,24 +121,45 @@ const TextTotext = ({ fromResources }) => {
     }, [fromLang]);
 
     useEffect(() => {
-  const savedText = sessionStorage.getItem('sourceText');
-  if (savedText) {
-    setSourceText(savedText);
-  }
-}, []);
+        const savedText = sessionStorage.getItem('sourceText');
+        if (savedText) {
+            setSourceText(savedText);
+        }
+    }, []);
 
-useEffect(() => {
-  sessionStorage.setItem('sourceText', sourceText);
-}, [sourceText]);
+    useEffect(() => {
+        sessionStorage.setItem('sourceText', sourceText);
+    }, [sourceText]);
 
-useEffect(() => {
-  return () => {
-    sessionStorage.removeItem('sourceText');
-  };
-}, []);
+    useEffect(() => {
+        return () => {
+            sessionStorage.removeItem('sourceText');
+        };
+    }, []);
+    useEffect(() => {
+        const scrollToBox = () => {
+            const el = document.getElementById('translation-box');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+
+        // Delay scroll to allow new content to mount
+        const timer = setTimeout(scrollToBox, 100);
+
+        return () => clearTimeout(timer);
+    }, [location.pathname]);
+
+    const scrollToTranslationBox = () => {
+        const element = document.getElementById('translation-box');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
     // Handle language change
     const handleLanguageChange = (e) => {
+        e.preventDefault();
         const newToLang = e.target.value;
         const newPath = activeTab === 'transliteration'
             ? `/english-to-${newToLang}-transliteration`
@@ -146,6 +167,9 @@ useEffect(() => {
 
         setSelectedLanguage(newToLang);
         navigate(newPath);
+        // setTimeout(() => {
+        //     scrollToTranslationBox();
+        // }, 100);
     };
 
     // Effect to sync URL with state
@@ -265,6 +289,9 @@ useEffect(() => {
         } else {
             navigate(`/english-to-${currentLang}-translation`, { replace: true });
         }
+        // setTimeout(() => {
+        //     scrollToTranslationBox();
+        // }, 100);
     };
 
     // Get display name for current language
@@ -462,6 +489,8 @@ useEffect(() => {
     };
 
 
+
+
     // Rest of the component JSX remains the same, but we'll add loading and error states
     return (
         <>
@@ -509,7 +538,7 @@ useEffect(() => {
                                     Book a Demo
                                     </button>
                                 </Link> */}
-                                    <Link to="#translation-box" className="blue">
+                                    <Link to="#translation-box" className="blue" onClick={scrollToTranslationBox}>
                                         <button type="btn" className="devnagri-btn mt-3">
                                             Try Now
                                         </button>
@@ -633,7 +662,10 @@ useEffect(() => {
                                                         data-bs-target="#translation"
                                                         type="button"
                                                         role="tab"
-                                                        onClick={() => handleTabChange('translation')}
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            handleTabChange('translation')
+                                                        }}
                                                     >
                                                         Translation
                                                     </button>
@@ -646,7 +678,10 @@ useEffect(() => {
                                                         data-bs-target="#transliteration"
                                                         type="button"
                                                         role="tab"
-                                                        onClick={() => handleTabChange('transliteration')}
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            handleTabChange('transliteration')
+                                                        }}
                                                     >
                                                         Transliteration
                                                     </button>

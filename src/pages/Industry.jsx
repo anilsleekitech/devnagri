@@ -165,7 +165,7 @@ const Industry = () => {
           <div className="container text-center">
             <h2 className="mb-4">Ready to Go Global?</h2>
             <p className="mb-4">Let us help you reach new markets with our industry-specific solutions</p>
-            <Link to="/contact" className="btn btn-light btn-lg">Get Started</Link>
+            <Link to="https://account.devnagri.com/register" className="btn btn-light btn-lg">Get Started</Link>
           </div>
         </section>
       </div>

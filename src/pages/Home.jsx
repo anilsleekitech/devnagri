@@ -45,6 +45,25 @@ const Home = () => {
     }
   }, [swiperInstance]);
 
+  useEffect(() => {
+    const initCarousel = () => {
+      const carouselElement = document.getElementById('carouselExampleAutoplaying');
+      if (carouselElement) {
+        // Initialize Bootstrap carousel
+        const carousel = new window.bootstrap.Carousel(carouselElement, {
+          interval: 2000,
+          wrap: true,
+          ride: 'carousel'
+        });
+      }
+    };
+
+    // Check if Bootstrap is available
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      initCarousel();
+    }
+  }, []);
+
   const updateNavigationState = (swiper) => {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
@@ -257,7 +276,7 @@ const Home = () => {
                 build trust through its industry-leading AI-powered multilingual
                 technology solutions.
               </p>
-              <Link to="https://account.devnagri.com/login" className="white"><button
+              <Link to="https://account.devnagri.com/register" className="white"><button
                 type="btn"
                 className="devnagri-btn wow fadeIn animated"
                 style={{ visibility: "visible" }}
@@ -2575,12 +2594,12 @@ const Home = () => {
       </section>
 
       {/*How we do it*/}
-      <section className="how-wedo-it">
+      <section className="">
         <div className="container">
           <h2 className="text-center pb-4 f-40 f-600 black wow fadeInUp">
             Capability <span className="blue">Framework</span>
           </h2>
-          <div className="how-wedo-workflow">
+          {/* <div className="how-wedo-workflow">
             <div className="back-blue text-center">
               <h4 className="f-400 white m-0 p-2 f-20">
                 AI-POWERED LOCALIZATION AT SCALE
@@ -2841,7 +2860,151 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </div> */}
+           <section className="cpblts-sec">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 coidi-wrap">
+            <div className="outer-linesimg">
+              <img className="img-fluid" src={getImagePath('outer-lines.svg')} alt="" />
+            </div>
+
+            <div className="content-box">
+              {/* Box 1 - Capabilities */}
+              <div className="coidi-box first">
+                <div className="coidi-box-cntnt">
+                  <div className="text-center pt-3 mb-3">
+                    <img
+                      style={{ maxHeight: '84px' }}
+                      src={getImagePath('menu-icon/capabilties-icon.png')}
+                      alt=""
+                    />
+                  </div>
+                  <h4 className="text-center">CAPABILITES</h4>
+                  <div className="text-center">
+                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                  </div>
+                  <div className="text-start px-5">
+                    <ul className="ps-0">
+                      <li>Multilingual Translation</li>
+                      <li>Multilingual Communication</li>
+                      <li>Workflow Solutions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Box 2 - Offerings */}
+              <div className="coidi-box second white">
+                <div className="coidi-box-cntnt ps-4 pt-0">
+                  <div className="text-center pt-3 mb-3">
+                    <img
+                      style={{ maxHeight: '84px' }}
+                      src={getImagePath('menu-icon/offerings-icon.png')}
+                      alt=""
+                    />
+                  </div>
+                  <h4 className="text-center">OFFERINGS</h4>
+                  <div className="text-center">
+                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                  </div>
+
+                  <ul className="ps-4 pe-1">
+                    <li className="mb-0">Text to Text</li>
+                    <li className="mb-0">Text to Speech</li>
+                    <li className="mb-0">Speech to Text Engine</li>
+                  </ul>
+                  <ul className="ps-4 pe-1">
+                    <li className="mb-0">Omnichannel voice and chatbots</li>
+                    <li className="mb-0">IVR automation</li>
+                    <li className="mb-0">Inbound and Outbound Processes</li>
+                  </ul>
+                  <ul className="ps-4 pe-1">
+                    <li className="mb-0">OCR 360</li>
+                    <li className="mb-0">Presale and Post-sale Process</li>
+                    <li className="mb-0">KYC and Document Verification</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Box 3 - Industries */}
+              <div className="coidi-box third">
+                <div className="coidi-box-cntnt">
+                  <div className="text-center pt-3 mb-3">
+                    <img
+                      style={{ maxHeight: '84px' }}
+                      src={getImagePath('menu-icon/industry-icon.png')}
+                      alt=""
+                    />
+                  </div>
+                  <h4 className="text-center">INDUSTRIES</h4>
+                  <div className="text-center">
+                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                  </div>
+                  <div className="text-start ps-5">
+                    <ul className="ps-0">
+                      <li>BFSI</li>
+                      <li>CONTACT CENTER</li>
+                      <li>EDUCATION</li>
+                      <li>E-COMMERCE</li>
+                      <li>LEGAL & COMPLIANCE</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Box 4 - Platform */}
+              <div className="coidi-box fourth white">
+                <div className="coidi-box-cntnt">
+                  <div className="text-center pt-3 mb-3">
+                    <img
+                      style={{ maxHeight: '84px' }}
+                      src={getImagePath('menu-icon/devnagri-platform.png')}
+                      alt=""
+                    />
+                  </div>
+                  <h4 className="text-center">DEVNAGRI’S PLATFORM</h4>
+                  <div className="text-center">
+                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                  </div>
+                  <ul className="ps-4 pe-2">
+                    <li>Core Translation Engine (NLP & ML)</li>
+                    <li>LLM & SLM Models</li>
+                    <li>BRAIM</li>
+                    <li>Agents</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Box 5 - Infra & Delivery */}
+              <div className="coidi-box fifth">
+                <div className="coidi-box-cntnt">
+                  <div className="text-center pt-3 mb-3">
+                    <img
+                      style={{ maxHeight: '84px' }}
+                      src={getImagePath('menu-icon/infra-delivery.png')}
+                      alt=""
+                    />
+                  </div>
+                  <h4 className="text-center">INFRA & DELIVERY</h4>
+                  <div className="text-center">
+                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                  </div>
+                  <ul className="ps-4 pe-2 pb-2 mb-2">
+                    <li>Enterprise-grade security</li>
+                    <li>On Prem & Cloud Delivery</li>
+                    <li>Integrations CRM, CMS</li>
+                    <li>APIs & Hooks</li>
+                    <li>Operational Dashboard</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
         </div>
       </section>
       {/*case study section*/}
@@ -2849,14 +3012,14 @@ const Home = () => {
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
             How Our Solutions
-            <span className="blue">Translate to Real-World ROI?</span>
+            <span className="blue"> Translate to Real-World ROI?</span>
           </h2>
           <div className="">
             <div
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              data-bs-interval={5000}
+
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">
@@ -3157,7 +3320,7 @@ const Home = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testmonial-1.jpg')}
+                      src={getImagePath('1.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -3193,7 +3356,7 @@ const Home = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testimonial-2.png')}
+                      src={getImagePath('2.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -3233,7 +3396,7 @@ const Home = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testimonial-3.jpg')}
+                      src={getImagePath('3.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -3455,7 +3618,7 @@ const Home = () => {
         </div>
       </section>
       {/*accordian section*/}
-       <FAQAccordion page="home" />
+      <FAQAccordion page="home" />
       {/*Showcase section*/}
       {/* <section class="py-5 translation-managemnt">
       <div class="container">

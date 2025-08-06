@@ -7,19 +7,21 @@ const Navbar = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   // Separate states for each dropdown
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+
   // Separate refs for each dropdown
   const productsRef = useRef(null);
   const industriesRef = useRef(null);
   const resourcesRef = useRef(null);
   const languageRef = useRef(null);
   const navbarRef = useRef(null);
+  const isMobileView = () => window.innerWidth < 992;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,8 +41,11 @@ const Navbar = () => {
     };
   }, [location]);
 
+
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsLanguageOpen(false);
+    setActiveSubmenu(null);
   };
 
   const handleMobileMenuClose = () => {
@@ -54,42 +59,60 @@ const Navbar = () => {
 
   // Handler for Products dropdown
   const handleProductsToggle = (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  
+  if (isMobileView()) {
+    // Toggle only the clicked dropdown in mobile view
     setIsProductsOpen(!isProductsOpen);
-    // Close other dropdowns
+  } else {
+    // Desktop behavior (close others)
+    setIsProductsOpen(!isProductsOpen);
     setIsIndustriesOpen(false);
     setIsResourcesOpen(false);
     setIsLanguageOpen(false);
-  };
+  }
+};
 
-  // Handler for Industries dropdown
-  const handleIndustriesToggle = (e) => {
-    e.preventDefault();
+// Apply the same pattern to other toggle handlers:
+const handleIndustriesToggle = (e) => {
+  e.preventDefault();
+  
+  if (isMobileView()) {
     setIsIndustriesOpen(!isIndustriesOpen);
-    // Close other dropdowns
+  } else {
+    setIsIndustriesOpen(!isIndustriesOpen);
     setIsProductsOpen(false);
     setIsResourcesOpen(false);
     setIsLanguageOpen(false);
-  };
+  }
+};
 
   // Handler for Resources dropdown
   const handleResourcesToggle = (e) => {
     e.preventDefault();
+    if (isMobileView()) {
     setIsResourcesOpen(!isResourcesOpen);
-    // Close other dropdowns
-    setIsProductsOpen(false);
+  } else {
+     setIsResourcesOpen(!isResourcesOpen);
     setIsIndustriesOpen(false);
+    setIsProductsOpen(false);
     setIsLanguageOpen(false);
+  }
   };
+
 
   // Handler for Language dropdown
   const handleLanguageToggle = (e) => {
     e.preventDefault();
-    setIsLanguageOpen(!isLanguageOpen);
-    // Close other dropdowns
-    setIsProductsOpen(false);
+    setActiveSubmenu(null);
+    if (isMobileView()) {
+     setIsLanguageOpen(!isLanguageOpen);
+  } else {
+     setIsLanguageOpen(!isLanguageOpen);
     setIsIndustriesOpen(false);
+    setIsProductsOpen(false);
     setIsResourcesOpen(false);
+  }
   };
 
   // Close dropdowns when clicking outside
@@ -105,6 +128,7 @@ const Navbar = () => {
         setIsIndustriesOpen(false);
         setIsResourcesOpen(false);
         setIsLanguageOpen(false);
+        setActiveSubmenu(null);
       }
     };
 
@@ -119,6 +143,9 @@ const Navbar = () => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
         setIsMobileMenuOpen(false);
+        setIsLanguageOpen(false);
+        setActiveSubmenu(null);
+
       }
     };
 
@@ -137,6 +164,10 @@ const Navbar = () => {
 
   const isExternalLink = (url) => {
     return url.startsWith('http') || url.startsWith('https');
+  };
+
+  const handleSubmenuToggle = (menuKey) => {
+    setActiveSubmenu((prev) => (prev === menuKey ? null : menuKey));
   };
 
   return (
@@ -400,7 +431,7 @@ const Navbar = () => {
                       <div className='row'>
                         <div className='col-12'>
                           <Link to='/english-to-hindi-translation'>
-                          <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4'></img>
+                            <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4'></img>
                           </Link>
                         </div>
                       </div>
@@ -408,7 +439,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-              
+
               {/* Industries Dropdown */}
               <li className="nav-item dropdown" ref={industriesRef}>
                 <Link
@@ -558,11 +589,11 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-              
+
               {/* Resources Dropdown */}
               <li className="nav-item dropdown" ref={resourcesRef}>
                 <Link
-                  className={`nav-link dropdown-toggle ${isResourcesOpen ? 'show' : ''}`}
+                  className='nav-link dropdown-toggle'
                   to="#"
                   onClick={handleResourcesToggle}
                 >
@@ -715,15 +746,15 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-               {/* Pricing */}
+              {/* Pricing */}
               {/* <li className="nav-item">
                 <Link className="nav-link" to="/pricing">
                   Pricing
                 </Link>
               </li> */}
-              
+
               <li className="nav-item">
-                <Link className="mx-2 white" to="https://account.devnagri.com/login"> 
+                <Link className="mx-2 white" to="https://account.devnagri.com/register">
                   <button
                     type="button"
                     className="devnagri-btn"
@@ -733,7 +764,7 @@ const Navbar = () => {
                   </button>
                 </Link>
               </li>
-              
+
               {/* Language Selector */}
               <li className="nav-item dropdown position-relative" ref={languageRef}>
                 <Link
@@ -751,13 +782,17 @@ const Navbar = () => {
                 </Link>
                 <ul className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : ''}`}>
                   {/* Indian Languages */}
-                  <li className="dropdown-submenu">
-                    <Link className="dropdown-item dropdown-toggle" to="#">
+                  <li className={`dropdown-submenu ${activeSubmenu === 'indian' ? 'show' : ''}`}>
+                    <button className="dropdown-item dropdown-toggle"
+                      onClick={() => handleSubmenuToggle('indian')}>
                       <img src="https://flagcdn.com/in.svg" width={18} /> Indian
                       Languages
                       <i className="dropdown-icon fas fa-angle-right" />
-                    </Link>
-                    <ul className="dropdown-menu scrollable-menu">
+                    </button>
+                    <ul
+                      className={`dropdown-menu scrollable-menu ${activeSubmenu === 'indian' ? 'show' : ''
+                        }`}
+                    >
                       <li>
                         <Link className="dropdown-item" to="#">
                           <img src="https://flagcdn.com/in.svg" width={18} />{" "}
@@ -893,13 +928,20 @@ const Navbar = () => {
                     </ul>
                   </li>
                   {/* International Languages */}
-                  <li className="dropdown-submenu">
-                    <Link className="dropdown-item dropdown-toggle" to="#">
+                  <li className={`dropdown-submenu ${activeSubmenu === 'intl' ? 'show' : ''}`}>
+                    <button
+                      className="dropdown-item dropdown-toggle"
+                      onClick={() => handleSubmenuToggle('intl')}
+                    >
                       <img src="https://flagcdn.com/gb.svg" width={18} />{" "}
                       International Languages
                       <i className="dropdown-icon fas fa-angle-right" />
-                    </Link>
-                    <ul className="dropdown-menu scrollable-menu">
+                    </button>
+                     <ul
+                  className={`dropdown-menu scrollable-menu ${
+                    activeSubmenu === 'intl' ? 'show' : ''
+                  }`}
+                >
                       <li>
                         <Link className="dropdown-item" to="#">
                           <img src="https://flagcdn.com/cn.svg" width={18} />{" "}

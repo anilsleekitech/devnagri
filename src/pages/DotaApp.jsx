@@ -522,7 +522,7 @@ const DotaApp = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                  src={getImagePath('testmonial-1.jpg')}
+                  src={getImagePath('1.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />
@@ -559,7 +559,7 @@ const DotaApp = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                      src={getImagePath('testimonial-2.png')}
+                      src={getImagePath('2.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />
@@ -600,7 +600,7 @@ const DotaApp = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                    src={getImagePath('testimonial-3.jpg')}
+                    src={getImagePath('3.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />
@@ -638,7 +638,7 @@ const DotaApp = () => {
       <div className="container">
         <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
           How Our Solutions
-          <span className="blue">Translate to Real-World ROI?</span>
+          <span className="blue"> Translate to Real-World ROI?</span>
         </h2>
         <div className="">
           <div
@@ -1060,7 +1060,7 @@ const DotaApp = () => {
   <section className="get-strated bg-img">
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's DOTA App is Transforming Hundreds or 2 Hundreds of Businesses Why Wait?
+        If Your Message Crosses Borders, So Does Your Business
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}
       {/* Stats */}

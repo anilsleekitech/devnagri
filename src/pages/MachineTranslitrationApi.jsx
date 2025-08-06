@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
@@ -7,6 +7,25 @@ import FAQAccordion from '@/components/FAQAccordion';
 const MachineTranslitrationApi = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+useEffect(() => {
+    const initCarousel = () => {
+      const carouselElement = document.getElementById('carouselExampleAutoplaying');
+      if (carouselElement) {
+        // Initialize Bootstrap carousel
+        const carousel = new window.bootstrap.Carousel(carouselElement, {
+          interval: 2000,
+          wrap: true,
+          ride: 'carousel'
+        });
+      }
+    };
+
+    // Check if Bootstrap is available
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      initCarousel();
+    }
+  }, []);
+
   return (
     <>
       <head>
@@ -654,14 +673,14 @@ const MachineTranslitrationApi = () => {
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
             How Our Solutions
-            <span className="blue">Translate to Real-World ROI?</span>
+            <span className="blue"> Translate to Real-World ROI?</span>
           </h2>
           <div className="">
             <div
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              data-bs-interval={5000}
+              
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">

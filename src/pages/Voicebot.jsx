@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
@@ -8,6 +8,56 @@ import FAQAccordion from '@/components/FAQAccordion';
 const Voicebot = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+      const initCarousel = () => {
+        const carouselElement = document.getElementById('carouselExampleAutoplaying');
+        if (carouselElement) {
+          // Initialize Bootstrap carousel
+          const carousel = new window.bootstrap.Carousel(carouselElement, {
+            interval: 2000,
+            wrap: true,
+            ride: 'carousel'
+          });
+        }
+      };
+  
+      // Check if Bootstrap is available
+      if (typeof window !== 'undefined' && window.bootstrap) {
+        initCarousel();
+      }
+    }, []);
+
+    useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      },
+      {
+        threshold: 0.3, // Pause if less than 30% visible
+      }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
+
   return (
     <>
       <head>
@@ -56,14 +106,15 @@ const Voicebot = () => {
             </div>
             <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
               <div className="position-relative wow fadeIn">
-                <video
-                  autoPlay
-                  loop
-                  playsInline
-                  controls
-                  className="rounded-4"
-                  style={{ width: "100%", height: "100%" }}
-                >
+                 <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      ref={videoRef}
+      className="rounded-4"
+      style={{ width: '100%', height: '100%' }}
+    >
                   <source
                     src={getImagePath("product-pages-viedos/agent-voicebot.mp4")}
                     type="video/mp4"
@@ -237,7 +288,7 @@ const Voicebot = () => {
                 context, so every conversation feels human and local.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Get Started{" "}
                 </button></Link>
@@ -421,7 +472,7 @@ const Voicebot = () => {
                     />{" "}
                     Book a Demo{" "}
                   </button></Link>
-                  <Link to="https://account.devnagri.com/login" className=""><button
+                  <Link to="https://account.devnagri.com/register" className=""><button
                     type="btn"
                     className="devnagri-btn devnagri-white-btn mt-3 blue"
                   >
@@ -684,14 +735,14 @@ const Voicebot = () => {
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
             How Our Solutions
-            <span className="blue">Translate to Real-World ROI?</span>
+            <span className="blue"> Translate to Real-World ROI?</span>
           </h2>
           <div className="">
             <div
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              data-bs-interval={5000}
+              
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">

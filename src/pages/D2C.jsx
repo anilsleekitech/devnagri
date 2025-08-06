@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
@@ -6,6 +6,25 @@ import { getImagePath } from '@/utils/imageUtils';
 const D2C = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+  useEffect(() => {
+      const initCarousel = () => {
+        const carouselElement = document.getElementById('carouselExampleAutoplaying');
+        if (carouselElement) {
+          // Initialize Bootstrap carousel
+          const carousel = new window.bootstrap.Carousel(carouselElement, {
+            interval: 2000,
+            wrap: true,
+            ride: 'carousel'
+          });
+        }
+      };
+  
+      // Check if Bootstrap is available
+      if (typeof window !== 'undefined' && window.bootstrap) {
+        initCarousel();
+      }
+    }, []);
+  
   return (
     <>
       <head>
@@ -299,7 +318,7 @@ const D2C = () => {
                 where most brands lose it, after the checkout.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Get Started{" "}
                 </button></Link>
@@ -578,7 +597,7 @@ const D2C = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testmonial-1.jpg')}
+                      src={getImagePath('1.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -615,7 +634,7 @@ const D2C = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testimonial-2.png')}
+                      src={getImagePath('2.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -656,7 +675,7 @@ const D2C = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testimonial-3.jpg')}
+                      src={getImagePath('3.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -694,14 +713,14 @@ const D2C = () => {
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
             How Our Solutions
-            <span className="blue">Translate to Real-World ROI?</span>
+            <span className="blue"> Translate to Real-World ROI?</span>
           </h2>
           <div className="">
             <div
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              data-bs-interval={5000}
+             
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">

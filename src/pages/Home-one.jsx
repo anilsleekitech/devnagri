@@ -2787,7 +2787,7 @@ const Home = () => {
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
             How Our Solutions
-            <span className="blue">Translate to Real-World ROI?</span>
+            <span className="blue"> Translate to Real-World ROI?</span>
           </h2>
           {/* Desktop/Tablet View */}
           <div className="">

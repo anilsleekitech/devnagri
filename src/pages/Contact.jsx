@@ -82,7 +82,7 @@ const Contact = () => {
             your business through our industry-leading multilingual solutions.
           </p>
           <Link to="/book-a-demo" className="white">
-            <button type="btn" className="devnagri-btn mt-3">Book a Demo</button>
+            <button type="btn" className="devnagri-btn mt-3 mb-3">Book a Demo</button>
           </Link>
         </div>
         <div className="col-lg-4">

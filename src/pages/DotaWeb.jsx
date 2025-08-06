@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
@@ -8,6 +8,24 @@ import FAQAccordion from '@/components/FAQAccordion';
 const DotaWeb = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+  useEffect(() => {
+      const initCarousel = () => {
+        const carouselElement = document.getElementById('carouselExampleAutoplaying');
+        if (carouselElement) {
+          // Initialize Bootstrap carousel
+          const carousel = new window.bootstrap.Carousel(carouselElement, {
+            interval: 2000,
+            wrap: true,
+            ride: 'carousel'
+          });
+        }
+      };
+  
+      // Check if Bootstrap is available
+      if (typeof window !== 'undefined' && window.bootstrap) {
+        initCarousel();
+      }
+    }, []);
   return (
     <>
       <head>
@@ -425,9 +443,9 @@ const DotaWeb = () => {
                     />{" "}
                     Request Demo{" "}
                   </button></Link>
-                  <Link to="https://account.devnagri.com/login" className="blue"><button
+                  <Link to="https://account.devnagri.com/register" className="blue"><button
                     type="btn"
-                    className="devnagri-btn devnagri-white-btn mt-3"
+                    className="devnagri-btn devnagri-white-btn mt-3 blue"
                   >
                     {" "}
                     Get Strated{" "}
@@ -532,7 +550,7 @@ const DotaWeb = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testmonial-1.jpg')}
+                      src={getImagePath('1.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -569,7 +587,7 @@ const DotaWeb = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testimonial-2.png')}
+                      src={getImagePath('2.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -610,7 +628,7 @@ const DotaWeb = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('testimonial-3.jpg')}
+                      src={getImagePath('3.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -648,14 +666,14 @@ const DotaWeb = () => {
         <div className="container">
           <h2 className="white text-center pb-5 f-40 f-600 wow fadeInUp">
             How Our Solutions
-            <span className="blue">Translate to Real-World ROI?</span>
+            <span className="blue"> Translate to Real-World ROI?</span>
           </h2>
           <div className="">
             <div
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              data-bs-interval={5000}
+              
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">
@@ -1070,7 +1088,7 @@ const DotaWeb = () => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's DOTA Web is Transforming Hundreds or 2 Hundreds of Businesses Why Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Already trusted by over 200 customers. Experience accurate, 
   automated transliteration built for enterprise scale.</p> */}
@@ -1115,7 +1133,7 @@ const DotaWeb = () => {
             </div>
           </div>
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
               {" "}
               Get Started Now
             </button></Link>
