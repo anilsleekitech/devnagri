@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
@@ -7,6 +7,57 @@ import FAQAccordion from '@/components/FAQAccordion';
 const MachineTranslitrationApi = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+
+  const videoRef = useRef(null);
+
+useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.loop = true;
+    video.muted = true;
+
+    // Try autoplay
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.error("Autoplay failed:", error);
+      });
+    }
+
+    // Skip every 2s
+    const interval = setInterval(() => {
+      if (!video.paused && video.currentTime + 0.1 < video.duration) {
+        video.currentTime += 0.1;
+      } else if (!video.paused) {
+        video.currentTime = 0;
+      }
+    }, 2000);
+
+    // Pause on scroll out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => { }); // resume if in view
+        } else {
+          video.pause(); // pause if out of view
+        }
+      },
+      {
+        threshold: 0.3, // pause if less than 30% visible
+      }
+    );
+
+    observer.observe(video);
+
+    // Clean up
+    return () => {
+      clearInterval(interval);
+      observer.disconnect();
+    };
+  }, []);
+
 useEffect(() => {
     const initCarousel = () => {
       const carouselElement = document.getElementById('carouselExampleAutoplaying');
@@ -74,6 +125,7 @@ useEffect(() => {
               <div className="position-relative wow fadeIn">
                 <video
                   autoPlay
+                  ref={videoRef}
                   muted
                   loop
                   playsInline

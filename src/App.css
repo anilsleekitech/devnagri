@@ -4824,3 +4824,20 @@ footer.footer  li.para-color.f-20 {
   font-size: 17px;
 }
 }
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+.coidi-box.third {
+    padding: 0 12px 0 9px;
+}
+.coidi-box.fifth .coidi-box-cntnt {
+    margin-top: 92px;
+}
+.coidi-box.fifth {
+    padding: 0 6px 0 17px;
+    position: relative;
+    left: -14px;
+}
+.coidi-box.second .coidi-box-cntnt {
+    margin-top: 6px;
+}
+}

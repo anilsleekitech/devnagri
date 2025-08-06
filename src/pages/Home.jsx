@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { initializeWow, initializeSliders, initializeCounters, initializeFAQs } from '../utils/initializeAnimations';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -19,6 +19,56 @@ const Home = () => {
 
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+
+  const videoRef = useRef(null);
+  
+  useEffect(() => {
+      const video = videoRef.current;
+  
+      if (!video) return;
+  
+      video.loop = true;
+      video.muted = true;
+  
+      // Try autoplay
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.error("Autoplay failed:", error);
+        });
+      }
+  
+      // Skip every 2s
+      const interval = setInterval(() => {
+        if (!video.paused && video.currentTime + 0.1 < video.duration) {
+          video.currentTime += 0.1;
+        } else if (!video.paused) {
+          video.currentTime = 0;
+        }
+      }, 2000);
+  
+      // Pause on scroll out of view
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => { }); // resume if in view
+          } else {
+            video.pause(); // pause if out of view
+          }
+        },
+        {
+          threshold: 0.3, // pause if less than 30% visible
+        }
+      );
+  
+      observer.observe(video);
+  
+      // Clean up
+      return () => {
+        clearInterval(interval);
+        observer.disconnect();
+      };
+    }, []);
   useEffect(() => {
     // Initialize all features when component mounts
     initializeWow();
@@ -897,6 +947,7 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
+                                      ref={videoRef}
                                       muted
                                       loop
                                       playsInline
