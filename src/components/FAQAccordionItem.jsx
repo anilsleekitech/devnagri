@@ -20,7 +20,7 @@ const FAQAccordionItem = ({ index, activeIndex, toggle, question, answer }) => {
       </h2>
       <div
         id={`collapse${index}`}
-        className={`accordion-collapse collapse ${isOpen ? "show" : ""}`}
+        className={`accordion-collapse collapse fade ${isOpen ? "show" : ""}`}
         data-bs-parent="#accordionExample"
       >
         <div className="accordion-body f-400 para-color">{answer}</div>

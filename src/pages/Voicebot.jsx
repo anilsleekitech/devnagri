@@ -11,51 +11,72 @@ const Voicebot = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
-      const initCarousel = () => {
-        const carouselElement = document.getElementById('carouselExampleAutoplaying');
-        if (carouselElement) {
-          // Initialize Bootstrap carousel
-          const carousel = new window.bootstrap.Carousel(carouselElement, {
-            interval: 2000,
-            wrap: true,
-            ride: 'carousel'
-          });
-        }
-      };
-  
-      // Check if Bootstrap is available
-      if (typeof window !== 'undefined' && window.bootstrap) {
-        initCarousel();
+    const initCarousel = () => {
+      const carouselElement = document.getElementById('carouselExampleAutoplaying');
+      if (carouselElement) {
+        // Initialize Bootstrap carousel
+        const carousel = new window.bootstrap.Carousel(carouselElement, {
+          interval: 2000,
+          wrap: true,
+          ride: 'carousel'
+        });
       }
-    }, []);
+    };
 
-    useEffect(() => {
+    // Check if Bootstrap is available
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      initCarousel();
+    }
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.loop = true;
+    video.muted = true;
+
+    // Try autoplay
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.error("Autoplay failed:", error);
+      });
+    }
+
+    // Skip every 2s
+    const interval = setInterval(() => {
+      if (!video.paused && video.currentTime + 0.1 < video.duration) {
+        video.currentTime += 0.1;
+      } else if (!video.paused) {
+        video.currentTime = 0;
+      }
+    }, 2000);
+
+    // Pause on scroll out of view
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const video = videoRef.current;
-        if (!video) return;
-
         if (entry.isIntersecting) {
-          video.play();
+          video.play().catch(() => { }); // resume if in view
         } else {
-          video.pause();
+          video.pause(); // pause if out of view
         }
       },
       {
-        threshold: 0.3, // Pause if less than 30% visible
+        threshold: 0.3, // pause if less than 30% visible
       }
     );
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
+    observer.observe(video);
 
+    // Clean up
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
+      clearInterval(interval);
+      observer.disconnect();
     };
   }, []);
+
 
 
   return (
@@ -106,15 +127,15 @@ const Voicebot = () => {
             </div>
             <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
               <div className="position-relative wow fadeIn">
-                 <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      ref={videoRef}
-      className="rounded-4"
-      style={{ width: '100%', height: '100%' }}
-    >
+                <video
+                  autoPlay
+                  ref={videoRef}
+                  loop
+                  playsInline
+                  controls
+                  className="rounded-4"
+                  style={{ width: "100%", height: "100%" }}
+                >
                   <source
                     src={getImagePath("product-pages-viedos/agent-voicebot.mp4")}
                     type="video/mp4"
@@ -742,7 +763,7 @@ const Voicebot = () => {
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              
+
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">

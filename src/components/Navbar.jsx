@@ -217,7 +217,7 @@ const handleIndustriesToggle = (e) => {
                 >
                   Products <i className="dropdown-icon fas fa-chevron-down" />
                 </Link>
-                <div className={`mega-menu dropdown-menu ${isProductsOpen ? 'show' : ''}`}>
+                <div className={`mega-menu dropdown-menu ${isProductsOpen ? 'show' : 'hide'}`}>
                   <div className="row">
                     <div className="col-lg-4 col-md-6">
                       <div className="row">
@@ -449,7 +449,7 @@ const handleIndustriesToggle = (e) => {
                 >
                   Industries <i className="dropdown-icon fas fa-chevron-down" />
                 </Link>
-                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isIndustriesOpen ? 'show' : ''}`}>
+                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isIndustriesOpen ? 'show' : 'hide'}`}>
                   <div className="row">
                     <div className="col-md-12">
                       <div className="row">
@@ -599,7 +599,7 @@ const handleIndustriesToggle = (e) => {
                 >
                   Resources <i className="dropdown-icon fas fa-chevron-down" />
                 </Link>
-                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isResourcesOpen ? 'show' : ''}`}>
+                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isResourcesOpen ? 'show' : 'hide'}`}>
                   <div className="row">
                     <div className="col-md-12">
                       <div className="row">
@@ -780,7 +780,7 @@ const handleIndustriesToggle = (e) => {
                   EN
                   <i className="dropdown-icon fas fa-chevron-down" />
                 </Link>
-                <ul className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : ''}`}>
+                <ul className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : 'hide'}`}>
                   {/* Indian Languages */}
                   <li className={`dropdown-submenu ${activeSubmenu === 'indian' ? 'show' : ''}`}>
                     <button className="dropdown-item dropdown-toggle"

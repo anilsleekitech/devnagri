@@ -883,6 +883,7 @@ header .dropdown {
 .testimonial-section {
   padding: 60px 0px 60px;
   background-image: var(--testimonil-bg);
+  overflow: hidden;
 }
 
 .testimonial-quote {
@@ -4722,6 +4723,7 @@ footer.footer  li.para-color.f-20 {
   margin-bottom: 12px;
   font-size: 15px;
   font-weight: 500;
+  list-style: circle;
 }
 .coidi-box.white .coidi-box-cntnt {
   background-color: transparent;
@@ -4740,7 +4742,7 @@ footer.footer  li.para-color.f-20 {
   margin-top: 26px
 }
 .coidi-box.third {
-   padding: 0 12px 0 7px;
+    padding: 0 22px 0 0px;
 }
 .coidi-box.third .coidi-box-cntnt {
   margin-top: 10px
@@ -4752,10 +4754,12 @@ footer.footer  li.para-color.f-20 {
   margin-top: 116px
 }
 .coidi-box.fifth {
-  padding-right: 20px;
+    padding-right: 20px;
+    position: relative;
+    left: -14px;
 }
 .coidi-box.fifth .coidi-box-cntnt {
-  margin-top: 96px
+  margin-top: 106px;
 }
 .cpblts-sec {
   padding: 60px 0;
@@ -4805,3 +4809,18 @@ footer.footer  li.para-color.f-20 {
   margin-top: 0px;
 }
 } 
+
+.mega-menu.dropdown-menu.hide {
+    display: none !important;
+}
+@media only screen and (min-width: 1366px) {
+.coidi-box-cntnt li {
+  font-size: 16px;
+}
+}
+
+@media only screen and (min-width: 1440px) {
+.coidi-box-cntnt li {
+  font-size: 17px;
+}
+}

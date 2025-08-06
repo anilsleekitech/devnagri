@@ -2896,7 +2896,7 @@ const Home = () => {
 
               {/* Box 2 - Offerings */}
               <div className="coidi-box second white">
-                <div className="coidi-box-cntnt ps-4 pt-0">
+                <div className="coidi-box-cntnt ps-4 pe-4 pt-0">
                   <div className="text-center pt-3 mb-3">
                     <img
                       style={{ maxHeight: '84px' }}
