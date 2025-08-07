@@ -66,7 +66,7 @@ useEffect(() => {
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-12 col-lg-8 text-center">
-              <h6 className="f-14 f-500 black pb-3 m-0 wow fadeInUp">ABOUT</h6>
+              {/* <h6 className="f-14 f-500 black pb-3 m-0 wow fadeInUp">ABOUT</h6> */}
               <h1 className="f-40 f-700 black pb-3 m-0 wow fadeInUp">
                 We Make Multilingual Communication{" "}
                 <span className="blue">Smart and Local</span>
@@ -672,8 +672,7 @@ useEffect(() => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's AI-powered Multilingual Solutions Transforming Hundreds or 2 Hundreds of
-            Businesses. Why Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Automate your project with a tap. Trusted by elite brands. Let's
   make your content speak every language.</p> */}
@@ -724,7 +723,7 @@ useEffect(() => {
             </div>
           </div>
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="https://account.devnagri.com/login" className="white">
+            <Link to="https://account.devnagri.com/register" className="white">
               <button type="btn" className="devnagri-btn">
                 {" "}
                 Start Now

@@ -761,7 +761,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -853,7 +852,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -946,7 +944,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -1039,7 +1036,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -1133,7 +1129,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -1285,7 +1280,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -1378,7 +1372,6 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -1500,7 +1493,6 @@ const Home = () => {
                                   {activeContent.media === 'video' ? (
                                     <video
                                       autoPlay
-                                      muted
                                       loop
                                       playsInline
                                       className="rounded-4"
@@ -1614,7 +1606,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -1719,7 +1710,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -1830,7 +1820,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -1941,7 +1930,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -2056,7 +2044,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -2170,7 +2157,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -2286,7 +2272,6 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  muted
                                   loop
                                   playsInline
                                   className="rounded-4"
@@ -2398,7 +2383,6 @@ const Home = () => {
                                     {tab.mediaType === 'video' ? (
                                       <video
                                         autoPlay
-                                        muted
                                         loop
                                         playsInline
                                         className="rounded-4"
@@ -2986,7 +2970,7 @@ const Home = () => {
                       alt=""
                     />
                   </div>
-                  <h4 className="text-center">INDUSTRIES</h4>
+                  <h4 className="text-center">INDUSTRIES </h4>
                   <div className="text-center">
                     <img src={getImagePath('arrow-down-big.svg')} alt="" />
                   </div>
@@ -2997,6 +2981,8 @@ const Home = () => {
                       <li>EDUCATION</li>
                       <li>E-COMMERCE</li>
                       <li>LEGAL & COMPLIANCE</li>
+                      <li>D2C</li>
+                      <li>GOVERNMENT</li>
                     </ul>
                   </div>
                 </div>
@@ -3019,7 +3005,7 @@ const Home = () => {
                   <ul className="ps-4 pe-2">
                     <li>Core Translation Engine (NLP & ML)</li>
                     <li>LLM & SLM Models</li>
-                    <li>BRAIM</li>
+                    <li>BRAIN</li>
                     <li>Agents</li>
                   </ul>
                 </div>
@@ -3360,7 +3346,7 @@ const Home = () => {
         <div className="container">
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 black text-center black wow fadeInUp black">
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative">
@@ -3722,8 +3708,7 @@ const Home = () => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's AI-powered Multilingual Solutions Transforming Hundreds or 2 Hundreds of
-            Businesses. Why Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           <div className="row mt-5 text-center custom-stats-row">
             <div className="col-6 col-md-3 custom-stats-col wow fadeInUp">
@@ -3771,7 +3756,7 @@ const Home = () => {
             </div>
           </div>
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
 
               {" "}
               Start Now

@@ -251,7 +251,7 @@ const D2C = () => {
                 between promotion and customer connection in a D2C chain.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   Start Now
                 </button></Link>
               </div>
@@ -587,7 +587,7 @@ const D2C = () => {
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
               {/* <img src=${getImagePath(testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative">
@@ -1133,8 +1133,7 @@ const D2C = () => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's AI-powered D2C Industry-focused Multilingual Solutions
-            Transforming Hundreds or 2 Hundreds of Businesses Why Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Automate your project with a tap. Trusted by elite brands. Let's
   make your content speak every language.</p> */}
@@ -1158,7 +1157,7 @@ const D2C = () => {
   </div>
 </div> */}
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
               {" "}
               Start Now
             </button></Link>

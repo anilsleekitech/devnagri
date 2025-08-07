@@ -113,7 +113,7 @@ useEffect(() => {
                     Book a Demo{" "}
                   </button>
                 </Link>
-                <Link to="https://account.devnagri.com/login" className="">
+                <Link to="https://account.devnagri.com/register" className="">
                   <button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
                     {" "}
                     Start for Free{" "}
@@ -126,10 +126,8 @@ useEffect(() => {
                 <video
                   autoPlay
                   ref={videoRef}
-                  muted
                   loop
                   playsInline
-                  controls
                   className="rounded-4"
                   style={{ width: "100%", height: "100%" }}
                 >
@@ -304,7 +302,7 @@ useEffect(() => {
                 is important.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white">
+                <Link to="https://account.devnagri.com/register" className="white">
                   <button type="btn" className="devnagri-btn mt-3">
                     {" "}
                     Try for Free
@@ -502,7 +500,7 @@ useEffect(() => {
                       Book a Demo{" "}
                     </button>
                   </Link>
-                  <Link to="https://account.devnagri.com/login">
+                  <Link to="https://account.devnagri.com/register">
                     <button
                       type="btn"
                       className="devnagri-btn devnagri-white-btn mt-3 blue"
@@ -537,7 +535,7 @@ useEffect(() => {
                   enterprise scale.
                 </p>
                 <div className="d-flex align-items-center justify-content-start gap-3 ps-0 ps-lg-5">
-                  <Link to="https://account.devnagri.com/login">
+                  <Link to="https://account.devnagri.com/register">
                     <button type="btn" className="devnagri-btn mt-3">
                       {" "}
                       Start Free{" "}
@@ -565,7 +563,7 @@ useEffect(() => {
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
               {/* <img src="${getImagePath(/testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative wow fadeIn">
@@ -1153,8 +1151,7 @@ useEffect(() => {
       <section className="get-strated bg-img" style={{ padding: "60px 0px" }}>
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's Machine Transliteration API is Transforming Hundreds of
-            Businesses. Why Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Already trusted by over 200 customers. Experience accurate, 
   automated transliteration built for enterprise scale.</p> */}
@@ -1199,7 +1196,7 @@ useEffect(() => {
             </div>
           </div>
           <div className="text-center mt-5 wow fadeInUp">
-            <Link to="https://account.devnagri.com/login">
+            <Link to="https://account.devnagri.com/register">
               <button type="btn" className="devnagri-btn">
                 {" "}
                 Start Now

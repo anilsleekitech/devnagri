@@ -3112,7 +3112,7 @@ const Home = () => {
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 black text-center black wow fadeInUp black">
               {/* <img src="/assets/images/testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative">

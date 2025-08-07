@@ -325,7 +325,7 @@ const EcommerceTranslation = () => {
                 brand memory in all of your markets.
               </p>
               <div className="wow fadeInUp">
-                <Link to="/contact" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Start Now{" "}
                 </button></Link>
@@ -601,7 +601,7 @@ const EcommerceTranslation = () => {
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
               {/* <img src=${getImagePath(    testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative">
@@ -1147,8 +1147,7 @@ const EcommerceTranslation = () => {
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's AI-powered eCommerce Industry-focused Multilingual Solutions
-            Transforming Hundreds or 2 Hundreds of Businesses Why Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Automate your project with a tap. Trusted by elite brands. Let's
   make your content speak every language.</p> */}
@@ -1172,7 +1171,7 @@ const EcommerceTranslation = () => {
   </div>
 </div> */}
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="/signup" className="white"><button type="btn" className="devnagri-btn">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
               {" "}
               Start Now
             </button></Link>

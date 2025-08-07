@@ -8,10 +8,10 @@ import FAQAccordion from '@/components/FAQAccordion';
 const DotaWeb = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
- 
+
   const videoRef = useRef(null);
 
-useEffect(() => {
+  useEffect(() => {
     const video = videoRef.current;
 
     if (!video) return;
@@ -60,23 +60,23 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-      const initCarousel = () => {
-        const carouselElement = document.getElementById('carouselExampleAutoplaying');
-        if (carouselElement) {
-          // Initialize Bootstrap carousel
-          const carousel = new window.bootstrap.Carousel(carouselElement, {
-            interval: 2000,
-            wrap: true,
-            ride: 'carousel'
-          });
-        }
-      };
-  
-      // Check if Bootstrap is available
-      if (typeof window !== 'undefined' && window.bootstrap) {
-        initCarousel();
+    const initCarousel = () => {
+      const carouselElement = document.getElementById('carouselExampleAutoplaying');
+      if (carouselElement) {
+        // Initialize Bootstrap carousel
+        const carousel = new window.bootstrap.Carousel(carouselElement, {
+          interval: 2000,
+          wrap: true,
+          ride: 'carousel'
+        });
       }
-    }, []);
+    };
+
+    // Check if Bootstrap is available
+    if (typeof window !== 'undefined' && window.bootstrap) {
+      initCarousel();
+    }
+  }, []);
   return (
     <>
       <head>
@@ -112,7 +112,7 @@ useEffect(() => {
                   />{" "}
                   Request Demo{" "}
                 </button></Link>
-                <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
+                <Link to="https://account.devnagri.com/register" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
                   {" "}
                   Start Now{" "}
                 </button></Link>
@@ -123,10 +123,8 @@ useEffect(() => {
                 <video
                   autoPlay
                   ref={videoRef}
-                  muted
                   loop
                   playsInline
-                  controls
                   className="rounded-4"
                   style={{ width: "100%", height: "100%" }}
                 >
@@ -306,7 +304,7 @@ useEffect(() => {
                 existing workflows.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Get Plugin{" "}
                 </button></Link>
@@ -554,7 +552,7 @@ useEffect(() => {
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
               {/* <img src=${getImagePath(testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative wow fadeInUp">
@@ -725,7 +723,7 @@ useEffect(() => {
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-              
+
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">

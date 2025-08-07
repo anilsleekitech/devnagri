@@ -99,7 +99,7 @@ const ChatBots = () => {
                 />{" "}
                 Watch the Demo{" "}
             </button></Link>
-              <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
+              <Link to="https://account.devnagri.com/register" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
                 {" "}
                 Start Now{" "}
             </button></Link>
@@ -110,10 +110,8 @@ const ChatBots = () => {
             <video
               autoPlay
               ref={videoRef}
-              muted
               loop
               playsInline
-              controls
               className="rounded-4"
               style={{ width: "100%", height: "100%" }}
             >
@@ -292,7 +290,7 @@ const ChatBots = () => {
             local, not robotic.
           </p>
           <div className="wow fadeInUp">
-            <Link to="https://account.devnagri.com/login" className="white">
+            <Link to="https://account.devnagri.com/register" className="white">
               <button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Start Now{" "}
@@ -360,7 +358,7 @@ const ChatBots = () => {
             languages and platforms.
           </p>
           <div className="wow fadeInUp">
-            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                 Try It Now
             </button></Link>
           </div>
@@ -479,7 +477,7 @@ const ChatBots = () => {
                   />{" "}
                   Book a Demo{" "}
               </button></Link>
-              <Link to="https://account.devnagri.com/login" className=""><button
+              <Link to="https://account.devnagri.com/register" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
@@ -539,7 +537,7 @@ const ChatBots = () => {
       <div className="testimonial-heading">
         <h2 className="f-600 f-40 black pb-3 text-center wow fadeInUp">
           {/* <img src=${getImagePath(testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-          What our <span className="blue">customers say?</span>
+          What Our <span className="blue">Customers Say?</span>
         </h2>
       </div>
       <div className="testimonial-slider1 position-relative wow fadeInUp">
@@ -1176,8 +1174,7 @@ const ChatBots = () => {
   <section className="get-strated bg-img" style={{ padding: "60px 0px" }}>
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's Multilingual Chat Bot is Transforming Hundreds or 2 Hundreds of Businesses
-        Why Wait?
+        If Your Message Crosses Borders, So Does Your Business
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}
       {/* Stats */}
@@ -1221,7 +1218,7 @@ const ChatBots = () => {
   </div> */}
       </div>
       <div className="text-center wow fadeInUp mt-5">
-        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now{" "}
         </button></Link>

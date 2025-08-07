@@ -88,7 +88,7 @@ const DocumentTranslationWorkflow = () => {
                 {" "}
                 Schedule Call{" "}
             </button></Link>
-            <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
+            <Link to="https://account.devnagri.com/register" className=""><button type="btn" className="devnagri-btn devnagri-white-btn mt-3 blue">
                 {" "}
                 Start Now{" "}
             </button></Link>
@@ -99,10 +99,8 @@ const DocumentTranslationWorkflow = () => {
             <video
               autoPlay
               ref={videoRef}
-              muted
               loop
               playsInline
-              controls
               className="rounded-4"
               style={{ width: "100%", height: "100%" }}
             >
@@ -307,7 +305,7 @@ const DocumentTranslationWorkflow = () => {
             and context.
           </p>
           <div className="wow fadeInUp">
-            <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                 {" "}
                 Start Now
             </button></Link>
@@ -483,7 +481,7 @@ const DocumentTranslationWorkflow = () => {
                   />{" "}
                   Book a Demo{" "}
               </button></Link>
-              <Link to="https://account.devnagri.com/login" className=""><button
+              <Link to="https://account.devnagri.com/register" className=""><button
                 type="btn"
                 className="devnagri-btn devnagri-white-btn mt-3 blue"
               >
@@ -545,7 +543,7 @@ const DocumentTranslationWorkflow = () => {
       <div className="testimonial-heading">
         <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
           {/* <img src=${getImagePath(testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-          What our <span className="blue">customers say?</span>
+          What Our <span className="blue">Customers Say?</span>
         </h2>
       </div>
       <div className="testimonial-slider1 position-relative wow fadeIn">
@@ -1129,8 +1127,7 @@ const DocumentTranslationWorkflow = () => {
   <section className="get-strated bg-img">
     <div className="container">
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-        Devnagri's Document Translation is Transforming Hundreds or 2 Hundreds of Businesses
-        Why Wait?
+        If Your Message Crosses Borders, So Does Your Business
       </h2>
       {/* <p class="text-center f-400 pb-3 wow fadeInUp">Join hundreds of teams using Devnagri to turn static content into
   multilingual assets, accurately, securely, and at scale.</p> */}
@@ -1175,7 +1172,7 @@ const DocumentTranslationWorkflow = () => {
   </div> */}
       </div>
       <div className="text-center wow fadeInUp mt-5">
-        <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn">
+        <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
             {" "}
             Start Now
         </button></Link>

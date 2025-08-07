@@ -114,7 +114,7 @@ useEffect(() => {
                     Book a Demo{" "}
                   </button>
                 </Link>
-                <Link to="https://account.devnagri.com/login" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
+                <Link to="https://account.devnagri.com/register" className=""><button type="btn" className="devnagri-btn devnagri-white-btn blue mt-3">
                   {" "}
                   Get Now{" "}
                 </button></Link>
@@ -125,10 +125,8 @@ useEffect(() => {
                 <video
                   autoPlay
                   ref={videoRef}
-                  muted
                   loop
                   playsInline
-                  controls
                   className="rounded-4"
                   style={{ width: "100%", height: "100%" }}
                 >
@@ -308,7 +306,7 @@ useEffect(() => {
                 of skipping crucial details, just fast, reliable results.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   {" "}
                   Start Now
                 </button></Link>
@@ -373,7 +371,7 @@ useEffect(() => {
                 solution.
               </p>
               <div className="wow fadeInUp">
-                <Link to="https://account.devnagri.com/login" className="white"><button type="btn" className="devnagri-btn mt-3">
+                <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn mt-3">
                   Try Today
                 </button></Link>
               </div>
@@ -564,7 +562,7 @@ useEffect(() => {
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 black text-center wow fadeInUp">
               {/* <img src=testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
-              What our <span className="blue">customers say?</span>
+              What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
           <div className="testimonial-slider1 position-relative wow fadeIn">
@@ -1149,8 +1147,7 @@ useEffect(() => {
       <section className="get-strated bg-img" style={{ padding: "60px 0px" }}>
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
-            Devnagri's OCR Translation is Transforming Hundreds or 2 Hundreds of Businesses Why
-            Wait?
+            If Your Message Crosses Borders, So Does Your Business
           </h2>
           {/* <p class="text-center f-400 pb-3 wow fadeInUp">Over 110 mobile teams have already launched localized apps using
   DOTA.</p>
@@ -1196,7 +1193,7 @@ useEffect(() => {
             </div>
           </div>
           <div className="text-center mt-5 wow fadeInUp">
-            <Link to="https://account.devnagri.com/login" className="white">
+            <Link to="https://account.devnagri.com/register" className="white">
               <button type="btn" className="devnagri-btn">
                 Start Now
               </button>

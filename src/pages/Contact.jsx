@@ -1,52 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    subject: '',
-    message: ''
-  });
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   company: '',
+  //   subject: '',
+  //   message: ''
+  // });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData(prevData => ({
+  //     ...prevData,
+  //     [name]: value
+  //   }));
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
     
-    // Log all form data to console
-    console.log('=== Contact Form Submission ===');
-    console.log('Form Data:', formData);
-    console.log('Submission Time:', new Date().toISOString());
-    console.log('==============================');
+  //   // Log all form data to console
+  //   console.log('=== Contact Form Submission ===');
+  //   console.log('Form Data:', formData);
+  //   console.log('Submission Time:', new Date().toISOString());
+  //   console.log('==============================');
     
-    // Simulate API call delay
-    setTimeout(() => {
-      setIsSubmitting(false);
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: ''
-      });
-      alert('Thank you for your message! We will get back to you soon.');
-    }, 1000);
-  };
+  //   // Simulate API call delay
+  //   setTimeout(() => {
+  //     setIsSubmitting(false);
+  //     // Reset form after successful submission
+  //     setFormData({
+  //       name: '',
+  //       email: '',
+  //       phone: '',
+  //       company: '',
+  //       subject: '',
+  //       message: ''
+  //     });
+  //     alert('Thank you for your message! We will get back to you soon.');
+  //   }, 1000);
+  // };
+
+   useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//js.hsforms.net/forms/embed/v2.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.onload = () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          portalId: "46866158",
+          formId: "021295de-0a03-4c25-9c5b-2acd7b1db8f7",
+          region: "na1",
+          target: "#hubspotForm"
+        });
+      }
+    };
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <>
@@ -172,7 +190,7 @@ const Contact = () => {
               <h2 className="f-30 f-600 black mb-3 wow fadeInUp">
                 Reach out <span className="blue">to us today!</span>
               </h2>
-              <form onSubmit={handleSubmit}>
+              {/* <form onSubmit={handleSubmit}>
                 <div className="row g-4 wow fadeInUp">
                   <div className="col-md-6">
                     <div className="form-floating">
@@ -291,7 +309,8 @@ const Contact = () => {
                     </button>
                   </div>
                 </div>
-              </form>
+              </form> */}
+              <div id="hubspotForm" />
             </div>
           </div>
         </div>
