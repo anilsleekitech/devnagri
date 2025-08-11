@@ -29,6 +29,7 @@ const ResourcesDetail = () => {
   const { link } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  
   const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = useState('english');
@@ -36,12 +37,40 @@ const ResourcesDetail = () => {
   const [isTranslating, setIsTranslating] = useState(false);
   const [relatedPosts, setRelatedPosts] = useState([]);
 
+ 
+  useEffect(() => {
+    if (location.state?.item) {
+      const incomingItem = location.state.item;
+  
+      // Handle translation redirect
+      if (incomingItem.translation === true || incomingItem.type === 'translation') {
+        const fromLang = incomingItem.fromLanguage || 'english';
+        let toLang = incomingItem.toLanguage;
+  
+        if (!toLang && incomingItem.title) {
+          const titleMatch = incomingItem.title.toLowerCase().match(/english\s+to\s+(\w+)/i);
+          if (titleMatch) {
+            toLang = titleMatch[1];
+          }
+        }
+  
+        toLang = toLang || 'hindi';
+        setIsLoading(false);
+        navigate(`/${fromLang}-to-${toLang}-translation`);
+        return;
+      }
+  
+      setItem(incomingItem);
+      setIsLoading(false);
+    }
+  }, [location.state, navigate]);
+
   useEffect(() => {
     setIsLoading(true); // Set loading at the start of effect
 
     // Check if the URL matches a translation pattern
     const translationPattern = /^(.*?)-(to|2)-(.*?)-translation\/?$/i;
-    const match = link.match(translationPattern);
+    const match = link?.match(translationPattern);
 
     if (match) {
       const [, fromLang, , toLang] = match;
@@ -72,7 +101,7 @@ const ResourcesDetail = () => {
           navigate(`/${fromLang}-to-${toLang}-translation`);
           return true;
         }
-        setItem(location.state.item);
+        setItem(location?.state?.item);
         setIsLoading(false);
         return true;
       }
@@ -133,7 +162,7 @@ const ResourcesDetail = () => {
 
       // If item not found, redirect to TextTotext with default languages
       setIsLoading(false);
-      navigate('/english-to-hindi-translation');
+      navigate('/404');
       return true;
     };
 
@@ -143,7 +172,7 @@ const ResourcesDetail = () => {
       setIsLoading(false);
       navigate('/english-to-hindi-translation');
     }
-  }, [link, navigate, location.state]);
+  }, [link, navigate, location?.state]);
 
   useEffect(() => {
     if (item && fullDataset?.howWeHelpCards) {
@@ -230,7 +259,7 @@ const ResourcesDetail = () => {
     );
   }
 
-  if (!item) {
+  if (!item && !isLoading) {
     return (
       <div className="container py-5 text-center">
         <h2>Resource not found</h2>
@@ -241,6 +270,9 @@ const ResourcesDetail = () => {
       </div>
     );
   }
+
+
+  
 
   const displayContent = translatedContent || item;
   const currentUrl = window.location.href;
@@ -297,14 +329,14 @@ const ResourcesDetail = () => {
   return (
     <>
       <head>
-        <title>{item.title}</title>
+        <title>{item?.title}</title>
         <meta
           name="description"
-          content={item.description}
+          content={item?.description}
         />
         <meta
           name="keywords"
-          content={item.meta || "Blog Detail"}
+          content={item?.meta || "Blog Detail"}
         />
       </head>
       {/* Hero Section */}
@@ -312,12 +344,12 @@ const ResourcesDetail = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <span className="f-14 f-500 blue text-capitalize">{item.type}</span>
-              <h1 className="f-42 f-600 wow fadeIn">{displayContent.title}</h1>
+              <span className="f-14 f-500 blue text-capitalize">{item?.type}</span>
+              <h1 className="f-42 f-600 wow fadeIn">{displayContent?.title}</h1>
             </div>
             <div className="col-md-6">
               <div className="post-featured-image">
-                <img src={item.image ?? 'https://via.placeholder.com/600x400'} alt={displayContent.title} />
+                <img src={item?.image ?? 'https://via.placeholder.com/600x400'} alt={displayContent?.title} />
               </div>
             </div>
           </div>
@@ -332,7 +364,7 @@ const ResourcesDetail = () => {
               {/* Sticky Tabs */}
               <div className="d-flex justify-content-center align-items-center resource-tabs-inner-nav resources-tab-details-page mb-4">
                 <ul className="nav nav-tabs" id="resourceTab" role="tablist">
-                  {Object.entries(contentTypes).map(([type, data]) => (
+                  {Object?.entries(contentTypes)?.map(([type, data]) => (
                     <li className="nav-item" role="presentation" key={type}>
                       <Link
                         to={`/blogs?tab=${type}`}
@@ -347,7 +379,7 @@ const ResourcesDetail = () => {
 
               {/* Main Post Content */}
               <article className="post-content">
-                {displayContent.content?.map((htmlString, index) => (
+                {displayContent?.content?.map((htmlString, index) => (
                   <div key={index} dangerouslySetInnerHTML={{ __html: htmlString }} />
                 ))}
 
@@ -378,7 +410,7 @@ const ResourcesDetail = () => {
 
                 <div className="latest-posts mt-4">
                   <h3 className="sidebar-title f-20 f-600 blue">Latest {contentTypes[item?.type]?.name || 'Posts'}</h3>
-                  {relatedPosts.map((relatedItem, index) => (
+                  {relatedPosts?.map((relatedItem, index) => (
                     <div
                       key={index}
                       className="latest-post-item mb-3 cursor-pointer"
@@ -424,7 +456,7 @@ const ResourcesDetail = () => {
             Related <span className="blue">{contentTypes[item?.type]?.name || 'Resources'}</span>
           </h2>
           <div className="row pt-4">
-            {relatedPosts.map((relatedItem) => (
+            {relatedPosts?.map((relatedItem) => (
               <div
                 className="col-md-4 fadeInUp cursor-pointer"
                 key={relatedItem.id}

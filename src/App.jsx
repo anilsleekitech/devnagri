@@ -42,6 +42,7 @@ import { initializeCounters, initializeFAQs, initializeSliders } from './utils/h
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { initializeSliders as initializePageSliders } from './utils/initScripts';
 import { updateBackgroundImages } from './utils/cssUtils';
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -201,9 +202,10 @@ function App() {
               
               {/* Blog post routes - exclude paths containing 'to' */}
               <Route path="/:link" element={<ResourcesDetail />} />
+              <Route path="/404" element={<NotFound />} />
               
               {/* Catch-all redirect */}
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
