@@ -4895,3 +4895,7 @@ html :where(img[class*=wp-image-]) {
     display: none !important;
   }
 }
+
+.blog-posts-content .post-content li p {
+  display: inline-block;
+}

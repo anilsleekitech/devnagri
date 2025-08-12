@@ -211,11 +211,24 @@ const Careers = () => {
                 communication challenges excites you, join us on our journey.
               </p>
               <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
-                <Link to="#our-open-roles" className="white">
+                {/* <Link to="#our-open-roles" className="white">
                   <button type="btn" className="devnagri-btn mt-3">
                     {" "}
                     Explore Open Roles{" "}
-                  </button></Link>
+                  </button></Link> */}
+                <button
+                  type="button"
+                  className="devnagri-btn mt-3"
+                  onClick={() => {
+                    const section = document.getElementById("our-open-roles");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Explore Open Roles
+                </button>
+
               </div>
             </div>
             <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -223,6 +236,7 @@ const Careers = () => {
                 id="fadeCarousel"
                 className="carousel slide carousel-fade"
                 data-bs-ride="carousel"
+                data-bs-interval="3000"  // 3 seconds per slide
               >
                 <div className="carousel-inner">
                   <div className="carousel-item active">

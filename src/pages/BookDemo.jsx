@@ -230,6 +230,7 @@ const BookDemo = () => {
           justify-content: center;
           background-color: rgba(0, 0, 0, 0.5);
           z-index: 9999;
+          padding: 15px;
         }
       `}</style>
     </>

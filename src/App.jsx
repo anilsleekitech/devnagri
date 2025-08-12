@@ -138,6 +138,25 @@ function App() {
       }
     }, []);
 
+    useEffect(() => {
+      const initCarousel = () => {
+        const carouselElement = document.getElementById('fadeCarousel');
+        if (carouselElement) {
+          // Initialize Bootstrap carousel
+          const carousel = new window.bootstrap.Carousel(carouselElement, {
+            interval: 2000,
+            wrap: true,
+            ride: 'carousel'
+          });
+        }
+      };
+  
+      // Check if Bootstrap is available
+      if (typeof window !== 'undefined' && window.bootstrap) {
+        initCarousel();
+      }
+    }, [])
+
   return (
     
       <Router>
