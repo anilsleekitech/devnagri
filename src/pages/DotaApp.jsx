@@ -128,12 +128,12 @@ const DotaApp = () => {
       </section>
       {/*our major brand*/}
       <section
-        className="brand-stats-section bg-img"
-        style={{ backgroundImage: "none" }}
-      >
-        <div className="container">
-          <div className="product-brand-slider py-5">
-            <div className="brand-slider brand-slider-whitestrip">
+    className="brand-stats-section bg-img mb-5"
+    // style={{ backgroundImage: "none" }}
+  >
+    <div className="container">
+      <div className="">{/* product-brand-slider py-5, classes for white bg */}
+        <div className="brand-slider brand-slider-whitestrip">
               <div className="brand-slider-wrapper">
                 {/* Add logo images as slides */}
                 <div className="brand-item-slide">
@@ -543,7 +543,7 @@ const DotaApp = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('customer1.png')}
+                      src={getImagePath('2.svg')}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />

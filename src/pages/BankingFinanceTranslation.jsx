@@ -91,12 +91,12 @@ const BankingFinanceTranslation = () => {
       </section>
       {/*our major brand*/}
       <section
-        className="brand-stats-section bg-img"
-        style={{ backgroundImage: "none" }}
-      >
-        <div className="container">
-          <div className="product-brand-slider py-5">
-            <div className="brand-slider brand-slider-whitestrip">
+    className="brand-stats-section bg-img mb-5"
+    // style={{ backgroundImage: "none" }}
+  >
+    <div className="container">
+      <div className="">{/* product-brand-slider py-5, classes for white bg */}
+        <div className="brand-slider brand-slider-whitestrip">
               <div className="brand-slider-wrapper">
                 {/* Add logo images as slides */}
                 <div className="brand-item-slide">

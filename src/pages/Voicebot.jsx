@@ -152,10 +152,13 @@ useEffect(() => {
         </div>
       </section>
       {/*our major brand*/}
-      <section className="brand-stats-section" style={{ backgroundImage: "none" }}>
-        <div className="container">
-          <div className="product-brand-slider py-5">
-            <div className="brand-slider brand-slider-whitestrip">
+      <section
+    className="brand-stats-section bg-img mb-5"
+    // style={{ backgroundImage: "none" }}
+  >
+    <div className="container">
+      <div className="">{/* product-brand-slider py-5, classes for white bg */}
+        <div className="brand-slider brand-slider-whitestrip">
               <div className="brand-slider-wrapper">
                 {/* Add logo images as slides */}
                 <div className="brand-item-slide">
@@ -572,7 +575,7 @@ useEffect(() => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath("customer1.png")}
+                      src={getImagePath("1.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -607,7 +610,7 @@ useEffect(() => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath("customer1.png")}
+                      src={getImagePath("2.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -643,7 +646,7 @@ useEffect(() => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath("testmonial-1.jpg")}
+                      src={getImagePath("1.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -680,7 +683,7 @@ useEffect(() => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath("testimonial-2.png")}
+                      src={getImagePath("2.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -721,7 +724,7 @@ useEffect(() => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath("testimonial-3.jpg")}
+                      src={getImagePath("3.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />

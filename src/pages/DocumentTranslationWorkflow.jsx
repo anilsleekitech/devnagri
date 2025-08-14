@@ -560,7 +560,7 @@ const DocumentTranslationWorkflow = () => {
             <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
               <div className="testimonial-avatar position-relative">
                 <img
-                  src={getImagePath('customer1.png')}
+                  src={getImagePath('2.svg')}
                   alt="Client Avatar"
                   className="rounded-circle testimonial-avatar-img"
                 />

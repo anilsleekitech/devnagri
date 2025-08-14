@@ -80,7 +80,7 @@ if (window.location.href.includes("https://website.devnagri.dev/")) {
     // Initialize all features when component mounts
     initializeWow();
     initializeSliders();
-     
+    initializeCounters();
     initializeFAQs();
 
     // Cleanup function
@@ -2929,8 +2929,8 @@ if (window.location.href.includes("https://website.devnagri.dev/")) {
                   <div className="text-start px-5">
                     <ul className="ps-0">
                       <li>Multilingual Translation</li>
-                      <li>Multilingual Communication</li>
-                      <li>Workflow Solutions</li>
+                      <li>Multilingual Conversational Bot</li>
+                      <li>Workflow Integration</li>
                     </ul>
                   </div>
                 </div>
@@ -2953,18 +2953,20 @@ if (window.location.href.includes("https://website.devnagri.dev/")) {
 
                   <ul className="ps-4 pe-1">
                     <li className="mb-0">Text to Text</li>
-                    <li className="mb-0">Text to Speech</li>
-                    <li className="mb-0">Speech to Text Engine</li>
+                    {/* <li className="mb-0">Text to Speech (TTS)</li>
+                    <li className="mb-0">Speech to Text (STT)</li> */}
+                     <li className="mb-0">Text to Speech</li>
+                    <li className="mb-0">Speech to Text</li>
                   </ul>
                   <ul className="ps-4 pe-1">
-                    <li className="mb-0">Omnichannel voice and chatbots</li>
-                    <li className="mb-0">IVR automation</li>
-                    <li className="mb-0">Inbound and Outbound Processes</li>
+                    <li className="mb-0">Conversational Voice & Chatbots</li>
+                    <li className="mb-0">IVR Automation</li>
+                    <li className="mb-0">Inbound & Outbound Process</li>
                   </ul>
                   <ul className="ps-4 pe-1">
-                    <li className="mb-0">OCR 360</li>
-                    <li className="mb-0">Presale and Post-sale Process</li>
-                    <li className="mb-0">KYC and Document Verification</li>
+                    <li className="mb-0">OCR Vision Model</li>
+                    <li className="mb-0">Customer Onboarding Journeys</li>
+                    <li className="mb-0">KYC & Document Verification</li>
                   </ul>
                 </div>
               </div>
@@ -2986,12 +2988,10 @@ if (window.location.href.includes("https://website.devnagri.dev/")) {
                   <div className="text-start ps-5">
                     <ul className="ps-0">
                       <li>BFSI</li>
-                      <li>CONTACT CENTER</li>
-                      <li>EDUCATION</li>
-                      <li>E-COMMERCE</li>
-                      <li>LEGAL & COMPLIANCE</li>
                       <li>D2C</li>
-                      <li>GOVERNMENT</li>
+                      <li>Legal</li>
+                      <li>E-COMMERCE</li>
+                      <li>Government Tech</li>
                     </ul>
                   </div>
                 </div>
