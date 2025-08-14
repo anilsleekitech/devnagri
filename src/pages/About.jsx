@@ -14,14 +14,30 @@ useEffect(() => {
     
   }, []);
 
-  
-if (window.location.href.includes("https://website.devnagri.dev/about-devnagri/")) {
-    // Check if we haven't reloaded before
-    if (!sessionStorage.getItem("reloadedOnce1")) {
+  useEffect(() => {
+    // Match your exact path
+    if (location.pathname === "/about-devnagri") {
+      const hasReloaded = sessionStorage.getItem("reloadedOnce1");
+
+      if (!hasReloaded) {
         sessionStorage.setItem("reloadedOnce1", "true");
-        window.location.reload();
+
+        // Force hard reload after route has fully changed
+        setTimeout(() => {
+          window.location.href = window.location.href;
+        }, 50);
+      }
     }
-}
+  }, [location]);
+
+(function() {
+    if (window.localStorage) {
+        if (!localStorage.getItem('alreadyReloaded')) {
+            localStorage.setItem('alreadyReloaded', 'true');
+            window.location.reload();
+        }
+    }
+})();
 
   useEffect(() => {
     const $ = window.$; // assuming jQuery is available globally

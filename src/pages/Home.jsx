@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import fullDataset from '../data/howWeHelpData.json';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { getImagePath } from '../utils/imageUtils';
@@ -19,6 +19,8 @@ const Home = () => {
 
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
+  const location = useLocation();
+
 
   useEffect(() => {
   const handleVideoAutoplay = () => {
@@ -68,13 +70,23 @@ const Home = () => {
   handleVideoAutoplay();
 }, []);
 
-if (window.location.href.includes("https://website.devnagri.dev/")) {
-    // Check if we haven't reloaded before
-    if (!sessionStorage.getItem("reloadedOnce")) {
+ useEffect(() => {
+    if (location.pathname.startsWith("/")) { // Adjust condition if needed
+      if (!sessionStorage.getItem("reloadedOnce")) {
         sessionStorage.setItem("reloadedOnce", "true");
         window.location.reload();
+      }
     }
-}
+  }, [location.pathname]);
+
+ (function() {
+    if (window.localStorage) {
+        if (!localStorage.getItem('alreadyReloaded')) {
+            localStorage.setItem('alreadyReloaded', 'true');
+            window.location.reload();
+        }
+    }
+})();
 
   useEffect(() => {
     // Initialize all features when component mounts
@@ -2990,7 +3002,7 @@ if (window.location.href.includes("https://website.devnagri.dev/")) {
                       <li>BFSI</li>
                       <li>D2C</li>
                       <li>Legal</li>
-                      <li>E-COMMERCE</li>
+                      <li>E-Commerce</li>
                       <li>Government Tech</li>
                     </ul>
                   </div>
