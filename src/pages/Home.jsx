@@ -68,11 +68,19 @@ const Home = () => {
   handleVideoAutoplay();
 }, []);
 
+if (window.location.href.includes("https://website.devnagri.dev/")) {
+    // Check if we haven't reloaded before
+    if (!sessionStorage.getItem("reloadedOnce")) {
+        sessionStorage.setItem("reloadedOnce", "true");
+        window.location.reload();
+    }
+}
+
   useEffect(() => {
     // Initialize all features when component mounts
     initializeWow();
     initializeSliders();
-    initializeCounters();
+     
     initializeFAQs();
 
     // Cleanup function
@@ -142,6 +150,7 @@ const Home = () => {
     });
   });
 
+ 
   const leftTabs = [
     {
       id: 'identity-verification',

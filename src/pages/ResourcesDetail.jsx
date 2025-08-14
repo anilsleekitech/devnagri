@@ -29,7 +29,7 @@ const ResourcesDetail = () => {
   const { link } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = useState('english');
@@ -37,29 +37,37 @@ const ResourcesDetail = () => {
   const [isTranslating, setIsTranslating] = useState(false);
   const [relatedPosts, setRelatedPosts] = useState([]);
 
- 
+  useEffect(() => {
+    // Create script tag dynamically
+    const script = document.createElement("script");
+    script.src = "https://js.hsforms.net/forms/embed/46866158.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
+
   useEffect(() => {
     if (location.state?.item) {
       const incomingItem = location.state.item;
-  
+
       // Handle translation redirect
       if (incomingItem.translation === true || incomingItem.type === 'translation') {
         const fromLang = incomingItem.fromLanguage || 'english';
         let toLang = incomingItem.toLanguage;
-  
+
         if (!toLang && incomingItem.title) {
           const titleMatch = incomingItem.title.toLowerCase().match(/english\s+to\s+(\w+)/i);
           if (titleMatch) {
             toLang = titleMatch[1];
           }
         }
-  
+
         toLang = toLang || 'hindi';
         setIsLoading(false);
         navigate(`/${fromLang}-to-${toLang}-translation`);
         return;
       }
-  
+
       setItem(incomingItem);
       setIsLoading(false);
     }
@@ -219,11 +227,11 @@ const ResourcesDetail = () => {
     }
   };
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    // Add your subscription logic here
-    console.log('Subscription form submitted');
-  };
+  // const handleSubscribe = (e) => {
+  //   e.preventDefault();
+  //   // Add your subscription logic here
+  //   console.log('Subscription form submitted');
+  // };
 
 
   const ShareButton = ({ platform, url }) => {
@@ -272,7 +280,7 @@ const ResourcesDetail = () => {
   }
 
 
-  
+
 
   const displayContent = translatedContent || item;
   const currentUrl = window.location.href;
@@ -400,12 +408,18 @@ const ResourcesDetail = () => {
                   <h3 className="sidebar-title f-20 f-600 blue">
                     Subscribe to Our {contentTypes[item?.type]?.name || 'Blog'}
                   </h3>
-                  <form onSubmit={handleSubscribe}>
+                  {/* <form onSubmit={handleSubscribe}>
                     <input type="email" className="form-control f-400 py-2" placeholder="Enter your email" required />
                     <button type="submit" className="devnagri-btn mt-3 white">
                       Subscribe
                     </button>
-                  </form>
+                  </form> */}
+                  <div
+                    className="hs-form-frame"
+                    data-region="na1"
+                    data-form-id="df3dce96-f106-4397-9c94-d2f46c95ceb7"
+                    data-portal-id="46866158"
+                  ></div>
                 </div>
 
                 <div className="latest-posts mt-4">

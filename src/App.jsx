@@ -50,7 +50,7 @@ function App() {
     // Initialize all features when component mounts
     initializeWow();
         initializeSliders();
-        initializeCounters();
+         
         initializeFAQs();
         initializeWow();
     // Initialize background images

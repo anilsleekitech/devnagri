@@ -3,6 +3,8 @@ import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 const DocumentTranslationWorkflow = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -57,6 +59,11 @@ const DocumentTranslationWorkflow = () => {
         observer.disconnect();
       };
     }, []);
+
+    useEffect(() => {
+          initializeSliders();
+           
+      },[])
   return (
     <>
   <head>
@@ -117,11 +124,11 @@ const DocumentTranslationWorkflow = () => {
   </section>
   {/*our major brand*/}
   <section
-    className="brand-stats-section bg-img"
-    style={{ backgroundImage: "none" }}
+    className="brand-stats-section bg-img mb-5"
+    // style={{ backgroundImage: "none" }}
   >
     <div className="container">
-      <div className="product-brand-slider py-5">
+      <div className="">{/* product-brand-slider py-5, classes for white bg */}
         <div className="brand-slider brand-slider-whitestrip">
           <div className="brand-slider-wrapper">
             {/* Add logo images as slides */}

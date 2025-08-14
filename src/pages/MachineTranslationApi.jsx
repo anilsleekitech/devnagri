@@ -3,6 +3,8 @@ import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 const MachineTranslationApi = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -57,6 +59,11 @@ useEffect(() => {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+        initializeSliders();
+         
+    },[])
 
 useEffect(() => {
     const initCarousel = () => {

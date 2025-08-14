@@ -3,6 +3,8 @@ import fullDataset from '../data/howWeHelpData.json';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 const EcommerceTranslation = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -25,6 +27,13 @@ const EcommerceTranslation = () => {
         initCarousel();
       }
     }, []);
+
+    useEffect(() => {
+          initializeSliders();
+           
+      },[])
+
+
   return (
     <>
       <head>

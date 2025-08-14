@@ -1,49 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getImagePath } from '@/utils/imageUtils';
 
 const BookDemo = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    product: '',
-    time: '',
-    date: '',
-    message: '',
-  });
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://js.hsforms.net/forms/embed/46866158.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   company: '',
+  //   product: '',
+  //   time: '',
+  //   date: '',
+  //   message: '',
+  // });
 
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { id, value } = e.target;
+  //   setFormData({ ...formData, [id]: value });
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    // Simulate form submission (you can integrate API here)
-    console.log('Demo booked:', formData);
+  //   // Simulate form submission (you can integrate API here)
+  //   console.log('Demo booked:', formData);
 
-    // Show success popup
-    setShowSuccessPopup(true);
+  //   // Show success popup
+  //   setShowSuccessPopup(true);
 
-    // Optionally clear form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      product: '',
-      time: '',
-      date: '',
-      message: '',
-    });
+  //   // Optionally clear form
+  //   setFormData({
+  //     name: '',
+  //     email: '',
+  //     phone: '',
+  //     company: '',
+  //     product: '',
+  //     time: '',
+  //     date: '',
+  //     message: '',
+  //   });
 
-    // Hide popup after 3 seconds
-    setTimeout(() => setShowSuccessPopup(false), 3000);
-  };
+  //   // Hide popup after 3 seconds
+  //   setTimeout(() => setShowSuccessPopup(false), 3000);
+  // };
 
   return (
     <>
@@ -65,7 +73,7 @@ const BookDemo = () => {
 
             {/* Right Side - Form */}
             <div className="col-lg-6">
-              <form className="book-demo-form" onSubmit={handleSubmit}>
+              {/* <form className="book-demo-form" onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-6 mb-3">
                     <div className="form-floating">
@@ -204,7 +212,13 @@ const BookDemo = () => {
                 <button type="submit" className="devnagri-btn mt-3">
                   Book Demo
                 </button>
-              </form>
+              </form> */}
+              <div
+                className="hs-form-frame"
+                data-region="na1"
+                data-form-id="f1506d3e-2618-4fb3-bb75-7ea8a5e231c2"
+                data-portal-id="46866158"
+              ></div>
             </div>
           </div>
         </div>

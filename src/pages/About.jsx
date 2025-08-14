@@ -1,48 +1,67 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
+import { initializeCounters, initializeSliders } from '@/utils/initializeAnimations';
+
 
 
 const About = () => {
+const location = useLocation();
+
+
 useEffect(() => {
-  const $ = window.$; // assuming jQuery is available globally
+    initializeSliders();
+    
+  }, []);
 
-  if ($ && $('.team-slider').length && !$('.team-slider').hasClass('slick-initialized')) {
-    $('.team-slider').slick({
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 3000,
-      prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-      nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-      responsive: [
-        {
-          breakpoint: 1399.99,
-          settings: { slidesToShow: 3 },
-        },
-        {
-          breakpoint: 1080,
-          settings: { slidesToShow: 2 },
-        },
-        {
-          breakpoint: 768.99,
-          settings: { slidesToShow: 1 },
-        },
-      ],
-    });
-  }
-
-  // Optional: Cleanup on unmount
-  return () => {
-    if ($ && $('.team-slider').hasClass('slick-initialized')) {
-      $('.team-slider').slick('unslick');
+  
+if (window.location.href.includes("https://website.devnagri.dev/about-devnagri")) {
+    // Check if we haven't reloaded before
+    if (!sessionStorage.getItem("reloadedOnce")) {
+        sessionStorage.setItem("reloadedOnce", "true");
+        window.location.reload();
     }
-  };
-}, []);
-   
+}
+
+  useEffect(() => {
+    const $ = window.$; // assuming jQuery is available globally
+
+    if ($ && $('.team-slider').length && !$('.team-slider').hasClass('slick-initialized')) {
+      $('.team-slider').slick({
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+        responsive: [
+          {
+            breakpoint: 1399.99,
+            settings: { slidesToShow: 3 },
+          },
+          {
+            breakpoint: 1080,
+            settings: { slidesToShow: 2 },
+          },
+          {
+            breakpoint: 768.99,
+            settings: { slidesToShow: 1 },
+          },
+        ],
+      });
+    }
+
+    // Optional: Cleanup on unmount
+    return () => {
+      if ($ && $('.team-slider').hasClass('slick-initialized')) {
+        $('.team-slider').slick('unslick');
+      }
+    };
+  }, []);
+
   return (
     <>
       <head>
@@ -674,11 +693,10 @@ useEffect(() => {
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
             If Your Message Crosses Borders, So Does Your Business
           </h2>
-          {/* <p class="text-center f-400 pb-3 wow fadeInUp">Automate your project with a tap. Trusted by elite brands. Let's
-  make your content speak every language.</p> */}
+          {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}
           {/* Stats */}
           <div className="row mt-5 text-center custom-stats-row">
-            <div className="col-6 col-md-3 custom-stats-col wow fadeInUp">
+            <div className="col-6 col-md-4 custom-stats-col wow fadeInUp">
               <div
                 className="custom-counter f-48 f-600 pb-3"
                 data-target={60}
@@ -686,20 +704,21 @@ useEffect(() => {
               >
                 0%
               </div>
-              <p className="custom-label f-400 m-0">Improvement in sales</p>
+              <p className="custom-label f-400 m-0">
+                Improvement in sales
+              </p>
             </div>
-            <div className="col-6 col-md-3 custom-stats-col wow fadeInUp">
+            <div className="col-6 col-md-4 custom-stats-col wow fadeInUp">
               <div
                 className="custom-counter f-48 f-600 pb-3"
                 data-target={5}
-                data-decimal="true"
                 data-suffix="x"
               >
                 0x
               </div>
               <p className="custom-label f-400 m-0">Faster Operations</p>
             </div>
-            <div className="col-6 col-md-3 custom-stats-col wow fadeInUp">
+            <div className="col-6 col-md-4 custom-stats-col wow fadeInUp">
               <div
                 className="custom-counter f-48 f-600 pb-3"
                 data-target={45}
@@ -707,28 +726,18 @@ useEffect(() => {
               >
                 0%
               </div>
-              <p className="custom-label f-400 m-0">
-                Reduction In Operational Costs
-              </p>
+              <p className="custom-label f-400 m-0"> Reduction In Operational Costs</p>
             </div>
-            <div className="col-6 col-md-3 custom-stats-col wow fadeInUp">
-              <div
-                className="custom-counter f-48 f-600 pb-3"
-                data-target={75}
-                data-suffix="%"
-              >
-                0%
-              </div>
-              <p className="custom-label f-400 m-0">Increase in CSAT</p>
-            </div>
+            {/* <div class="col-6 col-md-3 custom-stats-col wow fadeInUp">
+    <div class="custom-counter f-48 f-600 pb-3" data-target="75" data-suffix="%">0%</div>
+    <p class="custom-label f-400 m-0">Increase in CSAT</p>
+  </div> */}
           </div>
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="https://account.devnagri.com/register" className="white">
-              <button type="btn" className="devnagri-btn">
-                {" "}
-                Start Now
-              </button>
-            </Link>
+            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
+              {" "}
+              Start Now{" "}
+            </button></Link>
           </div>
         </div>
       </section>

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 const Ocr = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -77,6 +79,11 @@ useEffect(() => {
       initCarousel();
     }
   }, []);
+
+  useEffect(() => {
+        initializeSliders();
+         
+    },[])
 
   return (
     <>

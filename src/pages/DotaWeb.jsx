@@ -3,6 +3,8 @@ import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 
 const DotaWeb = () => {
@@ -77,6 +79,12 @@ const DotaWeb = () => {
       initCarousel();
     }
   }, []);
+
+  useEffect(() => {
+        initializeSliders();
+         
+    },[])
+
   return (
     <>
       <head>

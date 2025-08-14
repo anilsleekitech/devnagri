@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 const D2C = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -24,6 +26,11 @@ const D2C = () => {
         initCarousel();
       }
     }, []);
+
+    useEffect(() => {
+          initializeSliders();
+           
+      },[])
   
   return (
     <>

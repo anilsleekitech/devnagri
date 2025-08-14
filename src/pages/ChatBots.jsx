@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
+import { initializeSliders } from '@/utils/initializeAnimations';
+ 
 
 const ChatBots = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -58,6 +60,12 @@ const ChatBots = () => {
         observer.disconnect();
       };
     }, []);
+
+    useEffect(() => {
+          initializeSliders();
+           
+      },[])
+
   return (
     <>
   <head>
