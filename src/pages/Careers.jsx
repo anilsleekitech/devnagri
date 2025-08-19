@@ -174,6 +174,25 @@ const Careers = () => {
       portfolio: ''
     });
   };
+
+  useEffect(() => {
+        const initCarousel = () => {
+          const carouselElement = document.getElementById('fadeCarousel');
+          if (carouselElement) {
+            // Initialize Bootstrap carousel
+            const carousel = new window.bootstrap.Carousel(carouselElement, {
+              interval: 3000,
+              wrap: true,
+              ride: 'carousel'
+            });
+          }
+        };
+    
+        // Check if Bootstrap is available
+        if (typeof window !== 'undefined' && window.bootstrap) {
+          initCarousel();
+        }
+      }, [])
   return (
     <>
       <head>
@@ -237,6 +256,8 @@ const Careers = () => {
                 className="carousel slide carousel-fade"
                 data-bs-ride="carousel"
                 data-bs-interval="3000"  // 3 seconds per slide
+                 data-bs-touch="true"   // ✅ enable swipe on mobile
+  data-bs-pause="false" 
               >
                 <div className="carousel-inner">
                   <div className="carousel-item active">
@@ -858,7 +879,7 @@ const Careers = () => {
               <input
                 type="text"
                 className="form-control form-control-lg f-400 f-18"
-                placeholder="Search for job title, function, or description"
+                placeholder="&#128269;Search for job title, function, or description"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -960,12 +981,12 @@ const Careers = () => {
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 wow fadeInUp">
             No Perfect Match Today? Upload Your Resume, Let's Keep in Touch!
           </h2>
-          <div className="text-center wow fadeInUp mt-5">
+          {/* <div className="text-center wow fadeInUp mt-5">
             <Link to="mailto:demo@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
               {" "}
               Upload Your Resume{" "}
             </button></Link>
-          </div>
+          </div> */}
         </div>
       </section>
 

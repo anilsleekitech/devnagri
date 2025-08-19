@@ -5,6 +5,11 @@ import './Footer.css';
 import { getImagePath } from '../utils/imageUtils';
 
 const Footer = () => {
+
+  const handleRefreshClick = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       {/* Footer */}
@@ -26,9 +31,15 @@ const Footer = () => {
                   <i className="bi bi-geo-alt-fill blue f-18" />
                 </div>
                 <div className="address-detils-footer">
-                  <p className="f-400 para-color">
-                    BGR Building Plot No. 1, 3rd Floor, Film City, Sector 16A, Noida
-                  </p>
+                  <Link
+                    to="https://maps.app.goo.gl/WjaPjaTE9xWqe19o9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <p className="f-400 para-color">
+                      BGR Building Plot No. 1, 3rd Floor, Film City, Sector 16A, Noida
+                    </p>
+                  </Link>
                 </div>
               </div>
               <div className="footer-contact-details d-flex gap-2">
@@ -60,7 +71,7 @@ const Footer = () => {
                   <div className="mb-4">
                     <h6 className="f-600 f-20 blue pb-2 m-0">Company</h6>
                     <ul className="p-0">
-                      <Link to="/about-devnagri">
+                      <Link to="/about-devnagri" reloadDocument onClick={handleRefreshClick} >
                         <li className="para-color f-400 mb-2">About</li>
                       </Link>
                       <Link to="/careers">

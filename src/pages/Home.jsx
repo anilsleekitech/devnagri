@@ -27,14 +27,14 @@ const Home = () => {
     const videos = document.querySelectorAll('video');
     
     videos.forEach(video => {
-      video.loop = true;
-      video.muted = true;
+      // video.loop = true;
+      // video.muted = true;
       
-      // Try autoplay
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
-      }
+      // // Try autoplay
+      // const playPromise = video.play();
+      // if (playPromise !== undefined) {
+      //   playPromise.catch(() => {});
+      // }
       
       // Skip every 2s
       const interval = setInterval(() => {
@@ -318,6 +318,66 @@ const Home = () => {
     }
   ];
 
+
+   useEffect(() => {
+    const counters = document.querySelectorAll(".custom-counter");
+    const counterSection = document.querySelector(".custom-stats-row");
+
+    if (counters.length && counterSection) {
+      let hasCounted = false;
+
+      function animateCounter(counter) {
+        const target = parseFloat(counter.getAttribute("data-target"));
+        const isDecimal = counter.getAttribute("data-decimal") === "true";
+        const suffix = counter.getAttribute("data-suffix") || '';
+        const duration = 2000;
+        const frameRate = 60;
+        const totalFrames = Math.round((duration / 1000) * frameRate);
+        let frame = 0;
+
+        const count = () => {
+          frame++;
+          let progress = frame / totalFrames;
+          let current = target * progress;
+
+          if (isDecimal) {
+            counter.innerText = current.toFixed(1) + suffix;
+          } else {
+            counter.innerText = Math.floor(current) + suffix;
+          }
+
+          if (frame < totalFrames) {
+            requestAnimationFrame(count);
+          } else {
+            counter.innerText = isDecimal ? target.toFixed(1) + suffix : target + suffix;
+          }
+        };
+
+        requestAnimationFrame(count);
+      }
+
+      function onScroll() {
+        if (counterSection) {
+          const rect = counterSection.getBoundingClientRect();
+          const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+          if (isVisible && !hasCounted) {
+            counters.forEach(counter => animateCounter(counter));
+            hasCounted = true;
+            window.removeEventListener("scroll", onScroll);
+          }
+        }
+      }
+
+      window.addEventListener("scroll", onScroll);
+      onScroll(); // initial check
+
+      // cleanup on unmount
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -782,8 +842,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -873,8 +933,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -965,8 +1025,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -1057,8 +1117,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -1150,8 +1210,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -1301,8 +1361,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -1393,8 +1453,8 @@ const Home = () => {
                                   <div className="product-viedo-box">
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -1514,8 +1574,8 @@ const Home = () => {
                                   {activeContent.media === 'video' ? (
                                     <video
                                       autoPlay
-                                      loop
-                                      playsInline
+                                      // loop
+                                      // playsInline
                                       className="rounded-4"
                                       style={{ width: "100%", height: "100%" }}
                                     >
@@ -1627,8 +1687,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -1731,8 +1791,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -1841,8 +1901,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -1951,8 +2011,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -2065,8 +2125,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -2178,8 +2238,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -2293,8 +2353,8 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  loop
-                                  playsInline
+                                  // loop
+                                  // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
                                 >
@@ -2404,8 +2464,8 @@ const Home = () => {
                                     {tab.mediaType === 'video' ? (
                                       <video
                                         autoPlay
-                                        loop
-                                        playsInline
+                                        // loop
+                                        // playsInline
                                         className="rounded-4"
                                         style={{ width: "100%", height: "100%" }}
                                       >

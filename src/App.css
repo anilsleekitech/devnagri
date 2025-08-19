@@ -4899,3 +4899,13 @@ html :where(img[class*=wp-image-]) {
 .blog-posts-content .post-content li p {
   display: inline-block;
 }
+
+@media (min-width: 1024px) {
+  .navbar-nav .nav-link{
+    pointer-events: none;
+
+  }
+  .navbar-nav .nav-item{
+    cursor: pointer;
+  }
+}

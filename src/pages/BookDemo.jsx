@@ -5,10 +5,15 @@ const BookDemo = () => {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://js.hsforms.net/forms/embed/46866158.js";
-    script.defer = true;
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
     document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
+
 
   // const [formData, setFormData] = useState({
   //   name: '',
@@ -214,11 +219,10 @@ const BookDemo = () => {
                 </button>
               </form> */}
               <div
-                className="hs-form-frame"
-                data-region="na1"
-                data-form-id="f1506d3e-2618-4fb3-bb75-7ea8a5e231c2"
-                data-portal-id="46866158"
-              ></div>
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/devnagri-sales/30min"
+                style={{ minWidth: "320px", height: "700px" }}
+              />
             </div>
           </div>
         </div>

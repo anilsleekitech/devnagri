@@ -170,6 +170,12 @@ const handleIndustriesToggle = (e) => {
     setActiveSubmenu((prev) => (prev === menuKey ? null : menuKey));
   };
 
+   const handleRefreshClick = () => {
+        window.location.reload();
+        console.log(window.location,"LOCATION");
+        
+      };
+
   return (
     <header ref={navbarRef}>
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -194,8 +200,8 @@ const handleIndustriesToggle = (e) => {
             id="navbarNav"
           >
             <div className="mobile-menu-header d-lg-none">
-              <Link className="navbar-brand" to="/">
-                <img src={getImagePath('Devnagri-Logo.png')} alt="Devnagri Logo" />
+              <Link className="navbar-brand" to="/" reloadDocument >
+                <img src={getImagePath('Devnagri-Logo.png')} alt="Devnagri Logo" onClick={handleRefreshClick}/>
               </Link>
               <button
                 type="button"
@@ -416,7 +422,7 @@ const handleIndustriesToggle = (e) => {
                         </div>
                         <div className="col-md-6">
                           <div className="sub-menu-nested-heading mb-3">
-                            <Link to="#">
+                            <Link to="/404">
                               <h6 className="f-20 f-600 blue m-0">
                                 Brain SLM's
                               </h6>

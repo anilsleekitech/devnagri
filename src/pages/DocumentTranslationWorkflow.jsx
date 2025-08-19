@@ -17,16 +17,16 @@ const DocumentTranslationWorkflow = () => {
   
       if (!video) return;
   
-      video.loop = true;
-      video.muted = true;
+      // video.loop = true;
+      // video.muted = true;
   
-      // Try autoplay
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.error("Autoplay failed:", error);
-        });
-      }
+      // // Try autoplay
+      // const playPromise = video.play();
+      // if (playPromise !== undefined) {
+      //   playPromise.catch((error) => {
+      //     console.error("Autoplay failed:", error);
+      //   });
+      // }
   
       // Skip every 2s
       const interval = setInterval(() => {
@@ -106,8 +106,8 @@ const DocumentTranslationWorkflow = () => {
             <video
               autoPlay
               ref={videoRef}
-              loop
-              playsInline
+              // loop
+              // playsInline
               className="rounded-4"
               style={{ width: "100%", height: "100%" }}
             >
