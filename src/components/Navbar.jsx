@@ -770,7 +770,6 @@ const handleIndustriesToggle = (e) => {
                   </button>
                 </Link>
               </li>
-
               {/* Language Selector */}
             <li
   className="nav-item dropdown position-relative nodtranslate"
