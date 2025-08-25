@@ -3,6 +3,7 @@ import fullDataset from '../data/howWeHelpData.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 import { initializeSliders } from '@/utils/initializeAnimations';
+import { initializeSliders1 } from '@/utils/initScripts';
  
 
 const Govt = () => {
@@ -29,7 +30,7 @@ const Govt = () => {
 
     useEffect(() => {
           initializeSliders();
-           
+           initializeSliders1();
       },[])
 
 

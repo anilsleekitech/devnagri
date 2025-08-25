@@ -772,240 +772,224 @@ const handleIndustriesToggle = (e) => {
               </li>
 
               {/* Language Selector */}
-              <li className="nav-item dropdown position-relative" ref={languageRef}>
-                <Link
-                  className={`nav-link dropdown-toggle ${isLanguageOpen ? 'show' : ''}`}
-                  to="#"
-                  onClick={handleLanguageToggle}
-                >
-                  <img
-                    src="https://flagcdn.com/us.svg"
-                    width={18}
-                    alt="US Flag"
-                  />{" "}
-                  EN
-                  <i className="dropdown-icon fas fa-chevron-down" />
-                </Link>
-                <ul className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : 'hide'}`}>
-                  {/* Indian Languages */}
-                  <li className={`dropdown-submenu ${activeSubmenu === 'indian' ? 'show' : ''}`}>
-                    <button className="dropdown-item dropdown-toggle"
-                      onClick={() => handleSubmenuToggle('indian')}>
-                      <img src="https://flagcdn.com/in.svg" width={18} /> Indian
-                      Languages
-                      <i className="dropdown-icon fas fa-angle-right" />
-                    </button>
-                    <ul
-                      className={`dropdown-menu scrollable-menu ${activeSubmenu === 'indian' ? 'show' : ''
-                        }`}
-                    >
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Assamese (অসমীয়া)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://bn-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Bengali (বাংলা)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} /> Bodo
-                          (बड़ो)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Dogri (डोगरी)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://gu-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Gujarati (ગુજરાતી)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://hi-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Hindi (हिंदी)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://kn-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Kannada (ಕನ್ನಡ)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Kashmiri (كٲشُر)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Konkani (कोंकणी)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Maithili (मैथिली)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Malayalam (മലയാളം)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Manipuri (মৈতৈলোন্)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://mr-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Marathi (मराठी)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Nepali (नेपाली)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} /> Odia
-                          (ଓଡ଼ିଆ)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Punjabi (ਪੰਜਾਬੀ)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Sanskrit (संस्कृतम्)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Santali (ᱥᱟᱱᱛᱟᱲᱤ)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Sindhi (سنڌي)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://ta-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Tamil (தமிழ்)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} />{" "}
-                          Telugu (తెలుగు)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/in.svg" width={18} /> Urdu
-                          (اردو)
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  {/* International Languages */}
-                  <li className={`dropdown-submenu ${activeSubmenu === 'intl' ? 'show' : ''}`}>
-                    <button
-                      className="dropdown-item dropdown-toggle"
-                      onClick={() => handleSubmenuToggle('intl')}
-                    >
-                      <img src="https://flagcdn.com/gb.svg" width={18} />{" "}
-                      International Languages
-                      <i className="dropdown-icon fas fa-angle-right" />
-                    </button>
-                     <ul
-                  className={`dropdown-menu scrollable-menu ${
-                    activeSubmenu === 'intl' ? 'show' : ''
-                  }`}
-                >
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/cn.svg" width={18} />{" "}
-                          Chinese (中文)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://ja-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/jp.svg" width={18} />{" "}
-                          Japanese (日本語)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/ru.svg" width={18} />{" "}
-                          Russian (Русский)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/sa.svg" width={18} />{" "}
-                          Arabic (العربية)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/th.svg" width={18} /> Thai
-                          (ไทย)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/es.svg" width={18} />{" "}
-                          Spanish (Español)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/fr.svg" width={18} />{" "}
-                          French (Français)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          <img src="https://flagcdn.com/it.svg" width={18} />{" "}
-                          Italian (Italiano)
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="https://de-website.devnagri.dev/">
-                          <img src="https://flagcdn.com/de.svg" width={18} />{" "}
-                          German (Deutsch)
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
+            <li
+  className="nav-item dropdown position-relative nodtranslate"
+  ref={languageRef}
+>
+  <Link
+    className={`nav-link dropdown-toggle ${isLanguageOpen ? 'show' : ''} nodtranslate`}
+    to="#"
+    onClick={handleLanguageToggle}
+  >
+    <img
+      src="https://flagcdn.com/us.svg"
+      width={18}
+      alt="US Flag"
+    />{" "}
+    EN
+    <i className="dropdown-icon fas fa-chevron-down" />
+  </Link>
+
+  <ul
+    className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : 'hide'} nodtranslate`}
+  >
+    {/* Indian Languages */}
+    <li
+      className={`dropdown-submenu ${activeSubmenu === 'indian' ? 'show' : ''} nodtranslate`}
+    >
+      <button
+        className="dropdown-item dropdown-toggle nodtranslate"
+        onClick={() => handleSubmenuToggle('indian')}
+      >
+        <img src="https://flagcdn.com/in.svg" width={18} /> Indian Languages
+        <i className="dropdown-icon fas fa-angle-right" />
+      </button>
+
+      <ul
+        className={`dropdown-menu scrollable-menu ${
+          activeSubmenu === 'indian' ? 'show' : ''
+        } nodtranslate`}
+      >
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Assamese (অসমীয়া)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://bn-website.devnagri.dev/">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Bengali (বাংলা)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Bodo (बड़ो)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Dogri (डोगरी)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://gu-website.devnagri.dev/">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Gujarati (ગુજરાતી)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://hi-website.devnagri.dev/">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Hindi (हिंदी)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://kn-website.devnagri.dev/">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Kannada (ಕನ್ನಡ)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Kashmiri (كٲشُر)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Konkani (कोंकणी)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Maithili (मैथिली)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Malayalam (മലയാളം)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Manipuri (মৈতৈলোন্)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://mr-website.devnagri.dev/">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Marathi (मराठी)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Nepali (नेपाली)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Odia (ଓଡ଼ିଆ)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Punjabi (ਪੰਜਾਬੀ)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Sanskrit (संस्कृतम्)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Santali (ᱥᱟᱱᱛᱟᱲᱤ)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Sindhi (سنڌي)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://ta-website.devnagri.dev/">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Tamil (தமிழ்)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Telugu (తెలుగు)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/in.svg" width={18} /> Urdu (اردو)
+          </Link>
+        </li>
+      </ul>
+    </li>
+
+    {/* International Languages */}
+    <li
+      className={`dropdown-submenu ${activeSubmenu === 'intl' ? 'show' : ''} nodtranslate`}
+    >
+      <button
+        className="dropdown-item dropdown-toggle nodtranslate"
+        onClick={() => handleSubmenuToggle('intl')}
+      >
+        <img src="https://flagcdn.com/gb.svg" width={18} /> International Languages
+        <i className="dropdown-icon fas fa-angle-right" />
+      </button>
+
+      <ul
+        className={`dropdown-menu scrollable-menu ${
+          activeSubmenu === 'intl' ? 'show' : ''
+        } nodtranslate`}
+      >
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/cn.svg" width={18} /> Chinese (中文)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://ja-website.devnagri.dev/">
+            <img src="https://flagcdn.com/jp.svg" width={18} /> Japanese (日本語)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/ru.svg" width={18} /> Russian (Русский)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/sa.svg" width={18} /> Arabic (العربية)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/th.svg" width={18} /> Thai (ไทย)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/es.svg" width={18} /> Spanish (Español)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/fr.svg" width={18} /> French (Français)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="#">
+            <img src="https://flagcdn.com/it.svg" width={18} /> Italian (Italiano)
+          </Link>
+        </li>
+        <li>
+          <Link className="dropdown-item nodtranslate" to="https://de-website.devnagri.dev/">
+            <img src="https://flagcdn.com/de.svg" width={18} /> German (Deutsch)
+          </Link>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
             </ul>
           </div>
         </div>

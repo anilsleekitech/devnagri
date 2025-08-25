@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
 import { initializeSliders } from '@/utils/initializeAnimations';
+import { initializeSliders1 } from '@/utils/initScripts';
  
 
 const DocumentTranslationWorkflow = () => {
@@ -62,7 +63,7 @@ const DocumentTranslationWorkflow = () => {
 
     useEffect(() => {
           initializeSliders();
-           
+           initializeSliders1();
       },[])
   return (
     <>

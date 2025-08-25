@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getImagePath } from '@/utils/imageUtils';
 import { Link } from 'react-router-dom';
+import { initializeSliders1 } from '@/utils/initScripts';
 
 const Careers = () => {
   // Job data
@@ -193,6 +194,11 @@ const Careers = () => {
           initCarousel();
         }
       }, [])
+
+       useEffect(() => {
+              initializeSliders1();
+          },[])
+
   return (
     <>
       <head>

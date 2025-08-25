@@ -252,7 +252,11 @@ const ResourcesDetail = () => {
           window.open(shareUrls[platform], '_blank', 'width=600,height=400');
         }}
       >
-        <i className={`fab fa-${platform} fa-lg`}></i>
+        {platform === "twitter" ? (
+          <i className="fab fa-x-twitter fa-lg"></i>
+        ) : (
+          <i className={`fab fa-${platform} fa-lg`}></i>
+        )}
       </Link>
     );
   };

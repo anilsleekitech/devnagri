@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import { getImagePath } from '../utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
+import { initializeSliders1 } from '@/utils/initScripts';
 
 
 const Home = () => {
@@ -23,54 +24,54 @@ const Home = () => {
 
 
   useEffect(() => {
-  const handleVideoAutoplay = () => {
-    const videos = document.querySelectorAll('video');
-    
-    videos.forEach(video => {
-      // video.loop = true;
-      // video.muted = true;
-      
-      // // Try autoplay
-      // const playPromise = video.play();
-      // if (playPromise !== undefined) {
-      //   playPromise.catch(() => {});
-      // }
-      
-      // Skip every 2s
-      const interval = setInterval(() => {
-        if (!video.paused && video.currentTime + 0.1 < video.duration) {
-          video.currentTime += 0.1;
-        } else if (!video.paused) {
-          video.currentTime = 0;
-        }
-      }, 2000);
-      
-      // Pause on scroll out of view
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            video.play().catch(() => {}); 
-          } else {
-            video.pause();
+    const handleVideoAutoplay = () => {
+      const videos = document.querySelectorAll('video');
+
+      videos.forEach(video => {
+        // video.loop = true;
+        // video.muted = true;
+
+        // // Try autoplay
+        // const playPromise = video.play();
+        // if (playPromise !== undefined) {
+        //   playPromise.catch(() => {});
+        // }
+
+        // Skip every 2s
+        const interval = setInterval(() => {
+          if (!video.paused && video.currentTime + 0.1 < video.duration) {
+            video.currentTime += 0.1;
+          } else if (!video.paused) {
+            video.currentTime = 0;
           }
-        },
-        { threshold: 0.3 }
-      );
-      
-      observer.observe(video);
-      
-      // Cleanup per video
-      return () => {
-        clearInterval(interval);
-        observer.disconnect();
-      };
-    });
-  };
+        }, 2000);
 
-  handleVideoAutoplay();
-}, []);
+        // Pause on scroll out of view
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              video.play().catch(() => { });
+            } else {
+              video.pause();
+            }
+          },
+          { threshold: 0.3 }
+        );
 
- useEffect(() => {
+        observer.observe(video);
+
+        // Cleanup per video
+        return () => {
+          clearInterval(interval);
+          observer.disconnect();
+        };
+      });
+    };
+
+    handleVideoAutoplay();
+  }, []);
+
+  useEffect(() => {
     if (location.pathname.startsWith("/")) { // Adjust condition if needed
       if (!sessionStorage.getItem("reloadedOnce")) {
         sessionStorage.setItem("reloadedOnce", "true");
@@ -79,19 +80,20 @@ const Home = () => {
     }
   }, [location.pathname]);
 
- (function() {
+  (function () {
     if (window.localStorage) {
-        if (!localStorage.getItem('alreadyReloaded')) {
-            localStorage.setItem('alreadyReloaded', 'true');
-            window.location.reload();
-        }
+      if (!localStorage.getItem('alreadyReloaded')) {
+        localStorage.setItem('alreadyReloaded', 'true');
+        window.location.reload();
+      }
     }
-})();
+  })();
 
   useEffect(() => {
     // Initialize all features when component mounts
     initializeWow();
     initializeSliders();
+    initializeSliders1();
     initializeCounters();
     initializeFAQs();
 
@@ -162,7 +164,7 @@ const Home = () => {
     });
   });
 
- 
+
   const leftTabs = [
     {
       id: 'identity-verification',
@@ -251,75 +253,11 @@ const Home = () => {
       features: [],
       testimonial: "Reputed commercial bank attained 98% accuracy across service requests.",
       link: '/ocr'
-    },
-    {
-      id: 'identity-verification',
-      title: 'Identity & Verification',
-      icon: 'menu-icon/Identity & Verification.png',
-      mediaType: 'image',
-      mediaSrc: 'products-images/ocr/Identity & Verification.jpg',
-      description: '',
-      features: [
-        "KYC Documents",
-        "Onboarding Forms (Customer/Employee)",
-        "Government-issued Certificates",
-        "Business Licenses & Permits"
-      ],
-      testimonial: "Leading fintech reduced verification time by 75% with our solution.",
-      link: '/ocr'
-    },
-    {
-      id: 'financial-tax',
-      title: 'Financial & Tax',
-      icon: 'menu-icon/Financial & Tax.png',
-      mediaType: 'image',
-      mediaSrc: 'products-images/ocr/Financial & Tax.jpg',
-      description: '',
-      features: [
-        "Bank Statements",
-        "Salary Slips / Pay Stubs",
-        "Tax Forms (ITR, GST)",
-        "Audit & Financial Reports"
-      ],
-      testimonial: "Accounting firm saved 200+ hours monthly on tax document processing.",
-      link: '/ocr'
-    },
-    {
-      id: 'legal-compliance',
-      title: 'Legal & Compliance',
-      icon: 'menu-icon/Legal & Compliance.png',
-      mediaType: 'image',
-      mediaSrc: 'products-images/ocr/Legal & Compliance.jpg',
-      description: '',
-      features: [
-        "Invoices",
-        "Purchase Orders",
-        "Shipping Labels",
-        "Product Labels & Tags"
-      ],
-      testimonial: "Law firm increased contract review efficiency by 90%.",
-      link: '/ocr'
-    },
-    {
-      id: 'operational-transactional',
-      title: 'Operational & Transactional',
-      icon: 'menu-icon/Operational & Transactional.png',
-      mediaType: 'image',
-      mediaSrc: 'products-images/ocr/Operational & Transactional.png',
-      description: '',
-      features: [
-        "Workflow automation",
-        "Transaction processing",
-        "Data entry automation",
-        "Process optimization"
-      ],
-      testimonial: "Logistics company reduced operational costs by 40%.",
-      link: '/ocr'
     }
   ];
 
 
-   useEffect(() => {
+  useEffect(() => {
     const counters = document.querySelectorAll(".custom-counter");
     const counterSection = document.querySelector(".custom-stats-row");
 
@@ -1656,6 +1594,8 @@ const Home = () => {
             <div className="services_title_main">
               <div className="services_title">
                 <div className="accordion" id="accordionExample">
+                  {/* Text-to-Text Translation Products */}
+                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3">Text-to-Text Translation</h4>
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="heading_dotaweb">
                       <button
@@ -1687,7 +1627,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -1791,7 +1731,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -1901,7 +1841,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -2011,7 +1951,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -2125,7 +2065,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -2202,6 +2142,9 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Multilingual Conversational Bots */}
+                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3 mt-4">Multilingual Conversational Bots</h4>
                   <div className="accordion-item">
                     <h2
                       className="accordion-header"
@@ -2238,7 +2181,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -2353,7 +2296,7 @@ const Home = () => {
                               <div className="col-md-12">
                                 <video
                                   autoPlay
-                                  // loop
+                                  loop
                                   // playsInline
                                   className="rounded-4"
                                   style={{ width: "100%", height: "100%" }}
@@ -2427,6 +2370,9 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* OCR WorkFlow Products */}
+                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3">OCR Workflow</h4>
                   <div className="accordion" id="servicesAccordion">
                     {tabs.map((tab) => (
                       <div className="accordion-item" key={tab.id}>
@@ -2464,7 +2410,7 @@ const Home = () => {
                                     {tab.mediaType === 'video' ? (
                                       <video
                                         autoPlay
-                                        // loop
+                                        loop
                                         // playsInline
                                         className="rounded-4"
                                         style={{ width: "100%", height: "100%" }}
@@ -2975,152 +2921,152 @@ const Home = () => {
               </div>
             </div>
           </div> */}
-           <section className="cpblts-sec">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 coidi-wrap">
-            <div className="outer-linesimg">
-              <img className="img-fluid" src={getImagePath('outer-lines.svg')} alt="" />
-            </div>
-
-            <div className="content-box">
-              {/* Box 1 - Capabilities */}
-              <div className="coidi-box first">
-                <div className="coidi-box-cntnt">
-                  <div className="text-center pt-3 mb-3">
-                    <img
-                      style={{ maxHeight: '84px' }}
-                      src={getImagePath('menu-icon/capabilties-icon.png')}
-                      alt=""
-                    />
-                  </div>
-                  <h4 className="text-center">CAPABILITES</h4>
-                  <div className="text-center">
-                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
-                  </div>
-                  <div className="text-start px-5">
-                    <ul className="ps-0">
-                      <li>Multilingual Translation</li>
-                      <li>Multilingual Conversational Bot</li>
-                      <li>Workflow Integration</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Box 2 - Offerings */}
-              <div className="coidi-box second white">
-                <div className="coidi-box-cntnt ps-4 pe-4 pt-0">
-                  <div className="text-center pt-3 mb-3">
-                    <img
-                      style={{ maxHeight: '84px' }}
-                      src={getImagePath('menu-icon/offerings-icon.png')}
-                      alt=""
-                    />
-                  </div>
-                  <h4 className="text-center">OFFERINGS</h4>
-                  <div className="text-center">
-                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
+          <section className="cpblts-sec">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12 coidi-wrap">
+                  <div className="outer-linesimg">
+                    <img className="img-fluid" src={getImagePath('outer-lines.svg')} alt="" />
                   </div>
 
-                  <ul className="ps-4 pe-1">
-                    <li className="mb-0">Text to Text</li>
-                    {/* <li className="mb-0">Text to Speech (TTS)</li>
+                  <div className="content-box">
+                    {/* Box 1 - Capabilities */}
+                    <div className="coidi-box first">
+                      <div className="coidi-box-cntnt">
+                        <div className="text-center pt-3 mb-3">
+                          <img
+                            style={{ maxHeight: '84px' }}
+                            src={getImagePath('menu-icon/capabilties-icon.png')}
+                            alt=""
+                          />
+                        </div>
+                        <h4 className="text-center">CAPABILITES</h4>
+                        <div className="text-center">
+                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                        </div>
+                        <div className="text-start px-5">
+                          <ul className="ps-0">
+                            <li>Multilingual Translation</li>
+                            <li>Multilingual Conversational Bot</li>
+                            <li>Workflow Integration</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Box 2 - Offerings */}
+                    <div className="coidi-box second white">
+                      <div className="coidi-box-cntnt ps-4 pe-4 pt-0">
+                        <div className="text-center pt-3 mb-3">
+                          <img
+                            style={{ maxHeight: '84px' }}
+                            src={getImagePath('menu-icon/offerings-icon.png')}
+                            alt=""
+                          />
+                        </div>
+                        <h4 className="text-center">OFFERINGS</h4>
+                        <div className="text-center">
+                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                        </div>
+
+                        <ul className="ps-4 pe-1">
+                          <li className="mb-0">Text to Text</li>
+                          {/* <li className="mb-0">Text to Speech (TTS)</li>
                     <li className="mb-0">Speech to Text (STT)</li> */}
-                     <li className="mb-0">Text to Speech</li>
-                    <li className="mb-0">Speech to Text</li>
-                  </ul>
-                  <ul className="ps-4 pe-1">
-                    <li className="mb-0">Conversational Voice & Chatbots</li>
-                    <li className="mb-0">IVR Automation</li>
-                    <li className="mb-0">Inbound & Outbound Process</li>
-                  </ul>
-                  <ul className="ps-4 pe-1">
-                    <li className="mb-0">OCR Vision Model</li>
-                    <li className="mb-0">Customer Onboarding Journeys</li>
-                    <li className="mb-0">KYC & Document Verification</li>
-                  </ul>
+                          <li className="mb-0">Text to Speech</li>
+                          <li className="mb-0">Speech to Text</li>
+                        </ul>
+                        <ul className="ps-4 pe-1">
+                          <li className="mb-0">Conversational Voice & Chatbots</li>
+                          <li className="mb-0">IVR Automation</li>
+                          <li className="mb-0">Inbound & Outbound Process</li>
+                        </ul>
+                        <ul className="ps-4 pe-1">
+                          <li className="mb-0">OCR Vision Model</li>
+                          <li className="mb-0">Customer Onboarding Journeys</li>
+                          <li className="mb-0">KYC & Document Verification</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Box 3 - Industries */}
+                    <div className="coidi-box third">
+                      <div className="coidi-box-cntnt">
+                        <div className="text-center pt-3 mb-3">
+                          <img
+                            style={{ maxHeight: '84px' }}
+                            src={getImagePath('menu-icon/industry-icon.png')}
+                            alt=""
+                          />
+                        </div>
+                        <h4 className="text-center">INDUSTRIES </h4>
+                        <div className="text-center">
+                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                        </div>
+                        <div className="text-start ps-5">
+                          <ul className="ps-0">
+                            <li>BFSI</li>
+                            <li>D2C</li>
+                            <li>Legal</li>
+                            <li>E-Commerce</li>
+                            <li>Government Tech</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Box 4 - Platform */}
+                    <div className="coidi-box fourth white">
+                      <div className="coidi-box-cntnt">
+                        <div className="text-center pt-3 mb-3">
+                          <img
+                            style={{ maxHeight: '84px' }}
+                            src={getImagePath('menu-icon/devnagri-platform.png')}
+                            alt=""
+                          />
+                        </div>
+                        <h4 className="text-center">DEVNAGRI’S PLATFORM</h4>
+                        <div className="text-center">
+                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                        </div>
+                        <ul className="ps-4 pe-2">
+                          <li>Core Translation Engine (NLP & ML)</li>
+                          <li>LLM & SLM Models</li>
+                          <li>BRAIN</li>
+                          <li>Agents</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Box 5 - Infra & Delivery */}
+                    <div className="coidi-box fifth">
+                      <div className="coidi-box-cntnt">
+                        <div className="text-center pt-3 mb-3">
+                          <img
+                            style={{ maxHeight: '84px' }}
+                            src={getImagePath('menu-icon/infra-delivery.png')}
+                            alt=""
+                          />
+                        </div>
+                        <h4 className="text-center">INFRA & DELIVERY</h4>
+                        <div className="text-center">
+                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                        </div>
+                        <ul className="ps-4 pe-2 pb-2 mb-2">
+                          <li>Enterprise-grade security</li>
+                          <li>On Prem & Cloud Delivery</li>
+                          <li>Integrations CRM, CMS</li>
+                          <li>APIs & Hooks</li>
+                          <li>Operational Dashboard</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
               </div>
-
-              {/* Box 3 - Industries */}
-              <div className="coidi-box third">
-                <div className="coidi-box-cntnt">
-                  <div className="text-center pt-3 mb-3">
-                    <img
-                      style={{ maxHeight: '84px' }}
-                      src={getImagePath('menu-icon/industry-icon.png')}
-                      alt=""
-                    />
-                  </div>
-                  <h4 className="text-center">INDUSTRIES </h4>
-                  <div className="text-center">
-                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
-                  </div>
-                  <div className="text-start ps-5">
-                    <ul className="ps-0">
-                      <li>BFSI</li>
-                      <li>D2C</li>
-                      <li>Legal</li>
-                      <li>E-Commerce</li>
-                      <li>Government Tech</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Box 4 - Platform */}
-              <div className="coidi-box fourth white">
-                <div className="coidi-box-cntnt">
-                  <div className="text-center pt-3 mb-3">
-                    <img
-                      style={{ maxHeight: '84px' }}
-                      src={getImagePath('menu-icon/devnagri-platform.png')}
-                      alt=""
-                    />
-                  </div>
-                  <h4 className="text-center">DEVNAGRI’S PLATFORM</h4>
-                  <div className="text-center">
-                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
-                  </div>
-                  <ul className="ps-4 pe-2">
-                    <li>Core Translation Engine (NLP & ML)</li>
-                    <li>LLM & SLM Models</li>
-                    <li>BRAIN</li>
-                    <li>Agents</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Box 5 - Infra & Delivery */}
-              <div className="coidi-box fifth">
-                <div className="coidi-box-cntnt">
-                  <div className="text-center pt-3 mb-3">
-                    <img
-                      style={{ maxHeight: '84px' }}
-                      src={getImagePath('menu-icon/infra-delivery.png')}
-                      alt=""
-                    />
-                  </div>
-                  <h4 className="text-center">INFRA & DELIVERY</h4>
-                  <div className="text-center">
-                    <img src={getImagePath('arrow-down-big.svg')} alt="" />
-                  </div>
-                  <ul className="ps-4 pe-2 pb-2 mb-2">
-                    <li>Enterprise-grade security</li>
-                    <li>On Prem & Cloud Delivery</li>
-                    <li>Integrations CRM, CMS</li>
-                    <li>APIs & Hooks</li>
-                    <li>Operational Dashboard</li>
-                  </ul>
-                </div>
-              </div>
-
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </section>
         </div>
       </section>
       {/*case study section*/}
@@ -3171,12 +3117,6 @@ const Home = () => {
                       data-bs-target="#carouselExampleAutoplaying"
                       data-bs-slide-to={4}
                       aria-label="Slide 5"
-                    />
-                    <button
-                      type="button"
-                      data-bs-target="#carouselExampleAutoplaying"
-                      data-bs-slide-to={5}
-                      aria-label="Slide 6"
                     />
                   </div>
                   <div className="carousel-inner">
@@ -3368,46 +3308,6 @@ const Home = () => {
                         <div className="col-lg-7">
                           <img
                             src={getImagePath('case-study/Case-Study-5.png')}
-                            className="d-block w-100 casestudy-project"
-                            alt="case-study"
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <div className="row">
-                        <div className="col-lg-5">
-                          <div className="description-case-study">
-                            <p className="m-0 f-400 black pb-5">
-                              India's largest public sector bank used Devnagri's
-                              DOTA Web to translate its mutual fund platform into
-                              regional languages, making it more accessible to
-                              non-English speakers.
-                            </p>
-                          </div>
-                          <div className="case-study-analytics d-flex gap-3">
-                            <div className="analytics-1">
-                              <h4 className="f-30 f-500 black">30%</h4>
-                              <p className="f-400 m-0 black">
-                                Support queries dropped
-                              </p>
-                            </div>
-                            <div className="analytics-2">
-                              <h4 className="f-30 f-500 black">50%</h4>
-                              <p className="f-400 m-0 black">
-                                Page traffic increased
-                              </p>
-                            </div>
-                          </div>
-                          <Link to="/how-dota-is-revolutionizing-language-translation-in-the-digital-age" className="white">
-                            <button type="btn" className="devnagri-btn mt-5">
-                              View Case Studies
-                            </button></Link>
-                        </div>
-                        <div className="col-lg-7">
-                          <img
-                            src={getImagePath('case-study/Case-Study-6.png')}
                             className="d-block w-100 casestudy-project"
                             alt="case-study"
                             loading="lazy"

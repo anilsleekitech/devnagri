@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getImagePath } from '../utils/imageUtils';
 import { initializeCounters, initializeSliders } from '@/utils/initializeAnimations';
+import { initializeSliders1 } from '@/utils/initScripts';
 
 
 
@@ -11,7 +12,7 @@ const location = useLocation();
 
 useEffect(() => {
     initializeSliders();
-    
+    initializeSliders1();
   }, []);
 
   useEffect(() => {

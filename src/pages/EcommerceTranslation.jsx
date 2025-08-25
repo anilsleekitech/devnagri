@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getImagePath } from '@/utils/imageUtils';
 import { initializeSliders } from '@/utils/initializeAnimations';
+import { initializeSliders1 } from '@/utils/initScripts';
  
 
 const EcommerceTranslation = () => {
@@ -30,7 +31,7 @@ const EcommerceTranslation = () => {
 
     useEffect(() => {
           initializeSliders();
-           
+           initializeSliders1();
       },[])
 
 
