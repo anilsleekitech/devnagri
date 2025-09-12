@@ -4910,15 +4910,33 @@ html :where(img[class*=wp-image-]) {
   }
 }
 
+.recognition-card {
+  width: auto;
+  height: 140px;
+  display: flex;
+  align-items: center;   /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
 .recognition-img {
-  max-height: 120px;
-  width: auto;
+  height: 140px;    /* fixed height for all logos */
+  width: auto;     /* keep proportions */
   object-fit: contain;
+  display: block;
 }
 
-.recognition-card {
-  max-height: 150px;
-  border-radius: 12px;
-  background: #f9f9f9;
+.recognition-slider {
+  padding-bottom: 40px;
 }
+
+.recognition-slider .swiper-pagination {
+  bottom: 10px !important;
+}
+
+
+
+

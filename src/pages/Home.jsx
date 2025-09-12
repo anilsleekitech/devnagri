@@ -3669,56 +3669,45 @@ const Home = () => {
         </div>
       </section>
       {/*our awards section*/}
-      <section className="blog-section">
+      <section className="brand-stats-section-home">
   <div className="container">
-    <h2 className="f-40 f-600 pb-2 black text-center wow fadeInUp">
-      Recognitions
-    </h2>
+    <h2 className="f-40 f-600 pb-2 black text-center">Recognitions</h2>
 
-    {/* Awards data */}
-    {(() => {
-      const awards = [
-        { src: getImagePath("shark-tank-india.png"), alt: "Shark Tank India" },
-        { src: getImagePath("google-clod-partner.png"), alt: "Google Cloud Partner" },
-        { src: getImagePath("aegisbell.png"), alt: "Aegis Bell" },
-        { src: getImagePath("Emerge.jpeg"), alt: "Emerge Award" },
-        { src: getImagePath("google-for-startup.png"), alt: "Google for Startups" },
-        { comingSoon: true, alt: "Coming Soon" },
-      ];
-
-      return (
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          spaceBetween={20}
-          autoplay={{ delay: 2500, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          breakpoints={{
-            0: { slidesPerView: 2 },   // Mobile
-            768: { slidesPerView: 2 }, // Tablet
-            992: { slidesPerView: 4 }, // Large screens
-          }}
-          className="pt-4 wow fadeInUp"
-        >
-          {awards.map((award, index) => (
-            <SwiperSlide key={index}>
-              <div className="resource-card d-flex align-items-center justify-content-center p-4 recognition-card">
-                {award.comingSoon ? (
-                  <p className="black f-22 f-600 recognition-img">Coming Soon...</p>
-                ) : (
-                  <img
-                    src={award.src}
-                    alt={award.alt}
-                    className="recognition-img"
-                  />
-                )}
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      );
-    })()}
+    <Swiper
+      modules={[Autoplay, Pagination]}
+      spaceBetween={30}  // space between slides
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      loop={true}
+      breakpoints={{
+        0: { slidesPerView: 2 },   // mobile
+        768: { slidesPerView: 2 }, // tablet
+        992: { slidesPerView: 4 }, // large screens
+      }}
+      className="brand-slider recognition-slider"
+    >
+      {[
+        { src: "shark-tank-india.png", alt: "Shark Tank India" },
+        { src: "google-clod-partner.png", alt: "Google Cloud Partner" },
+        { src: "aegisbell.png", alt: "Aegis Bell" },
+        { src: "Emerge.jpeg", alt: "Emerge Award" },
+        { src: "google-for-startup.png", alt: "Google for Startups" },
+      ].map((award, i) => (
+        <SwiperSlide key={i}>
+          <div className="recognition-card">
+            <img
+              src={getImagePath(award.src)}
+              alt={award.alt}
+              loading="lazy"
+              className="recognition-img"
+            />
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   </div>
 </section>
+
 
 
       {/*Blog section*/}
