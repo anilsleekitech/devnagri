@@ -3711,7 +3711,7 @@ const Home = () => {
 
 
       {/*Blog section*/}
-      <section className="blog-section">
+      <section className="blog-section mt-4">
         <div className="container">
           <h2 className="f-40 f-600 pb-2 black text-center wow fadeInUp">
             Resource <span className="blue">Hub</span>
