@@ -1,33 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { initializeWow, initializeSliders, initializeCounters, initializeFAQs } from '../utils/initializeAnimations';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { Navigation } from 'swiper/modules';
-import fullDataset from '../data/howWeHelpData.json';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './Home.css';
-import { getImagePath } from '../utils/imageUtils';
-import FAQAccordion from '@/components/FAQAccordion';
-import { initializeSliders1 } from '@/utils/initScripts';
-
+import React, { useEffect, useState } from "react";
+import {
+  initializeWow,
+  initializeSliders,
+  initializeCounters,
+  initializeFAQs,
+} from "../utils/initializeAnimations";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Navigation } from "swiper/modules";
+import fullDataset from "../data/howWeHelpData.json";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./Home.css";
+import { getImagePath } from "../utils/imageUtils";
+import FAQAccordion from "@/components/FAQAccordion";
+import { initializeSliders1 } from "@/utils/initScripts";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const Home = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-  const [activeTab, setActiveTab] = useState('ocr-workflow');
+  const [activeTab, setActiveTab] = useState("ocr-workflow");
 
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
   const navigate = useNavigate();
   const location = useLocation();
 
-
   useEffect(() => {
     const handleVideoAutoplay = () => {
-      const videos = document.querySelectorAll('video');
+      const videos = document.querySelectorAll("video");
 
-      videos.forEach(video => {
+      videos.forEach((video) => {
         // video.loop = true;
         // video.muted = true;
 
@@ -50,7 +56,7 @@ const Home = () => {
         const observer = new IntersectionObserver(
           ([entry]) => {
             if (entry.isIntersecting) {
-              video.play().catch(() => { });
+              video.play().catch(() => {});
             } else {
               video.pause();
             }
@@ -72,7 +78,8 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    if (location.pathname.startsWith("/")) { // Adjust condition if needed
+    if (location.pathname.startsWith("/")) {
+      // Adjust condition if needed
       if (!sessionStorage.getItem("reloadedOnce")) {
         sessionStorage.setItem("reloadedOnce", "true");
         window.location.reload();
@@ -82,8 +89,8 @@ const Home = () => {
 
   (function () {
     if (window.localStorage) {
-      if (!localStorage.getItem('alreadyReloaded')) {
-        localStorage.setItem('alreadyReloaded', 'true');
+      if (!localStorage.getItem("alreadyReloaded")) {
+        localStorage.setItem("alreadyReloaded", "true");
         window.location.reload();
       }
     }
@@ -100,16 +107,16 @@ const Home = () => {
     // Cleanup function
     return () => {
       // Remove event listeners
-      const accordionButtons = document.querySelectorAll('.accordion-button');
-      accordionButtons.forEach(button => {
-        button.removeEventListener('click', () => { });
+      const accordionButtons = document.querySelectorAll(".accordion-button");
+      accordionButtons.forEach((button) => {
+        button.removeEventListener("click", () => {});
       });
     };
   }, []);
 
   useEffect(() => {
     if (swiperInstance) {
-      swiperInstance.on('slideChange', () => {
+      swiperInstance.on("slideChange", () => {
         setIsBeginning(swiperInstance.isBeginning);
         setIsEnd(swiperInstance.isEnd);
       });
@@ -118,19 +125,21 @@ const Home = () => {
 
   useEffect(() => {
     const initCarousel = () => {
-      const carouselElement = document.getElementById('carouselExampleAutoplaying');
+      const carouselElement = document.getElementById(
+        "carouselExampleAutoplaying"
+      );
       if (carouselElement) {
         // Initialize Bootstrap carousel
         const carousel = new window.bootstrap.Carousel(carouselElement, {
           interval: 2000,
           wrap: true,
-          ride: 'carousel'
+          ride: "carousel",
         });
       }
     };
 
     // Check if Bootstrap is available
-    if (typeof window !== 'undefined' && window.bootstrap) {
+    if (typeof window !== "undefined" && window.bootstrap) {
       initCarousel();
     }
   }, []);
@@ -141,7 +150,7 @@ const Home = () => {
   };
 
   $(document).ready(function () {
-    $('.resources-blogs-slider').slick({
+    $(".resources-blogs-slider").slick({
       dots: true,
       infinite: true,
       speed: 500,
@@ -149,113 +158,111 @@ const Home = () => {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
-      prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-      nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+      prevArrow:
+        '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+      nextArrow:
+        '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
       responsive: [
         {
           breakpoint: 1024,
-          settings: { slidesToShow: 2 }
+          settings: { slidesToShow: 2 },
         },
         {
           breakpoint: 768.99,
-          settings: { slidesToShow: 1 }
-        }
-      ]
+          settings: { slidesToShow: 1 },
+        },
+      ],
     });
   });
 
-
   const leftTabs = [
     {
-      id: 'identity-verification',
-      title: 'Identity & Verification',
-      img: 'menu-icon/Identity & Verification.png',
-      contentImage: 'products-images/ocr/Identity & Verification.jpg',
-      description: '',
-      link: '/ocr',
+      id: "identity-verification",
+      title: "Identity & Verification",
+      img: "menu-icon/Identity & Verification.png",
+      contentImage: "products-images/ocr/Identity & Verification.jpg",
+      description: "",
+      link: "/ocr",
       features: [
         "KYC Documents",
         "Onboarding Forms (Customer/Employee)",
         "Government-issued Certificates",
-        "Business Licenses & Permits"
-      ]
+        "Business Licenses & Permits",
+      ],
     },
     {
-      id: 'financial-tax',
-      title: 'Financial & Tax',
-      img: 'menu-icon/Financial & Tax.png',
-      contentImage: 'products-images/ocr/Financial & Tax.jpg',
-      description: '',
-      link: '/ocr',
+      id: "financial-tax",
+      title: "Financial & Tax",
+      img: "menu-icon/Financial & Tax.png",
+      contentImage: "products-images/ocr/Financial & Tax.jpg",
+      description: "",
+      link: "/ocr",
       features: [
         "Bank Statements",
         "Salary Slips / Pay Stubs",
         "Tax Forms (ITR, GST)",
-        "Audit & Financial Reports"
-      ]
+        "Audit & Financial Reports",
+      ],
     },
     {
-      id: 'legal-compliance',
-      title: 'Legal & Compliance',
-      img: 'menu-icon/Legal & Compliance.png',
-      contentImage: 'products-images/ocr/Legal & Compliance.jpg',
-      description: '',
-      link: '/ocr',
+      id: "legal-compliance",
+      title: "Legal & Compliance",
+      img: "menu-icon/Legal & Compliance.png",
+      contentImage: "products-images/ocr/Legal & Compliance.jpg",
+      description: "",
+      link: "/ocr",
       features: [
         "Legal Agreements / Contracts",
         "Compliance & Regulatory Docs",
         "Mortgage Documents",
-        "Insurance Claims & Policies"
-      ]
+        "Insurance Claims & Policies",
+      ],
     },
     {
-      id: 'operational-transactional',
-      title: 'Operational & Transactional',
-      img: 'menu-icon/Operational & Transactional.png',
-      contentImage: 'products-images/ocr/Operational & Transactional.png',
-      description: '',
-      link: '/ocr',
+      id: "operational-transactional",
+      title: "Operational & Transactional",
+      img: "menu-icon/Operational & Transactional.png",
+      contentImage: "products-images/ocr/Operational & Transactional.png",
+      description: "",
+      link: "/ocr",
       features: [
         "Invoices",
         "Purchase Orders",
         "Shipping Labels",
-        "Product Labels & Tags"
-      ]
-    }
+        "Product Labels & Tags",
+      ],
+    },
   ];
 
   // OCR content (video)
   const ocrContent = {
-    id: 'ocr-workflow',
-    media: 'video',
-    src: 'product-offering/ocr-product.mp4',
-    description: 'Extract & translate text from images in a go.',
-    link: '/ocr',
-    features: []
+    id: "ocr-workflow",
+    media: "video",
+    src: "product-offering/ocr-product.mp4",
+    description: "Extract & translate text from images in a go.",
+    link: "/ocr",
+    features: [],
   };
 
   // Combine all content
-  const contentTabs = [
-    ocrContent,
-    ...leftTabs
-  ];
+  const contentTabs = [ocrContent, ...leftTabs];
 
-  const activeContent = contentTabs.find(tab => tab.id === activeTab);
+  const activeContent = contentTabs.find((tab) => tab.id === activeTab);
 
   const tabs = [
     {
-      id: 'ocr-workflow',
-      title: 'OCR Workflow',
-      icon: 'menu-icon/ocr-workflow-icon.png',
-      mediaType: 'video',
-      mediaSrc: 'product-offering/ocr-product.mp4',
-      description: 'Extract & translate text from images in a go.',
+      id: "ocr-workflow",
+      title: "OCR Workflow",
+      icon: "menu-icon/ocr-workflow-icon.png",
+      mediaType: "video",
+      mediaSrc: "product-offering/ocr-product.mp4",
+      description: "Extract & translate text from images in a go.",
       features: [],
-      testimonial: "Reputed commercial bank attained 98% accuracy across service requests.",
-      link: '/ocr'
-    }
+      testimonial:
+        "Reputed commercial bank attained 98% accuracy across service requests.",
+      link: "/ocr",
+    },
   ];
-
 
   useEffect(() => {
     const counters = document.querySelectorAll(".custom-counter");
@@ -267,7 +274,7 @@ const Home = () => {
       function animateCounter(counter) {
         const target = parseFloat(counter.getAttribute("data-target"));
         const isDecimal = counter.getAttribute("data-decimal") === "true";
-        const suffix = counter.getAttribute("data-suffix") || '';
+        const suffix = counter.getAttribute("data-suffix") || "";
         const duration = 2000;
         const frameRate = 60;
         const totalFrames = Math.round((duration / 1000) * frameRate);
@@ -287,7 +294,9 @@ const Home = () => {
           if (frame < totalFrames) {
             requestAnimationFrame(count);
           } else {
-            counter.innerText = isDecimal ? target.toFixed(1) + suffix : target + suffix;
+            counter.innerText = isDecimal
+              ? target.toFixed(1) + suffix
+              : target + suffix;
           }
         };
 
@@ -300,7 +309,7 @@ const Home = () => {
           const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
 
           if (isVisible && !hasCounted) {
-            counters.forEach(counter => animateCounter(counter));
+            counters.forEach((counter) => animateCounter(counter));
             hasCounted = true;
             window.removeEventListener("scroll", onScroll);
           }
@@ -320,15 +329,15 @@ const Home = () => {
   return (
     <>
       <head>
-        <title>Devnagri -India's 1st AI-Powered Translation Engine For Indian Languages</title>
+        <title>
+          Devnagri -India's 1st AI-Powered Translation Engine For Indian
+          Languages
+        </title>
         <meta
           name="description"
           content="Devnagri, India's #1 AI-powered translation engine, helps brands to localize their content 5x faster and more accurately."
         />
-        <meta
-          name="keywords"
-          content="Devnagri, Devnagri AI"
-        />
+        <meta name="keywords" content="Devnagri, Devnagri AI" />
       </head>
       {/* Hero Section */}
       <section className="hero-home bg-img overflow-hidden">
@@ -336,7 +345,8 @@ const Home = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <h1 className="f-40 f-700 black pb-2 wow fadeIn">
-                Language is <span className="blue">Local.</span> Impact is <span className="blue">Global.</span>
+                Language is <span className="blue">Local.</span> Impact is{" "}
+                <span className="blue">Global.</span>
               </h1>
               <p className="f-400 f-18 para-color m-0 pb-4 wow fadeIn">
                 Devnagri helps banks, insurance companies, retail companies, and
@@ -344,15 +354,18 @@ const Home = () => {
                 build trust through its industry-leading AI-powered multilingual
                 technology solutions.
               </p>
-              <Link to="https://account.devnagri.com/register" className="white"><button
-                type="btn"
-                className="devnagri-btn wow fadeIn animated"
-                style={{ visibility: "visible" }}
+              <Link
+                to="https://account.devnagri.com/register"
+                className="white"
               >
-
-                Get Started
-
-              </button></Link>
+                <button
+                  type="btn"
+                  className="devnagri-btn wow fadeIn animated"
+                  style={{ visibility: "visible" }}
+                >
+                  Get Started
+                </button>
+              </Link>
             </div>
             <div className="col-lg-6 mt-md-5 mt-lg-0 mt-4">
               <div className="swiper campaignSwiper wow fadeIn">
@@ -360,67 +373,76 @@ const Home = () => {
                   <div className="swiper-slide">
                     <div className="campaign-card">
                       <img
-                        src={getImagePath('campaigns/Case-Study-EdTech.png')}
+                        src={getImagePath("campaigns/Case-Study-EdTech.png")}
                         alt="New Feature Launch"
                         className="w-100 rounded-4"
                       />
                       <div className="campaign-content text-center">
-                        <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                        <Link
+                          to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages"
+                          className="white"
+                        >
                           <button
                             type="btn"
                             className="devnagri-btn wow fadeIn animated"
                             style={{ visibility: "visible" }}
                           >
                             Learn More
-
-                          </button></Link>
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <div className="swiper-slide">
                     <div className="campaign-card">
                       <img
-                        src={getImagePath('campaigns/Case-Study-BFSI.png')}
+                        src={getImagePath("campaigns/Case-Study-BFSI.png")}
                         alt="Insurance Success Story"
                         className="w-100 rounded-4"
                       />
                       <div className="campaign-content text-center">
-                        <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                        <Link
+                          to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation"
+                          className="white"
+                        >
                           <button
                             type="btn"
                             className="devnagri-btn wow fadeIn animated"
                             style={{ visibility: "visible" }}
                           >
                             Learn More
-
-                          </button></Link>
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <div className="swiper-slide">
                     <div className="campaign-card">
                       <img
-                        src={getImagePath('campaigns/Devnagri-AI-News.png')}
+                        src={getImagePath("campaigns/Devnagri-AI-News.png")}
                         alt="Upcoming Event"
                         className="w-100 rounded-4"
                       />
                       <div className="campaign-content text-center">
-                        <Link to="/devnagri-ai-named-top-3-finalist-in-government-of-indias-indiaai-innovation-challenge" className="white">
+                        <Link
+                          to="/devnagri-ai-named-top-3-finalist-in-government-of-indias-indiaai-innovation-challenge"
+                          className="white"
+                        >
                           <button
                             type="btn"
                             className="devnagri-btn wow fadeIn animated"
                             style={{ visibility: "visible" }}
                           >
                             Learn More
-
-                          </button></Link>
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <div className="swiper-slide">
                     <div className="campaign-card">
                       <img
-                        src={getImagePath('campaigns/AI-AGENT_2.png')}
+                        src={getImagePath("campaigns/AI-AGENT_2.png")}
                         alt="Language Solutions"
                         className="w-100 rounded-4"
                       />
@@ -432,8 +454,8 @@ const Home = () => {
                             style={{ visibility: "visible" }}
                           >
                             Learn More
-
-                          </button></Link>
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -453,63 +475,63 @@ const Home = () => {
             <div className="brand-slider-wrapper">
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-meesho.png')}
+                  src={getImagePath("brand-meesho.png")}
                   alt="Brand 1"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-icici-bank.png')}
+                  src={getImagePath("brand-icici-bank.png")}
                   alt="Brand 2"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-idfc.png')}
+                  src={getImagePath("brand-idfc.png")}
                   alt="Brand 3"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-yes-bank.png')}
+                  src={getImagePath("brand-yes-bank.png")}
                   alt="Brand 4"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-sbi-mutual.png')}
+                  src={getImagePath("brand-sbi-mutual.png")}
                   alt="Brand 5"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-tataia.png')}
+                  src={getImagePath("brand-tataia.png")}
                   alt="Brand 5"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-nestle.png')}
+                  src={getImagePath("brand-nestle.png")}
                   alt="Brand 5"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-my-gov.png')}
+                  src={getImagePath("brand-my-gov.png")}
                   alt="Brand 5"
                   loading="lazy"
                 />
               </div>
               <div className="brand-item-slide">
                 <img
-                  src={getImagePath('brand-nitiayog.png')}
+                  src={getImagePath("brand-nitiayog.png")}
                   alt="Brand 5"
                   loading="lazy"
                 />
@@ -535,7 +557,7 @@ const Home = () => {
                   </h3>
                   <div className="d-flex align-items-center gap-3">
                     <div className="icon-box wow fadeInUp">
-                      <img src={getImagePath('menu-icon/language.png')} />
+                      <img src={getImagePath("menu-icon/language.png")} />
                     </div>
                     <div className="counter-text">
                       <p className="f-18 black f-500 m-0 wow fadeInUp">
@@ -560,10 +582,12 @@ const Home = () => {
                   </h3>
                   <div className="d-flex align-items-center gap-3">
                     <div className="icon-box wow fadeInUp">
-                      <img src={getImagePath('menu-icon/customer.png')} />
+                      <img src={getImagePath("menu-icon/customer.png")} />
                     </div>
                     <div className="counter-text">
-                      <p className="f-18 black f-500 m-0 wow fadeInUp">Customers</p>
+                      <p className="f-18 black f-500 m-0 wow fadeInUp">
+                        Customers
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -582,7 +606,7 @@ const Home = () => {
                   </h3>
                   <div className="d-flex align-items-center gap-3">
                     <div className="icon-box wow fadeInUp">
-                      <img src={getImagePath('menu-icon/words.png')} />
+                      <img src={getImagePath("menu-icon/words.png")} />
                     </div>
                     <div className="counter-text">
                       <p className="f-18 black f-500 m-0 wow fadeInUp">
@@ -597,7 +621,10 @@ const Home = () => {
         </div>
       </section>
       {/*--devnagri offer-*/}
-      <section id="services_section" className="explore-our-product devnagri-offer">
+      <section
+        id="services_section"
+        className="explore-our-product devnagri-offer"
+      >
         <div className="container wow fadeInUp">
           <div className="services_heading">
             <h2 className="text-center f-40 f-600 pb-4 black wow fadeInUp">
@@ -647,7 +674,11 @@ const Home = () => {
                 </li>
               </ul>
               <div className="tab-content tab-card">
-                <div className="tab-pane fade show active" id="tts" role="tabpanel">
+                <div
+                  className="tab-pane fade show active"
+                  id="tts"
+                  role="tabpanel"
+                >
                   <div className="services_content">
                     <div className="services_title_main">
                       <div className="services_title">
@@ -668,7 +699,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/dota-web-icon.png')}
+                                  src={getImagePath(
+                                    "menu-icon/dota-web-icon.png"
+                                  )}
                                   alt="dota-web"
                                 />
                               </div>
@@ -689,7 +722,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/dota-app-icon.png')}
+                                  src={getImagePath(
+                                    "menu-icon/dota-app-icon.png"
+                                  )}
                                   alt="dota-app"
                                 />
                               </div>
@@ -710,7 +745,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/document-translation-icon.png')}
+                                  src={getImagePath(
+                                    "menu-icon/document-translation-icon.png"
+                                  )}
                                   alt="workflowtrans"
                                 />
                               </div>
@@ -731,7 +768,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/translation-api.png')}
+                                  src={getImagePath(
+                                    "menu-icon/translation-api.png"
+                                  )}
                                   alt="translation-api"
                                   style={{ width: 40 }}
                                 />
@@ -753,7 +792,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/transliteration-api-icon.png')}
+                                  src={getImagePath(
+                                    "menu-icon/transliteration-api-icon.png"
+                                  )}
                                   alt="transliteration-api"
                                 />
                               </div>
@@ -786,10 +827,13 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/dota-web-products.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/dota-web-products.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
@@ -801,7 +845,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -810,7 +854,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -819,7 +863,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -828,11 +872,13 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Dashboard Analytics &amp; Insights</div>
+                                      <div>
+                                        Dashboard Analytics &amp; Insights
+                                      </div>
                                     </li>
                                   </ul>
                                 </div>
@@ -877,10 +923,13 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/dota-app-product.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/dota-app-product.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
@@ -892,7 +941,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -901,7 +950,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -910,7 +959,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -919,7 +968,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -930,8 +979,8 @@ const Home = () => {
                               </div>
                               <div className="pt-2">
                                 <h6 className="f-600 f-20 black">
-                                  Top Indian Bank increased Regional User Satisfaction
-                                  by 63%
+                                  Top Indian Bank increased Regional User
+                                  Satisfaction by 63%
                                 </h6>
                                 <div className="register-btn">
                                   <Link
@@ -969,23 +1018,26 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/document-tranlation-product.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/document-tranlation-product.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    Translate multiple documents using an AI-driven
-                                    engine.
+                                    Translate multiple documents using an
+                                    AI-driven engine.
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -994,7 +1046,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1003,7 +1055,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1012,7 +1064,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1023,7 +1075,8 @@ const Home = () => {
                               </div>
                               <div className="pt-2">
                                 <h6 className="f-600 f-20 black">
-                                  Housing Finance Company Support Tickets drop by 41%.
+                                  Housing Finance Company Support Tickets drop
+                                  by 41%.
                                 </h6>
                                 <div className="register-btn">
                                   <Link
@@ -1061,23 +1114,26 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/Translation-API-product.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/Translation-API-product.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    Perform context-aware translations with a robust
-                                    API.
+                                    Perform context-aware translations with a
+                                    robust API.
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1086,7 +1142,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1095,7 +1151,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1104,7 +1160,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1115,14 +1171,11 @@ const Home = () => {
                               </div>
                               <div className="pt-2">
                                 <h6 className="f-600 f-20 black">
-                                  Fund Management Division Got 50% More Investors with
-                                  the Right Translation.
+                                  Fund Management Division Got 50% More
+                                  Investors with the Right Translation.
                                 </h6>
                                 <div className="register-btn">
-                                  <Link
-                                    to="/translation-api"
-                                    className="white"
-                                  >
+                                  <Link to="/translation-api" className="white">
                                     <button
                                       type="btn"
                                       className="devnagri-btn mt-3"
@@ -1154,10 +1207,13 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/Transliteration-API-product.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/Transliteration-API-product.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
@@ -1169,7 +1225,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1178,7 +1234,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1187,7 +1243,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1196,7 +1252,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1252,7 +1308,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/conversational-ai-bot-icon.png')}
+                                  src={getImagePath(
+                                    "menu-icon/conversational-ai-bot-icon.png"
+                                  )}
                                   alt="aibot"
                                 />
                               </div>
@@ -1273,7 +1331,9 @@ const Home = () => {
                             >
                               <div className="tab_innerimg_icon">
                                 <img
-                                  src={getImagePath('menu-icon/chat-bot-icon.png')}
+                                  src={getImagePath(
+                                    "menu-icon/chat-bot-icon.png"
+                                  )}
                                   alt="smartbot"
                                 />
                               </div>
@@ -1305,35 +1365,37 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/voice-bot-product.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/voice-bot-product.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
                                 <div className="col-md-12">
                                   <p className="m-0 f-400 para-color pt-3 pb-3">
-                                    Implement Devnagri's bot to scale your outbound
-                                    and inbound communications.
+                                    Implement Devnagri's bot to scale your
+                                    outbound and inbound communications.
                                   </p>
                                   <ul className="check-list p-0 product-showcase-feature">
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
                                       <div>
-                                        Emotion &amp;
-                                        Sentiment Detection
+                                        Emotion &amp; Sentiment Detection
                                       </div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1342,35 +1404,33 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>AI Training &amp;
-                                        Continous  Learning</div>
+                                      <div>
+                                        AI Training &amp; Continous Learning
+                                      </div>
                                     </li>
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
-                                      <div>Security &amp;
-                                        Compliance</div>
+                                      <div>Security &amp; Compliance</div>
                                     </li>
                                   </ul>
                                 </div>
                               </div>
                               <div className="pt-2">
                                 <h6 className="f-600 f-20 black">
-                                  NBFC institutions received 3X Loan Applications.
+                                  NBFC institutions received 3X Loan
+                                  Applications.
                                 </h6>
                                 <div className="register-btn">
-                                  <Link
-                                    to="/voice-bot"
-                                    className="white"
-                                  >
+                                  <Link to="/voice-bot" className="white">
                                     <button
                                       type="btn"
                                       className="devnagri-btn mt-3"
@@ -1397,10 +1457,13 @@ const Home = () => {
                                       style={{ width: "100%", height: "100%" }}
                                     >
                                       <source
-                                        src={getImagePath('product-offering/chat-bot-product.mp4')}
+                                        src={getImagePath(
+                                          "product-offering/chat-bot-product.mp4"
+                                        )}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   </div>
                                 </div>
@@ -1412,7 +1475,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1421,7 +1484,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1430,7 +1493,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1439,7 +1502,7 @@ const Home = () => {
                                     <li className="f-400 para-color mb-2 d-flex gap-2">
                                       <div className="width-8">
                                         <img
-                                          src={getImagePath('tick-circle.png')}
+                                          src={getImagePath("tick-circle.png")}
                                           className="w-100"
                                         />
                                       </div>
@@ -1450,14 +1513,11 @@ const Home = () => {
                               </div>
                               <div className="pt-2">
                                 <h6 className="f-600 f-20 black">
-                                  Leading Government Division Trained Model with 5+ Mn
-                                  Sentences
+                                  Leading Government Division Trained Model with
+                                  5+ Mn Sentences
                                 </h6>
                                 <div className="register-btn">
-                                  <Link
-                                    to="/chatbot"
-                                    className="white"
-                                  >
+                                  <Link to="/chatbot" className="white">
                                     <button
                                       type="btn"
                                       className="devnagri-btn mt-3"
@@ -1479,11 +1539,21 @@ const Home = () => {
                   <div className="services_content">
                     <div className="services_title_main">
                       <div className="services_title">
-                        <ul className="nav nav-pills flex-column" id="pills-tab" role="tablist">
+                        <ul
+                          className="nav nav-pills flex-column"
+                          id="pills-tab"
+                          role="tablist"
+                        >
                           {leftTabs.map((tab) => (
-                            <li className="nav-item" role="presentation" key={tab.id}>
+                            <li
+                              className="nav-item"
+                              role="presentation"
+                              key={tab.id}
+                            >
                               <button
-                                className={`nav-link services-nav-link ${activeTab === tab.id ? 'active' : ''}`}
+                                className={`nav-link services-nav-link ${
+                                  activeTab === tab.id ? "active" : ""
+                                }`}
                                 onClick={() => setActiveTab(tab.id)}
                               >
                                 <div className="tab_innerimg_icon">
@@ -1509,7 +1579,7 @@ const Home = () => {
                             <div className="row">
                               <div className="col-md-12">
                                 <div className="product-viedo-box">
-                                  {activeContent.media === 'video' ? (
+                                  {activeContent.media === "video" ? (
                                     <video
                                       autoPlay
                                       // loop
@@ -1521,14 +1591,21 @@ const Home = () => {
                                         src={getImagePath(activeContent.src)}
                                         type="video/mp4"
                                       />
-                                      Your browser does not support the video tag.
+                                      Your browser does not support the video
+                                      tag.
                                     </video>
                                   ) : (
                                     <img
-                                      src={getImagePath(activeContent.contentImage)}
+                                      src={getImagePath(
+                                        activeContent.contentImage
+                                      )}
                                       alt={activeContent.title}
                                       className="rounded-4"
-                                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                      }}
                                     />
                                   )}
                                 </div>
@@ -1536,22 +1613,30 @@ const Home = () => {
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3"></p>
                                 {/* Feature list for all tabs */}
-                                {activeContent.features && activeContent.features.length > 0 && (
-                                  <ul className="check-list p-0 product-showcase-feature">
-                                    {activeContent.features.map((feature, index) => (
-                                      <li key={index} className="f-400 para-color mb-2 d-flex gap-2">
-                                        <div className="width-8">
-                                          <img
-                                            src={getImagePath('tick-circle.png')}
-                                            className="w-100"
-                                            alt="tick"
-                                          />
-                                        </div>
-                                        <div>{feature}</div>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                )}
+                                {activeContent.features &&
+                                  activeContent.features.length > 0 && (
+                                    <ul className="check-list p-0 product-showcase-feature">
+                                      {activeContent.features.map(
+                                        (feature, index) => (
+                                          <li
+                                            key={index}
+                                            className="f-400 para-color mb-2 d-flex gap-2"
+                                          >
+                                            <div className="width-8">
+                                              <img
+                                                src={getImagePath(
+                                                  "tick-circle.png"
+                                                )}
+                                                className="w-100"
+                                                alt="tick"
+                                              />
+                                            </div>
+                                            <div>{feature}</div>
+                                          </li>
+                                        )
+                                      )}
+                                    </ul>
+                                  )}
 
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
                                   {activeContent.description}
@@ -1576,7 +1661,6 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -1595,7 +1679,9 @@ const Home = () => {
               <div className="services_title">
                 <div className="accordion" id="accordionExample">
                   {/* Text-to-Text Translation Products */}
-                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3">Text-to-Text Translation</h4>
+                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3">
+                    Text-to-Text Translation
+                  </h4>
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="heading_dotaweb">
                       <button
@@ -1608,11 +1694,13 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/dota-web-icon.png')}
+                            src={getImagePath("menu-icon/dota-web-icon.png")}
                             alt="dota-web"
                           />
                         </div>
-                        <div className="nav_btncontent f-20 f-600">DOTA Web</div>
+                        <div className="nav_btncontent f-20 f-600">
+                          DOTA Web
+                        </div>
                       </button>
                     </h2>
                     <div
@@ -1633,7 +1721,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/dota-web-products.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/dota-web-products.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -1647,7 +1737,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1656,7 +1746,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1665,7 +1755,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1674,11 +1764,13 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Dashboard Analytics &amp; Insights</div>
+                                    <div>
+                                      Dashboard Analytics &amp; Insights
+                                    </div>
                                   </li>
                                 </ul>
                               </div>
@@ -1688,8 +1780,14 @@ const Home = () => {
                                 A govt website increased its traffic by 200%.
                               </h6>
                               <div className="register-btn">
-                                <Link to="/website-translation" className="white">
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                <Link
+                                  to="/website-translation"
+                                  className="white"
+                                >
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -1712,11 +1810,13 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/dota-app-icon.png')}
+                            src={getImagePath("menu-icon/dota-app-icon.png")}
                             alt="dota-app"
                           />
                         </div>
-                        <div className="nav_btncontent f-20 f-600">DOTA App</div>
+                        <div className="nav_btncontent f-20 f-600">
+                          DOTA App
+                        </div>
                       </button>
                     </h2>
                     <div
@@ -1737,7 +1837,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/dota-app-product.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/dota-app-product.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -1751,7 +1853,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1760,7 +1862,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1769,7 +1871,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1778,7 +1880,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1789,12 +1891,15 @@ const Home = () => {
                             </div>
                             <div className="pt-2">
                               <h6 className="f-600 f-20 black">
-                                Top Indian Bank increased Regional User Satisfaction
-                                by 63%
+                                Top Indian Bank increased Regional User
+                                Satisfaction by 63%
                               </h6>
                               <div className="register-btn">
                                 <Link to="/app-localization" className="white">
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -1820,7 +1925,9 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/document-translation-icon.png')}
+                            src={getImagePath(
+                              "menu-icon/document-translation-icon.png"
+                            )}
                             alt="workflowtrans"
                           />
                         </div>
@@ -1847,7 +1954,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/document-tranlation-product.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/document-tranlation-product.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -1855,14 +1964,14 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  Translate multiple documents using an AI-driven
-                                  engine.
+                                  Translate multiple documents using an
+                                  AI-driven engine.
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1871,7 +1980,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1880,7 +1989,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1889,7 +1998,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1900,14 +2009,18 @@ const Home = () => {
                             </div>
                             <div className="pt-2">
                               <h6 className="f-600 f-20 black">
-                                Housing Finance Company Support Tickets drop by 41%.
+                                Housing Finance Company Support Tickets drop by
+                                41%.
                               </h6>
                               <div className="register-btn">
                                 <Link
                                   to="/document-translation"
                                   className="white"
                                 >
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -1919,7 +2032,10 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="accordion-item">
-                    <h2 className="accordion-header" id="heading_translation_api">
+                    <h2
+                      className="accordion-header"
+                      id="heading_translation_api"
+                    >
                       <button
                         className="accordion-button collapsed"
                         type="button"
@@ -1930,7 +2046,7 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/translation-api.png')}
+                            src={getImagePath("menu-icon/translation-api.png")}
                             alt="translation-api"
                           />
                         </div>
@@ -1957,7 +2073,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/Translation-API-product.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/Translation-API-product.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -1965,14 +2083,14 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  Perform context-aware translations with a robust
-                                  API.
+                                  Perform context-aware translations with a
+                                  robust API.
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1981,7 +2099,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1990,7 +2108,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -1999,7 +2117,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2010,15 +2128,15 @@ const Home = () => {
                             </div>
                             <div className="pt-2">
                               <h6 className="f-600 f-20 black">
-                                Fund Management Division Got 50% More Investors with
-                                the Right Translation.
+                                Fund Management Division Got 50% More Investors
+                                with the Right Translation.
                               </h6>
                               <div className="register-btn">
-                                <Link
-                                  to="/translation-api"
-                                  className="white"
-                                >
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                <Link to="/translation-api" className="white">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -2044,7 +2162,9 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/transliteration-api-icon.png')}
+                            src={getImagePath(
+                              "menu-icon/transliteration-api-icon.png"
+                            )}
                             alt="transliteration-api"
                           />
                         </div>
@@ -2071,7 +2191,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/Transliteration-API-product.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/Transliteration-API-product.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -2085,7 +2207,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2094,7 +2216,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2103,7 +2225,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2112,7 +2234,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2131,7 +2253,10 @@ const Home = () => {
                                   to="/transliteration-api"
                                   className="white"
                                 >
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -2144,7 +2269,9 @@ const Home = () => {
                   </div>
 
                   {/* Multilingual Conversational Bots */}
-                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3 mt-4">Multilingual Conversational Bots</h4>
+                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3 mt-4">
+                    Multilingual Conversational Bots
+                  </h4>
                   <div className="accordion-item">
                     <h2
                       className="accordion-header"
@@ -2160,7 +2287,9 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/conversational-ai-bot-icon.png')}
+                            src={getImagePath(
+                              "menu-icon/conversational-ai-bot-icon.png"
+                            )}
                             alt="aibot"
                           />
                         </div>
@@ -2187,7 +2316,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/voice-bot-product.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/voice-bot-product.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -2195,26 +2326,23 @@ const Home = () => {
                               </div>
                               <div className="col-md-12">
                                 <p className="m-0 f-400 para-color pt-3 pb-3">
-                                  Implement Devnagri's bot to scale your outbound
-                                  and inbound communications.
+                                  Implement Devnagri's bot to scale your
+                                  outbound and inbound communications.
                                 </p>
                                 <ul className="check-list p-0">
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>
-                                      Emotion &amp;
-                                      Sentiment Detection
-                                    </div>
+                                    <div>Emotion &amp; Sentiment Detection</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2223,24 +2351,22 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>AI Training &amp;
-                                      Continous Learning
+                                    <div>
+                                      AI Training &amp; Continous Learning
                                     </div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>Security &amp;
-                                      Compliance
-                                    </div>
+                                    <div>Security &amp; Compliance</div>
                                   </li>
                                 </ul>
                               </div>
@@ -2250,11 +2376,11 @@ const Home = () => {
                                 NBFC institutions received 3X Loan Applications.
                               </h6>
                               <div className="register-btn">
-                                <Link
-                                  to="/voice-bot"
-                                  className="white"
-                                >
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                <Link to="/voice-bot" className="white">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -2277,11 +2403,13 @@ const Home = () => {
                       >
                         <div className="tab_innerimg_icon">
                           <img
-                            src={getImagePath('menu-icon/chat-bot-icon.png')}
+                            src={getImagePath("menu-icon/chat-bot-icon.png")}
                             alt="smartbot"
                           />
                         </div>
-                        <div className="nav_btncontent f-20 f-600">Chat Bot</div>
+                        <div className="nav_btncontent f-20 f-600">
+                          Chat Bot
+                        </div>
                       </button>
                     </h2>
                     <div
@@ -2302,7 +2430,9 @@ const Home = () => {
                                   style={{ width: "100%", height: "100%" }}
                                 >
                                   <source
-                                    src={getImagePath('product-offering/chat-bot-product.mp4')}
+                                    src={getImagePath(
+                                      "product-offering/chat-bot-product.mp4"
+                                    )}
                                     type="video/mp4"
                                   />
                                   Your browser does not support the video tag.
@@ -2316,7 +2446,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2325,7 +2455,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2334,7 +2464,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2343,7 +2473,7 @@ const Home = () => {
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">
                                       <img
-                                        src={getImagePath('tick-circle.png')}
+                                        src={getImagePath("tick-circle.png")}
                                         className="w-100"
                                       />
                                     </div>
@@ -2354,12 +2484,15 @@ const Home = () => {
                             </div>
                             <div className="pt-2">
                               <h6 className="f-600 f-20 black">
-                                Leading Government Division Trained Model with 5+ Mn
-                                Sentences
+                                Leading Government Division Trained Model with
+                                5+ Mn Sentences
                               </h6>
                               <div className="register-btn">
                                 <Link to="/chatbot" className="white">
-                                  <button type="btn" className="devnagri-btn mt-3">
+                                  <button
+                                    type="btn"
+                                    className="devnagri-btn mt-3"
+                                  >
                                     Learn More
                                   </button>
                                 </Link>
@@ -2372,11 +2505,16 @@ const Home = () => {
                   </div>
 
                   {/* OCR WorkFlow Products */}
-                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3">OCR Workflow</h4>
+                  <h4 className="f-20 f-700 black pb-2 wow fadeIn mb-3">
+                    OCR Workflow
+                  </h4>
                   <div className="accordion" id="servicesAccordion">
                     {tabs.map((tab) => (
                       <div className="accordion-item" key={tab.id}>
-                        <h2 className="accordion-header" id={`heading_${tab.id}`}>
+                        <h2
+                          className="accordion-header"
+                          id={`heading_${tab.id}`}
+                        >
                           <button
                             className="accordion-button collapsed"
                             type="button"
@@ -2407,26 +2545,34 @@ const Home = () => {
                               <div className="main_mobile_tab_content">
                                 <div className="row">
                                   <div className="col-12">
-                                    {tab.mediaType === 'video' ? (
+                                    {tab.mediaType === "video" ? (
                                       <video
                                         autoPlay
                                         loop
                                         // playsInline
                                         className="rounded-4"
-                                        style={{ width: "100%", height: "100%" }}
+                                        style={{
+                                          width: "100%",
+                                          height: "100%",
+                                        }}
                                       >
                                         <source
                                           src={getImagePath(tab.mediaSrc)}
                                           type="video/mp4"
                                         />
-                                        Your browser does not support the video tag.
+                                        Your browser does not support the video
+                                        tag.
                                       </video>
                                     ) : (
                                       <img
                                         src={getImagePath(tab.mediaSrc)}
                                         alt={tab.title}
                                         className="rounded-4"
-                                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                        style={{
+                                          width: "100%",
+                                          height: "100%",
+                                          objectFit: "cover",
+                                        }}
                                       />
                                     )}
                                   </div>
@@ -2434,22 +2580,30 @@ const Home = () => {
                                     <p className="m-0 f-400 para-color pt-3 pb-3">
                                       {tab.description}
                                     </p>
-                                    {tab.features && tab.features.length > 0 && (
-                                      <ul className="check-list p-0">
-                                        {tab.features.map((feature, index) => (
-                                          <li key={index} className="f-400 para-color mb-2 d-flex gap-2">
-                                            <div className="width-3">
-                                              <img
-                                                src={getImagePath('tick-circle.png')}
-                                                className="w-100"
-                                                alt="tick"
-                                              />
-                                            </div>
-                                            <div>{feature}</div>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    )}
+                                    {tab.features &&
+                                      tab.features.length > 0 && (
+                                        <ul className="check-list p-0">
+                                          {tab.features.map(
+                                            (feature, index) => (
+                                              <li
+                                                key={index}
+                                                className="f-400 para-color mb-2 d-flex gap-2"
+                                              >
+                                                <div className="width-3">
+                                                  <img
+                                                    src={getImagePath(
+                                                      "tick-circle.png"
+                                                    )}
+                                                    className="w-100"
+                                                    alt="tick"
+                                                  />
+                                                </div>
+                                                <div>{feature}</div>
+                                              </li>
+                                            )
+                                          )}
+                                        </ul>
+                                      )}
                                   </div>
                                 </div>
                                 <div className="pt-2">
@@ -2460,7 +2614,10 @@ const Home = () => {
                                   )}
                                   <div className="register-btn">
                                     <Link to={tab.link} className="white">
-                                      <button type="btn" className="devnagri-btn mt-3">
+                                      <button
+                                        type="btn"
+                                        className="devnagri-btn mt-3"
+                                      >
                                         Learn More
                                       </button>
                                     </Link>
@@ -2479,12 +2636,15 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className='pb-5'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12 wow fadeInUp'>
-              <Link to='/english-to-hindi-translation'>
-                <img src={getImagePath('Home page banner_.png')} className='w-100 rounded-4'></img>
+      <section className="pb-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 wow fadeInUp">
+              <Link to="/english-to-hindi-translation">
+                <img
+                  src={getImagePath("Home page banner_.png")}
+                  className="w-100 rounded-4"
+                ></img>
               </Link>
             </div>
           </div>
@@ -2535,15 +2695,15 @@ const Home = () => {
                   spaceBetween={24}
                   grabCursor={true}
                   navigation={{
-                    nextEl: '.slider-button-next',
-                    prevEl: '.slider-button-prev',
+                    nextEl: ".slider-button-next",
+                    prevEl: ".slider-button-prev",
                   }}
                   breakpoints={{
                     0: { slidesPerView: 1.2 },
                     576: { slidesPerView: 2.2 },
                     992: { slidesPerView: 3 },
                     1200: { slidesPerView: 3 },
-                    1281: { slidesPerView: 4 }
+                    1281: { slidesPerView: 4 },
                   }}
                   onSwiper={(swiper) => {
                     setSwiperInstance(swiper);
@@ -2558,17 +2718,21 @@ const Home = () => {
                         <div className="how-help-card-head">
                           <h3 className="f-24 f-600 white">BFSI</h3>
                           <p className="f-400 white">
-                            Make it possible for banking apps to work in more than
-                            one language, translate compliance docs, &amp; more.
+                            Make it possible for banking apps to work in more
+                            than one language, translate compliance docs, &amp;
+                            more.
                           </p>
-                          <Link to="/banking-finance-translation" className="learn-more-btn mt-3">
+                          <Link
+                            to="/banking-finance-translation"
+                            className="learn-more-btn mt-3"
+                          >
                             Learn More
                           </Link>
                         </div>
                       </div>
                       <div className="how-help-card-secondary">
                         <img
-                          src={getImagePath('BFSI.jpg')}
+                          src={getImagePath("BFSI.jpg")}
                           alt="BFSI"
                           className="img-fluid"
                         />
@@ -2586,7 +2750,10 @@ const Home = () => {
                             Translate RTI documents, government programs, and
                             service portals into the local languages.
                           </p>
-                          <Link to="/government-translation" className="learn-more-btn mt-3">
+                          <Link
+                            to="/government-translation"
+                            className="learn-more-btn mt-3"
+                          >
                             Learn More
                           </Link>
                         </div>
@@ -2594,7 +2761,7 @@ const Home = () => {
                       <div className="how-help-card-secondary">
                         <img
                           alt="Government"
-                          src={getImagePath('Government-Public.jpg')}
+                          src={getImagePath("Government-Public.jpg")}
                           className="img-fluid"
                         />
                       </div>
@@ -2606,10 +2773,14 @@ const Home = () => {
                         <div className="how-help-card-head">
                           <h3 className="f-24 f-600 white">eCommerce</h3>
                           <p className="f-400 white">
-                            Translate product listings, reviews, and notifications
-                            so that people can shop in their own language.
+                            Translate product listings, reviews, and
+                            notifications so that people can shop in their own
+                            language.
                           </p>
-                          <Link to="/ecommerce-translation" className="learn-more-btn mt-3">
+                          <Link
+                            to="/ecommerce-translation"
+                            className="learn-more-btn mt-3"
+                          >
                             Learn More
                           </Link>
                         </div>
@@ -2617,7 +2788,7 @@ const Home = () => {
                       <div className="how-help-card-secondary">
                         <img
                           alt="eCommerce"
-                          src={getImagePath('eCommerce.jpg')}
+                          src={getImagePath("eCommerce.jpg")}
                           className="img-fluid"
                         />
                       </div>
@@ -2632,7 +2803,10 @@ const Home = () => {
                             Expand globally &amp; boost sales through culturally
                             tailored, multilingual customer experiences.
                           </p>
-                          <Link to="/direct-to-consumer-translation" className="learn-more-btn mt-3">
+                          <Link
+                            to="/direct-to-consumer-translation"
+                            className="learn-more-btn mt-3"
+                          >
                             Learn More
                           </Link>
                         </div>
@@ -2640,7 +2814,7 @@ const Home = () => {
                       <div className="how-help-card-secondary">
                         <img
                           alt="Education"
-                          src={getImagePath('Legal-Compliance.jpg')}
+                          src={getImagePath("Legal-Compliance.jpg")}
                           className="img-fluid"
                         />
                       </div>
@@ -2926,7 +3100,11 @@ const Home = () => {
               <div className="row">
                 <div className="col-md-12 coidi-wrap">
                   <div className="outer-linesimg">
-                    <img className="img-fluid" src={getImagePath('outer-lines.svg')} alt="" />
+                    <img
+                      className="img-fluid"
+                      src={getImagePath("outer-lines.svg")}
+                      alt=""
+                    />
                   </div>
 
                   <div className="content-box">
@@ -2935,14 +3113,17 @@ const Home = () => {
                       <div className="coidi-box-cntnt">
                         <div className="text-center pt-3 mb-3">
                           <img
-                            style={{ maxHeight: '84px' }}
-                            src={getImagePath('menu-icon/capabilties-icon.png')}
+                            style={{ maxHeight: "84px" }}
+                            src={getImagePath("menu-icon/capabilties-icon.png")}
                             alt=""
                           />
                         </div>
                         <h4 className="text-center">CAPABILITES</h4>
                         <div className="text-center">
-                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                          <img
+                            src={getImagePath("arrow-down-big.svg")}
+                            alt=""
+                          />
                         </div>
                         <div className="text-start px-5">
                           <ul className="ps-0">
@@ -2959,14 +3140,17 @@ const Home = () => {
                       <div className="coidi-box-cntnt ps-4 pe-4 pt-0">
                         <div className="text-center pt-3 mb-3">
                           <img
-                            style={{ maxHeight: '84px' }}
-                            src={getImagePath('menu-icon/offerings-icon.png')}
+                            style={{ maxHeight: "84px" }}
+                            src={getImagePath("menu-icon/offerings-icon.png")}
                             alt=""
                           />
                         </div>
                         <h4 className="text-center">OFFERINGS</h4>
                         <div className="text-center">
-                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                          <img
+                            src={getImagePath("arrow-down-big.svg")}
+                            alt=""
+                          />
                         </div>
 
                         <ul className="ps-4 pe-1">
@@ -2977,7 +3161,9 @@ const Home = () => {
                           <li className="mb-0">Speech to Text</li>
                         </ul>
                         <ul className="ps-4 pe-1">
-                          <li className="mb-0">Conversational Voice & Chatbots</li>
+                          <li className="mb-0">
+                            Conversational Voice & Chatbots
+                          </li>
                           <li className="mb-0">IVR Automation</li>
                           <li className="mb-0">Inbound & Outbound Process</li>
                         </ul>
@@ -2994,14 +3180,17 @@ const Home = () => {
                       <div className="coidi-box-cntnt">
                         <div className="text-center pt-3 mb-3">
                           <img
-                            style={{ maxHeight: '84px' }}
-                            src={getImagePath('menu-icon/industry-icon.png')}
+                            style={{ maxHeight: "84px" }}
+                            src={getImagePath("menu-icon/industry-icon.png")}
                             alt=""
                           />
                         </div>
                         <h4 className="text-center">INDUSTRIES </h4>
                         <div className="text-center">
-                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                          <img
+                            src={getImagePath("arrow-down-big.svg")}
+                            alt=""
+                          />
                         </div>
                         <div className="text-start ps-5">
                           <ul className="ps-0">
@@ -3020,14 +3209,19 @@ const Home = () => {
                       <div className="coidi-box-cntnt">
                         <div className="text-center pt-3 mb-3">
                           <img
-                            style={{ maxHeight: '84px' }}
-                            src={getImagePath('menu-icon/devnagri-platform.png')}
+                            style={{ maxHeight: "84px" }}
+                            src={getImagePath(
+                              "menu-icon/devnagri-platform.png"
+                            )}
                             alt=""
                           />
                         </div>
                         <h4 className="text-center">DEVNAGRI’S PLATFORM</h4>
                         <div className="text-center">
-                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                          <img
+                            src={getImagePath("arrow-down-big.svg")}
+                            alt=""
+                          />
                         </div>
                         <ul className="ps-4 pe-2">
                           <li>Core Translation Engine (NLP & ML)</li>
@@ -3043,14 +3237,17 @@ const Home = () => {
                       <div className="coidi-box-cntnt">
                         <div className="text-center pt-3 mb-3">
                           <img
-                            style={{ maxHeight: '84px' }}
-                            src={getImagePath('menu-icon/infra-delivery.png')}
+                            style={{ maxHeight: "84px" }}
+                            src={getImagePath("menu-icon/infra-delivery.png")}
                             alt=""
                           />
                         </div>
                         <h4 className="text-center">INFRA & DELIVERY</h4>
                         <div className="text-center">
-                          <img src={getImagePath('arrow-down-big.svg')} alt="" />
+                          <img
+                            src={getImagePath("arrow-down-big.svg")}
+                            alt=""
+                          />
                         </div>
                         <ul className="ps-4 pe-2 pb-2 mb-2">
                           <li>Enterprise-grade security</li>
@@ -3061,7 +3258,6 @@ const Home = () => {
                         </ul>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -3081,7 +3277,6 @@ const Home = () => {
               id="carouselExampleAutoplaying"
               className="carousel slide"
               data-bs-ride="carousel"
-
             >
               <div className="row align-items-center justify-content-center m-0">
                 <div className="col-lg-10 col-md-12 carousel-case-study wow fadeInUp">
@@ -3126,8 +3321,9 @@ const Home = () => {
                           <div className="description-case-study">
                             <p className="m-0 f-400 black pb-5">
                               A leading Indian bank partnered with Devnagri to
-                              automate its multilingual document translation using
-                              OCR and AI, streamlining service request processing.
+                              automate its multilingual document translation
+                              using OCR and AI, streamlining service request
+                              processing.
                             </p>
                           </div>
                           <div className="case-study-analytics d-flex gap-3">
@@ -3144,15 +3340,18 @@ const Home = () => {
                               </p>
                             </div>
                           </div>
-                          <Link to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation" className="white">
+                          <Link
+                            to="/leading-indian-bank-transforms-document-translation-workflow-with-ocr-and-automation"
+                            className="white"
+                          >
                             <button type="btn" className="devnagri-btn mt-5">
                               View Case Studies
-
-                            </button></Link>
+                            </button>
+                          </Link>
                         </div>
                         <div className="col-lg-7">
                           <img
-                            src={getImagePath('case-study/Case-Study-1.png')}
+                            src={getImagePath("case-study/Case-Study-1.png")}
                             className="d-block w-100 casestudy-project"
                             alt="case-study"
                             loading="lazy"
@@ -3166,9 +3365,9 @@ const Home = () => {
                           <div className="description-case-study">
                             <p className="m-0 f-400 black pb-5">
                               A leading Indian tech institute used Devnagri's
-                              AI-powered solution to quickly localize their video
-                              lectures into multiple regional languages. This
-                              improved student engagement.
+                              AI-powered solution to quickly localize their
+                              video lectures into multiple regional languages.
+                              This improved student engagement.
                             </p>
                           </div>
                           <div className="case-study-analytics d-flex gap-3">
@@ -3183,15 +3382,18 @@ const Home = () => {
                               <p className="f-400 m-0 black">cost savings</p>
                             </div>
                           </div>
-                          <Link to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages" className="white">
+                          <Link
+                            to="/prestigious-tech-institute-of-india-delivers-video-lectures-4x-faster-in-multiple-languages"
+                            className="white"
+                          >
                             <button type="btn" className="devnagri-btn mt-5">
                               View Case Studies
-
-                            </button></Link>
+                            </button>
+                          </Link>
                         </div>
                         <div className="col-lg-7">
                           <img
-                            src={getImagePath('case-study/Case-Study-2.png')}
+                            src={getImagePath("case-study/Case-Study-2.png")}
                             className="d-block w-100 casestudy-project"
                             alt="case-study"
                             loading="lazy"
@@ -3204,9 +3406,9 @@ const Home = () => {
                         <div className="col-lg-5">
                           <div className="description-case-study">
                             <p className="m-0 f-400 black pb-5">
-                              An Indian insurer used Devnagri to translate documents
-                              into regional languages, improving customer clarity
-                              and speeding up policy closures.
+                              An Indian insurer used Devnagri to translate
+                              documents into regional languages, improving
+                              customer clarity and speeding up policy closures.
                             </p>
                           </div>
                           <div className="case-study-analytics d-flex gap-3">
@@ -3223,14 +3425,18 @@ const Home = () => {
                               </p>
                             </div>
                           </div>
-                          <Link to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions" className="white">
+                          <Link
+                            to="/devnagri-ai-empowered-leading-nbfc-institution-with-ideal-document-translation-solutions"
+                            className="white"
+                          >
                             <button type="btn" className="devnagri-btn mt-5">
                               View Case Studies
-                            </button></Link>
+                            </button>
+                          </Link>
                         </div>
                         <div className="col-lg-7">
                           <img
-                            src={getImagePath('case-study/Case-Study-3.png')}
+                            src={getImagePath("case-study/Case-Study-3.png")}
                             className="d-block w-100 casestudy-project"
                             alt="case-study"
                             loading="lazy"
@@ -3243,9 +3449,10 @@ const Home = () => {
                         <div className="col-lg-5">
                           <div className="description-case-study">
                             <p className="m-0 f-400 black pb-5">
-                              A mid-sized Indian B2C energy company used Devnagri's
-                              multilingual translation to localize brochures and
-                              manuals, boosting regional engagement.
+                              A mid-sized Indian B2C energy company used
+                              Devnagri's multilingual translation to localize
+                              brochures and manuals, boosting regional
+                              engagement.
                             </p>
                           </div>
                           <div className="case-study-analytics d-flex gap-3">
@@ -3262,14 +3469,18 @@ const Home = () => {
                               </p>
                             </div>
                           </div>
-                          <Link to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation" className="white">
+                          <Link
+                            to="/a-midsized-indian-b2c-company-realizes-regional-growth-through-multilingual-collateral-translation"
+                            className="white"
+                          >
                             <button type="btn" className="devnagri-btn mt-5">
                               View Case Studies
-                            </button></Link>
+                            </button>
+                          </Link>
                         </div>
                         <div className="col-lg-7">
                           <img
-                            src={getImagePath('case-study/Case-Study-4.png')}
+                            src={getImagePath("case-study/Case-Study-4.png")}
                             className="d-block w-100 casestudy-project"
                             alt="case-study"
                             loading="lazy"
@@ -3282,16 +3493,18 @@ const Home = () => {
                         <div className="col-lg-5">
                           <div className="description-case-study">
                             <p className="m-0 f-400 black pb-5">
-                              A government organization partnered with Devnagri to
-                              create high-quality, domain-specific Chinese-Hindi
-                              translation datasets for training its AI language
-                              models.
+                              A government organization partnered with Devnagri
+                              to create high-quality, domain-specific
+                              Chinese-Hindi translation datasets for training
+                              its AI language models.
                             </p>
                           </div>
                           <div className="case-study-analytics d-flex gap-3">
                             <div className="analytics-1">
                               <h4 className="f-30 f-500 black">35%</h4>
-                              <p className="f-400 m-0 black">Improved BLEU Score</p>
+                              <p className="f-400 m-0 black">
+                                Improved BLEU Score
+                              </p>
                             </div>
                             <div className="analytics-2">
                               <h4 className="f-30 f-500 black">500K+</h4>
@@ -3300,14 +3513,18 @@ const Home = () => {
                               </p>
                             </div>
                           </div>
-                          <Link to="/a-government-organization-trained-language-model-with-chinese-hindi-translation" className="white">
+                          <Link
+                            to="/a-government-organization-trained-language-model-with-chinese-hindi-translation"
+                            className="white"
+                          >
                             <button type="btn" className="devnagri-btn mt-5">
                               View Case Studies
-                            </button></Link>
+                            </button>
+                          </Link>
                         </div>
                         <div className="col-lg-7">
                           <img
-                            src={getImagePath('case-study/Case-Study-5.png')}
+                            src={getImagePath("case-study/Case-Study-5.png")}
                             className="d-block w-100 casestudy-project"
                             alt="case-study"
                             loading="lazy"
@@ -3336,7 +3553,7 @@ const Home = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('1.svg')}
+                      src={getImagePath("1.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -3346,15 +3563,17 @@ const Home = () => {
                   </div>
                   <p className="testimonial-text f-16 f-400 text-black mb-0">
                     "We needed our website to be available in multiple Indian
-                    languages for better customer reach. Devnagri's team got it done
-                    smoothly their APIs are too good. The translations were
-                    accurate, and its very easy like a tap, we went live without any
-                    technical issues."
+                    languages for better customer reach. Devnagri's team got it
+                    done smoothly their APIs are too good. The translations were
+                    accurate, and its very easy like a tap, we went live without
+                    any technical issues."
                   </p>
                 </div>
                 <div className="d-flex align-items-center justify-content-between rating-section">
                   <div>
-                    <h6 className="f-16 f-600 text-black mb-1">Marketing Lead</h6>
+                    <h6 className="f-16 f-600 text-black mb-1">
+                      Marketing Lead
+                    </h6>
                     <p className="f-14 f-400 text-muted m-0 blue">FMCG Brand</p>
                   </div>
                   <div className="rating">
@@ -3372,7 +3591,7 @@ const Home = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('2.svg')}
+                      src={getImagePath("2.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -3383,9 +3602,9 @@ const Home = () => {
                   <p className="testimonial-text f-16 f-400 text-black mb-0">
                     "We had a lot of documents and brochures that needed to be
                     translated and formatted correctly in the local languages.
-                    Devnagri did a great job with the translation. Everything came
-                    out clean and ready to go. It saved us a lot of time and
-                    effort."
+                    Devnagri did a great job with the translation. Everything
+                    came out clean and ready to go. It saved us a lot of time
+                    and effort."
                   </p>
                 </div>
                 <div className="d-flex align-items-center justify-content-between rating-section">
@@ -3412,7 +3631,7 @@ const Home = () => {
                 <div className="testimonial-content d-flex justify-content-between mb-4 gap-3">
                   <div className="testimonial-avatar position-relative">
                     <img
-                      src={getImagePath('3.svg')}
+                      src={getImagePath("3.svg")}
                       alt="Client Avatar"
                       className="rounded-circle testimonial-avatar-img"
                     />
@@ -3423,14 +3642,18 @@ const Home = () => {
                   <p className="testimonial-text f-16 f-400 text-black mb-0">
                     Our department had a huge load of reports and files to be
                     translated into regional languages. Devnagri handled it all
-                    without fuss. They kept everything accurate and on time. Without
-                    any back and forth confusion.
+                    without fuss. They kept everything accurate and on time.
+                    Without any back and forth confusion.
                   </p>
                 </div>
                 <div className="d-flex align-items-center justify-content-between rating-section">
                   <div>
-                    <h6 className="f-16 f-600 text-black mb-1">General Manager</h6>
-                    <p className="f-14 f-400 text-muted m-0 blue">Govt Division</p>
+                    <h6 className="f-16 f-600 text-black mb-1">
+                      General Manager
+                    </h6>
+                    <p className="f-14 f-400 text-muted m-0 blue">
+                      Govt Division
+                    </p>
                   </div>
                   <div className="rating">
                     <i className="fas fa-star text-warning" />
@@ -3446,71 +3669,58 @@ const Home = () => {
         </div>
       </section>
       {/*our awards section*/}
-      <section className="our-awards bg-img">
-        <div className="container">
-          <h2 className="f-600 f-40 black pb-3 text-center">
-            Recognitions
-          </h2>
-          <div className="row align-items-center justify-content-center">
-            <div className="col-lg-10 p-4">
-              <div className="row">
-                <div className="col-md-4 col-sm-4 col-4 border-bottom border-right d-flex justify-content-center align-items-center">
-                  <div className="awards-img p-3 wow fadeInUp text-center">
-                    <img
-                      src={getImagePath('shark-tank-india.png')}
-                      className="w-60 filterd-img"
-                      alt="awards img"
-                    />
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-4 col-4 border-bottom border-right d-flex justify-content-center align-items-center">
-                  <div className="awards-img p-3 wow fadeInUp text-center">
-                    <img
-                      src={getImagePath('google-clod-partner.png')}
-                      className="w-60 filterd-img"
-                      alt="awards img"
-                    />
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-4 col-4 border-bottom d-flex justify-content-center align-items-center">
-                  <div className="awards-img p-3 wow fadeInUp text-center">
-                    <img
-                      src={getImagePath('aegisbell.png')}
-                      className="w-60 filterd-img"
-                      alt="awards img"
-                    />
-                  </div>
-                </div>
+      <section className="blog-section">
+  <div className="container">
+    <h2 className="f-40 f-600 pb-2 black text-center wow fadeInUp">
+      Recognitions
+    </h2>
+
+    {/* Awards data */}
+    {(() => {
+      const awards = [
+        { src: getImagePath("shark-tank-india.png"), alt: "Shark Tank India" },
+        { src: getImagePath("google-clod-partner.png"), alt: "Google Cloud Partner" },
+        { src: getImagePath("aegisbell.png"), alt: "Aegis Bell" },
+        { src: getImagePath("Emerge.jpeg"), alt: "Emerge Award" },
+        { src: getImagePath("google-for-startup.png"), alt: "Google for Startups" },
+        { comingSoon: true, alt: "Coming Soon" },
+      ];
+
+      return (
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={20}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            0: { slidesPerView: 2 },   // Mobile
+            768: { slidesPerView: 2 }, // Tablet
+            992: { slidesPerView: 4 }, // Large screens
+          }}
+          className="pt-4 wow fadeInUp"
+        >
+          {awards.map((award, index) => (
+            <SwiperSlide key={index}>
+              <div className="resource-card d-flex align-items-center justify-content-center p-4 recognition-card">
+                {award.comingSoon ? (
+                  <p className="black f-22 f-600 recognition-img">Coming Soon...</p>
+                ) : (
+                  <img
+                    src={award.src}
+                    alt={award.alt}
+                    className="recognition-img"
+                  />
+                )}
               </div>
-              <div className="row">
-                <div className="col-md-4 col-sm-4 col-4 border-right d-flex justify-content-center align-items-center">
-                  <div className="awards-img text-center p-3 wow fadeInUp">
-                    <img
-                      src={getImagePath('Emerge.jpeg')}
-                      className="w-30"
-                      alt="awards img"
-                    />
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-4 col-4 border-right d-flex justify-content-center align-items-center">
-                  <div className="awards-img p-3 wow fadeInUp text-center">
-                    <img
-                      src={getImagePath('google-for-startup.png')}
-                      className="w-60 filterd-img"
-                      alt="awards img"
-                    />
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-4 col-4 d-flex justify-content-center align-items-center">
-                  <div className="awards-img p-3 wow fadeInUp text-center">
-                    <p className="black f-22 f-600">Coming Soon...</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      );
+    })()}
+  </div>
+</section>
+
+
       {/*Blog section*/}
       <section className="blog-section">
         <div className="container">
@@ -3520,13 +3730,18 @@ const Home = () => {
           <div className="d-none d-lg-block">
             <div className="row pt-4">
               {data.map((item, index) => (
-                <div className="col-md-4 fadeInUp" key={item.id}
+                <div
+                  className="col-md-4 fadeInUp"
+                  key={item.id}
                   onClick={() => {
                     // Check if this is a translation or transliteration resource
-                    if (item.translation === true || item.type === 'translation') {
+                    if (
+                      item.translation === true ||
+                      item.type === "translation"
+                    ) {
                       // Get language pairs from item or use defaults
-                      const fromLang = item.fromLanguage || 'english';
-                      const toLang = item.toLanguage || 'hindi';
+                      const fromLang = item.fromLanguage || "english";
+                      const toLang = item.toLanguage || "hindi";
 
                       // Regular translation URL
                       navigate(`/${fromLang}-to-${toLang}-translation`);
@@ -3534,15 +3749,17 @@ const Home = () => {
                     }
 
                     // Handle regular resources
-                    const link = (item.link || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
-                      .replace(/^\/+|\/+$/g, ''); // Remove leading/trailing slashes
+                    const link = (
+                      item.link ||
+                      item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                    ).replace(/^\/+|\/+$/g, ""); // Remove leading/trailing slashes
                     navigate(`/${link}`, {
                       state: {
                         item: {
                           ...item,
-                          link // Ensure the generated link is included in the state
-                        }
-                      }
+                          link, // Ensure the generated link is included in the state
+                        },
+                      },
                     });
                   }}
                 >
@@ -3554,13 +3771,14 @@ const Home = () => {
                     />
                     <div className="p-4">
                       <span className="resource-tag tag-blog f-400">
-                        {item.type === "case-studies" ? "Case Studies" :
-                          item.type === "success-stories" ? "Success Stories" :
-                            item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+                        {item.type === "case-studies"
+                          ? "Case Studies"
+                          : item.type === "success-stories"
+                          ? "Success Stories"
+                          : item.type.charAt(0).toUpperCase() +
+                            item.type.slice(1)}
                       </span>
-                      <h3 className="f-20 f-600 black mb-2">
-                        {item.title}
-                      </h3>
+                      <h3 className="f-20 f-600 black mb-2">{item.title}</h3>
                       <p className="f-16 f-400 para-color mb-0">
                         {item.description}
                       </p>
@@ -3578,13 +3796,18 @@ const Home = () => {
           <div className="mobile-blogs-section d-block d-lg-none">
             <div className="resources-blogs-slider">
               {data.map((item) => (
-                <div className="resource-card" key={item.id}
+                <div
+                  className="resource-card"
+                  key={item.id}
                   onClick={() => {
                     // Check if this is a translation or transliteration resource
-                    if (item.translation === true || item.type === 'translation') {
+                    if (
+                      item.translation === true ||
+                      item.type === "translation"
+                    ) {
                       // Get language pairs from item or use defaults
-                      const fromLang = item.fromLanguage || 'english';
-                      const toLang = item.toLanguage || 'hindi';
+                      const fromLang = item.fromLanguage || "english";
+                      const toLang = item.toLanguage || "hindi";
 
                       // Regular translation URL
                       navigate(`/${fromLang}-to${toLang}-translation`);
@@ -3592,15 +3815,17 @@ const Home = () => {
                     }
 
                     // Handle regular resources
-                    const link = (item.link || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
-                      .replace(/^\/+|\/+$/g, ''); // Remove leading/trailing slashes
+                    const link = (
+                      item.link ||
+                      item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                    ).replace(/^\/+|\/+$/g, ""); // Remove leading/trailing slashes
                     navigate(`/${link}`, {
                       state: {
                         item: {
                           ...item,
-                          link // Ensure the generated link is included in the state
-                        }
-                      }
+                          link, // Ensure the generated link is included in the state
+                        },
+                      },
                     });
                   }}
                 >
@@ -3611,13 +3836,14 @@ const Home = () => {
                   />
                   <div className="p-4">
                     <span className="resource-tag tag-blog f-400">
-                      {item.type === "case-studies" ? "Case Studies" :
-                        item.type === "success-stories" ? "Success Stories" :
-                          item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+                      {item.type === "case-studies"
+                        ? "Case Studies"
+                        : item.type === "success-stories"
+                        ? "Success Stories"
+                        : item.type.charAt(0).toUpperCase() +
+                          item.type.slice(1)}
                     </span>
-                    <h3 className="f-20 f-600 black mb-2">
-                      {item.title}
-                    </h3>
+                    <h3 className="f-20 f-600 black mb-2">{item.title}</h3>
                     <p className="f-16 f-400 para-color mb-0">
                       {item.description}
                     </p>
@@ -3737,21 +3963,17 @@ const Home = () => {
             </div>
           </div>
           <div className="text-center wow fadeInUp mt-5">
-            <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">
-
-              {" "}
-              Start Now
-
-            </button></Link>
+            <Link to="https://account.devnagri.com/register" className="white">
+              <button type="btn" className="devnagri-btn">
+                {" "}
+                Start Now
+              </button>
+            </Link>
           </div>
         </div>
       </section>
-
     </>
-
-
-
   );
 };
 
-export default Home; 
+export default Home;

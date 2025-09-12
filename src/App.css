@@ -4909,3 +4909,16 @@ html :where(img[class*=wp-image-]) {
     cursor: pointer;
   }
 }
+
+
+.recognition-img {
+  max-height: 120px;
+  width: auto;
+  object-fit: contain;
+}
+
+.recognition-card {
+  max-height: 150px;
+  border-radius: 12px;
+  background: #f9f9f9;
+}
