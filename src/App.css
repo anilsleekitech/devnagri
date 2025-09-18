@@ -4938,5 +4938,65 @@ html :where(img[class*=wp-image-]) {
 }
 
 
+/* 1.Homepage section "Serving Diverse Industries" */
+
+.howwe-help .how-help-card:hover .learn-more-btn:lang(ta){font-size:12px}
+
+
+/* 2.Testimonail cards on all the pages */
+
+.testimonial-card:lang(ta) {
+    height: 100%;}
+
+/* 3. Careers page section "Life at DEVNAGRI AI" for multiple languages  */
+
+@media (min-width: 1200px) {
+    .about-value-content p span:lang(gu) {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        transition: all ease .3s;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .about-value-content p span:lang(bn) {
+        width: 70px;
+        height: 70px;
+        font-size: 26px;
+        transition: all ease .3s;
+    }
+}
+
+@media (min-width: 1200px) {
+    .about-value-content p span:lang(mr) {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        transition: all ease .3s;
+    }
+}
+
+@media (min-width: 1200px) {
+    .about-value-content p span:lang(kn) {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        transition: all ease .3s;
+    }
+}
+
+@media (min-width: 1200px) {
+    .about-value-content p span:lang(ta) {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+        transition: all ease .3s;
+    }
+}
+
+
+
 
 
