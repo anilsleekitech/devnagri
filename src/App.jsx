@@ -157,6 +157,21 @@ function App() {
       }
     }, [])
 
+    useEffect(() => {
+      if (window.location.hostname === "ta-website.devnagri.dev") {
+        document.body.classList.add("tamil-site");
+      } else {
+        document.body.classList.remove("tamil-site");
+      }
+    }, []);
+    useEffect(() => {
+      if (window.location.hostname === "kn-website.devnagri.dev") {
+        document.body.classList.add("kanada-site");
+      } else {
+        document.body.classList.remove("kanada-site");
+      }
+    }, []);
+
     
 
   return (
