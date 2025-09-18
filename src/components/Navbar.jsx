@@ -939,6 +939,11 @@ const handleIndustriesToggle = (e) => {
           activeSubmenu === 'intl' ? 'show' : ''
         } nodtranslate`}
       >
+         <li>
+          <Link className="dropdown-item nodtranslate" to="/">
+        <img src="https://flagcdn.com/us.svg" width={18} alt="US Flag" />English
+        </Link>
+        </li>
         <li>
           <Link className="dropdown-item nodtranslate" to="#">
             <img src="https://flagcdn.com/cn.svg" width={18} /> Chinese (中文)
