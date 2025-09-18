@@ -815,7 +815,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://bn-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://bn-devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Bengali (বাংলা)
           </Link>
         </li>
@@ -830,17 +830,17 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://gu-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://gu-devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Gujarati (ગુજરાતી)
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://hi-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://hi-devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Hindi (हिंदी)
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://kn-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://kn-devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Kannada (ಕನ್ನಡ)
           </Link>
         </li>
@@ -870,7 +870,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://mr-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://mr-devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Marathi (मराठी)
           </Link>
         </li>
@@ -905,7 +905,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://ta-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://ta-devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Tamil (தமிழ்)
           </Link>
         </li>
@@ -950,7 +950,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://ja-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://ja-devnagri.com/">
             <img src="https://flagcdn.com/jp.svg" width={18} /> Japanese (日本語)
           </Link>
         </li>
@@ -985,7 +985,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="https://de-website.devnagri.dev/">
+          <Link className="dropdown-item nodtranslate" to="https://de-devnagri.com/">
             <img src="https://flagcdn.com/de.svg" width={18} /> German (Deutsch)
           </Link>
         </li>
