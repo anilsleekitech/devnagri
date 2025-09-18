@@ -2165,7 +2165,7 @@ textarea::placeholder {
 }
 
 .testimonial-card {
-  height: 279px;
+  min-height: 279px;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
@@ -3555,7 +3555,7 @@ textarea {
 
   .about-value-content p {
     padding-left: 101px;
-    padding-bottom: 22px;
+    padding-bottom: 32px;
   }
 
   .about-value-content p:hover span {
