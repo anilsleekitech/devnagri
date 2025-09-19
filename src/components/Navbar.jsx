@@ -875,7 +875,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="#">
+          <Link className="dropdown-item nodtranslate" to="https://ne.devnagri.com/">
             <img src="https://flagcdn.com/in.svg" width={18} /> Nepali (नेपाली)
           </Link>
         </li>
@@ -955,7 +955,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="#">
+          <Link className="dropdown-item nodtranslate" to="https://ru.devnagri.com/">
             <img src="https://flagcdn.com/ru.svg" width={18} /> Russian (Русский)
           </Link>
         </li>
@@ -965,7 +965,7 @@ const handleIndustriesToggle = (e) => {
           </Link>
         </li>
         <li>
-          <Link className="dropdown-item nodtranslate" to="#">
+          <Link className="dropdown-item nodtranslate" to="https://th.devnagri.com/">
             <img src="https://flagcdn.com/th.svg" width={18} /> Thai (ไทย)
           </Link>
         </li>
