@@ -158,14 +158,15 @@ function App() {
     }, [])
 
     useEffect(() => {
-      if (window.location.hostname === "ta-devnagri.com" || window.location.pathname.startsWith("ta-devnagri.com")) {
+      if (window.location.hostname === "ta.devnagri.com" || window.location.pathname.startsWith("ta.devnagri.com")) {
         document.body.classList.add("tamil-site");
       } else {
         document.body.classList.remove("tamil-site");
       }
     }, []);
+    
     useEffect(() => {
-      if (window.location.pathname === "kn-devnagri.com" || window.location.pathname.startsWith("kn-devnagri.com")) {
+      if (window.location.pathname === "kn.devnagri.com" || window.location.pathname.startsWith("kn.devnagri.com")) {
         document.body.classList.add("kanada-site");
       } else {
         document.body.classList.remove("kanada-site");
