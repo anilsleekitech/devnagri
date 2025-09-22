@@ -2450,7 +2450,7 @@ const Home = () => {
                                         className="w-100"
                                       />
                                     </div>
-                                    <div>CAuto Language Detection</div>
+                                    <div>Auto Language Detection</div>
                                   </li>
                                   <li className="f-400 para-color mb-2 d-flex gap-2">
                                     <div className="width-3">

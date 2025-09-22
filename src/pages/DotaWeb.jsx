@@ -89,9 +89,9 @@ const DotaWeb = () => {
   return (
     <>
       <head>
-        <title>AI Website Translator – Top Website Translation Platform</title>
-        <meta name="description" content="Translate any website with Devnagri AI Website Translator. Trusted platform for website translation. Easily enhance your global reach." />
-        <meta name="keywords" content="Website Translator, Website Translation" />
+        <title>Website Translation | Website Translator | Website Localization</title>
+        <meta name="description" content="Expand globally with professional website translation and localization. Accurate translations by a trusted website translation company." />
+        <meta name="keywords" content="website translator, website translation, website translation company, website localization" />
       </head>
       {/* Hero Section */}
       <section

@@ -927,11 +927,11 @@ const Navbar = () => {
                           <img src="https://flagcdn.com/jp.svg" width={18} alt="Japanese Flag" /> Japanese (日本語)
                         </button>
                       </li>
-                      <li>
+                      {/* <li>
                         <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ru')}>
                           <img src="https://flagcdn.com/ru.svg" width={18} alt="Russian Flag" /> Russian (Русский)
                         </button>
-                      </li>
+                      </li> */}
                       <li>
                         <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ar')}>
                           <img src="https://flagcdn.com/sa.svg" width={18} alt="Arabic Flag" /> Arabic (العربية)

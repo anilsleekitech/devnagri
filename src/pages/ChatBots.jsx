@@ -70,14 +70,14 @@ const ChatBots = () => {
   return (
     <>
   <head>
-    <title>Multilingual Conversational AI Bot - Devnagri</title>
+    <title>AI Chat Bot Online | Conversational, Customer Service Chatbots</title>
       <meta 
     name="description" 
-    content="Devnagri's Multilingual Conversational AI Bot helps businesses engage customers in regional languages with seamless AI-powered interactions." 
+    content="Enhance your website with AI chat bots. Offer real-time customer support, conversational AI, and smart chat bot solutions for websites of all sizes." 
   />
   <meta 
     name="keywords" 
-    content="Conversational AI Bot, Conversational Bot" 
+    content="ai chat bot online, chat bot for website, ai chat bots, conversational ai chatbot, customer service chat bot, ai chat bot for website" 
   />
 
   </head>

@@ -1,11 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './Footer.css';
-import { getImagePath } from '../utils/imageUtils';
+import React from "react";
+import { Link } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./Footer.css";
+import { getImagePath } from "../utils/imageUtils";
 
 const Footer = () => {
-
   const handleRefreshClick = () => {
     window.location.reload();
   };
@@ -19,12 +18,15 @@ const Footer = () => {
             <div className="col-lg-4 col-12">
               <div className="logo mb-2 d-inline-block">
                 <Link to="/" className="footer-logo">
-                  <img src={getImagePath('Devnagri-Logo-Blue.svg')} alt="Devnagri Logo" />
+                  <img
+                    src={getImagePath("Devnagri-Logo-Blue.svg")}
+                    alt="Devnagri Logo"
+                  />
                 </Link>
               </div>
               <p className="f-400 para-color">
-                Each solution we deliver aims to empower the Multilingual voices of
-                people, who make up more than half of the world population.
+                Each solution we deliver aims to empower the Multilingual voices
+                of people, who make up more than half of the world population.
               </p>
               <div className="footer-contact-details d-flex gap-2">
                 <div className="address-icon-footer">
@@ -37,7 +39,8 @@ const Footer = () => {
                     rel="noopener noreferrer"
                   >
                     <p className="f-400 para-color">
-                      BGR Building Plot No. 1, 3rd Floor, Film City, Sector 16A, Noida
+                      BGR Building Plot No. 1, 3rd Floor, Film City, Sector 16A,
+                      Noida
                     </p>
                   </Link>
                 </div>
@@ -48,7 +51,10 @@ const Footer = () => {
                 </div>
                 <div className="phone-detils-footer">
                   {/* <p className="f-400 para-color">+91-7302020284</p> */}
-                  <a href="tel:+917302020284" className="f-400 para-color text-decoration-none">
+                  <a
+                    href="tel:+917302020284"
+                    className="f-400 para-color text-decoration-none"
+                  >
                     +91-7302020284
                   </a>
                 </div>
@@ -59,7 +65,10 @@ const Footer = () => {
                 </div>
                 <div className="email-detils-footer">
                   {/* <p className="f-400 para-color">sales@devnagri.com</p> */}
-                  <a href="mailto:sales@devnagri.com" className="f-400 para-color text-decoration-none">
+                  <a
+                    href="mailto:sales@devnagri.com"
+                    className="f-400 para-color text-decoration-none"
+                  >
                     sales@devnagri.com
                   </a>
                 </div>
@@ -71,7 +80,11 @@ const Footer = () => {
                   <div className="mb-4">
                     <h6 className="f-600 f-20 blue pb-2 m-0">Company</h6>
                     <ul className="p-0">
-                      <Link to="/about-devnagri" reloadDocument onClick={handleRefreshClick} >
+                      <Link
+                        to="/about-devnagri"
+                        reloadDocument
+                        onClick={handleRefreshClick}
+                      >
                         <li className="para-color f-400 mb-2">About</li>
                       </Link>
                       <Link to="/careers">
@@ -109,7 +122,9 @@ const Footer = () => {
                         <li className="para-color f-400 mb-2">DOTA (APP)</li>
                       </Link>
                       <Link to="/translation-api">
-                        <li className="para-color f-400 mb-2">Translation API</li>
+                        <li className="para-color f-400 mb-2">
+                          Translation API
+                        </li>
                       </Link>
                       <Link to="/transliteration-api">
                         <li className="para-color f-400 mb-2">
@@ -117,10 +132,14 @@ const Footer = () => {
                         </li>
                       </Link>
                       <Link to="/document-translation">
-                        <li className="para-color f-400 mb-2">Document Engine</li>
+                        <li className="para-color f-400 mb-2">
+                          Document Engine
+                        </li>
                       </Link>
                       <Link to="/english-to-hindi-translation">
-                        <li className="para-color f-400 mb-2">Translate Any Text</li>
+                        <li className="para-color f-400 mb-2">
+                          Translate Any Text
+                        </li>
                       </Link>
                     </ul>
                   </div>
@@ -131,7 +150,9 @@ const Footer = () => {
               <div className="row justify-content-end">
                 <div className="col-lg-7 col-6">
                   <div className="">
-                    <h6 className="f-600 f-20 blue pb-2 m-0">Multilingual Bots</h6>
+                    <h6 className="f-600 f-20 blue pb-2 m-0">
+                      Multilingual Bots
+                    </h6>
                     <ul className="p-0">
                       <Link to="/chatbot">
                         <li className="para-color f-400 mb-2">Chat Bot</li>
@@ -144,10 +165,14 @@ const Footer = () => {
                   <div className="mb-4">
                     <ul className="p-0">
                       <Link to="/ocr">
-                        <li className="para-color f-20 f-600 mb-2 blue">OCR Workflow</li>
+                        <li className="para-color f-20 f-600 mb-2 blue">
+                          OCR Workflow
+                        </li>
                       </Link>
-                      <Link to="/brain-slms">
-                        <li className="para-color f-20 f-600 mb-2 blue">Brain SLM's</li>
+                      <Link to="javascript:void(0)">
+                        <li className="para-color f-20 f-600 mb-2 blue">
+                          Brain SLM's
+                        </li>
                       </Link>
                     </ul>
                   </div>
@@ -166,7 +191,9 @@ const Footer = () => {
                         <li className="para-color f-400 mb-2">D2C</li>
                       </Link>
                       <Link to="/ecommerce-translation">
-                        <li className="para-color f-400 mb-2">E&#8209;commerce</li>
+                        <li className="para-color f-400 mb-2">
+                          E&#8209;commerce
+                        </li>
                       </Link>
                     </ul>
                   </div>
@@ -188,7 +215,9 @@ const Footer = () => {
                   <div className="col-md-4">
                     <ul className="p-0 m-0">
                       <Link to="/privacy-policy">
-                        <li className="f-400 white m-0 text-end">Privacy Policy</li>
+                        <li className="f-400 white m-0 text-end">
+                          Privacy Policy
+                        </li>
                       </Link>
                     </ul>
                   </div>
@@ -246,7 +275,9 @@ const Footer = () => {
               <div className="col-lg-4 col-4">
                 <ul className="p-0 m-0">
                   <Link to="/terms-and-conditions">
-                    <li className="f-400 white m-0 f-12">Terms &amp; Conditions</li>
+                    <li className="f-400 white m-0 f-12">
+                      Terms &amp; Conditions
+                    </li>
                   </Link>
                 </ul>
               </div>
