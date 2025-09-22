@@ -816,7 +816,7 @@ const Careers = () => {
                       />
                     </div>
                     <div>
-                      <p className="m-0 pb-1 f-18 f-400">
+                      <p className="m-0 pb-1 f-20 f-400">
                         A mission-driven company building the future of Indian and
                         global communicational AI
                       </p>
