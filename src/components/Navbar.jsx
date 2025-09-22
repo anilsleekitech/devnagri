@@ -14,6 +14,47 @@ const Navbar = () => {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [currentLanguage, setCurrentLanguage] = useState({
+    code: 'en',
+    flag: 'https://flagcdn.com/us.svg',
+    displayCode: 'EN'
+  });
+
+  // Language mapping
+  const languageMap = {
+    en: { flag: 'https://flagcdn.com/us.svg', displayCode: 'EN' },
+    as: { flag: 'https://flagcdn.com/in.svg', displayCode: 'AS' },
+    bn: { flag: 'https://flagcdn.com/in.svg', displayCode: 'BN' },
+    brx: { flag: 'https://flagcdn.com/in.svg', displayCode: 'BRX' },
+    doi: { flag: 'https://flagcdn.com/in.svg', displayCode: 'DOI' },
+    gu: { flag: 'https://flagcdn.com/in.svg', displayCode: 'GU' },
+    hi: { flag: 'https://flagcdn.com/in.svg', displayCode: 'HI' },
+    kn: { flag: 'https://flagcdn.com/in.svg', displayCode: 'KN' },
+    ksm: { flag: 'https://flagcdn.com/in.svg', displayCode: 'KSM' },
+    gom: { flag: 'https://flagcdn.com/in.svg', displayCode: 'GOM' },
+    mai: { flag: 'https://flagcdn.com/in.svg', displayCode: 'MAI' },
+    ml: { flag: 'https://flagcdn.com/in.svg', displayCode: 'ML' },
+    manipuri: { flag: 'https://flagcdn.com/in.svg', displayCode: 'MN' },
+    mr: { flag: 'https://flagcdn.com/in.svg', displayCode: 'MR' },
+    ne: { flag: 'https://flagcdn.com/in.svg', displayCode: 'NE' },
+    or: { flag: 'https://flagcdn.com/in.svg', displayCode: 'OR' },
+    pa: { flag: 'https://flagcdn.com/in.svg', displayCode: 'PA' },
+    sa: { flag: 'https://flagcdn.com/in.svg', displayCode: 'SA' },
+    snthl: { flag: 'https://flagcdn.com/in.svg', displayCode: 'SNTHL' },
+    sd: { flag: 'https://flagcdn.com/in.svg', displayCode: 'SD' },
+    ta: { flag: 'https://flagcdn.com/in.svg', displayCode: 'TA' },
+    te: { flag: 'https://flagcdn.com/in.svg', displayCode: 'TE' },
+    ur: { flag: 'https://flagcdn.com/in.svg', displayCode: 'UR' },
+    zh: { flag: 'https://flagcdn.com/cn.svg', displayCode: 'ZH' },
+    ja: { flag: 'https://flagcdn.com/jp.svg', displayCode: 'JA' },
+    ru: { flag: 'https://flagcdn.com/ru.svg', displayCode: 'RU' },
+    ar: { flag: 'https://flagcdn.com/sa.svg', displayCode: 'AR' },
+    th: { flag: 'https://flagcdn.com/th.svg', displayCode: 'TH' },
+    es: { flag: 'https://flagcdn.com/es.svg', displayCode: 'ES' },
+    fr: { flag: 'https://flagcdn.com/fr.svg', displayCode: 'FR' },
+    it: { flag: 'https://flagcdn.com/it.svg', displayCode: 'IT' },
+    de: { flag: 'https://flagcdn.com/de.svg', displayCode: 'DE' }
+  };
 
   // Separate refs for each dropdown
   const productsRef = useRef(null);
@@ -22,6 +63,15 @@ const Navbar = () => {
   const languageRef = useRef(null);
   const navbarRef = useRef(null);
   const isMobileView = () => window.innerWidth < 992;
+
+  // Load saved language from localStorage on component mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+      const langData = JSON.parse(savedLanguage);
+      setCurrentLanguage(langData);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +91,36 @@ const Navbar = () => {
     };
   }, [location]);
 
+  const handleLanguageSelect = (langCode) => {
+    if (languageMap[langCode]) {
+      const newLanguage = {
+        code: langCode,
+        flag: languageMap[langCode].flag,
+        displayCode: languageMap[langCode].displayCode
+      };
+      setCurrentLanguage(newLanguage);
+      localStorage.setItem('selectedLanguage', JSON.stringify(newLanguage));
+      setIsLanguageOpen(false);
+      setActiveSubmenu(null);
+  
+      // ✅ Conditional redirect
+      let url;
+      if (langCode === "en") {
+        url = "/"; // English → home page
+      } else if (langCode === "ta") {
+        url = "https://ta.devnagri.com/"; // Tamil special case
+      }else if (langCode === "kn") {
+        url = "https://kn.devnagri.com/"; // Kannada special case
+      }
+       else {
+        url = `https://${langCode}.devnagri.com/`; // Default for others
+      }
+  
+      window.location.href = url;
+    }
+  };
+  
+  
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -59,60 +139,59 @@ const Navbar = () => {
 
   // Handler for Products dropdown
   const handleProductsToggle = (e) => {
-  e.preventDefault();
-  
-  if (isMobileView()) {
-    // Toggle only the clicked dropdown in mobile view
-    setIsProductsOpen(!isProductsOpen);
-  } else {
-    // Desktop behavior (close others)
-    setIsProductsOpen(!isProductsOpen);
-    setIsIndustriesOpen(false);
-    setIsResourcesOpen(false);
-    setIsLanguageOpen(false);
-  }
-};
+    e.preventDefault();
+    
+    if (isMobileView()) {
+      // Toggle only the clicked dropdown in mobile view
+      setIsProductsOpen(!isProductsOpen);
+    } else {
+      // Desktop behavior (close others)
+      setIsProductsOpen(!isProductsOpen);
+      setIsIndustriesOpen(false);
+      setIsResourcesOpen(false);
+      setIsLanguageOpen(false);
+    }
+  };
 
-// Apply the same pattern to other toggle handlers:
-const handleIndustriesToggle = (e) => {
-  e.preventDefault();
-  
-  if (isMobileView()) {
-    setIsIndustriesOpen(!isIndustriesOpen);
-  } else {
-    setIsIndustriesOpen(!isIndustriesOpen);
-    setIsProductsOpen(false);
-    setIsResourcesOpen(false);
-    setIsLanguageOpen(false);
-  }
-};
+  // Apply the same pattern to other toggle handlers:
+  const handleIndustriesToggle = (e) => {
+    e.preventDefault();
+    
+    if (isMobileView()) {
+      setIsIndustriesOpen(!isIndustriesOpen);
+    } else {
+      setIsIndustriesOpen(!isIndustriesOpen);
+      setIsProductsOpen(false);
+      setIsResourcesOpen(false);
+      setIsLanguageOpen(false);
+    }
+  };
 
   // Handler for Resources dropdown
   const handleResourcesToggle = (e) => {
     e.preventDefault();
     if (isMobileView()) {
-    setIsResourcesOpen(!isResourcesOpen);
-  } else {
-     setIsResourcesOpen(!isResourcesOpen);
-    setIsIndustriesOpen(false);
-    setIsProductsOpen(false);
-    setIsLanguageOpen(false);
-  }
+      setIsResourcesOpen(!isResourcesOpen);
+    } else {
+      setIsResourcesOpen(!isResourcesOpen);
+      setIsIndustriesOpen(false);
+      setIsProductsOpen(false);
+      setIsLanguageOpen(false);
+    }
   };
-
 
   // Handler for Language dropdown
   const handleLanguageToggle = (e) => {
     e.preventDefault();
     setActiveSubmenu(null);
     if (isMobileView()) {
-     setIsLanguageOpen(!isLanguageOpen);
-  } else {
-     setIsLanguageOpen(!isLanguageOpen);
-    setIsIndustriesOpen(false);
-    setIsProductsOpen(false);
-    setIsResourcesOpen(false);
-  }
+      setIsLanguageOpen(!isLanguageOpen);
+    } else {
+      setIsLanguageOpen(!isLanguageOpen);
+      setIsIndustriesOpen(false);
+      setIsProductsOpen(false);
+      setIsResourcesOpen(false);
+    }
   };
 
   // Close dropdowns when clicking outside
@@ -145,7 +224,6 @@ const handleIndustriesToggle = (e) => {
         setIsMobileMenuOpen(false);
         setIsLanguageOpen(false);
         setActiveSubmenu(null);
-
       }
     };
 
@@ -162,19 +240,15 @@ const handleIndustriesToggle = (e) => {
     };
   }, [isMobileMenuOpen]);
 
-  const isExternalLink = (url) => {
-    return url.startsWith('http') || url.startsWith('https');
-  };
 
   const handleSubmenuToggle = (menuKey) => {
     setActiveSubmenu((prev) => (prev === menuKey ? null : menuKey));
   };
 
-   const handleRefreshClick = () => {
-        window.location.reload();
-        console.log(window.location,"LOCATION");
-        
-      };
+  const handleRefreshClick = () => {
+    window.location.reload();
+    console.log(window.location,"LOCATION");
+  };
 
   return (
     <header ref={navbarRef}>
@@ -416,9 +490,6 @@ const handleIndustriesToggle = (e) => {
                               </p>
                             </Link>
                           </div>
-                          {/* <div class="menu-banner-item">
-                    <img src={getImagePath(product-menu-img.png" class="cust-width">
-                  </div> */}
                         </div>
                         <div className="col-md-6">
                           <div className="sub-menu-nested-heading mb-3">
@@ -437,7 +508,7 @@ const handleIndustriesToggle = (e) => {
                       <div className='row'>
                         <div className='col-12'>
                           <Link to='/english-to-hindi-translation'>
-                            <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4'></img>
+                            <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4' alt="Navbar banner"></img>
                           </Link>
                         </div>
                       </div>
@@ -461,7 +532,6 @@ const handleIndustriesToggle = (e) => {
                       <div className="row">
                         <div className="sub-menu-nested-heading mb-3">
                           <h6 className="f-20 f-600 blue m-0">Industries</h6>
-                          {/* <p class="f-14 f-400 black m-0">Secure, compliant multilingual solutions for global finance.</p> */}
                         </div>
                         <div className="col-md-6">
                           <ul className="list-unstyled">
@@ -535,6 +605,7 @@ const handleIndustriesToggle = (e) => {
                                 <div className="tab_innerimg_icon">
                                   <img
                                     src={getImagePath('menu-icon/govt-icon.png')}
+                                    any
                                     alt="machine-translation"
                                   />
                                 </div>
@@ -550,48 +621,6 @@ const handleIndustriesToggle = (e) => {
                         </div>
                       </div>
                     </div>
-                    {/* <div class="col-md-6">
-              <div class="sub-menu-nested-heading mb-3">
-                <h6 class="f-20 f-600 blue m-0">Retail / Public Administration</h6>
-                <p class="f-14 f-400 black m-0">Inclusive Retail and Public Solutions</p>
-              </div>
-              <ul class="list-unstyled">
-                <li class=""><a class="dropdown-item" href="#">
-                    <div class="tab_innerimg_icon">
-                      <img src={getImagePath(machine-translation.png" alt="machine-translation">
-                    </div>
-                    <div class="sub-menu-nested">
-                      <h5 class="f-14 f-600 black">D2C</h5>
-                      <p class="f-12 f-400 para-color">D2C Brands for Every Language.
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li class=""><a class="dropdown-item" href="#">
-                    <div class="tab_innerimg_icon">
-                      <img src={getImagePath(brain-slms.png" alt="machine-translation">
-                    </div>
-                    <div class="sub-menu-nested">
-                      <h5 class="f-14 f-600 black">E- Commerce</h5>
-                      <p class="f-12 f-400 para-color">E-Commerce in Every Language.
-                        workflows.
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li class=""><a class="dropdown-item" href="#">
-                    <div class="tab_innerimg_icon">
-                      <img src={getImagePath(brain-slms.png" alt="machine-translation">
-                    </div>
-                    <div class="sub-menu-nested">
-                      <h5 class="f-14 f-600 black">Govt.</h5>
-                      <p class="f-12 f-400 para-color">Connecting Citizens in Every Language.
-                      </p>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div> */}
                   </div>
                 </div>
               </li>
@@ -635,17 +664,6 @@ const handleIndustriesToggle = (e) => {
                                 </div>
                               </Link>
                             </li>
-                            {/* <li class=""><a class="dropdown-item" href="#">
-                        <div class="tab_innerimg_icon">
-                          <img src={getImagePath(menu-icon/podcast-menu.svg" alt="podcast-menu">
-                        </div>
-                        <div class="sub-menu-nested">
-                          <h5 class="f-14 f-600 black">Podcast</h5>
-                          <p class="f-12 f-400 para-color">Access guides, whitepapers, and tools to optimize your
-                            localization efforts.</p>
-                        </div>
-                      </a>
-                    </li> */}
                             <li>
                               <Link className="dropdown-item" to="/blogs?tab=announcements">
                                 <div className="tab_innerimg_icon">
@@ -667,46 +685,6 @@ const handleIndustriesToggle = (e) => {
                             </li>
                           </ul>
                         </div>
-                        {/* <div class="col-md-4">
-                  <ul class="list-unstyled">
-                    <li class=""><a class="dropdown-item" href="/blogs">
-                        <div class="tab_innerimg_icon">
-                          <img src={getImagePath(menu-icon/events.svg" alt="event">
-                        </div>
-                        <div class="sub-menu-nested">
-                          <h5 class="f-14 f-600 black">Events</h5>
-                          <p class="f-12 f-400 para-color">
-                            Discover upcoming webinars, conferences, and industry events.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li class=""><a class="dropdown-item" href="/blogs">
-                        <div class="tab_innerimg_icon">
-                          <img src={getImagePath(menu-icon/webinar.svg" alt="webinar">
-                        </div>
-                        <div class="sub-menu-nested">
-                          <h5 class="f-14 f-600 black">Webinar</h5>
-                          <p class="f-12 f-400 para-color">
-                            Watch on-demand webinars, panels and fireside chats hosted by Devnagri.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li class=""><a class="dropdown-item" href="/blogs">
-                        <div class="tab_innerimg_icon">
-                          <img src={getImagePath(menu-icon/newsletter.svg" alt="newsletter">
-                        </div>
-                        <div class="sub-menu-nested">
-                          <h5 class="f-14 f-600 black">Newsletter</h5>
-                          <p class="f-12 f-400 para-color">
-                            Join the premier event for localization leaders and translation professionals.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-                </div> */}
                         <div className="col-md-6">
                           <ul className="list-unstyled">
                             <li>
@@ -752,12 +730,6 @@ const handleIndustriesToggle = (e) => {
                   </div>
                 </div>
               </li>
-              {/* Pricing */}
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/pricing">
-                  Pricing
-                </Link>
-              </li> */}
 
               <li className="nav-item">
                 <Link className="mx-2 white" to="https://account.devnagri.com/register">
@@ -770,230 +742,230 @@ const handleIndustriesToggle = (e) => {
                   </button>
                 </Link>
               </li>
+
               {/* Language Selector */}
-            <li
-  className="nav-item dropdown position-relative nodtranslate"
-  ref={languageRef}
->
-  <Link
-    className={`nav-link dropdown-toggle ${isLanguageOpen ? 'show' : ''} nodtranslate`}
-    to="#"
-    onClick={handleLanguageToggle}
-  >
-    <img
-      src="https://flagcdn.com/us.svg"
-      width={18}
-      alt="US Flag"
-    />{" "}
-    EN
-    <i className="dropdown-icon fas fa-chevron-down" />
-  </Link>
+              <li
+                className="nav-item dropdown position-relative nodtranslate"
+                ref={languageRef}
+              >
+                <Link
+                  className={`nav-link dropdown-toggle ${isLanguageOpen ? 'show' : ''} nodtranslate`}
+                  to="#"
+                  onClick={handleLanguageToggle}
+                >
+                  <img
+                    src={currentLanguage.flag}
+                    width={18}
+                    alt={`${currentLanguage.displayCode} Flag`}
+                  />{" "}
+                  {currentLanguage.displayCode}
+                  <i className="dropdown-icon fas fa-chevron-down" />
+                </Link>
 
-  <ul
-    className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : 'hide'} nodtranslate`}
-  >
-    {/* Indian Languages */}
-    <li
-      className={`dropdown-submenu ${activeSubmenu === 'indian' ? 'show' : ''} nodtranslate`}
-    >
-      <button
-        className="dropdown-item dropdown-toggle nodtranslate"
-        onClick={() => handleSubmenuToggle('indian')}
-      >
-        <img src="https://flagcdn.com/in.svg" width={18} /> Indian Languages
-        <i className="dropdown-icon fas fa-angle-right" />
-      </button>
+                <ul
+                  className={`dropdown-menu language-menu ${isLanguageOpen ? 'show' : 'hide'} nodtranslate`}
+                >
+                  {/* Indian Languages */}
+                  <li
+                    className={`dropdown-submenu ${activeSubmenu === 'indian' ? 'show' : ''} nodtranslate`}
+                  >
+                    <button
+                      className="dropdown-item dropdown-toggle nodtranslate"
+                      onClick={() => handleSubmenuToggle('indian')}
+                    >
+                      <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Indian Languages
+                      <i className="dropdown-icon fas fa-angle-right" />
+                    </button>
 
-      <ul
-        className={`dropdown-menu scrollable-menu ${
-          activeSubmenu === 'indian' ? 'show' : ''
-        } nodtranslate`}
-      >
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://as.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Assamese (অসমীয়া)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://bn.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Bengali (বাংলা)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://brx.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Bodo (बड़ो)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://doi.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Dogri (डोगरी)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://gu.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Gujarati (ગુજરાતી)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://hi.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Hindi (हिंदी)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://kn.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Kannada (ಕನ್ನಡ)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ksm.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Kashmiri (كٲشُر)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://gom.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Konkani (कोंकणी)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://mai.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Maithili (मैथिली)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ml.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Malayalam (മലയാളം)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://manipuri.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Manipuri (মৈতৈলোন্)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://mr.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Marathi (मराठी)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ne.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Nepali (नेपाली)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://or.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Odia (ଓଡ଼ିଆ)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://pa.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Punjabi (ਪੰਜਾਬੀ)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://sa.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Sanskrit (संस्कृतम्)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://snthl.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Santali (ᱥᱟᱱᱛᱟᱲᱤ)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://sd.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Sindhi (سنڌي)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ta.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Tamil (தமிழ்)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://te.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Telugu (తెలుగు)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ur.devnagri.com/">
-            <img src="https://flagcdn.com/in.svg" width={18} /> Urdu (اردو)
-          </Link>
-        </li>
-      </ul>
-    </li>
+                    <ul
+                      className={`dropdown-menu scrollable-menu ${
+                        activeSubmenu === 'indian' ? 'show' : ''
+                      } nodtranslate`}
+                    >
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('as')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Assamese (অসমীয়া)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('bn')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Bengali (বাংলা)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('brx')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Bodo (बड़ो)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('doi')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Dogri (डोगरी)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('gu')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Gujarati (ગુજરાતી)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('hi')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Hindi (हिंदी)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('kn')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Kannada (ಕನ್ನಡ)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ksm')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Kashmiri (كٲشُر)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('gom')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Konkani (कोंकणी)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('mai')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Maithili (मैथिली)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ml')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Malayalam (മലയാളം)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('manipuri')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Manipuri (মৈতৈলোন্)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('mr')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Marathi (मराठी)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ne')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Nepali (नेपाली)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('or')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Odia (ଓଡ଼ିଆ)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('pa')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Punjabi (ਪੰਜਾਬੀ)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('sa')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Sanskrit (संस्कृतम्)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('snthl')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Santali (ᱥᱟᱱᱛᱟᱲᱤ)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('sd')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Sindhi (سنڌي)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ta')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Tamil (தமிழ்)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('te')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Telugu (తెలుగు)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ur')}>
+                          <img src="https://flagcdn.com/in.svg" width={18} alt="Indian Flag" /> Urdu (اردو)
+                        </button>
+                      </li>
+                    </ul>
+                  </li>
 
-    {/* International Languages */}
-    <li
-      className={`dropdown-submenu ${activeSubmenu === 'intl' ? 'show' : ''} nodtranslate`}
-    >
-      <button
-        className="dropdown-item dropdown-toggle nodtranslate"
-        onClick={() => handleSubmenuToggle('intl')}
-      >
-        <img src="https://flagcdn.com/gb.svg" width={18} /> International Languages
-        <i className="dropdown-icon fas fa-angle-right" />
-      </button>
+                  {/* International Languages */}
+                  <li
+                    className={`dropdown-submenu ${activeSubmenu === 'intl' ? 'show' : ''} nodtranslate`}
+                  >
+                    <button
+                      className="dropdown-item dropdown-toggle nodtranslate"
+                      onClick={() => handleSubmenuToggle('intl')}
+                    >
+                      <img src="https://flagcdn.com/gb.svg" width={18} alt="International Flag" /> International Languages
+                      <i className="dropdown-icon fas fa-angle-right" />
+                    </button>
 
-      <ul
-        className={`dropdown-menu scrollable-menu ${
-          activeSubmenu === 'intl' ? 'show' : ''
-        } nodtranslate`}
-      >
-         <li>
-          <Link className="dropdown-item nodtranslate" to="/">
-        <img src="https://flagcdn.com/us.svg" width={18} alt="US Flag" />English
-        </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://zh.devnagri.com/">
-            <img src="https://flagcdn.com/cn.svg" width={18} /> Chinese (中文)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ja.devnagri.com/">
-            <img src="https://flagcdn.com/jp.svg" width={18} /> Japanese (日本語)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ru.devnagri.com/">
-            <img src="https://flagcdn.com/ru.svg" width={18} /> Russian (Русский)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://ar.devnagri.com/">
-            <img src="https://flagcdn.com/sa.svg" width={18} /> Arabic (العربية)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://th.devnagri.com/">
-            <img src="https://flagcdn.com/th.svg" width={18} /> Thai (ไทย)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://es.devnagri.com/">
-            <img src="https://flagcdn.com/es.svg" width={18} /> Spanish (Español)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://fr.devnagri.com/">
-            <img src="https://flagcdn.com/fr.svg" width={18} /> French (Français)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://it.devnagri.com/">
-            <img src="https://flagcdn.com/it.svg" width={18} /> Italian (Italiano)
-          </Link>
-        </li>
-        <li>
-          <Link className="dropdown-item nodtranslate" to="https://de.devnagri.com/">
-            <img src="https://flagcdn.com/de.svg" width={18} /> German (Deutsch)
-          </Link>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</li>
-
+                    <ul
+                      className={`dropdown-menu scrollable-menu ${
+                        activeSubmenu === 'intl' ? 'show' : ''
+                      } nodtranslate`}
+                    >
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('en')}>
+                          <img src="https://flagcdn.com/us.svg" width={18} alt="US Flag" /> English
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('zh')}>
+                          <img src="https://flagcdn.com/cn.svg" width={18} alt="Chinese Flag" /> Chinese (中文)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ja')}>
+                          <img src="https://flagcdn.com/jp.svg" width={18} alt="Japanese Flag" /> Japanese (日本語)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ru')}>
+                          <img src="https://flagcdn.com/ru.svg" width={18} alt="Russian Flag" /> Russian (Русский)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('ar')}>
+                          <img src="https://flagcdn.com/sa.svg" width={18} alt="Arabic Flag" /> Arabic (العربية)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('th')}>
+                          <img src="https://flagcdn.com/th.svg" width={18} alt="Thai Flag" /> Thai (ไทย)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('es')}>
+                          <img src="https://flagcdn.com/es.svg" width={18} alt="Spanish Flag" /> Spanish (Español)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('fr')}>
+                          <img src="https://flagcdn.com/fr.svg" width={18} alt="French Flag" /> French (Français)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('it')}>
+                          <img src="https://flagcdn.com/it.svg" width={18} alt="Italian Flag" /> Italian (Italiano)
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item nodtranslate" onClick={() => handleLanguageSelect('de')}>
+                          <img src="https://flagcdn.com/de.svg" width={18} alt="German Flag" /> German (Deutsch)
+                        </button>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
