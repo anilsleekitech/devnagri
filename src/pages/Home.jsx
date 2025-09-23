@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import fullDataset from "../data/howWeHelpData.json";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { getImagePath } from "../utils/imageUtils";
@@ -26,7 +26,6 @@ const Home = () => {
   const [activeTab, setActiveTab] = useState("ocr-workflow");
 
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -2826,7 +2825,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/*How we do it*/}
       <section className="">
         <div className="container">
@@ -3670,92 +3668,131 @@ const Home = () => {
       </section>
       {/*our awards section*/}
       <section className="brand-stats-section-home">
-  <div className="container">
-    <h2 className="f-40 f-600 pb-2 black text-center">Recognitions</h2>
+        <div className="container">
+          <h2 className="f-40 f-600 pb-2 black text-center">Recognitions</h2>
 
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      spaceBetween={30}  // space between slides
-      autoplay={{ delay: 2500, disableOnInteraction: false }}
-      pagination={{ clickable: true }}
-      loop={true}
-      breakpoints={{
-        0: { slidesPerView: 2 },   // mobile
-        768: { slidesPerView: 2 }, // tablet
-        992: { slidesPerView: 4 }, // large screens
-      }}
-      className="brand-slider recognition-slider"
-    >
-      {[
-        { src: "shark-tank-india.png", alt: "Shark Tank India" },
-        { src: "google-clod-partner.png", alt: "Google Cloud Partner" },
-        { src: "aegisbell.png", alt: "Aegis Bell" },
-        { src: "Emerge.jpeg", alt: "Emerge Award" },
-        { src: "google-for-startup.png", alt: "Google for Startups" },
-      ].map((award, i) => (
-        <SwiperSlide key={i}>
-          <div className="recognition-card">
-            <img
-              src={getImagePath(award.src)}
-              alt={award.alt}
-              loading="lazy"
-              className="recognition-img"
-            />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
-</section>
-
-
-
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30} // space between slides
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            loop={true}
+            breakpoints={{
+              0: { slidesPerView: 2 }, // mobile
+              768: { slidesPerView: 2 }, // tablet
+              992: { slidesPerView: 4 }, // large screens
+            }}
+            className="brand-slider recognition-slider"
+          >
+            {[
+              { src: "shark-tank-india.png", alt: "Shark Tank India" },
+              { src: "google-clod-partner.png", alt: "Google Cloud Partner" },
+              { src: "aegisbell.png", alt: "Aegis Bell" },
+              { src: "Emerge.jpeg", alt: "Emerge Award" },
+              { src: "google-for-startup.png", alt: "Google for Startups" },
+            ].map((award, i) => (
+              <SwiperSlide key={i}>
+                <div className="recognition-card">
+                  <img
+                    src={getImagePath(award.src)}
+                    alt={award.alt}
+                    loading="lazy"
+                    className="recognition-img"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
       {/*Blog section*/}
       <section className="blog-section mt-4">
         <div className="container">
           <h2 className="f-40 f-600 pb-2 black text-center wow fadeInUp">
             Resource <span className="blue">Hub</span>
           </h2>
+
+          {/* Desktop View */}
           <div className="d-none d-lg-block">
             <div className="row pt-4">
-              {data.map((item, index) => (
-                <div
-                  className="col-md-4 fadeInUp"
-                  key={item.id}
-                  onClick={() => {
-                    // Check if this is a translation or transliteration resource
-                    if (
-                      item.translation === true ||
-                      item.type === "translation"
-                    ) {
-                      // Get language pairs from item or use defaults
-                      const fromLang = item.fromLanguage || "english";
-                      const toLang = item.toLanguage || "hindi";
+              {data?.map((item) => {
+                let targetLink = "";
 
-                      // Regular translation URL
-                      navigate(`/${fromLang}-to-${toLang}-translation`);
-                      return;
-                    }
+                if (item?.translation === true || item.type === "translation") {
+                  const fromLang = item.fromLanguage || "english";
+                  const toLang = item.toLanguage || "hindi";
+                  targetLink = `/${fromLang}-to-${toLang}-translation`;
+                } else {
+                  const link = (
+                    item.link ||
+                    item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                  ).replace(/^\/+|\/+$/g, "");
+                  targetLink = `/${link}`;
+                }
 
-                    // Handle regular resources
-                    const link = (
-                      item.link ||
-                      item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
-                    ).replace(/^\/+|\/+$/g, ""); // Remove leading/trailing slashes
-                    navigate(`/${link}`, {
-                      state: {
-                        item: {
-                          ...item,
-                          link, // Ensure the generated link is included in the state
-                        },
-                      },
-                    });
-                  }}
-                >
-                  <div className="resource-card wow fadeInUp">
+                return (
+                  
+                  <div className="col-md-4 fadeInUp">
+                    <div className="resource-card wow fadeInUp" key={item.id}>
+                    <Link
+                      to={targetLink}
+                      state={{ item: { ...item, link: targetLink } }}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item?.title}
+                        className="resource-img"
+                      />
+                      <div className="p-4">
+                        <span className="resource-tag tag-blog f-400">
+                          {item.type === "case-studies"
+                            ? "Case Studies"
+                            : item.type === "success-stories"
+                            ? "Success Stories"
+                            : item.type.charAt(0).toUpperCase() +
+                              item.type.slice(1)}
+                        </span>
+                        <h3 className="f-20 f-600 black mb-2"> {typeof item.title === "string" ? item.title : item.title.text}</h3>
+                        <p className="f-16 f-400 para-color mb-0">
+                          {typeof item.description === "string" ? item.description : item.description.text}
+                        </p>
+                      </div>
+                    </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile View */}
+          <div className="mobile-blogs-section d-block d-lg-none">
+            <div className="resources-blogs-slider">
+              {data?.map((item) => {
+                let targetLink = "";
+
+                if (item?.translation === true || item.type === "translation") {
+                  const fromLang = item.fromLanguage || "english";
+                  const toLang = item.toLanguage || "hindi";
+                  targetLink = `/${fromLang}-to-${toLang}-translation`;
+                } else {
+                  const link = (
+                    item.link ||
+                    item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                  ).replace(/^\/+|\/+$/g, "");
+                  targetLink = `/${link}`;
+                }
+
+                return (
+                  <Link
+                    key={item.id}
+                    to={targetLink}
+                    state={{ item: { ...item, link: targetLink } }}
+                    className="resource-card"
+                  >
                     <img
                       src={item.image}
-                      alt={item.title}
+                      alt={item?.title}
                       className="resource-img"
                     />
                     <div className="p-4">
@@ -3767,83 +3804,14 @@ const Home = () => {
                           : item.type.charAt(0).toUpperCase() +
                             item.type.slice(1)}
                       </span>
-                      <h3 className="f-20 f-600 black mb-2">{item.title}</h3>
+                      <h3 className="f-20 f-600 black mb-2"> {typeof item.title === "string" ? item.title : item.title.text}</h3>
                       <p className="f-16 f-400 para-color mb-0">
-                        {item.description}
+                      {typeof item.description === "string" ? item.description : item.description.text}
                       </p>
-                      {/* <div className="resource-meta">
-                  <span className="f-14 f-400 para-color">
-                    {item.date} • {item.duration}
-                  </span>
-                </div> */}
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mobile-blogs-section d-block d-lg-none">
-            <div className="resources-blogs-slider">
-              {data.map((item) => (
-                <div
-                  className="resource-card"
-                  key={item.id}
-                  onClick={() => {
-                    // Check if this is a translation or transliteration resource
-                    if (
-                      item.translation === true ||
-                      item.type === "translation"
-                    ) {
-                      // Get language pairs from item or use defaults
-                      const fromLang = item.fromLanguage || "english";
-                      const toLang = item.toLanguage || "hindi";
-
-                      // Regular translation URL
-                      navigate(`/${fromLang}-to${toLang}-translation`);
-                      return;
-                    }
-
-                    // Handle regular resources
-                    const link = (
-                      item.link ||
-                      item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
-                    ).replace(/^\/+|\/+$/g, ""); // Remove leading/trailing slashes
-                    navigate(`/${link}`, {
-                      state: {
-                        item: {
-                          ...item,
-                          link, // Ensure the generated link is included in the state
-                        },
-                      },
-                    });
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="resource-img"
-                  />
-                  <div className="p-4">
-                    <span className="resource-tag tag-blog f-400">
-                      {item.type === "case-studies"
-                        ? "Case Studies"
-                        : item.type === "success-stories"
-                        ? "Success Stories"
-                        : item.type.charAt(0).toUpperCase() +
-                          item.type.slice(1)}
-                    </span>
-                    <h3 className="f-20 f-600 black mb-2">{item.title}</h3>
-                    <p className="f-16 f-400 para-color mb-0">
-                      {item.description}
-                    </p>
-                    {/* <div className="resource-meta">
-                <span className="f-14 f-400 para-color">
-                  {item.date} • {item.duration}
-                </span>
-              </div> */}
-                  </div>
-                </div>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
