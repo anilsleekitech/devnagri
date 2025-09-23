@@ -88,7 +88,6 @@ const Navbar = () => {
         const parsedLanguage = JSON.parse(savedLanguage);
         // Ensure the saved language has displayCode
         if (!parsedLanguage.displayCode) {
-          // If displayCode is missing, add it based on code
           parsedLanguage.displayCode = parsedLanguage.code.toUpperCase();
         }
         setCurrentLanguage(parsedLanguage);
@@ -114,16 +113,10 @@ const Navbar = () => {
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        productsRef.current &&
-        !productsRef.current.contains(event.target) &&
-        industriesRef.current &&
-        !industriesRef.current.contains(event.target) &&
-        resourcesRef.current &&
-        !resourcesRef.current.contains(event.target) &&
-        languageRef.current &&
-        !languageRef.current.contains(event.target)
-      ) {
+      // If click happened inside any of these refs — do nothing
+      const refsToCheck = [productsRef, industriesRef, resourcesRef, languageRef, navbarRef];
+      const clickedInside = refsToCheck.some(ref => ref.current && ref.current.contains(event.target));
+      if (!clickedInside) {
         setIsProductsOpen(false);
         setIsIndustriesOpen(false);
         setIsResourcesOpen(false);
@@ -135,7 +128,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close mobile menu when clicking outside
+  // Close mobile menu when clicking outside (keeps mobile behavior)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -172,7 +165,9 @@ const Navbar = () => {
       else url = `https://${langCode}.devnagri.com/`;
     } else if (internationalLanguages[langCode]) {
       langData = internationalLanguages[langCode];
-      url = `https://${langCode}.devnagri.com/`;
+      // English should navigate to root
+      if (langCode === "en") url = "/";
+      else url = `https://${langCode}.devnagri.com/`;
     } else if (langCode === "en") {
       langData = { 
         flag: "https://flagcdn.com/us.svg", 
@@ -189,7 +184,7 @@ const Navbar = () => {
     const newLanguage = {
       code: langCode,
       flag: langData.flag,
-      displayCode: langData.displayCode,
+      displayCode: langData.displayCode || langData.displayCode === undefined ? (langData.displayCode ?? langCode.toUpperCase()) : langData.displayCode,
       displayName: langData.name
     };
     setCurrentLanguage(newLanguage);
@@ -199,7 +194,7 @@ const Navbar = () => {
     setIsLanguageOpen(false);
     setActiveSubmenu(null);
 
-    // Redirect
+    // Redirect (full page)
     window.location.href = url;
   };
 
@@ -254,53 +249,419 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto align-items-center gap-2">
               {/* Products Dropdown */}
               <li className="nav-item dropdown" ref={productsRef}>
-                <Link
-                  className={`nav-link dropdown-toggle ${
-                    isProductsOpen ? "show" : ""
-                  }`}
-                  to="#"
+                <a
+                  href="#"
+                  className={`nav-link dropdown-toggle ${isProductsOpen ? "show" : ""}`}
                   onClick={(e) => {
                     e.preventDefault();
                     setIsProductsOpen(!isProductsOpen);
+                    // close others
+                    setIsIndustriesOpen(false);
+                    setIsResourcesOpen(false);
+                    setIsLanguageOpen(false);
                   }}
+                  aria-expanded={isProductsOpen}
                 >
                   Products <i className="dropdown-icon fas fa-chevron-down" />
-                </Link>
-                {/* Your full Products mega-menu here, unchanged */}
+                </a>
+
+                <div className={`mega-menu dropdown-menu ${isProductsOpen ? 'show' : 'hide'}`}>
+                  {/* === START Products mega menu content (kept unchanged) === */}
+                  <div className="row">
+                    <div className="col-lg-4 col-md-6">
+                      <div className="row">
+                        <div className="sub-menu-nested-heading mb-3">
+                          <h6 className="f-20 f-600 blue m-0">
+                            Machine Translation
+                          </h6>
+                          <p className="f-12 f-400 black m-0">
+                            Language converted automatically
+                            <br />
+                            by machines
+                          </p>
+                        </div>
+                        <div className="col-md-6 p-0">
+                          <ul className="list-unstyled">
+                            <li>
+                              <Link
+                                className="dropdown-item"
+                                to="/translation-api"
+                                onClick={handleMobileMenuClose}
+                              >
+                                <div className="tab_innerimg_icon">
+                                  <img
+                                    src={getImagePath('menu-icon/translation-api.png')}
+                                    alt="machine-translation"
+                                  />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">
+                                    Translation API
+                                  </h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Powerful API for seamless multilingual translations
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                className="dropdown-item"
+                                to="/transliteration-api"
+                                onClick={handleMobileMenuClose}
+                              >
+                                <div className="tab_innerimg_icon">
+                                  <img
+                                    src={getImagePath('menu-icon/transliteration-api-icon.png')}
+                                    alt="machine-translation"
+                                  />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">
+                                    Transliteration API
+                                  </h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Convert Text Across Scripts Accurately
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                className="dropdown-item"
+                                to="/document-translation"
+                                onClick={handleMobileMenuClose}
+                              >
+                                <div className="tab_innerimg_icon">
+                                  <img
+                                    src={getImagePath('menu-icon/document-translation-icon.png')}
+                                    alt="machine-translation"
+                                  />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">
+                                    Document Engine
+                                  </h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Automated document translation for businesses
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="col-md-6 p-0">
+                          <ul className="list-unstyled">
+                            <li>
+                              <Link
+                                className="dropdown-item"
+                                to="/website-translation"
+                                onClick={handleMobileMenuClose}
+                              >
+                                <div className="tab_innerimg_icon">
+                                  <img
+                                    src={getImagePath('menu-icon/dota-web-icon.png')}
+                                    alt="machine-translation"
+                                  />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">DOTA (Web)</h5>
+                                  <p className="f-12 f-400 para-color">
+                                    AI-Powered Website Translation
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                className="dropdown-item"
+                                to="/app-localization"
+                                onClick={handleMobileMenuClose}
+                              >
+                                <div className="tab_innerimg_icon">
+                                  <img
+                                    src={getImagePath('menu-icon/dota-app-icon.png')}
+                                    alt="machine-translation"
+                                  />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">DOTA (APP)</h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Effortless app translation and localization
+                                    solution
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-3 col-md-6">
+                      <div className="sub-menu-nested-heading mb-3">
+                        <h6 className="f-20 f-600 blue m-0">
+                          Conversational Bots
+                        </h6>
+                        <p className="f-12 f-400 black m-0">
+                          Emotionally Intelligent Multilingual Conversations
+                        </p>
+                      </div>
+                      <ul className="list-unstyled">
+                        <li>
+                          <Link
+                            className="dropdown-item"
+                            to="/chatbot"
+                          >
+                            <div className="tab_innerimg_icon">
+                              <img
+                                src={getImagePath('menu-icon/chat-bot-icon.png')}
+                                alt="machine-translation"
+                              />
+                            </div>
+                            <div className="sub-menu-nested">
+                              <h5 className="f-14 f-600 black">Chat Bot</h5>
+                              <p className="f-12 f-400 para-color">
+                                AI chatbot for seamless global interactions
+                              </p>
+                            </div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            className="dropdown-item"
+                            to="/voice-bot"
+                          >
+                            <div className="tab_innerimg_icon">
+                              <img
+                                src={getImagePath('menu-icon/conversational-ai-bot-icon.png')}
+                                alt="machine-translation"
+                              />
+                            </div>
+                            <div className="sub-menu-nested">
+                              <h5 className="f-14 f-600 black">Voice Bot</h5>
+                              <p className="f-12 f-400 para-color">
+                                Smart voice bot for automated business workflow
+                              </p>
+                            </div>
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col-lg-5 col-md-12">
+                      <div className="row">
+                        <div className="col-md-6">
+                          <div className="sub-menu-nested-heading mb-3">
+                            <Link to="/ocr">
+                              <h6 className="f-20 f-600 blue m-0">OCR</h6>
+                              <p className="f-12 f-400 black m-0">
+                                AI-powered text recognition for accurate document
+                                digitization
+                              </p>
+                            </Link>
+                          </div>
+                        </div>
+                        <div className="col-md-6">
+                          <div className="sub-menu-nested-heading mb-3">
+                            <Link to="javascript:void(0)">
+                              <h6 className="f-20 f-600 blue m-0">
+                                Brain SLM's
+                              </h6>
+                              <p className="f-12 f-400 black m-0">
+                                Next-gen AI-powered language models for smarter,
+                                context-aware solutions
+                              </p>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='row'>
+                        <div className='col-12'>
+                          <Link to='/english-to-hindi-translation'>
+                            <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4' alt="Navbar banner"></img>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* === END Products mega menu content === */}
+                </div>
               </li>
 
               {/* Industries Dropdown */}
               <li className="nav-item dropdown" ref={industriesRef}>
-                <Link
-                  className={`nav-link dropdown-toggle ${
-                    isIndustriesOpen ? "show" : ""
-                  }`}
-                  to="#"
+                <a
+                  href="#"
+                  className={`nav-link dropdown-toggle ${isIndustriesOpen ? "show" : ""}`}
                   onClick={(e) => {
                     e.preventDefault();
                     setIsIndustriesOpen(!isIndustriesOpen);
+                    setIsProductsOpen(false);
+                    setIsResourcesOpen(false);
+                    setIsLanguageOpen(false);
                   }}
+                  aria-expanded={isIndustriesOpen}
                 >
                   Industries <i className="dropdown-icon fas fa-chevron-down" />
-                </Link>
-                {/* Your full Industries mega-menu here, unchanged */}
+                </a>
+
+                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isIndustriesOpen ? 'show' : 'hide'}`}>
+                  {/* === START Industries mega menu content (kept unchanged) === */}
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="row">
+                        <div className="sub-menu-nested-heading mb-3">
+                          <h6 className="f-20 f-600 blue m-0">Industries</h6>
+                        </div>
+                        <div className="col-md-6">
+                          <ul className="list-unstyled">
+                            <li>
+                              <Link className="dropdown-item" to="/banking-finance-translation">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/banking-icon.png')} alt="machine-translation" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">BFSI</h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Banking, Financial Services &amp; Insurance
+                                    trust.
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="/direct-to-consumer-translation">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/d2c-icon.png')} alt="machine-translation" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">D2C</h5>
+                                  <p className="f-12 f-400 para-color">
+                                    D2C Brands for Every Language clarity.
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="col-md-6">
+                          <ul className="list-unstyled">
+                            <li>
+                              <Link className="dropdown-item" to="/ecommerce-translation">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/ecoomrce-icon.png')} alt="machine-translation" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">E-Commerce</h5>
+                                  <p className="f-12 f-400 para-color">
+                                    E-Commerce in Every Language clients.
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="/government-translation">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/govt-icon.png')} alt="machine-translation" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">Government</h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Connecting Citizens in Every Language
+                                  </p>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* === END Industries mega menu content === */}
+                </div>
               </li>
 
               {/* Resources Dropdown */}
               <li className="nav-item dropdown" ref={resourcesRef}>
-                <Link
-                  className={`nav-link dropdown-toggle ${
-                    isResourcesOpen ? "show" : ""
-                  }`}
-                  to="#"
+                <a
+                  href="#"
+                  className={`nav-link dropdown-toggle ${isResourcesOpen ? "show" : ""}`}
                   onClick={(e) => {
                     e.preventDefault();
                     setIsResourcesOpen(!isResourcesOpen);
+                    setIsProductsOpen(false);
+                    setIsIndustriesOpen(false);
+                    setIsLanguageOpen(false);
                   }}
+                  aria-expanded={isResourcesOpen}
                 >
                   Resources <i className="dropdown-icon fas fa-chevron-down" />
-                </Link>
-                {/* Your full Resources mega-menu here, unchanged */}
+                </a>
+
+                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isResourcesOpen ? 'show' : 'hide'}`}>
+                  {/* === START Resources mega menu content (kept unchanged) === */}
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="row">
+                        <div className="sub-menu-nested-heading mb-3">
+                          <h6 className="f-20 f-600 blue m-0">Resources</h6>
+                        </div>
+                        <div className="col-md-6">
+                          <ul className="list-unstyled">
+                            <li>
+                              <Link className="dropdown-item" to="https://docs.devnagri.com/">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/developer-hub-menu.svg')} alt="developer-hub-menu" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">Developer Hub</h5>
+                                  <p className="f-12 f-400 para-color">Translate at the speed of development.</p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="/blogs?tab=announcements">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/annocument.svg')} alt="announcement" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">News &amp; Announcements</h5>
+                                  <p className="f-12 f-400 para-color">Catch up on the latest updates, product launches, and company milestones.</p>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="col-md-6">
+                          <ul className="list-unstyled">
+                            <li>
+                              <Link className="dropdown-item" to="/blogs?tab=case-studies">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/case-study.svg')} alt="case-study" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">Case Studies</h5>
+                                  <p className="f-12 f-400 para-color">Explore how businesses thrive with Devnagri translation solutions.</p>
+                                </div>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="/blogs?tab=blogs">
+                                <div className="tab_innerimg_icon">
+                                  <img src={getImagePath('menu-icon/blog.svg')} alt="blog" />
+                                </div>
+                                <div className="sub-menu-nested">
+                                  <h5 className="f-14 f-600 black">Blogs</h5>
+                                  <p className="f-12 f-400 para-color">Stay updated with tips, trends, and insights in localization and translation.</p>
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* === END Resources mega menu content === */}
+                </div>
               </li>
 
               {/* Get Started Button */}
@@ -318,6 +679,7 @@ const Navbar = () => {
                   </button>
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className="mx-2 white"
@@ -351,7 +713,7 @@ const Navbar = () => {
                     alt={`${currentLanguage.displayCode} Flag`}
                     style={{ marginRight: "5px" }}
                   />
-                  {currentLanguage.displayCode} {/* Now this will display correctly */}
+                  {currentLanguage.displayCode}
                   <i
                     className="dropdown-icon fas fa-chevron-down"
                     style={{ marginLeft: "5px" }}
