@@ -236,11 +236,15 @@ const Home = () => {
   // OCR content (video)
   const ocrContent = {
     id: "ocr-workflow",
+      title: "OCR Workflow",
+      icon: "menu-icon/ocr-workflow-icon.png",
     media: "video",
     src: "product-offering/ocr-product.mp4",
     description: "Extract & translate text from images in a go.",
     link: "/ocr",
     features: [],
+    // testimonial:
+    //     "Reputed commercial bank attained 98% accuracy across service requests.",
   };
 
   // Combine all content
@@ -248,20 +252,6 @@ const Home = () => {
 
   const activeContent = contentTabs.find((tab) => tab.id === activeTab);
 
-  const tabs = [
-    {
-      id: "ocr-workflow",
-      title: "OCR Workflow",
-      icon: "menu-icon/ocr-workflow-icon.png",
-      mediaType: "video",
-      mediaSrc: "product-offering/ocr-product.mp4",
-      description: "Extract & translate text from images in a go.",
-      features: [],
-      testimonial:
-        "Reputed commercial bank attained 98% accuracy across service requests.",
-      link: "/ocr",
-    },
-  ];
 
   useEffect(() => {
     const counters = document.querySelectorAll(".custom-counter");
@@ -2508,7 +2498,7 @@ const Home = () => {
                     OCR Workflow
                   </h4>
                   <div className="accordion" id="servicesAccordion">
-                    {tabs.map((tab) => (
+                    {contentTabs.map((tab) => (
                       <div className="accordion-item" key={tab.id}>
                         <h2
                           className="accordion-header"
@@ -2524,7 +2514,7 @@ const Home = () => {
                           >
                             <div className="tab_innerimg_icon">
                               <img
-                                src={getImagePath(tab.icon)}
+                                src={getImagePath(tab.img || tab.icon)}
                                 alt={tab.title}
                               />
                             </div>
@@ -2533,6 +2523,7 @@ const Home = () => {
                             </div>
                           </button>
                         </h2>
+
                         <div
                           id={`collapse_${tab.id}`}
                           className="accordion-collapse collapse"
@@ -2544,11 +2535,10 @@ const Home = () => {
                               <div className="main_mobile_tab_content">
                                 <div className="row">
                                   <div className="col-12">
-                                    {tab.mediaType === "video" ? (
+                                    {tab.media === "video" ? (
                                       <video
                                         autoPlay
                                         loop
-                                        // playsInline
                                         className="rounded-4"
                                         style={{
                                           width: "100%",
@@ -2556,7 +2546,7 @@ const Home = () => {
                                         }}
                                       >
                                         <source
-                                          src={getImagePath(tab.mediaSrc)}
+                                          src={getImagePath(tab.src)}
                                           type="video/mp4"
                                         />
                                         Your browser does not support the video
@@ -2564,7 +2554,9 @@ const Home = () => {
                                       </video>
                                     ) : (
                                       <img
-                                        src={getImagePath(tab.mediaSrc)}
+                                        src={getImagePath(
+                                          tab.contentImage || tab.mediaSrc
+                                        )}
                                         alt={tab.title}
                                         className="rounded-4"
                                         style={{
@@ -2575,10 +2567,12 @@ const Home = () => {
                                       />
                                     )}
                                   </div>
+
                                   <div className="col-12">
                                     <p className="m-0 f-400 para-color pt-3 pb-3">
                                       {tab.description}
                                     </p>
+
                                     {tab.features &&
                                       tab.features.length > 0 && (
                                         <ul className="check-list p-0">
@@ -2605,10 +2599,11 @@ const Home = () => {
                                       )}
                                   </div>
                                 </div>
+
                                 <div className="pt-2">
                                   {tab.testimonial && (
                                     <h6 className="f-600 f-20 black">
-                                      {/* {tab.testimonial} */}
+                                      {tab.testimonial}
                                     </h6>
                                   )}
                                   <div className="register-btn">
@@ -3731,33 +3726,39 @@ const Home = () => {
                 }
 
                 return (
-                  
                   <div className="col-md-4 fadeInUp">
                     <div className="resource-card wow fadeInUp" key={item.id}>
-                    <Link
-                      to={targetLink}
-                      state={{ item: { ...item, link: targetLink } }}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item?.title}
-                        className="resource-img"
-                      />
-                      <div className="p-4">
-                        <span className="resource-tag tag-blog f-400">
-                          {item.type === "case-studies"
-                            ? "Case Studies"
-                            : item.type === "success-stories"
-                            ? "Success Stories"
-                            : item.type.charAt(0).toUpperCase() +
-                              item.type.slice(1)}
-                        </span>
-                        <h3 className="f-20 f-600 black mb-2"> {typeof item.title === "string" ? item.title : item.title.text}</h3>
-                        <p className="f-16 f-400 para-color mb-0">
-                          {typeof item.description === "string" ? item.description : item.description.text}
-                        </p>
-                      </div>
-                    </Link>
+                      <Link
+                        to={targetLink}
+                        state={{ item: { ...item, link: targetLink } }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item?.title}
+                          className="resource-img"
+                        />
+                        <div className="p-4">
+                          <span className="resource-tag tag-blog f-400">
+                            {item.type === "case-studies"
+                              ? "Case Studies"
+                              : item.type === "success-stories"
+                              ? "Success Stories"
+                              : item.type.charAt(0).toUpperCase() +
+                                item.type.slice(1)}
+                          </span>
+                          <h3 className="f-20 f-600 black mb-2">
+                            {" "}
+                            {typeof item.title === "string"
+                              ? item.title
+                              : item.title.text}
+                          </h3>
+                          <p className="f-16 f-400 para-color mb-0">
+                            {typeof item.description === "string"
+                              ? item.description
+                              : item.description.text}
+                          </p>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 );
@@ -3804,9 +3805,16 @@ const Home = () => {
                           : item.type.charAt(0).toUpperCase() +
                             item.type.slice(1)}
                       </span>
-                      <h3 className="f-20 f-600 black mb-2"> {typeof item.title === "string" ? item.title : item.title.text}</h3>
+                      <h3 className="f-20 f-600 black mb-2">
+                        {" "}
+                        {typeof item.title === "string"
+                          ? item.title
+                          : item.title.text}
+                      </h3>
                       <p className="f-16 f-400 para-color mb-0">
-                      {typeof item.description === "string" ? item.description : item.description.text}
+                        {typeof item.description === "string"
+                          ? item.description
+                          : item.description.text}
                       </p>
                     </div>
                   </Link>
