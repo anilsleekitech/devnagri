@@ -1,13 +1,19 @@
 import { useEffect } from 'react';
 
-const SEO = ({ title, description, keywords = 'website' }) => {
+const SEO = ({ 
+  title, 
+  description, 
+  keywords = 'website',
+  sitemapUrl = '/sitemap.xml',
+  googleSiteVerification // pass your GSC code like: "abc123..."
+}) => {
   useEffect(() => {
     // Update document title
     if (title) {
       document.title = title;
     }
 
-    // Function to update or create meta tag
+    // Function to update or create meta/link tag
     const updateMetaTag = (name, content, attribute = 'name') => {
       if (!content) return;
       
@@ -23,17 +29,34 @@ const SEO = ({ title, description, keywords = 'website' }) => {
       }
     };
 
+    const updateLinkTag = (rel, href) => {
+      if (!href) return;
+
+      let element = document.querySelector(`link[rel="${rel}"]`);
+      
+      if (element) {
+        element.setAttribute('href', href);
+      } else {
+        element = document.createElement('link');
+        element.setAttribute('rel', rel);
+        element.setAttribute('href', href);
+        document.head.appendChild(element);
+      }
+    };
+
     // Update meta tags
     updateMetaTag('description', description);
     updateMetaTag('keywords', keywords);
-    
 
-    // Cleanup function to remove dynamic meta tags when component unmounts
-    return () => {
-      // Note: We don't remove meta tags on cleanup as they should persist
-      // until the next page sets new ones
-    };
-  }, [title, description, keywords]);
+    // Add sitemap
+    updateLinkTag('sitemap', sitemapUrl);
+
+    // Add Google Search Console verification
+    if (googleSiteVerification) {
+      updateMetaTag('google-site-verification', googleSiteVerification);
+    }
+
+  }, [title, description, keywords, sitemapUrl, googleSiteVerification]);
 
   return null; // This component doesn't render anything
 };
