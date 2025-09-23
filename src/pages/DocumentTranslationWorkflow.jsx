@@ -5,6 +5,7 @@ import { getImagePath } from '../utils/imageUtils';
 import FAQAccordion from '@/components/FAQAccordion';
 import { initializeSliders } from '@/utils/initializeAnimations';
 import { initializeSliders1 } from '@/utils/initScripts';
+import SEO from '@/components/SEO';
  
 
 const DocumentTranslationWorkflow = () => {
@@ -17,18 +18,6 @@ const DocumentTranslationWorkflow = () => {
       const video = videoRef.current;
   
       if (!video) return;
-  
-      // video.loop = true;
-      // video.muted = true;
-  
-      // // Try autoplay
-      // const playPromise = video.play();
-      // if (playPromise !== undefined) {
-      //   playPromise.catch((error) => {
-      //     console.error("Autoplay failed:", error);
-      //   });
-      // }
-  
       // Skip every 2s
       const interval = setInterval(() => {
         if (!video.paused && video.currentTime + 0.1 < video.duration) {
@@ -67,12 +56,13 @@ const DocumentTranslationWorkflow = () => {
       },[])
   return (
     <>
-  <head>
-    <title>Document Translation - Devnagri</title>
-  
-    <meta name="description" content="Document translation is very necessary for doing business globally. Translate your documents word to word according to your requirements." />
-    <meta name="keywords" content="Document Translation" />
-  </head>
+  <SEO
+        title="Document Translation - Devnagri"
+        description="Document translation is very necessary for doing business globally. Translate your documents word to word according to your requirements."
+        keywords="Document Translation"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
   {/* Hero Section */}
   <section
     className="hero-section bg-img"
@@ -196,7 +186,6 @@ const DocumentTranslationWorkflow = () => {
                 loading="lazy"
               />
             </div>
-            {/* <div class="brand-item-slide"><img src=${getImagePath(brand-drdo.png" alt="Brand 5" loading="lazy" /></div> */}
           </div>
         </div>
       </div>
@@ -206,7 +195,6 @@ const DocumentTranslationWorkflow = () => {
   <section className="pb-4 pt-5 pt-md-5 pt-lg-0">
     <div className="container">
       <div className="trusted-partner pb-4 px-4">
-        {/* <h2 class="f-40 f-600 black text-center pb-4">Multilingual Translation <span class="blue">at Scale</span></h2> */}
         <div className="row justify-content-between">
           <div className="col-lg-4 col-md-6">
             <div className="d-flex gap-3 wow fadeInUp">
@@ -550,7 +538,6 @@ const DocumentTranslationWorkflow = () => {
     <div className="container">
       <div className="testimonial-heading">
         <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
-          {/* <img src=${getImagePath(testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
           What Our <span className="blue">Customers Say?</span>
         </h2>
       </div>
@@ -1137,8 +1124,6 @@ const DocumentTranslationWorkflow = () => {
       <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
         If Your Message Crosses Borders, So Does Your Business
       </h2>
-      {/* <p class="text-center f-400 pb-3 wow fadeInUp">Join hundreds of teams using Devnagri to turn static content into
-  multilingual assets, accurately, securely, and at scale.</p> */}
       {/* Stats */}
       <div className="row mt-5 text-center custom-stats-row">
         <div className="col-6 col-md-4 custom-stats-col wow fadeInUp">
@@ -1174,10 +1159,7 @@ const DocumentTranslationWorkflow = () => {
           </div>
           <p className="custom-label f-400 m-0">Reduced Translation Costs</p>
         </div>
-        {/* <div class="col-6 col-md-3 custom-stats-col wow fadeInUp">
-    <div class="custom-counter f-48 f-600 pb-3" data-target="75" data-suffix="%">0%</div>
-    <p class="custom-label f-400 m-0">Increase in CSAT</p>
-  </div> */}
+       
       </div>
       <div className="text-center wow fadeInUp mt-5">
         <Link to="https://account.devnagri.com/register" className="white"><button type="btn" className="devnagri-btn">

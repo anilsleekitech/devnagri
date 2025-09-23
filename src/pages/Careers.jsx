@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { getImagePath } from '@/utils/imageUtils';
-import { Link } from 'react-router-dom';
-import { initializeSliders1 } from '@/utils/initScripts';
+import React, { useEffect, useState } from "react";
+import { getImagePath } from "@/utils/imageUtils";
+import { Link } from "react-router-dom";
+import { initializeSliders1 } from "@/utils/initScripts";
+import SEO from "@/components/SEO";
 
 const Careers = () => {
   // Job data
@@ -12,9 +13,19 @@ const Careers = () => {
       experience: "5 - 10 years",
       location: "Gurgaon",
       function: "Product",
-      description: "Join our Product team to lead product development, enhance customer experience, and drive success!",
-      requirements: ["Product strategy", "User research", "Agile methodology", "Team leadership"],
-      responsibilities: ["Define product vision", "Lead cross-functional teams", "Drive product roadmap"]
+      description:
+        "Join our Product team to lead product development, enhance customer experience, and drive success!",
+      requirements: [
+        "Product strategy",
+        "User research",
+        "Agile methodology",
+        "Team leadership",
+      ],
+      responsibilities: [
+        "Define product vision",
+        "Lead cross-functional teams",
+        "Drive product roadmap",
+      ],
     },
     {
       id: 2,
@@ -22,9 +33,19 @@ const Careers = () => {
       experience: "5 - 10 years",
       location: "Gurgaon",
       function: "Marketing",
-      description: "Lead brand strategy and marketing initiatives to enhance our market presence and customer engagement.",
-      requirements: ["Brand strategy", "Digital marketing", "Campaign management", "Analytics"],
-      responsibilities: ["Develop brand strategy", "Manage marketing campaigns", "Analyze market trends"]
+      description:
+        "Lead brand strategy and marketing initiatives to enhance our market presence and customer engagement.",
+      requirements: [
+        "Brand strategy",
+        "Digital marketing",
+        "Campaign management",
+        "Analytics",
+      ],
+      responsibilities: [
+        "Develop brand strategy",
+        "Manage marketing campaigns",
+        "Analyze market trends",
+      ],
     },
     {
       id: 3,
@@ -32,9 +53,19 @@ const Careers = () => {
       experience: "3 - 7 years",
       location: "Mumbai",
       function: "Sales",
-      description: "Drive sales growth in your assigned territory and build strong customer relationships.",
-      requirements: ["Sales experience", "Customer relationship", "Territory management", "Negotiation"],
-      responsibilities: ["Achieve sales targets", "Build client relationships", "Market analysis"]
+      description:
+        "Drive sales growth in your assigned territory and build strong customer relationships.",
+      requirements: [
+        "Sales experience",
+        "Customer relationship",
+        "Territory management",
+        "Negotiation",
+      ],
+      responsibilities: [
+        "Achieve sales targets",
+        "Build client relationships",
+        "Market analysis",
+      ],
     },
     {
       id: 4,
@@ -42,9 +73,14 @@ const Careers = () => {
       experience: "2 - 5 years",
       location: "Bangalore",
       function: "Engineering",
-      description: "Build responsive and user-friendly web applications using modern frontend technologies.",
+      description:
+        "Build responsive and user-friendly web applications using modern frontend technologies.",
       requirements: ["React.js", "JavaScript", "CSS/HTML", "Git"],
-      responsibilities: ["Develop UI components", "Optimize performance", "Code reviews"]
+      responsibilities: [
+        "Develop UI components",
+        "Optimize performance",
+        "Code reviews",
+      ],
     },
     {
       id: 5,
@@ -52,9 +88,14 @@ const Careers = () => {
       experience: "3 - 6 years",
       location: "Remote",
       function: "Engineering",
-      description: "Develop AI/ML models to enhance our translation and language processing capabilities.",
+      description:
+        "Develop AI/ML models to enhance our translation and language processing capabilities.",
       requirements: ["Python", "Machine Learning", "NLP", "Statistics"],
-      responsibilities: ["Build ML models", "Data analysis", "Model optimization"]
+      responsibilities: [
+        "Build ML models",
+        "Data analysis",
+        "Model optimization",
+      ],
     },
     {
       id: 6,
@@ -62,29 +103,39 @@ const Careers = () => {
       experience: "2 - 5 years",
       location: "Gurgaon",
       function: "Customer Success",
-      description: "Ensure customer satisfaction and drive product adoption through excellent support and guidance.",
-      requirements: ["Customer service", "Product knowledge", "Communication", "Problem solving"],
-      responsibilities: ["Customer onboarding", "Support management", "Success metrics"]
-    }
+      description:
+        "Ensure customer satisfaction and drive product adoption through excellent support and guidance.",
+      requirements: [
+        "Customer service",
+        "Product knowledge",
+        "Communication",
+        "Problem solving",
+      ],
+      responsibilities: [
+        "Customer onboarding",
+        "Support management",
+        "Success metrics",
+      ],
+    },
   ]);
 
   // State for search and filter
-  const [searchTerm, setSearchTerm] = useState('');
-  const [locationFilter, setLocationFilter] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [locationFilter, setLocationFilter] = useState("");
   const [filteredJobs, setFilteredJobs] = useState([]);
 
   // State for popup form
   const [showApplicationForm, setShowApplicationForm] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
   const [applicationForm, setApplicationForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    currentCompany: '',
-    experience: '',
+    name: "",
+    email: "",
+    phone: "",
+    currentCompany: "",
+    experience: "",
     resume: null,
-    coverLetter: '',
-    portfolio: ''
+    coverLetter: "",
+    portfolio: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -93,15 +144,16 @@ const Careers = () => {
     let filtered = jobs;
 
     if (searchTerm) {
-      filtered = filtered.filter(job =>
-        job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        job.function.toLowerCase().includes(searchTerm.toLowerCase())
+      filtered = filtered.filter(
+        (job) =>
+          job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          job.function.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
     if (locationFilter) {
-      filtered = filtered.filter(job =>
+      filtered = filtered.filter((job) =>
         job.location.toLowerCase().includes(locationFilter.toLowerCase())
       );
     }
@@ -117,9 +169,9 @@ const Careers = () => {
   // Handle form input changes
   const handleFormChange = (e) => {
     const { name, value, files } = e.target;
-    setApplicationForm(prev => ({
+    setApplicationForm((prev) => ({
       ...prev,
-      [name]: files ? files[0] : value
+      [name]: files ? files[0] : value,
     }));
   };
 
@@ -135,11 +187,11 @@ const Careers = () => {
     setIsSubmitting(true);
 
     // Log all application data to console
-    console.log('=== Job Application Submission ===');
-    console.log('Job Details:', selectedJob);
-    console.log('Applicant Details:', applicationForm);
-    console.log('Submission Time:', new Date().toISOString());
-    console.log('==============================');
+    // console.log('=== Job Application Submission ===');
+    // console.log('Job Details:', selectedJob);
+    // console.log('Applicant Details:', applicationForm);
+    // console.log('Submission Time:', new Date().toISOString());
+    // console.log('==============================');
 
     // Simulate API call
     setTimeout(() => {
@@ -147,16 +199,18 @@ const Careers = () => {
       setShowApplicationForm(false);
       setSelectedJob(null);
       setApplicationForm({
-        name: '',
-        email: '',
-        phone: '',
-        currentCompany: '',
-        experience: '',
+        name: "",
+        email: "",
+        phone: "",
+        currentCompany: "",
+        experience: "",
         resume: null,
-        coverLetter: '',
-        portfolio: ''
+        coverLetter: "",
+        portfolio: "",
       });
-      alert('Thank you for your application! We will review and get back to you soon.');
+      alert(
+        "Thank you for your application! We will review and get back to you soon."
+      );
     }, 2000);
   };
 
@@ -165,82 +219,75 @@ const Careers = () => {
     setShowApplicationForm(false);
     setSelectedJob(null);
     setApplicationForm({
-      name: '',
-      email: '',
-      phone: '',
-      currentCompany: '',
-      experience: '',
+      name: "",
+      email: "",
+      phone: "",
+      currentCompany: "",
+      experience: "",
       resume: null,
-      coverLetter: '',
-      portfolio: ''
+      coverLetter: "",
+      portfolio: "",
     });
   };
 
   useEffect(() => {
-        const initCarousel = () => {
-          const carouselElement = document.getElementById('fadeCarousel');
-          if (carouselElement) {
-            // Initialize Bootstrap carousel
-            const carousel = new window.bootstrap.Carousel(carouselElement, {
-              interval: 3000,
-              wrap: true,
-              ride: 'carousel'
-            });
-          }
-        };
-    
-        // Check if Bootstrap is available
-        if (typeof window !== 'undefined' && window.bootstrap) {
-          initCarousel();
-        }
-      }, [])
+    const initCarousel = () => {
+      const carouselElement = document.getElementById("fadeCarousel");
+      if (carouselElement) {
+        // Initialize Bootstrap carousel
+        const carousel = new window.bootstrap.Carousel(carouselElement, {
+          interval: 3000,
+          wrap: true,
+          ride: "carousel",
+        });
+      }
+    };
 
-       useEffect(() => {
-              initializeSliders1();
-          },[])
+    // Check if Bootstrap is available
+    if (typeof window !== "undefined" && window.bootstrap) {
+      initCarousel();
+    }
+  }, []);
+
+  useEffect(() => {
+    initializeSliders1();
+  }, []);
 
   return (
     <>
-      <head>
-        <title>Career | Devnagri</title>
-        <meta
-          name="description"
-          content="Join the Devnagri team and help build the future of AI-powered translation technology."
-        />
-        <meta
-          name="keywords"
-          content="careers, jobs, devnagri jobs, AI translation careers, tech jobs"
-        />
-      </head>
+      <SEO
+        title="Career | Devnagri"
+        description="Join the Devnagri team and help build the future of AI-powered translation technology."
+        keywords="careers, jobs, devnagri jobs, AI translation careers, tech jobs"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
       {/* Hero Section */}
       <section
         className="hero-section bg-img"
         style={{
-          backgroundImage: `url(${getImagePath("simple-banner-background.png")})`
+          backgroundImage: `url(${getImagePath(
+            "simple-banner-background.png"
+          )})`,
         }}
       >
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
               <h6 className="f-22 f-600 pb-3 black">
-                <span className="blue">Here Passion Meets Purpose, </span>Join the
-                Journey at Devnagri
+                <span className="blue">Here Passion Meets Purpose, </span>Join
+                the Journey at Devnagri
               </h6>
               <h1 className="f-40 f-700 black pb-2 wow fadeIn">
                 Bring Your Energy and Ideas.{" "}
                 <span className="blue">Shape the Future With Us.</span>
               </h1>
               <p className="f-400 pb-2 pe-3 wow fadeIn">
-                At Devnagri AI, we're reimagining how businesses, governments, and
-                communities connect across languages. If solving real-world
+                At Devnagri AI, we're reimagining how businesses, governments,
+                and communities connect across languages. If solving real-world
                 communication challenges excites you, join us on our journey.
               </p>
               <div className="d-flex align-items-center justify-content-start gap-3 wow fadeIn">
-                {/* <Link to="#our-open-roles" className="white">
-                  <button type="btn" className="devnagri-btn mt-3">
-                    {" "}
-                    Explore Open Roles{" "}
-                  </button></Link> */}
                 <button
                   type="button"
                   className="devnagri-btn mt-3"
@@ -253,7 +300,6 @@ const Careers = () => {
                 >
                   Explore Open Roles
                 </button>
-
               </div>
             </div>
             <div className="col-lg-6 mt-4 mt-md-5 mt-lg-0">
@@ -261,9 +307,9 @@ const Careers = () => {
                 id="fadeCarousel"
                 className="carousel slide carousel-fade"
                 data-bs-ride="carousel"
-                data-bs-interval="3000"  // 3 seconds per slide
-                 data-bs-touch="true"   // ✅ enable swipe on mobile
-  data-bs-pause="false" 
+                data-bs-interval="3000" // 3 seconds per slide
+                data-bs-touch="true" // ✅ enable swipe on mobile
+                data-bs-pause="false"
               >
                 <div className="carousel-inner">
                   <div className="carousel-item active">
@@ -288,15 +334,6 @@ const Careers = () => {
                     />
                   </div>
                 </div>
-                {/* Controls */}
-                {/* <button class="carousel-control-prev" type="button" data-bs-target="#fadeCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#fadeCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button> */}
                 {/* Indicators */}
                 <div className="carousel-indicators">
                   <button
@@ -325,83 +362,6 @@ const Careers = () => {
           </div>
         </div>
       </section>
-      {/*our major brand*/}
-      {/* <section
-    className="brand-stats-section bg-img"
-    style={{ backgroundImage: "none", padding: "50px 0px" }}
-  >
-    <div className="container">
-      <div className="product-brand-slider py-5">
-        <div className="brand-slider brand-slider-whitestrip">
-          <div className="brand-slider-wrapper">
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-meesho.png"
-                alt="Brand 1"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-icici-bank.png"
-                alt="Brand 2"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-idfc.png"
-                alt="Brand 3"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-yes-bank.png"
-                alt="Brand 4"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-sbi-mutual.png"
-                alt="Brand 5"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-tataia.png"
-                alt="Brand 5"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-nestle.png"
-                alt="Brand 5"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-my-gov.png"
-                alt="Brand 5"
-                loading="lazy"
-              />
-            </div>
-            <div className="brand-item-slide">
-              <img
-                src="getImagePath(brand-nitiayog.png"
-                alt="Brand 5"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> */}
       {/*life at devnagri*/}
       <section
         className="py-5 bg-img"
@@ -421,13 +381,13 @@ const Careers = () => {
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">E</span>
-                  <strong className="f-700 black">Empathy:</strong> We understand
-                  before we act.
+                  <strong className="f-700 black">Empathy:</strong> We
+                  understand before we act.
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">V</span>
-                  <strong className="f-700 black">Vision:</strong> Every milestone
-                  is driven by a clear purpose.
+                  <strong className="f-700 black">Vision:</strong> Every
+                  milestone is driven by a clear purpose.
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">N</span>
@@ -436,18 +396,18 @@ const Careers = () => {
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">A</span>
-                  <strong className="f-700 black">Accountability:</strong> Ownership
-                  isn’t assigned here, it’s instinctive.
+                  <strong className="f-700 black">Accountability:</strong>{" "}
+                  Ownership isn’t assigned here, it’s instinctive.
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">G</span>
-                  <strong className="f-700 black">Growth:</strong> Everyone learns,
-                  evolves, and levels up.
+                  <strong className="f-700 black">Growth:</strong> Everyone
+                  learns, evolves, and levels up.
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">R</span>
-                  <strong className="f-700 black">Respect:</strong> We value ideas
-                  over titles.
+                  <strong className="f-700 black">Respect:</strong> We value
+                  ideas over titles.
                 </p>
                 <p className="f-400 para-color f-18">
                   <span className="">I</span>
@@ -474,115 +434,6 @@ const Careers = () => {
         </div>
       </section>
 
-      {/*our mission vission*/}
-      {/* <section
-    className="py-5 bg-img"
-    style={{ backgroundImage: 'url("getImagePath(testimonil-bg.png")' }}
-  >
-    <div className="container">
-      <div className="row align-items-center">
-        <div className="col-lg-5">
-          <img
-            src="getImagePath(career-images/Mission-and-Vision.png"
-            className="w-100 wow fadeInUp rounded-4"
-          />
-        </div>
-        <div className="col-lg-7 px-5 mt-4 mt-md-5 mt-lg-0">
-          <h2 className="f-40 f-600 pb-3 m-0 black wow fadeInUp">
-            Mission and <span className="blue">Vision</span>
-          </h2>
-          <div className="mb-3">
-            <h6 className="f-22 f-600 pb-1 m-0 black wow fadeInUp">
-              Our Mission
-            </h6>
-            <p className="f-400 para-color m-0 wow fadeInUp">
-              To help businesses out there deeply connect with their customers
-              through scalable, AI-powered translation solutions that create
-              inclusive, trustworthy experiences for users across the globe.
-            </p>
-          </div>
-          <div className="">
-            <h6 className="f-22 f-600 pb-1 m-0 black wow fadeInUp">
-              Our Vision
-            </h6>
-            <p className="f-400 para-color m-0 wow fadeInUp">
-              To become the world's most trusted multilingual AI platform,
-              enabling seamless, localized communication for the following
-              billion internet users and customers left .
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> */}
-      {/*employee testimonial section*/}
-      {/* <section class="employee-testimonial-section py-5" style="background-color: #EEF5FF;">
-    <div class="container">
-<div class="testimonial-heading">
-  <h2 class="f-600 f-40 pb-5 black text-center wow fadeInUp">
-    Employees <span class="blue">Speak</span>
-  </h2>
-</div>
-<div class="position-relative d-flex justify-content-center align-items-center">
-  <main>
-    <div class="employee-slider">
-      <div class="employee-slide-row" id="slide-row">
-        <div class="employee-slide-col">
-          <div class="employee-content">
-            <p class="f-16 f-400 black mb-0">"At Devnagri AI, you get the chance to build something
-              meaningful. I've worked on projects that
-              directly impacted public sector digital inclusion.
-              That's the kind of work that keeps you going."</p>
-            <h6 class="f-16 f-600 black mb-1">DevOps Engineer</h6>
-          </div>
-          <div class="employee-hero">
-            <img
-              src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
-              alt="avatar">
-          </div>
-        </div>
-
-        <div class="employee-slide-col">
-          <div class="employee-content">
-            <p class="f-16 f-400 black mb-0">"I joined Devnagri for the tech but stayed for the
-              people. There's space to grow, lead, and even fail safely. And the fact that we're building for
-              India and beyond? That's the cherry on top."</p>
-            <h6 class="f-16 f-600 black mb-1">QA Lead</h6>
-          </div>
-          <div class="employee-hero">
-            <img
-              src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-              alt="avatar">
-          </div>
-        </div>
-
-        <div class="employee-slide-col">
-          <div class="employee-content">
-            <p class="f-16 f-400 black mb-0">"Coming from a linguistic background, I never
-              thought I'd work this closely with AI. The way language, tech, and culture come together here is
-              unique. Every day, I learn something new."</p>
-            <h6 class="f-16 f-600 black mb-1">Malayalam Specialist</h6>
-          </div>
-          <div class="employee-hero">
-            <img
-              src="https://user-images.githubusercontent.com/13468728/234031646-10533999-39e5-4c7b-ab54-d0299b13ce74.jpg"
-              alt="avatar">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="employee-indicator">
-      <span class="employee-btn active"></span>
-      <span class="employee-btn"></span>
-      <span class="employee-btn"></span>
-    </div>
-
-  </main>
-</div>
-
-    </div>
-  </section> */}
       {/*Our hiring timeline*/}
       <section
         className="timeline-section py-5"
@@ -817,14 +668,12 @@ const Careers = () => {
                     </div>
                     <div>
                       <p className="m-0 pb-1 f-20 f-400">
-                        A mission-driven company building the future of Indian and
-                        global communicational AI
+                        A mission-driven company building the future of Indian
+                        and global communicational AI
                       </p>
                     </div>
                   </li>
                 </ul>
-                {/* <div class="wow fadeInUp"><button type="btn" class="devnagri-btn mt-3"><Link to="#" class="white"> Start Now
-          </Link></button></div> */}
               </div>
             </div>
           </div>
@@ -847,27 +696,42 @@ const Careers = () => {
             </div>
             <div className="col-sm-6 col-lg-4 mb-3">
               <div className="gallery-item">
-                <img src={getImagePath("career-images/team-1.jpg")} alt="Gallery 2" />
+                <img
+                  src={getImagePath("career-images/team-1.jpg")}
+                  alt="Gallery 2"
+                />
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 mb-3">
               <div className="gallery-item">
-                <img src={getImagePath("career-images/team-2.jpg")} alt="Gallery 3" />
+                <img
+                  src={getImagePath("career-images/team-2.jpg")}
+                  alt="Gallery 3"
+                />
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 mb-3">
               <div className="gallery-item">
-                <img src={getImagePath("career-images/team-3.jpg")} alt="Gallery 4" />
+                <img
+                  src={getImagePath("career-images/team-3.jpg")}
+                  alt="Gallery 4"
+                />
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 mb-3">
               <div className="gallery-item">
-                <img src={getImagePath("career-images/team-4.jpg")} alt="Gallery 5" />
+                <img
+                  src={getImagePath("career-images/team-4.jpg")}
+                  alt="Gallery 5"
+                />
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 mb-3">
               <div className="gallery-item">
-                <img src={getImagePath("career-images/team-5.jpg")} alt="Gallery 6" />
+                <img
+                  src={getImagePath("career-images/team-5.jpg")}
+                  alt="Gallery 6"
+                />
               </div>
             </div>
           </div>
@@ -907,8 +771,8 @@ const Careers = () => {
               <button
                 className="devnagri-btn"
                 onClick={() => {
-                  setSearchTerm('');
-                  setLocationFilter('');
+                  setSearchTerm("");
+                  setLocationFilter("");
                 }}
               >
                 Clear
@@ -933,13 +797,16 @@ const Careers = () => {
                       </h5>
                       <ul className="list-unstyled mb-3">
                         <li className="f-400">
-                          <span className="f-500">Experience:</span> {job.experience}
+                          <span className="f-500">Experience:</span>{" "}
+                          {job.experience}
                         </li>
                         <li className="f-400">
-                          <span className="f-500">Location:</span> {job.location}
+                          <span className="f-500">Location:</span>{" "}
+                          {job.location}
                         </li>
                         <li className="f-400">
-                          <span className="f-500">Function:</span> {job.function}
+                          <span className="f-500">Function:</span>{" "}
+                          {job.function}
                         </li>
                       </ul>
                       <p className="card-text f-400 para-color m-0">
@@ -961,15 +828,18 @@ const Careers = () => {
             ) : (
               <div className="col-12 text-center">
                 <div className="py-5">
-                  <h4 className="f-24 f-500 para-color mb-3">No positions found</h4>
+                  <h4 className="f-24 f-500 para-color mb-3">
+                    No positions found
+                  </h4>
                   <p className="f-16 f-400 para-color">
-                    Try adjusting your search criteria or check back later for new opportunities.
+                    Try adjusting your search criteria or check back later for
+                    new opportunities.
                   </p>
                   <button
                     className="devnagri-btn mt-3"
                     onClick={() => {
-                      setSearchTerm('');
-                      setLocationFilter('');
+                      setSearchTerm("");
+                      setLocationFilter("");
                     }}
                   >
                     <span className="white">View All Positions</span>
@@ -980,46 +850,36 @@ const Careers = () => {
           </div>
         </div>
       </section>
-      {/*get started section*/}
-      {/* <section className="get-strated bg-img">
-        <div className="container">
-          {/* <h2 class="text-center f-24 f-500 white pe-4 ps-4 pt-3 pb-2 wow fadeInUp">No perfect match today? <Link to="mailto.com" style="color: #05a1f4;">Upload your resume</Link>, and we’ll keep you in mind.</h2> */}
-          {/* <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 wow fadeInUp">
-            No Perfect Match Today? Upload Your Resume, Let's Keep in Touch!
-          </h2> */}
-          {/* <div className="text-center wow fadeInUp mt-5">
-            <Link to="mailto:demo@devnagri.com" className="white"><button type="btn" className="devnagri-btn">
-              {" "}
-              Upload Your Resume{" "}
-            </button></Link>
-          </div> */}
-        {/* </div>
-      // </section> */} 
-
       {/* Application Form Popup */}
       {showApplicationForm && (
-        <div className="modal-overlay" style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '20px'
-        }}>
-          <div className="modal-content" style={{
-            backgroundColor: 'white',
-            borderRadius: '12px',
-            padding: '30px',
-            maxWidth: '600px',
-            width: '100%',
-            maxHeight: '90vh',
-            overflowY: 'auto'
-          }}>
+        <div
+          className="modal-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+          }}
+        >
+          <div
+            className="modal-content"
+            style={{
+              backgroundColor: "white",
+              borderRadius: "12px",
+              padding: "30px",
+              maxWidth: "600px",
+              width: "100%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+            }}
+          >
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h3 className="f-24 f-600 black m-0">
                 Apply for {selectedJob?.title}
@@ -1027,11 +887,11 @@ const Careers = () => {
               <button
                 onClick={closePopup}
                 style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '24px',
-                  cursor: 'pointer',
-                  color: '#666'
+                  background: "none",
+                  border: "none",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                  color: "#666",
                 }}
               >
                 ×
@@ -1052,7 +912,9 @@ const Careers = () => {
                       onChange={handleFormChange}
                       required
                     />
-                    <label htmlFor="name" className="f-400">Full Name *</label>
+                    <label htmlFor="name" className="f-400">
+                      Full Name *
+                    </label>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -1067,7 +929,9 @@ const Careers = () => {
                       onChange={handleFormChange}
                       required
                     />
-                    <label htmlFor="email" className="f-400">Email *</label>
+                    <label htmlFor="email" className="f-400">
+                      Email *
+                    </label>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -1082,7 +946,9 @@ const Careers = () => {
                       onChange={handleFormChange}
                       required
                     />
-                    <label htmlFor="phone" className="f-400">Phone *</label>
+                    <label htmlFor="phone" className="f-400">
+                      Phone *
+                    </label>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -1096,7 +962,9 @@ const Careers = () => {
                       value={applicationForm.currentCompany}
                       onChange={handleFormChange}
                     />
-                    <label htmlFor="currentCompany" className="f-400">Current Company</label>
+                    <label htmlFor="currentCompany" className="f-400">
+                      Current Company
+                    </label>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -1111,7 +979,9 @@ const Careers = () => {
                       onChange={handleFormChange}
                       required
                     />
-                    <label htmlFor="experience" className="f-400">Years of Experience *</label>
+                    <label htmlFor="experience" className="f-400">
+                      Years of Experience *
+                    </label>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -1125,7 +995,9 @@ const Careers = () => {
                       value={applicationForm.portfolio}
                       onChange={handleFormChange}
                     />
-                    <label htmlFor="portfolio" className="f-400">Portfolio URL</label>
+                    <label htmlFor="portfolio" className="f-400">
+                      Portfolio URL
+                    </label>
                   </div>
                 </div>
                 <div className="col-12">
@@ -1139,7 +1011,9 @@ const Careers = () => {
                       onChange={handleFormChange}
                       required
                     />
-                    <label htmlFor="resume" className="f-400">Resume/CV * (PDF, DOC, DOCX)</label>
+                    <label htmlFor="resume" className="f-400">
+                      Resume/CV * (PDF, DOC, DOCX)
+                    </label>
                   </div>
                 </div>
                 <div className="col-12">
@@ -1153,7 +1027,9 @@ const Careers = () => {
                       value={applicationForm.coverLetter}
                       onChange={handleFormChange}
                     />
-                    <label htmlFor="coverLetter" className="f-400">Cover Letter (Optional)</label>
+                    <label htmlFor="coverLetter" className="f-400">
+                      Cover Letter (Optional)
+                    </label>
                   </div>
                 </div>
                 <div className="col-12">
@@ -1164,11 +1040,15 @@ const Careers = () => {
                   >
                     {isSubmitting ? (
                       <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        <span
+                          className="spinner-border spinner-border-sm me-2"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
                         Submitting Application...
                       </>
                     ) : (
-                      'Submit Application'
+                      "Submit Application"
                     )}
                   </button>
                 </div>
@@ -1177,11 +1057,8 @@ const Careers = () => {
           </div>
         </div>
       )}
-
-
     </>
+  );
+};
 
-  )
-}
-
-export default Careers
+export default Careers;

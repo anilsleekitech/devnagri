@@ -1,22 +1,19 @@
 import React from 'react';
 import { getImagePath } from '@/utils/imageUtils';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 
 const Industry = () => {
   return (
     <>
-      <head>
-        <title>Industry | Devnagri</title>
-        <meta
-          name="description"
-          content="Specialized translation solutions for banking and finance sector. Ensure compliance and accuracy."
-        />
-        <meta
-          name="keywords"
-          content="banking translation, finance translation, financial documents, compliance translation"
-        />
-      </head>
+      <SEO
+        title="Industry | Devnagri"
+        description="Specialized translation solutions for banking and finance sector. Ensure compliance and accuracy."
+        keywords="banking translation, finance translation, financial documents, compliance translation"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
       <div className="industry-page">
         {/* Hero Section */}
         <section className="industry-hero py-5 bg-light">

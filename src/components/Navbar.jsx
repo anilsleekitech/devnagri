@@ -15,50 +15,162 @@ const Navbar = () => {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
 
-  // Language state - Fixed to include displayCode
+  // Language state
   const [currentLanguage, setCurrentLanguage] = useState({
     code: "en",
     flag: "https://flagcdn.com/us.svg",
     displayCode: "EN",
-    displayName: "English"
+    displayName: "English",
   });
 
-  // Separate language data
+  // Language data
   const indianLanguages = {
-    as: { flag: "https://flagcdn.com/in.svg", displayCode: "AS", name: "Assamese" },
-    bn: { flag: "https://flagcdn.com/in.svg", displayCode: "BN", name: "Bengali" },
-    brx: { flag: "https://flagcdn.com/in.svg", displayCode: "BRX", name: "Bodo" },
-    doi: { flag: "https://flagcdn.com/in.svg", displayCode: "DOI", name: "Dogri" },
-    gu: { flag: "https://flagcdn.com/in.svg", displayCode: "GU", name: "Gujarati" },
-    hi: { flag: "https://flagcdn.com/in.svg", displayCode: "HI", name: "Hindi" },
-    kn: { flag: "https://flagcdn.com/in.svg", displayCode: "KN", name: "Kannada" },
-    ksm: { flag: "https://flagcdn.com/in.svg", displayCode: "KSM", name: "Kashmiri" },
-    gom: { flag: "https://flagcdn.com/in.svg", displayCode: "GOM", name: "Konkani" },
-    mai: { flag: "https://flagcdn.com/in.svg", displayCode: "MAI", name: "Maithili" },
-    ml: { flag: "https://flagcdn.com/in.svg", displayCode: "ML", name: "Malayalam" },
-    manipuri: { flag: "https://flagcdn.com/in.svg", displayCode: "MN", name: "Manipuri" },
-    mr: { flag: "https://flagcdn.com/in.svg", displayCode: "MR", name: "Marathi" },
-    ne: { flag: "https://flagcdn.com/in.svg", displayCode: "NE", name: "Nepali" },
+    as: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "AS",
+      name: "Assamese",
+    },
+    bn: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "BN",
+      name: "Bengali",
+    },
+    brx: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "BRX",
+      name: "Bodo",
+    },
+    doi: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "DOI",
+      name: "Dogri",
+    },
+    gu: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "GU",
+      name: "Gujarati",
+    },
+    hi: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "HI",
+      name: "Hindi",
+    },
+    kn: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "KN",
+      name: "Kannada",
+    },
+    ksm: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "KSM",
+      name: "Kashmiri",
+    },
+    gom: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "GOM",
+      name: "Konkani",
+    },
+    mai: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "MAI",
+      name: "Maithili",
+    },
+    ml: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "ML",
+      name: "Malayalam",
+    },
+    manipuri: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "MN",
+      name: "Manipuri",
+    },
+    mr: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "MR",
+      name: "Marathi",
+    },
+    ne: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "NE",
+      name: "Nepali",
+    },
     or: { flag: "https://flagcdn.com/in.svg", displayCode: "OR", name: "Odia" },
-    pa: { flag: "https://flagcdn.com/in.svg", displayCode: "PA", name: "Punjabi" },
-    sa: { flag: "https://flagcdn.com/in.svg", displayCode: "SA", name: "Sanskrit" },
-    snthl: { flag: "https://flagcdn.com/in.svg", displayCode: "SNTHL", name: "Santali" },
-    sd: { flag: "https://flagcdn.com/in.svg", displayCode: "SD", name: "Sindhi" },
-    ta: { flag: "https://flagcdn.com/in.svg", displayCode: "TA", name: "Tamil" },
-    te: { flag: "https://flagcdn.com/in.svg", displayCode: "TE", name: "Telugu" },
+    pa: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "PA",
+      name: "Punjabi",
+    },
+    sa: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "SA",
+      name: "Sanskrit",
+    },
+    snthl: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "SNTHL",
+      name: "Santali",
+    },
+    sd: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "SD",
+      name: "Sindhi",
+    },
+    ta: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "TA",
+      name: "Tamil",
+    },
+    te: {
+      flag: "https://flagcdn.com/in.svg",
+      displayCode: "TE",
+      name: "Telugu",
+    },
     ur: { flag: "https://flagcdn.com/in.svg", displayCode: "UR", name: "Urdu" },
   };
-  
+
   const internationalLanguages = {
-    en: { flag: 'https://flagcdn.com/us.svg', displayCode: 'EN', name: 'English' },
-    zh: { flag: 'https://flagcdn.com/cn.svg', displayCode: 'ZH', name: 'Chinese' },
-    ja: { flag: 'https://flagcdn.com/jp.svg', displayCode: 'JA', name: 'Japanese' },
-    ar: { flag: 'https://flagcdn.com/sa.svg', displayCode: 'AR', name: 'Arabic' },
-    th: { flag: 'https://flagcdn.com/th.svg', displayCode: 'TH', name: 'Thai' },
-    es: { flag: 'https://flagcdn.com/es.svg', displayCode: 'ES', name: 'Spanish' },
-    fr: { flag: 'https://flagcdn.com/fr.svg', displayCode: 'FR', name: 'French' },
-    it: { flag: 'https://flagcdn.com/it.svg', displayCode: 'IT', name: 'Italian' },
-    de: { flag: 'https://flagcdn.com/de.svg', displayCode: 'DE', name: 'German' },
+    en: {
+      flag: "https://flagcdn.com/us.svg",
+      displayCode: "EN",
+      name: "English",
+    },
+    zh: {
+      flag: "https://flagcdn.com/cn.svg",
+      displayCode: "ZH",
+      name: "Chinese",
+    },
+    ja: {
+      flag: "https://flagcdn.com/jp.svg",
+      displayCode: "JA",
+      name: "Japanese",
+    },
+    ar: {
+      flag: "https://flagcdn.com/sa.svg",
+      displayCode: "AR",
+      name: "Arabic",
+    },
+    th: { flag: "https://flagcdn.com/th.svg", displayCode: "TH", name: "Thai" },
+    es: {
+      flag: "https://flagcdn.com/es.svg",
+      displayCode: "ES",
+      name: "Spanish",
+    },
+    fr: {
+      flag: "https://flagcdn.com/fr.svg",
+      displayCode: "FR",
+      name: "French",
+    },
+    it: {
+      flag: "https://flagcdn.com/it.svg",
+      displayCode: "IT",
+      name: "Italian",
+    },
+    de: {
+      flag: "https://flagcdn.com/de.svg",
+      displayCode: "DE",
+      name: "German",
+    },
   };
 
   // Refs
@@ -68,39 +180,39 @@ const Navbar = () => {
   const languageRef = useRef(null);
   const navbarRef = useRef(null);
 
-  const isMobileView = () => window.innerWidth < 992;
+  // const isMobileView = () => window.innerWidth < 992;
 
-  // Load saved language or reset to English on home page
+  // Load saved language on page load
   useEffect(() => {
-    if (location.pathname === "/") {
-      // Always English on home page
-      const langData = {
-        code: "en",
-        flag: "https://flagcdn.com/us.svg",
-        displayCode: "EN",
-        displayName: "English"
-      };
-      setCurrentLanguage(langData);
-      localStorage.setItem("selectedLanguage", JSON.stringify(langData));
+    const savedLangCode = localStorage.getItem("selectedLangCode") || "en";
+    const savedLanguage = JSON.parse(localStorage.getItem("selectedLanguage"));
+    if (savedLanguage) {
+      setCurrentLanguage(savedLanguage);
     } else {
-      const savedLanguage = localStorage.getItem("selectedLanguage");
-      if (savedLanguage) {
-        const parsedLanguage = JSON.parse(savedLanguage);
-        // Ensure the saved language has displayCode
-        if (!parsedLanguage.displayCode) {
-          parsedLanguage.displayCode = parsedLanguage.code.toUpperCase();
-        }
-        setCurrentLanguage(parsedLanguage);
-      }
+      setCurrentLanguage({
+        code: savedLangCode,
+        flag:
+          savedLangCode === "en"
+            ? "https://flagcdn.com/us.svg"
+            : indianLanguages[savedLangCode]?.flag ||
+              internationalLanguages[savedLangCode]?.flag,
+        displayCode: savedLangCode.toUpperCase(),
+        displayName:
+          savedLangCode === "en"
+            ? "English"
+            : indianLanguages[savedLangCode]?.name ||
+              internationalLanguages[savedLangCode]?.name,
+      });
     }
-  }, [location.pathname]);
+    document.documentElement.setAttribute("lang", savedLangCode);
+  }, []);
 
   // Scroll effect
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
-    // Close dropdowns when route changes
+    // Close dropdowns on route change
     setIsProductsOpen(false);
     setIsIndustriesOpen(false);
     setIsResourcesOpen(false);
@@ -110,13 +222,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location]);
 
-  // Close dropdowns when clicking outside
+  // Click outside handler
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // If click happened inside any of these refs — do nothing
-      const refsToCheck = [productsRef, industriesRef, resourcesRef, languageRef, navbarRef];
-      const clickedInside = refsToCheck.some(ref => ref.current && ref.current.contains(event.target));
-      if (!clickedInside) {
+      const refsToCheck = [
+        productsRef,
+        industriesRef,
+        resourcesRef,
+        languageRef,
+        navbarRef,
+      ];
+      if (!refsToCheck.some((ref) => ref.current?.contains(event.target))) {
         setIsProductsOpen(false);
         setIsIndustriesOpen(false);
         setIsResourcesOpen(false);
@@ -128,76 +244,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close mobile menu when clicking outside (keeps mobile behavior)
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
-        setIsMobileMenuOpen(false);
-        setIsLanguageOpen(false);
-        setActiveSubmenu(null);
-      }
-    };
-
-    if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "unset";
-    };
-  }, [isMobileMenuOpen]);
-
-  // Handlers
-  const handleLanguageSelect = (langCode) => {
-    let langData = null;
-    let url = "/";
-
-    // Determine if Indian or International
-    if (indianLanguages[langCode]) {
-      langData = indianLanguages[langCode];
-      // Custom URL for Tamil & Kannada, others follow pattern
-      if (langCode === "ta") url = "https://ta.devnagri.com/";
-      else if (langCode === "kn") url = "https://kn.devnagri.com/";
-      else url = `https://${langCode}.devnagri.com/`;
-    } else if (internationalLanguages[langCode]) {
-      langData = internationalLanguages[langCode];
-      // English should navigate to root
-      if (langCode === "en") url = "/";
-      else url = `https://${langCode}.devnagri.com/`;
-    } else if (langCode === "en") {
-      langData = { 
-        flag: "https://flagcdn.com/us.svg", 
-        displayCode: "EN", 
-        name: "English" 
-      };
-      url = "/";
-    } else {
-      console.warn("Language not found:", langCode);
-      return;
-    }
-
-    // Update state and localStorage
-    const newLanguage = {
-      code: langCode,
-      flag: langData.flag,
-      displayCode: langData.displayCode || langData.displayCode === undefined ? (langData.displayCode ?? langCode.toUpperCase()) : langData.displayCode,
-      displayName: langData.name
-    };
-    setCurrentLanguage(newLanguage);
-    localStorage.setItem("selectedLanguage", JSON.stringify(newLanguage));
-
-    // Close dropdowns
-    setIsLanguageOpen(false);
-    setActiveSubmenu(null);
-
-    // Redirect (full page)
-    window.location.href = url;
-  };
-
+  // Mobile menu toggle
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setIsLanguageOpen(false);
@@ -214,6 +261,49 @@ const Navbar = () => {
 
   const handleSubmenuToggle = (menuKey) => {
     setActiveSubmenu((prev) => (prev === menuKey ? null : menuKey));
+  };
+
+  // Language select handler (redirect + persist)
+  const handleLanguageSelect = (langCode) => {
+    let langData =
+      indianLanguages[langCode] || internationalLanguages[langCode] || null;
+    if (!langData && langCode === "en") {
+      langData = {
+        flag: "https://flagcdn.com/us.svg",
+        displayCode: "EN",
+        name: "English",
+      };
+    }
+    if (!langData) return console.warn("Language not found:", langCode);
+
+    const newLanguage = {
+      code: langCode,
+      flag: langData.flag,
+      displayCode: langData.displayCode ?? langCode.toUpperCase(),
+      displayName: langData.name,
+    };
+
+    setCurrentLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", JSON.stringify(newLanguage));
+    localStorage.setItem("selectedLangCode", langCode);
+    document.documentElement.setAttribute("lang", langCode);
+
+    setIsLanguageOpen(false);
+    setActiveSubmenu(null);
+
+    // Determine redirect URL
+    let url = "/";
+    if (indianLanguages[langCode]) {
+      if (langCode === "ta") url = "https://ta.devnagri.com/";
+      else if (langCode === "kn") url = "https://kn.devnagri.com/";
+      else url = `https://${langCode}.devnagri.com/`;
+    } else if (internationalLanguages[langCode]) {
+      url = langCode === "en" ? "/" : `https://${langCode}.devnagri.com/`;
+    } else if (langCode === "en") {
+      url = "/";
+    }
+
+    window.location.href = url;
   };
 
   return (
@@ -251,7 +341,9 @@ const Navbar = () => {
               <li className="nav-item dropdown" ref={productsRef}>
                 <a
                   href="#"
-                  className={`nav-link dropdown-toggle ${isProductsOpen ? "show" : ""}`}
+                  className={`nav-link dropdown-toggle ${
+                    isProductsOpen ? "show" : ""
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     setIsProductsOpen(!isProductsOpen);
@@ -265,7 +357,11 @@ const Navbar = () => {
                   Products <i className="dropdown-icon fas fa-chevron-down" />
                 </a>
 
-                <div className={`mega-menu dropdown-menu ${isProductsOpen ? 'show' : 'hide'}`}>
+                <div
+                  className={`mega-menu dropdown-menu ${
+                    isProductsOpen ? "show" : "hide"
+                  }`}
+                >
                   {/* === START Products mega menu content (kept unchanged) === */}
                   <div className="row">
                     <div className="col-lg-4 col-md-6">
@@ -290,7 +386,9 @@ const Navbar = () => {
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
-                                    src={getImagePath('menu-icon/translation-api.png')}
+                                    src={getImagePath(
+                                      "menu-icon/translation-api.png"
+                                    )}
                                     alt="machine-translation"
                                   />
                                 </div>
@@ -299,7 +397,8 @@ const Navbar = () => {
                                     Translation API
                                   </h5>
                                   <p className="f-12 f-400 para-color">
-                                    Powerful API for seamless multilingual translations
+                                    Powerful API for seamless multilingual
+                                    translations
                                   </p>
                                 </div>
                               </Link>
@@ -312,7 +411,9 @@ const Navbar = () => {
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
-                                    src={getImagePath('menu-icon/transliteration-api-icon.png')}
+                                    src={getImagePath(
+                                      "menu-icon/transliteration-api-icon.png"
+                                    )}
                                     alt="machine-translation"
                                   />
                                 </div>
@@ -334,7 +435,9 @@ const Navbar = () => {
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
-                                    src={getImagePath('menu-icon/document-translation-icon.png')}
+                                    src={getImagePath(
+                                      "menu-icon/document-translation-icon.png"
+                                    )}
                                     alt="machine-translation"
                                   />
                                 </div>
@@ -343,7 +446,8 @@ const Navbar = () => {
                                     Document Engine
                                   </h5>
                                   <p className="f-12 f-400 para-color">
-                                    Automated document translation for businesses
+                                    Automated document translation for
+                                    businesses
                                   </p>
                                 </div>
                               </Link>
@@ -360,12 +464,16 @@ const Navbar = () => {
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
-                                    src={getImagePath('menu-icon/dota-web-icon.png')}
+                                    src={getImagePath(
+                                      "menu-icon/dota-web-icon.png"
+                                    )}
                                     alt="machine-translation"
                                   />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">DOTA (Web)</h5>
+                                  <h5 className="f-14 f-600 black">
+                                    DOTA (Web)
+                                  </h5>
                                   <p className="f-12 f-400 para-color">
                                     AI-Powered Website Translation
                                   </p>
@@ -380,12 +488,16 @@ const Navbar = () => {
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
-                                    src={getImagePath('menu-icon/dota-app-icon.png')}
+                                    src={getImagePath(
+                                      "menu-icon/dota-app-icon.png"
+                                    )}
                                     alt="machine-translation"
                                   />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">DOTA (APP)</h5>
+                                  <h5 className="f-14 f-600 black">
+                                    DOTA (APP)
+                                  </h5>
                                   <p className="f-12 f-400 para-color">
                                     Effortless app translation and localization
                                     solution
@@ -408,13 +520,12 @@ const Navbar = () => {
                       </div>
                       <ul className="list-unstyled">
                         <li>
-                          <Link
-                            className="dropdown-item"
-                            to="/chatbot"
-                          >
+                          <Link className="dropdown-item" to="/chatbot">
                             <div className="tab_innerimg_icon">
                               <img
-                                src={getImagePath('menu-icon/chat-bot-icon.png')}
+                                src={getImagePath(
+                                  "menu-icon/chat-bot-icon.png"
+                                )}
                                 alt="machine-translation"
                               />
                             </div>
@@ -427,13 +538,12 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link
-                            className="dropdown-item"
-                            to="/voice-bot"
-                          >
+                          <Link className="dropdown-item" to="/voice-bot">
                             <div className="tab_innerimg_icon">
                               <img
-                                src={getImagePath('menu-icon/conversational-ai-bot-icon.png')}
+                                src={getImagePath(
+                                  "menu-icon/conversational-ai-bot-icon.png"
+                                )}
                                 alt="machine-translation"
                               />
                             </div>
@@ -454,8 +564,8 @@ const Navbar = () => {
                             <Link to="/ocr">
                               <h6 className="f-20 f-600 blue m-0">OCR</h6>
                               <p className="f-12 f-400 black m-0">
-                                AI-powered text recognition for accurate document
-                                digitization
+                                AI-powered text recognition for accurate
+                                document digitization
                               </p>
                             </Link>
                           </div>
@@ -474,10 +584,14 @@ const Navbar = () => {
                           </div>
                         </div>
                       </div>
-                      <div className='row'>
-                        <div className='col-12'>
-                          <Link to='/english-to-hindi-translation'>
-                            <img src={getImagePath('Nav-bar_banner.png')} className='w-100 rounded-4' alt="Navbar banner"></img>
+                      <div className="row">
+                        <div className="col-12">
+                          <Link to="/english-to-hindi-translation">
+                            <img
+                              src={getImagePath("Nav-bar_banner.png")}
+                              className="w-100 rounded-4"
+                              alt="Navbar banner"
+                            ></img>
                           </Link>
                         </div>
                       </div>
@@ -491,7 +605,9 @@ const Navbar = () => {
               <li className="nav-item dropdown" ref={industriesRef}>
                 <a
                   href="#"
-                  className={`nav-link dropdown-toggle ${isIndustriesOpen ? "show" : ""}`}
+                  className={`nav-link dropdown-toggle ${
+                    isIndustriesOpen ? "show" : ""
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     setIsIndustriesOpen(!isIndustriesOpen);
@@ -504,7 +620,11 @@ const Navbar = () => {
                   Industries <i className="dropdown-icon fas fa-chevron-down" />
                 </a>
 
-                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isIndustriesOpen ? 'show' : 'hide'}`}>
+                <div
+                  className={`mega-menu cust-mega-menu-width dropdown-menu ${
+                    isIndustriesOpen ? "show" : "hide"
+                  }`}
+                >
                   {/* === START Industries mega menu content (kept unchanged) === */}
                   <div className="row">
                     <div className="col-md-12">
@@ -515,9 +635,17 @@ const Navbar = () => {
                         <div className="col-md-6">
                           <ul className="list-unstyled">
                             <li>
-                              <Link className="dropdown-item" to="/banking-finance-translation">
+                              <Link
+                                className="dropdown-item"
+                                to="/banking-finance-translation"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/banking-icon.png')} alt="machine-translation" />
+                                  <img
+                                    src={getImagePath(
+                                      "menu-icon/banking-icon.png"
+                                    )}
+                                    alt="machine-translation"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
                                   <h5 className="f-14 f-600 black">BFSI</h5>
@@ -529,9 +657,15 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link className="dropdown-item" to="/direct-to-consumer-translation">
+                              <Link
+                                className="dropdown-item"
+                                to="/direct-to-consumer-translation"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/d2c-icon.png')} alt="machine-translation" />
+                                  <img
+                                    src={getImagePath("menu-icon/d2c-icon.png")}
+                                    alt="machine-translation"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
                                   <h5 className="f-14 f-600 black">D2C</h5>
@@ -546,12 +680,22 @@ const Navbar = () => {
                         <div className="col-md-6">
                           <ul className="list-unstyled">
                             <li>
-                              <Link className="dropdown-item" to="/ecommerce-translation">
+                              <Link
+                                className="dropdown-item"
+                                to="/ecommerce-translation"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/ecoomrce-icon.png')} alt="machine-translation" />
+                                  <img
+                                    src={getImagePath(
+                                      "menu-icon/ecoomrce-icon.png"
+                                    )}
+                                    alt="machine-translation"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">E-Commerce</h5>
+                                  <h5 className="f-14 f-600 black">
+                                    E-Commerce
+                                  </h5>
                                   <p className="f-12 f-400 para-color">
                                     E-Commerce in Every Language clients.
                                   </p>
@@ -559,12 +703,22 @@ const Navbar = () => {
                               </Link>
                             </li>
                             <li>
-                              <Link className="dropdown-item" to="/government-translation">
+                              <Link
+                                className="dropdown-item"
+                                to="/government-translation"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/govt-icon.png')} alt="machine-translation" />
+                                  <img
+                                    src={getImagePath(
+                                      "menu-icon/govt-icon.png"
+                                    )}
+                                    alt="machine-translation"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">Government</h5>
+                                  <h5 className="f-14 f-600 black">
+                                    Government
+                                  </h5>
                                   <p className="f-12 f-400 para-color">
                                     Connecting Citizens in Every Language
                                   </p>
@@ -584,7 +738,9 @@ const Navbar = () => {
               <li className="nav-item dropdown" ref={resourcesRef}>
                 <a
                   href="#"
-                  className={`nav-link dropdown-toggle ${isResourcesOpen ? "show" : ""}`}
+                  className={`nav-link dropdown-toggle ${
+                    isResourcesOpen ? "show" : ""
+                  }`}
                   onClick={(e) => {
                     e.preventDefault();
                     setIsResourcesOpen(!isResourcesOpen);
@@ -597,7 +753,11 @@ const Navbar = () => {
                   Resources <i className="dropdown-icon fas fa-chevron-down" />
                 </a>
 
-                <div className={`mega-menu cust-mega-menu-width dropdown-menu ${isResourcesOpen ? 'show' : 'hide'}`}>
+                <div
+                  className={`mega-menu cust-mega-menu-width dropdown-menu ${
+                    isResourcesOpen ? "show" : "hide"
+                  }`}
+                >
                   {/* === START Resources mega menu content (kept unchanged) === */}
                   <div className="row">
                     <div className="col-md-12">
@@ -608,24 +768,49 @@ const Navbar = () => {
                         <div className="col-md-6">
                           <ul className="list-unstyled">
                             <li>
-                              <Link className="dropdown-item" to="https://docs.devnagri.com/">
+                              <Link
+                                className="dropdown-item"
+                                to="https://docs.devnagri.com/"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/developer-hub-menu.svg')} alt="developer-hub-menu" />
+                                  <img
+                                    src={getImagePath(
+                                      "menu-icon/developer-hub-menu.svg"
+                                    )}
+                                    alt="developer-hub-menu"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">Developer Hub</h5>
-                                  <p className="f-12 f-400 para-color">Translate at the speed of development.</p>
+                                  <h5 className="f-14 f-600 black">
+                                    Developer Hub
+                                  </h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Translate at the speed of development.
+                                  </p>
                                 </div>
                               </Link>
                             </li>
                             <li>
-                              <Link className="dropdown-item" to="/blogs?tab=announcements">
+                              <Link
+                                className="dropdown-item"
+                                to="/blogs?tab=announcements"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/annocument.svg')} alt="announcement" />
+                                  <img
+                                    src={getImagePath(
+                                      "menu-icon/annocument.svg"
+                                    )}
+                                    alt="announcement"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">News &amp; Announcements</h5>
-                                  <p className="f-12 f-400 para-color">Catch up on the latest updates, product launches, and company milestones.</p>
+                                  <h5 className="f-14 f-600 black">
+                                    News &amp; Announcements
+                                  </h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Catch up on the latest updates, product
+                                    launches, and company milestones.
+                                  </p>
                                 </div>
                               </Link>
                             </li>
@@ -634,24 +819,46 @@ const Navbar = () => {
                         <div className="col-md-6">
                           <ul className="list-unstyled">
                             <li>
-                              <Link className="dropdown-item" to="/blogs?tab=case-studies">
+                              <Link
+                                className="dropdown-item"
+                                to="/blogs?tab=case-studies"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/case-study.svg')} alt="case-study" />
+                                  <img
+                                    src={getImagePath(
+                                      "menu-icon/case-study.svg"
+                                    )}
+                                    alt="case-study"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
-                                  <h5 className="f-14 f-600 black">Case Studies</h5>
-                                  <p className="f-12 f-400 para-color">Explore how businesses thrive with Devnagri translation solutions.</p>
+                                  <h5 className="f-14 f-600 black">
+                                    Case Studies
+                                  </h5>
+                                  <p className="f-12 f-400 para-color">
+                                    Explore how businesses thrive with Devnagri
+                                    translation solutions.
+                                  </p>
                                 </div>
                               </Link>
                             </li>
                             <li>
-                              <Link className="dropdown-item" to="/blogs?tab=blogs">
+                              <Link
+                                className="dropdown-item"
+                                to="/blogs?tab=blogs"
+                              >
                                 <div className="tab_innerimg_icon">
-                                  <img src={getImagePath('menu-icon/blog.svg')} alt="blog" />
+                                  <img
+                                    src={getImagePath("menu-icon/blog.svg")}
+                                    alt="blog"
+                                  />
                                 </div>
                                 <div className="sub-menu-nested">
                                   <h5 className="f-14 f-600 black">Blogs</h5>
-                                  <p className="f-12 f-400 para-color">Stay updated with tips, trends, and insights in localization and translation.</p>
+                                  <p className="f-12 f-400 para-color">
+                                    Stay updated with tips, trends, and insights
+                                    in localization and translation.
+                                  </p>
                                 </div>
                               </Link>
                             </li>
@@ -688,7 +895,11 @@ const Navbar = () => {
                   <button
                     type="button"
                     className="devnagri-btn"
-                    style={{ padding: "10px 20px", background: "transparent", color:"#05a1f4"}}
+                    style={{
+                      padding: "10px 20px",
+                      background: "transparent",
+                      color: "#05a1f4",
+                    }}
                   >
                     Experience Center
                   </button>
@@ -751,7 +962,7 @@ const Navbar = () => {
                       {Object.entries(indianLanguages).map(([code, lang]) => (
                         <li key={code}>
                           <button
-                            className="dropdown-item nodtranslate"
+                            className="dropdown-item nodtranslate d-flex align-items-center"
                             onClick={() => handleLanguageSelect(code)}
                           >
                             <img
@@ -793,7 +1004,7 @@ const Navbar = () => {
                         ([code, lang]) => (
                           <li key={code}>
                             <button
-                              className="dropdown-item nodtranslate"
+                              className="dropdown-item nodtranslate d-flex align-items-center"
                               onClick={() => handleLanguageSelect(code)}
                             >
                               <img

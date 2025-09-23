@@ -18,6 +18,7 @@ import { initializeSliders1 } from "@/utils/initScripts";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import SEO from "@/components/SEO";
 
 const Home = () => {
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -33,15 +34,6 @@ const Home = () => {
       const videos = document.querySelectorAll("video");
 
       videos.forEach((video) => {
-        // video.loop = true;
-        // video.muted = true;
-
-        // // Try autoplay
-        // const playPromise = video.play();
-        // if (playPromise !== undefined) {
-        //   playPromise.catch(() => {});
-        // }
-
         // Skip every 2s
         const interval = setInterval(() => {
           if (!video.paused && video.currentTime + 0.1 < video.duration) {
@@ -236,8 +228,8 @@ const Home = () => {
   // OCR content (video)
   const ocrContent = {
     id: "ocr-workflow",
-      title: "OCR Workflow",
-      icon: "menu-icon/ocr-workflow-icon.png",
+    title: "OCR Workflow",
+    icon: "menu-icon/ocr-workflow-icon.png",
     media: "video",
     src: "product-offering/ocr-product.mp4",
     description: "Extract & translate text from images in a go.",
@@ -251,7 +243,6 @@ const Home = () => {
   const contentTabs = [ocrContent, ...leftTabs];
 
   const activeContent = contentTabs.find((tab) => tab.id === activeTab);
-
 
   useEffect(() => {
     const counters = document.querySelectorAll(".custom-counter");
@@ -317,17 +308,13 @@ const Home = () => {
 
   return (
     <>
-      <head>
-        <title>
-          Devnagri -India's 1st AI-Powered Translation Engine For Indian
-          Languages
-        </title>
-        <meta
-          name="description"
-          content="Devnagri, India's #1 AI-powered translation engine, helps brands to localize their content 5x faster and more accurately."
-        />
-        <meta name="keywords" content="Devnagri, Devnagri AI" />
-      </head>
+      <SEO
+        title="Devnagri -India's 1st AI-Powered Translation Engine For Indian Languages"
+        description="Devnagri, India's #1 AI-powered translation engine, helps brands to localize their content 5x faster and more accurately."
+        keywords="Devnagri, Devnagri AI"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
       {/* Hero Section */}
       <section className="hero-home bg-img overflow-hidden">
         <div className="container">
@@ -2826,268 +2813,6 @@ const Home = () => {
           <h2 className="text-center pb-4 f-40 f-600 black wow fadeInUp">
             Capability <span className="blue">Framework</span>
           </h2>
-          {/* <div className="how-wedo-workflow">
-            <div className="back-blue text-center">
-              <h4 className="f-400 white m-0 p-2 f-20">
-                AI-POWERED LOCALIZATION AT SCALE
-              </h4>
-            </div>
-            <div className="capability-section-box row justify-content-between align-items-center mt-4 mb-4 px-2 py-2 workflow-wedo-div">
-              <div className="col-lg-2 capability-section-header text-center d-flex justify-content-start gap-2 align-items-center mb-lg-0 mb-3">
-                <div>
-                  <img
-                    src={getImagePath('menu-icon/capabilties-icon.png')}
-                    width={30}
-                    height={30}
-                    alt="icon"
-                  />
-                </div>
-                <div>
-                  <p className="m-0 f-500 f-18">Capabilities</p>
-                </div>
-              </div>
-              <div className="col-lg-10">
-                <div className="row align-items-center">
-                  <div className="col-lg-4">
-                    <div className="capability-btn back-blue py-1 px-1 text-center d-flex justify-content-center gap-3 align-items-center">
-                      <div>
-                        <img
-                          src={getImagePath('menu-icon/Multilingual-Translation.png')}
-                          alt="icon"
-                          width={35}
-                          height={35}
-                          style={{ filter: "brightness(0) invert(1)" }}
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="white f-400 m-0">
-                          Multilingual
-                          <br />
-                          Translation
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className="capability-btn back-blue py-1 px-1 text-center d-flex justify-content-center gap-3 align-items-center">
-                      <div>
-                        <img
-                          src={getImagePath('menu-icon/Multilingual-Communication.png')}
-                          alt="icon"
-                          width={35}
-                          height={35}
-                          style={{ filter: "brightness(0) invert(1)" }}
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="white f-400 m-0">
-                          Multilingual
-                          <br />
-                          Communication
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className="capability-btn back-blue py-1 px-1 text-center d-flex justify-content-center gap-3 align-items-center">
-                      <div>
-                        <img
-                          src={getImagePath('menu-icon/Workflow.png')}
-                          alt="icon"
-                          width={35}
-                          height={35}
-                          style={{ filter: "brightness(0) invert(1)" }}
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="white f-400 m-0">
-                          Workflow
-                          <br />
-                          Solutions
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="offering-section-box row justify-content-between align-items-center mt-4 mb-4 px-2 py-2 workflow-wedo-div">
-              <div className="col-lg-2 offering-section-header text-center d-flex justify-content-start gap-2 align-items-center mb-lg-0 mb-3">
-                <div>
-                  <img
-                    src={getImagePath('menu-icon/offerings-icon.png')}
-                    width={30}
-                    height={30}
-                    alt="icon"
-                  />
-                </div>
-                <div>
-                  <p className="m-0 f-500 f-18"> Offerings</p>
-                </div>
-              </div>
-              <div className="col-lg-10">
-                <div className="offer-box p-1 mb-2 text-center">
-                  <p className="black f-400 m-0">
-                    Text to text, Text to Speech, Speech to Text Engine
-                  </p>
-                </div>
-                <div className="offer-box p-1 mb-2 text-center">
-                  <p className="black f-400 m-0">
-                    Omnichannel voice and chatbots, IVR automation, inbound and
-                    outbound processes
-                  </p>
-                </div>
-                <div className="offer-box p-1 mb-2 text-center">
-                  <p className="black f-400 m-0">
-                    OCR 360, presale and post-sale process, KYC and document
-                    verification
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="industries-section-box row justify-content-between align-items-center mt-4 mb-4 px-2 py-2 workflow-wedo-div">
-              <div className="col-lg-2 text-center industries-section-header d-flex justify-content-start gap-2 align-items-center mb-lg-0 mb-3">
-                <div>
-                  <img
-                    src={getImagePath('menu-icon/industry-icon.png')}
-                    width={30}
-                    height={30}
-                    alt="icon"
-                  />
-                </div>
-                <div>
-                  <p className="m-0 f-500 f-18">Industries</p>
-                </div>
-              </div>
-              <div className="col-lg-10">
-                <div className="row">
-                  <div className="col-lg-2">
-                    <div className="industry-btn p-1 text-center">
-                      <p className="black f-400 m-0 f-14">BFSI</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="industry-btn p-1 text-center">
-                      <p className="black f-400 m-0 f-14">
-                        Government &amp; Public Sector
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="industry-btn p-1 text-center">
-                      <p className="black f-400 m-0 f-14">eCommerce</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="industry-btn p-1 text-center">
-                      <p className="black f-400 m-0 f-14">D2C</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="industry-btn p-1 text-center">
-                      <p className="black f-400 m-0 f-14">Legal and Tech</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="devngri-section-box row justify-content-between align-items-center mt-4 mb-4 px-2 py-2 workflow-wedo-div">
-              <div className="devngri-section-header col-lg-3 text-center d-flex justify-content-start gap-2 align-items-center mb-lg-0 mb-3">
-                <div>
-                  <img
-                    src={getImagePath('menu-icon/devnagri-platform.png')}
-                    width={30}
-                    height={30}
-                    alt="icon"
-                  />
-                </div>
-                <div>
-                  <p className="m-0 f-500 f-18">Devnagri's Platform</p>
-                </div>
-              </div>
-              <div className="col-lg-9">
-                <div className="row">
-                  <div className="col-lg-3">
-                    <div className="platform-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">
-                        Core Translation Engine (NLP &amp; ML)
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="platform-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">LLM &amp; SLM Models</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="platform-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">
-                        <b>BRAIN</b>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="platform-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">Bot Builder</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="platform-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">Agents</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="infra-section-box row justify-content-between align-items-center mt-4 mb-4 px-2 py-2 workflow-wedo-div">
-              <div className="infra-section-header col-lg-3 text-center d-flex justify-content-start gap-2 align-items-center mb-lg-0 mb-3">
-                <div>
-                  <img
-                    src={getImagePath('menu-icon/infra-delivery.png')}
-                    width={30}
-                    height={30}
-                    alt="icon"
-                  />
-                </div>
-                <div>
-                  <p className="m-0 f-500 f-18">Infra &amp; Delivery</p>
-                </div>
-              </div>
-              <div className="col-lg-9">
-                <div className="row">
-                  <div className="col-lg-3">
-                    <div className="infra-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">
-                        Enterprise-grade security
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="infra-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">
-                        On Prem &amp; Cloud Delivery
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="infra-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">Integrations CRM, CMS</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="infra-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">APIs &amp; Hooks</p>
-                    </div>
-                  </div>
-                  <div className="col-lg-2">
-                    <div className="infra-box p-1 text-center">
-                      <p className="black f-400 m-0 f-14">Operational Dashboard</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
           <section className="cpblts-sec">
             <div className="container">
               <div className="row">
@@ -3826,56 +3551,6 @@ const Home = () => {
       </section>
       {/*accordian section*/}
       <FAQAccordion page="home" />
-      {/*Showcase section*/}
-      {/* <section class="py-5 translation-managemnt">
-      <div class="container">
-  <div id="carouselExampleAutoplaying1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-    <div class="row justify-content-between">
-      <div class="col-lg-5">
-        <h2 class="f-40 f-600 mb-3 pt-4">Enterprise <span class="blue">translation</span> management</h2>
-        <p class="f-400 mb-3 para-color">Whether you are part of an established localization team or taking care of
-          translation for marketing or
-          product, we designed Smartling's TMS to address the translation needs of your entire organization.</p>
-        <button type="btn" class="devnagri-btn mt-3">
-          <Link to="#" class="white"><img src={getImagePath(video-play-btn.png" class="pe-1"
-              style="filter: brightness(0) invert(1);"> Request a Demo </a>
-        </button>
-      </div>
-      <div class="col-lg-6 wow fadeInUp">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src={getImagePath(jobs.png" class="d-block w-100" alt="case-study" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img src={getImagePath(workflows.png" class="d-block w-100" alt="case-study" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img src={getImagePath(cat-tool.png" class="d-block w-100" alt="case-study" loading="lazy">
-          </div>
-          <div class="carousel-item">
-            <img src={getImagePath(analaytics.png" class="d-block w-100" alt="case-study" loading="lazy">
-          </div>
-        </div>
-        <ol class="carousel-indicators">
-          <li type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1">
-            <h6 class="f-18 f-600">Jobs</h6>
-          </li>
-          <li type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide-to="1" aria-label="Slide 2">
-            <h6 class="f-18 f-600">Workflows</h6>
-          </li>
-          <li type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide-to="2" aria-label="Slide 3">
-            <h6 class="f-18 f-600">CAT Tools</h6>
-          </li>
-          <li type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide-to="3" aria-label="Slide 4">
-            <h6 class="f-18 f-600">Analytics</h6>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </div>
-      </div>
-    </section> */}
       {/*get started section*/}
       <section className="get-strated bg-img">
         <div className="container">

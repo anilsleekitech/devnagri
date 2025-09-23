@@ -1,41 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 // Import your full dataset (410 items)
-import fullDataset from '../data/howWeHelpData.json';
-
-
+import fullDataset from "../data/howWeHelpData.json";
+import SEO from "@/components/SEO";
 
 // Define content types and categories
 const contentTypes = {
-  'blogs': { name: 'Blogs', categories: ['all', 'technology', 'business', 'localization'] },
-  'case-studies': { name: 'Case Studies', categories: ['all', 'success-stories', 'public-sector'] },
+  blogs: {
+    name: "Blogs",
+    categories: ["all", "technology", "business", "localization"],
+  },
+  "case-studies": {
+    name: "Case Studies",
+    categories: ["all", "success-stories", "public-sector"],
+  },
   // 'webinars': { name: 'Webinars', categories: ['all', 'strategy', 'technology', 'innovation'] },
   // 'podcasts': { name: 'Podcasts', categories: ['all', 'trends', 'startups', 'expert-talks'] },
-  'announcements': { name: 'Announcements', categories: ['all', 'product-update', 'partnership'] },
+  announcements: {
+    name: "Announcements",
+    categories: ["all", "product-update", "partnership"],
+  },
   // 'developer-hub': { name: 'Developer Hub', categories: ['all', 'api', 'documentation'] }
 };
 
 const categoryNames = {
-  'all': 'All',
-  'technology': 'Technology',
-  'business': 'Business',
-  'localization': 'Localization',
-  'success-stories': 'Success Stories',
-  'public-sector': 'Public Sector',
-  'strategy': 'Strategy',
-  'innovation': 'Innovation',
-  'trends': 'Trends',
-  'startups': 'Startups',
-  'expert-talks': 'Expert Talks',
-  'product-update': 'Product Updates',
-  'partnership': 'Partnerships',
-  'api': 'API',
-  'documentation': 'Documentation',
-  'language-pairs': 'Language Pairs',
-  'tools': 'Tools',
-  'services': 'Services'
+  all: "All",
+  technology: "Technology",
+  business: "Business",
+  localization: "Localization",
+  "success-stories": "Success Stories",
+  "public-sector": "Public Sector",
+  strategy: "Strategy",
+  innovation: "Innovation",
+  trends: "Trends",
+  startups: "Startups",
+  "expert-talks": "Expert Talks",
+  "product-update": "Product Updates",
+  partnership: "Partnerships",
+  api: "API",
+  documentation: "Documentation",
+  "language-pairs": "Language Pairs",
+  tools: "Tools",
+  services: "Services",
 };
 
 const ITEMS_PER_PAGE = 9;
@@ -43,19 +50,19 @@ const ITEMS_PER_PAGE = 9;
 const Resources = () => {
   const [searchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState(
-    searchParams.get('tab') || 'blogs'
+    searchParams.get("tab") || "blogs"
   );
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState("all");
   const [filteredContent, setFilteredContent] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const tabParam = searchParams.get('tab');
+    const tabParam = searchParams.get("tab");
     if (tabParam && Object.keys(contentTypes).includes(tabParam)) {
       setActiveTab(tabParam);
-      setActiveCategory('all');
+      setActiveCategory("all");
     }
   }, [searchParams]);
 
@@ -64,11 +71,11 @@ const Resources = () => {
     let filtered = [...fullDataset.howWeHelpCards];
 
     // Filter by content type (tab)
-    filtered = filtered.filter(item => item.type === activeTab);
+    filtered = filtered.filter((item) => item.type === activeTab);
 
     // Filter by category if not "all"
-    if (activeCategory !== 'all') {
-      filtered = filtered.filter(item => item.category === activeCategory);
+    if (activeCategory !== "all") {
+      filtered = filtered.filter((item) => item.category === activeCategory);
     }
 
     // Sort by date (newest first)
@@ -94,11 +101,15 @@ const Resources = () => {
   // Function to format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   };
 
   // Generate pagination buttons
- const renderPagination = () => {
+  const renderPagination = () => {
     if (totalPages <= 1) return null;
 
     const pages = [];
@@ -111,10 +122,13 @@ const Resources = () => {
     }
 
     pages.push(
-      <li key="prev" className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+      <li
+        key="prev"
+        className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+      >
         <button
           className="page-link"
-          onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
           aria-label="Previous"
         >
           <i className="fas fa-chevron-left" />
@@ -124,7 +138,10 @@ const Resources = () => {
 
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
-        <li key={i} className={`page-item ${currentPage === i ? 'active' : ''}`}>
+        <li
+          key={i}
+          className={`page-item ${currentPage === i ? "active" : ""}`}
+        >
           <button className="page-link" onClick={() => setCurrentPage(i)}>
             {i}
           </button>
@@ -133,10 +150,13 @@ const Resources = () => {
     }
 
     pages.push(
-      <li key="next" className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+      <li
+        key="next"
+        className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}
+      >
         <button
           className="page-link"
-          onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+          onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
           aria-label="Next"
         >
           <i className="fas fa-chevron-right" />
@@ -158,23 +178,20 @@ const Resources = () => {
   // Handle tab changes
   const handleTabChange = (type) => {
     setActiveTab(type);
-    setActiveCategory('all');
+    setActiveCategory("all");
     // Update URL without page reload
     navigate(`/blogs?tab=${type}`, { replace: true });
   };
 
-
-
   return (
     <>
-      <head>
-        <title>Resources - Devnagri</title>
-        <meta name="description" content="Why Language translation is important for business growth? Browse Devnagri blog now." />
-        <meta
-          name="keywords"
-          content="resources, case studies, translation insights, localization guides"
-        />
-      </head>
+      <SEO
+        title="Resources - Devnagri"
+        description="Why Language translation is important for business growth? Browse Devnagri blog now."
+        keywords="resources, case studies, translation insights, localization guides"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
       {/* Hero Banner */}
       <section className="resources-hero">
         <div className="container">
@@ -197,7 +214,9 @@ const Resources = () => {
               {Object.entries(contentTypes).map(([type, data]) => (
                 <li className="nav-item" role="presentation" key={type}>
                   <button
-                    className={`nav-link f-20 f-500 ${activeTab === type ? 'active' : ''}`}
+                    className={`nav-link f-20 f-500 ${
+                      activeTab === type ? "active" : ""
+                    }`}
                     onClick={() => handleTabChange(type)} // Updated handler
                   >
                     {data.name}
@@ -205,22 +224,6 @@ const Resources = () => {
                 </li>
               ))}
             </ul>
-            {/* <div className="resource-filter">
-              <div className="dropdown filter-dropdown">
-                <button
-                  className="dropdown-toggle f-16 f-400"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                >
-                  Sort By: Latest
-                </button>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item f-16 f-400" to="/resources?sort=latest">Latest</Link></li>
-                  <li><Link className="dropdown-item f-16 f-400" to="/resources?sort=popular">Most Popular</Link></li>
-                  <li><Link className="dropdown-item f-16 f-400" to="/resources?sort=viewed">Most Viewed</Link></li>
-                </ul>
-              </div>
-            </div> */}
           </div>
 
           {/* Category Filter */}
@@ -229,7 +232,9 @@ const Resources = () => {
               {contentTypes[activeTab].categories.map((category) => (
                 <button
                   key={category}
-                  className={`category-btn f-18 f-500 ${activeCategory === category ? 'active' : ''}`}
+                  className={`category-btn f-18 f-500 ${
+                    activeCategory === category ? "active" : ""
+                  }`}
                   onClick={() => setActiveCategory(category)}
                 >
                   {categoryNames[category]}
@@ -244,13 +249,17 @@ const Resources = () => {
                 {getCurrentPageItems().length > 0 ? (
                   getCurrentPageItems().map((item) => (
                     <div className="col-md-4" key={item.id}>
-                      <div className="resource-card wow fadeInUp"
+                      <div
+                        className="resource-card wow fadeInUp"
                         onClick={() => {
                           // Check if this is a translation or transliteration resource
-                          if (item.translation === true || item.type === 'translation') {
+                          if (
+                            item.translation === true ||
+                            item.type === "translation"
+                          ) {
                             // Get language pairs from item or use defaults
-                            const fromLang = item.fromLanguage || 'english';
-                            const toLang = item.toLanguage || 'hindi';
+                            const fromLang = item.fromLanguage || "english";
+                            const toLang = item.toLanguage || "hindi";
 
                             // Regular translation URL
                             navigate(`/${fromLang}-to-${toLang}-translation`);
@@ -258,31 +267,41 @@ const Resources = () => {
                           }
 
                           // Handle regular resources
-                          const link = (item.link || item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
-                            .replace(/^\/+|\/+$/g, ''); // Remove leading/trailing slashes
+                          const link = (
+                            item.link ||
+                            item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                          ).replace(/^\/+|\/+$/g, ""); // Remove leading/trailing slashes
                           navigate(`/${link}`, {
                             state: {
                               item: {
                                 ...item,
-                                link // Ensure the generated link is included in the state
-                              }
-                            }
+                                link, // Ensure the generated link is included in the state
+                              },
+                            },
                           });
-                        }}>
+                        }}
+                      >
                         <img
                           src={item.image || null}
                           alt={item.title}
                           className="resource-img"
                         />
                         <div className="p-4">
-                          <span className={`f-500 resource-tag tag-${item.type}`}>
+                          <span
+                            className={`f-500 resource-tag tag-${item.type}`}
+                          >
                             {contentTypes[item.type].name}
                           </span>
-                          <h3 className="f-20 f-600 black mb-2">{item.title}</h3>
-                          <p className="f-16 f-400 para-color mb-0">{item.description}</p>
+                          <h3 className="f-20 f-600 black mb-2">
+                            {item.title}
+                          </h3>
+                          <p className="f-16 f-400 para-color mb-0">
+                            {item.description}
+                          </p>
                           <div className="resource-meta">
-                            <span className='f-400'>
-                              <i className="far fa-calendar" /> {formatDate(item.date)}
+                            <span className="f-400">
+                              <i className="far fa-calendar" />{" "}
+                              {formatDate(item.date)}
                             </span>
                             {/* {item.duration && (
                               <span>
@@ -304,9 +323,7 @@ const Resources = () => {
               {/* Pagination */}
               {totalPages > 1 && (
                 <nav className="d-flex justify-content-center mt-5">
-                  <ul className="pagination f-500">
-                    {renderPagination()}
-                  </ul>
+                  <ul className="pagination f-500">{renderPagination()}</ul>
                 </nav>
               )}
             </div>

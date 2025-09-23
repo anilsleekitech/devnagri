@@ -1,28 +1,14 @@
 // ...imports remain same
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
-import fullDataset from '../data/howWeHelpData.json';
-import { getImagePath } from '@/utils/imageUtils';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
+import fullDataset from "../data/howWeHelpData.json";
+import { getImagePath } from "@/utils/imageUtils";
+import SEO from "@/components/SEO";
 
 const contentTypes = {
-  blogs: { name: 'Blogs' },
-  'case-studies': { name: 'Case Studies' },
-  announcements: { name: 'Announcements' },
-};
-
-// Helper function to generate resource link
-const generateResourceLink = (item) => {
-  if (item.translation === true || item.type === 'translation') {
-    const fromLang = item.fromLanguage || 'english';
-    const toLang = item.toLanguage || 'hindi';
-
-    if (item.title?.toLowerCase().includes('transliteration')) {
-      return `/what-you-need-to-know-about-${fromLang}-to-${toLang}-transliteration`;
-    }
-    return `/${fromLang}-${toLang}-translation`;
-  }
-
-  return `/${(item.link || item.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^\/+|\/+$/g, '')}`;
+  blogs: { name: "Blogs" },
+  "case-studies": { name: "Case Studies" },
+  announcements: { name: "Announcements" },
 };
 
 const ResourcesDetail = () => {
@@ -32,7 +18,7 @@ const ResourcesDetail = () => {
 
   const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedLanguage, setSelectedLanguage] = useState('english');
+  const [selectedLanguage, setSelectedLanguage] = useState("english");
   const [translatedContent, setTranslatedContent] = useState(null);
   const [isTranslating, setIsTranslating] = useState(false);
   const [relatedPosts, setRelatedPosts] = useState([]);
@@ -45,24 +31,28 @@ const ResourcesDetail = () => {
     document.body.appendChild(script);
   }, []);
 
-
   useEffect(() => {
     if (location.state?.item) {
       const incomingItem = location.state.item;
 
       // Handle translation redirect
-      if (incomingItem.translation === true || incomingItem.type === 'translation') {
-        const fromLang = incomingItem.fromLanguage || 'english';
+      if (
+        incomingItem.translation === true ||
+        incomingItem.type === "translation"
+      ) {
+        const fromLang = incomingItem.fromLanguage || "english";
         let toLang = incomingItem.toLanguage;
 
         if (!toLang && incomingItem.title) {
-          const titleMatch = incomingItem.title.toLowerCase().match(/english\s+to\s+(\w+)/i);
+          const titleMatch = incomingItem.title
+            .toLowerCase()
+            .match(/english\s+to\s+(\w+)/i);
           if (titleMatch) {
             toLang = titleMatch[1];
           }
         }
 
-        toLang = toLang || 'hindi';
+        toLang = toLang || "hindi";
         setIsLoading(false);
         navigate(`/${fromLang}-to-${toLang}-translation`);
         return;
@@ -92,19 +82,24 @@ const ResourcesDetail = () => {
       // First try to get item from location state
       if (location.state?.item) {
         // Check if it's a translation item
-        if (location.state.item.translation === true || location.state.item.type === 'translation') {
-          const fromLang = location.state.item.fromLanguage || 'english';
+        if (
+          location.state.item.translation === true ||
+          location.state.item.type === "translation"
+        ) {
+          const fromLang = location.state.item.fromLanguage || "english";
           let toLang = location.state.item.toLanguage;
 
           // If toLanguage is not specified, try to extract it from the title
           if (!toLang && location.state.item.title) {
-            const titleMatch = location.state.item.title.toLowerCase().match(/english\s+to\s+(\w+)/i);
+            const titleMatch = location.state.item.title
+              .toLowerCase()
+              .match(/english\s+to\s+(\w+)/i);
             if (titleMatch) {
               toLang = titleMatch[1];
             }
           }
 
-          toLang = toLang || 'hindi';
+          toLang = toLang || "hindi";
           setIsLoading(false);
           navigate(`/${fromLang}-to-${toLang}-translation`);
           return true;
@@ -115,48 +110,51 @@ const ResourcesDetail = () => {
       }
 
       // Clean the incoming link by removing leading/trailing slashes
-      const cleanLink = link.replace(/^\/+|\/+$/g, '');
+      const cleanLink = link.replace(/^\/+|\/+$/g, "");
 
       // If no state, try to find item by link
-      const foundItem = fullDataset?.howWeHelpCards?.find(
-        item => {
-          if (!item) return false;
+      const foundItem = fullDataset?.howWeHelpCards?.find((item) => {
+        if (!item) return false;
 
-          // Clean and compare the item's link
-          if (item.link) {
-            const itemLink = item.link.replace(/^\/+|\/+$/g, '');
-            if (itemLink === cleanLink) {
-              return true;
-            }
-          }
-
-          // Try matching by title if link doesn't match
-          const itemTitle = item.title || '';
-          const titleAsLink = itemTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-          const cleanTitleLink = titleAsLink.replace(/^\/+|\/+$/g, '');
-
-          if (cleanTitleLink === cleanLink) {
+        // Clean and compare the item's link
+        if (item.link) {
+          const itemLink = item.link.replace(/^\/+|\/+$/g, "");
+          if (itemLink === cleanLink) {
             return true;
           }
-          return false;
         }
-      );
+
+        // Try matching by title if link doesn't match
+        const itemTitle = item.title || "";
+        const titleAsLink = itemTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        const cleanTitleLink = titleAsLink.replace(/^\/+|\/+$/g, "");
+
+        if (cleanTitleLink === cleanLink) {
+          return true;
+        }
+        return false;
+      });
 
       if (foundItem) {
         // Check if found item is a translation item
-        if (foundItem.translation === true || foundItem.type === 'translation') {
-          const fromLang = foundItem.fromLanguage || 'english';
+        if (
+          foundItem.translation === true ||
+          foundItem.type === "translation"
+        ) {
+          const fromLang = foundItem.fromLanguage || "english";
           let toLang = foundItem.toLanguage;
 
           // If toLanguage is not specified, try to extract it from the title
           if (!toLang && foundItem.title) {
-            const titleMatch = foundItem.title.toLowerCase().match(/english\s+to\s+(\w+)/i);
+            const titleMatch = foundItem.title
+              .toLowerCase()
+              .match(/english\s+to\s+(\w+)/i);
             if (titleMatch) {
               toLang = titleMatch[1];
             }
           }
 
-          toLang = toLang || 'hindi';
+          toLang = toLang || "hindi";
 
           setIsLoading(false);
           navigate(`/${fromLang}-to-${toLang}-translation`);
@@ -165,12 +163,10 @@ const ResourcesDetail = () => {
         setItem(foundItem);
         setIsLoading(false);
         return true;
-      } else {
       }
-
       // If item not found, redirect to TextTotext with default languages
       setIsLoading(false);
-      navigate('/404');
+      navigate("/404");
       return true;
     };
 
@@ -178,7 +174,7 @@ const ResourcesDetail = () => {
       findItem();
     } catch (error) {
       setIsLoading(false);
-      navigate('/english-to-hindi-translation');
+      navigate("/english-to-hindi-translation");
     }
   }, [link, navigate, location?.state]);
 
@@ -186,59 +182,17 @@ const ResourcesDetail = () => {
     if (item && fullDataset?.howWeHelpCards) {
       // Filter related posts based on the current item's type
       const filtered = fullDataset.howWeHelpCards
-        .filter(post => post.type === item.type && post.id !== item.id)
+        .filter((post) => post.type === item.type && post.id !== item.id)
         .slice(0, 3); // Get only 3 related posts
       setRelatedPosts(filtered);
     }
   }, [item]);
 
-  // Handle language change and translation
-  const handleLanguageChange = async (e) => {
-    const newLanguage = e.target.value;
-    setSelectedLanguage(newLanguage);
-
-    if (newLanguage !== 'english' && item) {
-      setIsTranslating(true);
-      try {
-        // Translate title
-        const translatedTitle = await translateText(item.title || '', 'english', newLanguage);
-
-        // Translate content array
-        const translatedContentArray = await Promise.all(
-          (item.content || []).map(async (text) => {
-            // Remove HTML tags before translation
-            const plainText = (text || '').replace(/<[^>]*>/g, '');
-            return await translateText(plainText, 'english', newLanguage);
-          })
-        );
-
-        setTranslatedContent({
-          ...item,
-          title: translatedTitle,
-          content: translatedContentArray
-        });
-      } catch (error) {
-        console.error('Translation error:', error);
-      } finally {
-        setIsTranslating(false);
-      }
-    } else {
-      setTranslatedContent(null);
-    }
-  };
-
-  // const handleSubscribe = (e) => {
-  //   e.preventDefault();
-  //   // Add your subscription logic here
-  //   console.log('Subscription form submitted');
-  // };
-
-
   const ShareButton = ({ platform, url }) => {
     const shareUrls = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       twitter: `https://twitter.com/intent/tweet?url=${url}`,
-      linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`
+      linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
     };
 
     return (
@@ -249,7 +203,7 @@ const ResourcesDetail = () => {
         className={`share-btn ${platform}`}
         onClick={(e) => {
           e.preventDefault();
-          window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+          window.open(shareUrls[platform], "_blank", "width=600,height=400");
         }}
       >
         {platform === "twitter" ? (
@@ -283,85 +237,42 @@ const ResourcesDetail = () => {
     );
   }
 
-
-
-
   const displayContent = translatedContent || item;
   const currentUrl = window.location.href;
-  const latestPostData = fullDataset?.howWeHelpCards.slice(0, 3);
-
-  const SEO = ({ title, description, keywords }) => {
-    useEffect(() => {
-      // Update document title
-      if (title) {
-        document.title = title;
-      }
-
-      // Function to update or create meta tag
-      const updateMetaTag = (name, content, attribute = 'name') => {
-        if (!content) return;
-
-        let element = document.querySelector(`meta[${attribute}="${name}"]`);
-
-        if (element) {
-          element.setAttribute('content', content);
-        } else {
-          element = document.createElement('meta');
-          element.setAttribute(attribute, name);
-          element.setAttribute('content', content);
-          document.head.appendChild(element);
-        }
-      };
-
-      // Update meta tags
-      updateMetaTag('description', description);
-      updateMetaTag('keywords', keywords);
-
-      // Cleanup function
-      return () => {
-        // Reset title to default
-        document.title = 'Devnagri - AI Translation & Localization';
-
-        // Remove dynamically added meta tags
-        const removeMetaTag = (name, attribute = 'name') => {
-          const element = document.querySelector(`meta[${attribute}="${name}"]`);
-          if (element && element.parentNode === document.head) {
-            document.head.removeChild(element);
-          }
-        };
-
-        removeMetaTag('description');
-        removeMetaTag('keywords');
-      };
-    }, [title, description, keywords]);
-
-    return null;
-  };
+  // const latestPostData = fullDataset?.howWeHelpCards.slice(0, 3);
 
   return (
     <>
-      <head>
-        <title>{item?.title}</title>
-        <meta
-          name="description"
-          content={item?.description}
-        />
-        <meta
-          name="keywords"
-          content={item?.meta || "Blog Detail"}
-        />
-      </head>
+      <SEO
+        title={item?.title}
+        description={item?.description}
+        keywords={item?.meta || "Blog Detail"}
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
       {/* Hero Section */}
-      <section className="post-hero bg-img" style={{ backgroundImage: `url(${getImagePath("simple-banner-background.png")})` }}>
+      <section
+        className="post-hero bg-img"
+        style={{
+          backgroundImage: `url(${getImagePath(
+            "simple-banner-background.png"
+          )})`,
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <span className="f-14 f-500 blue text-capitalize">{item?.type}</span>
+              <span className="f-14 f-500 blue text-capitalize">
+                {item?.type}
+              </span>
               <h1 className="f-42 f-600 wow fadeIn">{displayContent?.title}</h1>
             </div>
             <div className="col-md-6">
               <div className="post-featured-image">
-                <img src={item?.image ?? 'https://via.placeholder.com/600x400'} alt={displayContent?.title} />
+                <img
+                  src={item?.image ?? "https://via.placeholder.com/600x400"}
+                  alt={displayContent?.title}
+                />
               </div>
             </div>
           </div>
@@ -380,7 +291,9 @@ const ResourcesDetail = () => {
                     <li className="nav-item" role="presentation" key={type}>
                       <Link
                         to={`/blogs?tab=${type}`}
-                        className={`nav-link f-20 f-500 ${item.type === type ? 'active' : ''}`}
+                        className={`nav-link f-20 f-500 ${
+                          item.type === type ? "active" : ""
+                        }`}
                       >
                         {data.name}
                       </Link>
@@ -392,7 +305,10 @@ const ResourcesDetail = () => {
               {/* Main Post Content */}
               <article className="post-content">
                 {displayContent?.content?.map((htmlString, index) => (
-                  <div key={index} dangerouslySetInnerHTML={{ __html: htmlString }} />
+                  <div
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: htmlString }}
+                  />
                 ))}
 
                 {/* Share Buttons */}
@@ -410,14 +326,8 @@ const ResourcesDetail = () => {
               <div className="sidebar">
                 <div className="subsribe-blogsection mb-4">
                   <h3 className="sidebar-title f-20 f-600 blue">
-                    Subscribe to Our {contentTypes[item?.type]?.name || 'Blog'}
+                    Subscribe to Our {contentTypes[item?.type]?.name || "Blog"}
                   </h3>
-                  {/* <form onSubmit={handleSubscribe}>
-                    <input type="email" className="form-control f-400 py-2" placeholder="Enter your email" required />
-                    <button type="submit" className="devnagri-btn mt-3 white">
-                      Subscribe
-                    </button>
-                  </form> */}
                   <div
                     className="hs-form-frame"
                     data-region="na1"
@@ -427,7 +337,9 @@ const ResourcesDetail = () => {
                 </div>
 
                 <div className="latest-posts mt-4">
-                  <h3 className="sidebar-title f-20 f-600 blue">Latest {contentTypes[item?.type]?.name || 'Posts'}</h3>
+                  <h3 className="sidebar-title f-20 f-600 blue">
+                    Latest {contentTypes[item?.type]?.name || "Posts"}
+                  </h3>
                   {relatedPosts?.map((relatedItem, index) => (
                     <div
                       key={index}
@@ -435,26 +347,38 @@ const ResourcesDetail = () => {
                       role="button"
                       tabIndex={0}
                       onClick={() => {
-                        if (relatedItem.translation === true || relatedItem.type === 'translation') {
-                          const fromLang = relatedItem.fromLanguage || 'english';
-                          const toLang = relatedItem.toLanguage || 'hindi';
+                        if (
+                          relatedItem.translation === true ||
+                          relatedItem.type === "translation"
+                        ) {
+                          const fromLang =
+                            relatedItem.fromLanguage || "english";
+                          const toLang = relatedItem.toLanguage || "hindi";
                           navigate(`/${fromLang}-to-${toLang}-translation`);
                           return;
                         }
 
-                        const link = (relatedItem.link || relatedItem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
-                          .replace(/^\/+|\/+$/g, '');
+                        const link = (
+                          relatedItem.link ||
+                          relatedItem.title
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]+/g, "-")
+                        ).replace(/^\/+|\/+$/g, "");
                         navigate(`/${link}`, {
                           state: {
                             item: {
                               ...relatedItem,
-                              link
-                            }
-                          }
+                              link,
+                            },
+                          },
                         });
                       }}
                     >
-                      <img src={relatedItem.image} alt={relatedItem.title} className="latest-post-img" />
+                      <img
+                        src={relatedItem.image}
+                        alt={relatedItem.title}
+                        className="latest-post-img"
+                      />
                       <div className="latest-post-content">
                         <h4 className="f-500 black">{relatedItem.title}</h4>
                       </div>
@@ -471,7 +395,10 @@ const ResourcesDetail = () => {
       <section className="our-latest-blog py-5">
         <div className="container">
           <h2 className="f-40 f-600 black pb-3 text-center wow fadeInUp">
-            Related <span className="blue">{contentTypes[item?.type]?.name || 'Resources'}</span>
+            Related{" "}
+            <span className="blue">
+              {contentTypes[item?.type]?.name || "Resources"}
+            </span>
           </h2>
           <div className="row pt-4">
             {relatedPosts?.map((relatedItem) => (
@@ -481,35 +408,50 @@ const ResourcesDetail = () => {
                 role="button"
                 tabIndex={0}
                 onClick={() => {
-                  if (relatedItem.translation === true || relatedItem.type === 'translation') {
-                    const fromLang = relatedItem.fromLanguage || 'english';
-                    const toLang = relatedItem.toLanguage || 'hindi';
+                  if (
+                    relatedItem.translation === true ||
+                    relatedItem.type === "translation"
+                  ) {
+                    const fromLang = relatedItem.fromLanguage || "english";
+                    const toLang = relatedItem.toLanguage || "hindi";
                     navigate(`/${fromLang}-to-${toLang}-translation`);
                     return;
                   }
 
-                  const link = (relatedItem.link || relatedItem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'))
-                    .replace(/^\/+|\/+$/g, '');
+                  const link = (
+                    relatedItem.link ||
+                    relatedItem.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+                  ).replace(/^\/+|\/+$/g, "");
                   navigate(`/${link}`, {
                     state: {
                       item: {
                         ...relatedItem,
-                        link
-                      }
-                    }
+                        link,
+                      },
+                    },
                   });
                 }}
               >
                 <div className="resource-card wow fadeInUp">
-                  <img src={relatedItem.image} alt={relatedItem.title} className="resource-img" />
+                  <img
+                    src={relatedItem.image}
+                    alt={relatedItem.title}
+                    className="resource-img"
+                  />
                   <div className="p-4">
                     <span className="resource-tag tag-blog f-400">
                       {contentTypes[relatedItem.type]?.name || relatedItem.type}
                     </span>
-                    <h3 className="f-20 f-600 black mb-2">{relatedItem.title}</h3>
-                    <p className="f-16 f-400 para-color mb-0">{relatedItem.description}</p>
+                    <h3 className="f-20 f-600 black mb-2">
+                      {relatedItem.title}
+                    </h3>
+                    <p className="f-16 f-400 para-color mb-0">
+                      {relatedItem.description}
+                    </p>
                     <div className="resource-meta">
-                      <span className="f-14 f-400 para-color">{relatedItem.date}</span>
+                      <span className="f-14 f-400 para-color">
+                        {relatedItem.date}
+                      </span>
                     </div>
                   </div>
                 </div>

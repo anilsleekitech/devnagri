@@ -1360,7 +1360,7 @@ header .dropdown {
   max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
-  left: -213px !important;
+  left: -163px !important;
 }
 
 .scrollable-menu::-webkit-scrollbar {

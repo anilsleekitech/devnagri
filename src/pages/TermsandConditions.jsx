@@ -1,23 +1,20 @@
 import React from 'react'
 import { getImagePath } from '@/utils/imageUtils';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 
 export default function TermsandConditions() {
   return (
     <div>
       <>
-        <head>
-          <title>Terms and Conditioms | Devnagri</title>
-          <meta
-            name="description"
-            content="Terms and conditions for using Devnagri's AI translation platform and services."
-          />
-          <meta
-            name="keywords"
-            content="terms and conditions, terms of service, legal terms, service agreement"
-          />
-        </head>
+        <SEO
+        title="Terms and Conditioms | Devnagri"
+        description="Terms and conditions for using Devnagri's AI translation platform and services."
+        keywords="terms and conditions, terms of service, legal terms, service agreement"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
         {/* Hero Section */}
         <section
           className="hero-section bg-img"

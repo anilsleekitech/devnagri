@@ -5,6 +5,7 @@ import { getImagePath } from "@/utils/imageUtils";
 import FAQAccordion from "@/components/FAQAccordion";
 import { initializeSliders } from "@/utils/initializeAnimations";
 import { initializeSliders1 } from "@/utils/initScripts";
+import SEO from "@/components/SEO";
 
 const Voicebot = () => {
   const data = fullDataset?.howWeHelpCards.slice(0, 3);
@@ -36,17 +37,6 @@ const Voicebot = () => {
     const video = videoRef.current;
 
     if (!video) return;
-
-    // video.loop = true;
-    // video.muted = true;
-
-    // // Try autoplay
-    // const playPromise = video.play();
-    // if (playPromise !== undefined) {
-    //   playPromise.catch((error) => {
-    //     console.error("Autoplay failed:", error);
-    //   });
-    // }
 
     // Skip every 2s
     const interval = setInterval(() => {
@@ -87,19 +77,13 @@ const Voicebot = () => {
 
   return (
     <>
-      <head>
-        <title>
-          Conversational AI | Voice Bots | AI Voice Bots for Support
-        </title>
-        <meta
-          name="description"
-          content="Meta Description: Unlock the future of communication with conversational AI and AI voice bots. Automate support and create natural, human-like interactions."
-        />
-        <meta
-          name="keywords"
-          content="conversational ai, voice bots, ai voice bots"
-        />
-      </head>
+      <SEO
+        title="Conversational AI | Voice Bots | AI Voice Bots for Support"
+        description="Meta Description: Unlock the future of communication with conversational AI and AI voice bots. Automate support and create natural, human-like interactions."
+        keywords="conversational ai, voice bots, ai voice bots"
+        sitemapUrl=""
+        googleSiteVerification="google27ddb4200087c5a5"
+      />
       {/* Hero Section */}
       <section
         className="hero-section bg-img"
@@ -239,7 +223,6 @@ const Voicebot = () => {
                     loading="lazy"
                   />
                 </div>
-                {/* <div class="brand-item-slide"><img src="${getImagePath(brand-drdo.png" alt="Brand 5" loading="lazy" /></div> */}
               </div>
             </div>
           </div>
@@ -249,8 +232,6 @@ const Voicebot = () => {
       <section className="pb-4 pt-5 pt-md-5 pt-lg-0">
         <div className="container">
           <div className="trusted-partner pb-4 px-4">
-            {/* <h2 class="f-40 f-600 black text-center pb-4">Scaling and automating <span class="blue">Quality
-        Conversations</span> */}
             <div className="row justify-content-between">
               <div className="col-lg-4 col-md-6">
                 <div className="d-flex gap-3 wow fadeInUp">
@@ -591,9 +572,6 @@ const Voicebot = () => {
                       Book a Demo{" "}
                     </button>
                   </Link>
-                  {/* <button type="btn" class="devnagri-btn devnagri-white-btn mt-3">
-          <Link to="#" class="blue"> Talk to an Expert </Link>
-        </button> */}
                 </div>
               </div>
               <div className="col-lg-6 mt-4 mt-md-4 mt-lg-0">
@@ -614,7 +592,6 @@ const Voicebot = () => {
         <div className="container">
           <div className="testimonial-heading">
             <h2 className="f-600 f-40 pb-3 text-center black wow fadeInUp">
-              {/* <img src="${getImagePath(testimonial-qutoe.gif" alt="testimonial-gif" class="testimonial-quote"> */}
               What Our <span className="blue">Customers Say?</span>
             </h2>
           </div>
@@ -1278,31 +1255,12 @@ const Voicebot = () => {
 
       {/*FAQ's Section*/}
       <FAQAccordion page="voicebot" />
-      {/*bottom-messge section*/}
-      {/* <section class="bottom-message-section pb-5">
-    <div class="container">
-<div class="row justify-content-center">
-  <div class="col-md-8 text-center">
-    <div class="inner-message-sec">
-      <h4 class="f-36 f-600 m-0 pb-3 black">Multilingual Support Made Simple. <span class="blue">Results You Can
-          Measure.</span></h4>
-      <p class="f-400 para-color m-0">Over 200 brands already use Devnagri AI's chatbot to break language
-        barriers, reduce user churn, and boost customer satisfaction.</p>
-    </div>
-  </div>
-</div>
-    </div>
-  </section> */}
       {/*get started section*/}
       <section className="get-strated bg-img">
         <div className="container">
           <h2 className="text-center f-40 f-600 white pe-4 ps-4 pb-3 pt-3 wow fadeInUp">
             If Your Message Crosses Borders, So Does Your Business
           </h2>
-          {/* <p class="text-center f-400 pb-3 wow fadeInUp">Your users are diverse. Your chatbot should be, too.</p> */}
-          {/* <div class="text-center"><button type="btn" class="devnagri-btn">
-    <Link to="#" class="white"> Get Demo</Link></button>
-</div> */}
           {/* Stats */}
           <div className="row mt-5 text-center custom-stats-row">
             <div className="col-6 col-md-4 custom-stats-col wow fadeInUp">
@@ -1339,10 +1297,6 @@ const Voicebot = () => {
                 Reduction in Call Center Load
               </p>
             </div>
-            {/* <div class="col-6 col-md-3 custom-stats-col wow fadeInUp">
-    <div class="custom-counter f-48 f-600 pb-3" data-target="75" data-suffix="%">0%</div>
-    <p class="custom-label f-400 m-0">Increase in CSAT</p>
-  </div> */}
           </div>
           <div className="text-center mt-5 wow fadeInUp">
             <Link to="https://account.devnagri.com/register" className="white">
