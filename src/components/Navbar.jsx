@@ -182,29 +182,45 @@ const Navbar = () => {
 
   // const isMobileView = () => window.innerWidth < 992;
 
-  // Load saved language on page load
   useEffect(() => {
-    const savedLangCode = localStorage.getItem("selectedLangCode") || "en";
+    const savedLangCode = localStorage.getItem("selectedLangCode");
     const savedLanguage = JSON.parse(localStorage.getItem("selectedLanguage"));
-    if (savedLanguage) {
-      setCurrentLanguage(savedLanguage);
+
+    let langCode, langData;
+
+    if (savedLanguage && savedLangCode) {
+      // Case 1: Use saved language from localStorage
+      langCode = savedLangCode;
+      langData = indianLanguages[langCode] ||
+        internationalLanguages[langCode] || {
+          flag: "https://flagcdn.com/us.svg",
+          displayCode: "EN",
+          name: "English",
+        };
     } else {
-      setCurrentLanguage({
-        code: savedLangCode,
-        flag:
-          savedLangCode === "en"
-            ? "https://flagcdn.com/us.svg"
-            : indianLanguages[savedLangCode]?.flag ||
-              internationalLanguages[savedLangCode]?.flag,
-        displayCode: savedLangCode.toUpperCase(),
-        displayName:
-          savedLangCode === "en"
-            ? "English"
-            : indianLanguages[savedLangCode]?.name ||
-              internationalLanguages[savedLangCode]?.name,
-      });
+      // Case 2: Fallback to <html lang="">
+      langCode = document.documentElement.lang || "en";
+      langData = indianLanguages[langCode] ||
+        internationalLanguages[langCode] || {
+          flag: "https://flagcdn.com/us.svg",
+          displayCode: "EN",
+          name: "English",
+        };
     }
-    document.documentElement.setAttribute("lang", savedLangCode);
+
+    const newLanguage = {
+      code: langCode,
+      flag: langData.flag,
+      displayCode: langData.displayCode ?? langCode.toUpperCase(),
+      displayName: langData.name,
+    };
+
+    setCurrentLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", JSON.stringify(newLanguage));
+    localStorage.setItem("selectedLangCode", langCode);
+
+    // Ensure <html lang> is updated
+    document.documentElement.setAttribute("lang", langCode);
   }, []);
 
   // Scroll effect
