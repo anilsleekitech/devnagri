@@ -308,15 +308,15 @@ const Navbar = () => {
     setActiveSubmenu(null);
 
     // Determine redirect URL
-    let url = "/";
+    let url = "https://devnagri.com/";
     if (indianLanguages[langCode]) {
       if (langCode === "ta") url = "https://ta.devnagri.com/";
       else if (langCode === "kn") url = "https://kn.devnagri.com/";
       else url = `https://${langCode}.devnagri.com/`;
     } else if (internationalLanguages[langCode]) {
-      url = langCode === "en" ? "/" : `https://${langCode}.devnagri.com/`;
+      url = langCode === "en" ? "https://devnagri.com/" : `https://${langCode}.devnagri.com/`;
     } else if (langCode === "en") {
-      url = "/";
+      url = "https://devnagri.com/";
     }
 
     window.location.href = url;
