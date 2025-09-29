@@ -253,6 +253,31 @@ const Careers = () => {
     initializeSliders1();
   }, []);
 
+  useEffect(() => {
+    (function (e, t, a) {
+      var s = e.head || e.getElementsByTagName("head")[0],
+        i = e.createElement("script");
+      i.type = "text/javascript";
+      i.id = "peoplehum-hire-jobs-script";
+      i.defer = true;
+      i.async = false;
+      i.src =
+        t +
+        "/static/js/external-job-list.js?base_url=" +
+        t +
+        "&config=" +
+        JSON.stringify(a);
+      s.appendChild(i);
+    })(document, "https://hris.peoplehum.com/ehire", {
+      env: "prod",
+      short_name: "2cf831e9-02a4-4b5d-b1a9-69625bad5bd7", // ✅ your org ID
+      container_id: "peopelhum-jobs-container",
+      locale: "en-US",
+      version: 2,
+    });
+  }, []);
+  
+
   return (
     <>
       <SEO
@@ -743,111 +768,8 @@ const Careers = () => {
           <h4 className="text-center f-40 black m-0 pb-5 f-600 wow fadeInUp">
             Current <span className="blue">Openings</span>
           </h4>
-          {/* Search Filter */}
-          <div className="row mb-4 justify-content-center wow fadeInUp">
-            <div className="col-md-4 mb-2">
-              <input
-                type="text"
-                className="form-control form-control-lg f-400 f-18"
-                placeholder="&#128269;Search for job title, function, or description"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <div className="col-md-3 mb-2">
-              <select
-                className="form-select form-select-lg f-400 f-18"
-                value={locationFilter}
-                onChange={(e) => setLocationFilter(e.target.value)}
-              >
-                <option value="">All Locations</option>
-                <option value="Gurgaon">Gurgaon</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Remote">Remote</option>
-              </select>
-            </div>
-            <div className="col-md-2 mb-2 d-grid">
-              <button
-                className="devnagri-btn"
-                onClick={() => {
-                  setSearchTerm("");
-                  setLocationFilter("");
-                }}
-              >
-                Clear
-              </button>
-            </div>
-          </div>
-          {/* Results count */}
-          <div className="text-center mb-4">
-            <p className="f-16 f-400 para-color">
-              Showing {filteredJobs.length} of {jobs.length} positions
-            </p>
-          </div>
-          {/* Job Cards */}
-          <div className="row g-4">
-            {filteredJobs.length > 0 ? (
-              filteredJobs.map((job) => (
-                <div key={job.id} className="col-lg-4 col-md-6">
-                  <div className="card h-100 shadow-sm wow fadeInUp">
-                    <div className="card-body">
-                      <h5 className="card-title d-flex align-items-center mb-3 f-22 f-600 black">
-                        {job.title}
-                      </h5>
-                      <ul className="list-unstyled mb-3">
-                        <li className="f-400">
-                          <span className="f-500">Experience:</span>{" "}
-                          {job.experience}
-                        </li>
-                        <li className="f-400">
-                          <span className="f-500">Location:</span>{" "}
-                          {job.location}
-                        </li>
-                        <li className="f-400">
-                          <span className="f-500">Function:</span>{" "}
-                          {job.function}
-                        </li>
-                      </ul>
-                      <p className="card-text f-400 para-color m-0">
-                        {job.description}
-                      </p>
-                    </div>
-                    <div className="card-footer bg-transparent border-0 pb-3">
-                      <button
-                        type="btn"
-                        className="devnagri-btn mt-3"
-                        onClick={() => handleApplyNow(job)}
-                      >
-                        <span className="white">Apply Now</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="col-12 text-center">
-                <div className="py-5">
-                  <h4 className="f-24 f-500 para-color mb-3">
-                    No positions found
-                  </h4>
-                  <p className="f-16 f-400 para-color">
-                    Try adjusting your search criteria or check back later for
-                    new opportunities.
-                  </p>
-                  <button
-                    className="devnagri-btn mt-3"
-                    onClick={() => {
-                      setSearchTerm("");
-                      setLocationFilter("");
-                    }}
-                  >
-                    <span className="white">View All Positions</span>
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+          {/* PeopleHum jobs container */}
+          <div id="peopelhum-jobs-container"></div>
         </div>
       </section>
       {/* Application Form Popup */}
