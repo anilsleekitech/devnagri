@@ -27,9 +27,11 @@ const ResourcesDetail = () => {
   const generateSchema = (item) => {
     let schemaType = "Article";
     if (item.type === "case-studies") {
-      schemaType = "CaseStudy";
+      schemaType = "Article";
     } else if (item.type === "announcements" || item.type === "news") {
       schemaType = "NewsArticle";
+    } else if(item.type === "blogs") {
+      schemaType = "BlogPosting";
     }
 
     return {
