@@ -66,7 +66,7 @@ const ChatBots = () => {
         ogImage="/assets/images/products-images/ai-chat-bot/Multilingual-Chatbot-That-FeelsHuman-in-Every-Language.png"
         ogUrl="https://devnagri.com/chatbot"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

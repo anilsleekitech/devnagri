@@ -27,7 +27,7 @@ const BookDemo = () => {
         ogImage="/assets/images/products-images/book-a-demo.png"
         ogUrl="https://devnagri.com/book-a-demo"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       <section className="book-demo-section">
         <div className="container">

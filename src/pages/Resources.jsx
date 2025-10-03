@@ -196,7 +196,7 @@ const Resources = () => {
         }
         ogUrl="https://devnagri.com/blogs"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Banner */}
       <section className="resources-hero">

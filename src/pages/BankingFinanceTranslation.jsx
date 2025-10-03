@@ -46,7 +46,7 @@ const BankingFinanceTranslation = () => {
         ogImage="/assets/images/industry-icons/BFSI/BFSI.png"
         ogUrl="https://devnagri.com/banking-finance-translation"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
 
       {/* Hero Section */}

@@ -15,7 +15,7 @@ export default function RefundPolicy() {
           ogImage="Refund and Cancellation policy"
           ogUrl="https://devnagri.com/refund-and-cancellation-policy"
           twitterSite="@DevnagriAI"
-          twitterCreator="@DevnagriTeam"
+           
         />
         {/* Hero Section */}
         <section

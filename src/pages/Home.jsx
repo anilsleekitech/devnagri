@@ -317,7 +317,7 @@ const Home = () => {
         ogImage="/assets/images/campaigns/Case-Study-EdTech.png"
         ogUrl="https://devnagri.com"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section className="hero-home bg-img overflow-hidden">

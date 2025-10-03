@@ -94,7 +94,7 @@ const About = () => {
         ogImage="/assets/images/aboutus-image/Our-Story.jpg"
         ogUrl="https://devnagri.com/about-devnagri"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

@@ -66,7 +66,7 @@ const DotaApp = () => {
         ogImage="/assets/images/products-images/dota-app/Why-Get-the-DOTA-App-by-Devnagri.png"
         ogUrl="https://devnagri.com/app-localization"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

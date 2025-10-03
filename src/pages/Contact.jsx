@@ -33,7 +33,7 @@ const Contact = () => {
         ogImage="/assets/images/products-images/Contact us .jpg"
         ogUrl="https://devnagri.com/contact-us"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Banner with Breadcrumbs */}
       <section

@@ -47,7 +47,7 @@ const EcommerceTranslation = () => {
         ogImage="/assets/images/industry-icons/ecommerce/e-commerce.png"
         ogUrl="https://devnagri.com/ecommerce-translation"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

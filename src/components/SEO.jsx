@@ -10,7 +10,7 @@ const SEO = ({
   ogUrl = window.location.href,      // Current URL by default
   twitterCard = 'summary_large_image',
   twitterSite = '@yoursite',         // Replace with your Twitter handle
-  twitterCreator = '@creator'        // Replace with creator handle if needed
+  // twitterCreator = '@creator'        // Replace with creator handle if needed
 }) => {
   useEffect(() => {
     // Update document title
@@ -74,9 +74,11 @@ const SEO = ({
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', ogImage);
     updateMetaTag('twitter:site', twitterSite);
-    updateMetaTag('twitter:creator', twitterCreator);
+    // updateMetaTag('twitter:creator', twitterCreator);
 
-  }, [title, description, keywords, sitemapUrl, googleSiteVerification, ogImage, ogUrl, twitterCard, twitterSite, twitterCreator]);
+  }, [title, description, keywords, sitemapUrl, googleSiteVerification, ogImage, ogUrl, twitterCard, twitterSite, 
+    // twitterCreator
+  ]);
 
   return null; // This component doesn't render anything
 };

@@ -289,7 +289,7 @@ const Careers = () => {
         ogImage="/assets/images/career-images/team-1.jpg"
         ogUrl="https://devnagri.com/careers"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

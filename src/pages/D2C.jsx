@@ -46,7 +46,7 @@ const D2C = () => {
         ogImage="/assets/images/industry-icons/d2c/D2C.png"
         ogUrl="https://devnagri.com/direct-to-consumer-translation"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

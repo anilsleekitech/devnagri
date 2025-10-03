@@ -46,7 +46,7 @@ const Govt = () => {
         ogImage="/assets/images/industry-icons/gov/GOV.png"
         ogUrl="https://devnagri.com/government-translation"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

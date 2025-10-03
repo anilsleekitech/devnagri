@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
           ogImage="privacy-policy"
           ogUrl="https://devnagri.com/privacy-policy"
           twitterSite="@DevnagriAI"
-          twitterCreator="@DevnagriTeam"
+           
         />
         {/* Hero Section */}
         <section

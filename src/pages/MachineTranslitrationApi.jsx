@@ -87,7 +87,7 @@ const MachineTranslitrationApi = () => {
         ogImage="/assets/images/products-images/transletration-api/Transliteration-API-Key-Features.png"
         ogUrl="https://devnagri.com/transliteration-api"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

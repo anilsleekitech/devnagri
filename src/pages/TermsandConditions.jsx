@@ -17,7 +17,7 @@ export default function TermsandConditions() {
         ogImage="Terms and Conditions"
         ogUrl="https://devnagri.com/terms-and-conditions"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
         {/* Hero Section */}
         <section

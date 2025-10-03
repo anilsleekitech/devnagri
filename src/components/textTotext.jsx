@@ -496,7 +496,7 @@ const TextTotext = ({ fromResources }) => {
         ogImage="/assets/images/products-images/Hindi-8.png"
         ogUrl={`https://devnagri.com/english-to-${selectedLanguage}-translation`}
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
 
       <div className="translation-page">

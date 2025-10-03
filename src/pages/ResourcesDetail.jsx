@@ -300,7 +300,7 @@ const ResourcesDetail = () => {
         ogImage={item?.image || "/assets/images/career-images/team-1.jpg"}
         ogUrl={`https://devnagri.com${item?.link || ""}`}
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

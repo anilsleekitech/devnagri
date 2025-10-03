@@ -88,7 +88,7 @@ const Ocr = () => {
         ogImage="/assets/images/products-images/ocr/OCR-Turn-Scanned-Docs-into-Multilingual-Text.png"
         ogUrl="https://devnagri.com/ocr"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

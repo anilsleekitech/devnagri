@@ -86,7 +86,7 @@ const Voicebot = () => {
         ogImage="/assets/images/products-images/ai-voice-bot/Switch-to-any-language-effortlessly.png"
         ogUrl="https://devnagri.com/voice-bot"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section

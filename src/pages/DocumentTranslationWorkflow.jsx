@@ -65,7 +65,7 @@ const DocumentTranslationWorkflow = () => {
         ogImage="/assets/images/products-images/document-translation/document-translation-cta.png"
         ogUrl="https://devnagri.com/document-translation"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
   {/* Hero Section */}
   <section

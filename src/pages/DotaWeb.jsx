@@ -87,7 +87,7 @@ const DotaWeb = () => {
         ogImage="/assets/images/products-images/dota-web/dota-web-cta.png"
         ogUrl="https://devnagri.com/website-translation"
         twitterSite="@DevnagriAI"
-        twitterCreator="@DevnagriTeam"
+         
       />
       {/* Hero Section */}
       <section
