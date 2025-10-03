@@ -185,41 +185,39 @@ const Navbar = () => {
   useEffect(() => {
     const savedLangCode = localStorage.getItem("selectedLangCode");
     const savedLanguage = JSON.parse(localStorage.getItem("selectedLanguage"));
-
+  
     let langCode, langData;
-
+  
     if (savedLanguage && savedLangCode) {
       // Case 1: Use saved language from localStorage
       langCode = savedLangCode;
-      langData = indianLanguages[langCode] ||
-        internationalLanguages[langCode] || {
-          flag: "https://flagcdn.com/us.svg",
-          displayCode: "EN",
-          name: "English",
-        };
+      langData = indianLanguages[langCode] || internationalLanguages[langCode];
     } else {
       // Case 2: Fallback to <html lang="">
       langCode = document.documentElement.lang || "en";
-      langData = indianLanguages[langCode] ||
-        internationalLanguages[langCode] || {
-          flag: "https://flagcdn.com/us.svg",
-          displayCode: "EN",
-          name: "English",
-        };
+      langData = indianLanguages[langCode] || internationalLanguages[langCode];
     }
-
+  
+    // Final fallback to English if still no data
+    if (!langData) {
+      langData = {
+        flag: "https://flagcdn.com/us.svg",
+        displayCode: "EN",
+        name: "English",
+      };
+      langCode = "en";
+    }
+  
     const newLanguage = {
       code: langCode,
       flag: langData.flag,
       displayCode: langData.displayCode ?? langCode.toUpperCase(),
       displayName: langData.name,
     };
-
+  
     setCurrentLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", JSON.stringify(newLanguage));
     localStorage.setItem("selectedLangCode", langCode);
-
-    // Ensure <html lang> is updated
     document.documentElement.setAttribute("lang", langCode);
   }, []);
 
@@ -281,45 +279,50 @@ const Navbar = () => {
 
   // Language select handler (redirect + persist)
   const handleLanguageSelect = (langCode) => {
-    let langData =
-      indianLanguages[langCode] || internationalLanguages[langCode] || null;
-    if (!langData && langCode === "en") {
+    let langData = indianLanguages[langCode] || internationalLanguages[langCode];
+    
+    // Fallback to English if language not found
+    if (!langData) {
       langData = {
         flag: "https://flagcdn.com/us.svg",
         displayCode: "EN",
         name: "English",
       };
+      langCode = "en"; // Ensure code is set to English
     }
-    if (!langData) return console.warn("Language not found:", langCode);
-
+  
     const newLanguage = {
       code: langCode,
       flag: langData.flag,
       displayCode: langData.displayCode ?? langCode.toUpperCase(),
       displayName: langData.name,
     };
-
+  
     setCurrentLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", JSON.stringify(newLanguage));
     localStorage.setItem("selectedLangCode", langCode);
     document.documentElement.setAttribute("lang", langCode);
-
+  
     setIsLanguageOpen(false);
     setActiveSubmenu(null);
+  };
 
-    // Determine redirect URL
+  // Determine redirect URL function (you can call this elsewhere if needed)
+  const getLanguageUrl = (langCode) => {
     let url = "https://devnagri.com/";
     if (indianLanguages[langCode]) {
       if (langCode === "ta") url = "https://ta.devnagri.com/";
       else if (langCode === "kn") url = "https://kn.devnagri.com/";
       else url = `https://${langCode}.devnagri.com/`;
     } else if (internationalLanguages[langCode]) {
-      url = langCode === "en" ? "https://devnagri.com/" : `https://${langCode}.devnagri.com/`;
+      url =
+        langCode === "en"
+          ? "https://devnagri.com/"
+          : `https://${langCode}.devnagri.com/`;
     } else if (langCode === "en") {
       url = "https://devnagri.com/";
     }
-
-    window.location.href = url;
+    return url;
   };
 
   return (
@@ -975,21 +978,30 @@ const Navbar = () => {
                         activeSubmenu === "indian" ? "show" : ""
                       } nodtranslate`}
                     >
-                      {Object.entries(indianLanguages).map(([code, lang]) => (
-                        <li key={code}>
-                          <button
-                            className="dropdown-item nodtranslate d-flex align-items-center"
-                            onClick={() => handleLanguageSelect(code)}
-                          >
-                            <img
-                              src={lang.flag}
-                              width={18}
-                              alt={`${lang.name} Flag`}
-                            />{" "}
-                            {lang.name}
-                          </button>
-                        </li>
-                      ))}
+                      {Object.entries(indianLanguages).map(([code, lang]) => {
+                        const url = getLanguageUrl(code);
+                        return (
+                          <li key={code}>
+                            <Link
+                              to={url}
+                              className="dropdown-item nodtranslate d-flex align-items-center"
+                              onClick={(e) => {
+                                // Optional: if you still want to handle the language selection logic
+                                handleLanguageSelect(code);
+                                // The page will navigate due to href, but you could prevent default
+                                // and use window.location if you need more control
+                              }}
+                            >
+                              <img
+                                src={lang.flag}
+                                width={18}
+                                alt={`${lang.name} Flag`}
+                              />{" "}
+                              {lang.name}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </li>
 
@@ -1017,21 +1029,30 @@ const Navbar = () => {
                       } nodtranslate`}
                     >
                       {Object.entries(internationalLanguages).map(
-                        ([code, lang]) => (
-                          <li key={code}>
-                            <button
-                              className="dropdown-item nodtranslate d-flex align-items-center"
-                              onClick={() => handleLanguageSelect(code)}
-                            >
-                              <img
-                                src={lang.flag}
-                                width={18}
-                                alt={`${lang.name} Flag`}
-                              />{" "}
-                              {lang.name}
-                            </button>
-                          </li>
-                        )
+                        ([code, lang]) => {
+                          const url = getLanguageUrl(code);
+                          return (
+                            <li key={code}>
+                              <Link
+                                to={url}
+                                className="dropdown-item nodtranslate d-flex align-items-center"
+                                onClick={(e) => {
+                                  // Optional: if you still want to handle the language selection logic
+                                  handleLanguageSelect(code);
+                                  // The page will navigate due to href, but you could prevent default
+                                  // and use window.location if you need more control
+                                }}
+                              >
+                                <img
+                                  src={lang.flag}
+                                  width={18}
+                                  alt={`${lang.name} Flag`}
+                                />{" "}
+                                {lang.name}
+                              </Link>
+                            </li>
+                          );
+                        }
                       )}
                     </ul>
                   </li>

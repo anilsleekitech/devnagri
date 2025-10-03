@@ -4,12 +4,12 @@ const SEO = ({
   title, 
   description, 
   keywords = 'website',
-  sitemapUrl = '/assets/sitemap.xml',
+  sitemapUrl = 'https://devnagri.com/sitemap.xml',
   googleSiteVerification, // pass your GSC code like: "abc123..."
-  ogImage = '/default-og-image.jpg', // Open Graph Image
+  ogImage ,
   ogUrl = window.location.href,      // Current URL by default
-  twitterCard = 'summary_large_image',
-  twitterSite = '@yoursite',         // Replace with your Twitter handle
+  twitterCard = 'summary',
+  twitterSite = '@devnagriai',         // Replace with your Twitter handle
   // twitterCreator = '@creator'        // Replace with creator handle if needed
 }) => {
   useEffect(() => {
@@ -64,15 +64,16 @@ const SEO = ({
     // Open Graph tags
     updateMetaTag('og:title', title, 'property');
     updateMetaTag('og:description', description, 'property');
-    updateMetaTag('og:image', ogImage, 'property');
+    updateMetaTag('og:image', `https://devnagri.com/${ogImage}`, 'property');
     updateMetaTag('og:url', ogUrl, 'property');
     updateMetaTag('og:type', 'website', 'property');
+    updateMetaTag('og:site_name', 'Devnagri AI', 'property');
 
     // Twitter Card tags
     updateMetaTag('twitter:card', twitterCard);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
-    updateMetaTag('twitter:image', ogImage);
+    updateMetaTag('twitter:image', `https://devnagri.com${ogImage}`);
     updateMetaTag('twitter:site', twitterSite);
     // updateMetaTag('twitter:creator', twitterCreator);
 
