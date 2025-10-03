@@ -82,7 +82,11 @@ const Voicebot = () => {
         description="Meta Description: Unlock the future of communication with conversational AI and AI voice bots. Automate support and create natural, human-like interactions."
         keywords="conversational ai, voice bots, ai voice bots"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/ai-voice-bot/Switch-to-any-language-effortlessly.png"
+        ogUrl="https://devnagri.com/voice-bot"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

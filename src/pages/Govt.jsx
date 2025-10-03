@@ -42,7 +42,11 @@ const Govt = () => {
         description="Secure and accurate translation solutions for government agencies and public sector organizations."
         keywords="government translation, public sector, official documents, secure translation"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/industry-icons/gov/GOV.png"
+        ogUrl="https://devnagri.com/government-translation"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

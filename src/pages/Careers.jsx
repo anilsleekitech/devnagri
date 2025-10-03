@@ -285,7 +285,11 @@ const Careers = () => {
         description="Join the Devnagri team and help build the future of AI-powered translation technology."
         keywords="careers, jobs, devnagri jobs, AI translation careers, tech jobs"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/career-images/team-1.jpg"
+        ogUrl="https://devnagri.com/careers"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

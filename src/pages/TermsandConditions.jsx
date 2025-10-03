@@ -13,7 +13,11 @@ export default function TermsandConditions() {
         description="Terms and conditions for using Devnagri's AI translation platform and services."
         keywords="terms and conditions, terms of service, legal terms, service agreement"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="Terms and Conditions"
+        ogUrl="https://devnagri.com/terms-and-conditions"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
         {/* Hero Section */}
         <section

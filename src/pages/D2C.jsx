@@ -42,7 +42,11 @@ const D2C = () => {
         description="Direct-to-consumer brands can expand globally with our specialized translation and localization services."
         keywords="D2C translation, direct to consumer, brand localization, global expansion"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/industry-icons/d2c/D2C.png"
+        ogUrl="https://devnagri.com/direct-to-consumer-translation"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

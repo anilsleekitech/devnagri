@@ -23,6 +23,35 @@ const ResourcesDetail = () => {
   const [isTranslating, setIsTranslating] = useState(false);
   const [relatedPosts, setRelatedPosts] = useState([]);
 
+  // Function to generate Schema.org structured data
+  const generateSchema = (item) => {
+    let schemaType = "Article";
+    if (item.type === "case-studies") {
+      schemaType = "CaseStudy";
+    } else if (item.type === "announcements" || item.type === "news") {
+      schemaType = "NewsArticle";
+    }
+
+    return {
+      "@context": "https://schema.org",
+      "@type": schemaType,
+      "headline": item.title,
+      "description": item.description,
+      "image": item.image,
+      "datePublished": item.date,
+      "author": {
+        "@type": "Person",
+        "name": item.author
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Devnagri",
+        "logo": "https://devnagri.com/assets/images/Devnagri-Logo.png"
+      },
+      "url": `https://devnagri.com${item.link}`
+    };
+  };
+
   useEffect(() => {
     // Create script tag dynamically
     const script = document.createElement("script");
@@ -30,6 +59,25 @@ const ResourcesDetail = () => {
     script.defer = true;
     document.body.appendChild(script);
   }, []);
+
+  // Add Schema.org JSON-LD when item is loaded
+  useEffect(() => {
+    if (item) {
+      const schema = generateSchema(item);
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schema);
+      script.id = 'schema-org-script'; // Add id to identify and remove later
+      document.head.appendChild(script);
+
+      return () => {
+        const existingScript = document.getElementById('schema-org-script');
+        if (existingScript) {
+          document.head.removeChild(existingScript);
+        }
+      };
+    }
+  }, [item]);
 
   useEffect(() => {
     if (location.state?.item) {
@@ -248,7 +296,11 @@ const ResourcesDetail = () => {
         description={item?.description}
         keywords={item?.meta || "Blog Detail"}
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage={item?.image || "/assets/images/career-images/team-1.jpg"}
+        ogUrl={`https://devnagri.com${item?.link || ""}`}
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

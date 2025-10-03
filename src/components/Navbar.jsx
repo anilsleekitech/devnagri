@@ -65,22 +65,22 @@ const Navbar = () => {
       displayCode: "KSM",
       name: "Kashmiri",
     },
-    gom: {
-      flag: "https://flagcdn.com/in.svg",
-      displayCode: "GOM",
-      name: "Konkani",
-    },
-    mai: {
-      flag: "https://flagcdn.com/in.svg",
-      displayCode: "MAI",
-      name: "Maithili",
-    },
+    // gom: {
+    //   flag: "https://flagcdn.com/in.svg",
+    //   displayCode: "GOM",
+    //   name: "Konkani",
+    // },
+    // mai: {
+    //   flag: "https://flagcdn.com/in.svg",
+    //   displayCode: "MAI",
+    //   name: "Maithili",
+    // },
     ml: {
       flag: "https://flagcdn.com/in.svg",
       displayCode: "ML",
       name: "Malayalam",
     },
-    manipuri: {
+    mni: {
       flag: "https://flagcdn.com/in.svg",
       displayCode: "MN",
       name: "Manipuri",

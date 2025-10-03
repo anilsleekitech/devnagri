@@ -62,7 +62,11 @@ const ChatBots = () => {
         description="Enhance your website with AI chat bots. Offer real-time customer support, conversational AI, and smart chat bot solutions for websites of all sizes."
         keywords="ai chat bot online, chat bot for website, ai chat bots, conversational ai chatbot, customer service chat bot, ai chat bot for website"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/ai-chat-bot/Multilingual-Chatbot-That-FeelsHuman-in-Every-Language.png"
+        ogUrl="https://devnagri.com/chatbot"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

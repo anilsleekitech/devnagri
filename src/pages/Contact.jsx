@@ -29,7 +29,11 @@ const Contact = () => {
         description="Get in touch with Devnagri for AI-powered translation solutions. Contact our experts for multilingual localization services."
         keywords="Contact Devnagri, translation services, multilingual support, AI translation contact"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/Contact us .jpg"
+        ogUrl="https://devnagri.com/contact-us"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Banner with Breadcrumbs */}
       <section

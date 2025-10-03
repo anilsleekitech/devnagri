@@ -83,7 +83,11 @@ const MachineTranslitrationApi = () => {
         description="Convert your product lists, names, and addresses to the Indian languages with Devnagri transliteration API. Try now."
         keywords="Transliteration API"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/transletration-api/Transliteration-API-Key-Features.png"
+        ogUrl="https://devnagri.com/transliteration-api"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

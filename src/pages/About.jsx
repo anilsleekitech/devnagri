@@ -90,7 +90,11 @@ const About = () => {
         description="Learn about Devnagri, India's leading AI-powered translation platform, and our mission to break language barriers for businesses."
         keywords="About Devnagri, Devnagri Mission"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/aboutus-image/Our-Story.jpg"
+        ogUrl="https://devnagri.com/about-devnagri"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

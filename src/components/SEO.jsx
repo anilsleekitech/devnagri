@@ -4,8 +4,13 @@ const SEO = ({
   title, 
   description, 
   keywords = 'website',
-  sitemapUrl = '/sitemap.xml',
-  googleSiteVerification // pass your GSC code like: "abc123..."
+  sitemapUrl = '/assets/sitemap.xml',
+  googleSiteVerification, // pass your GSC code like: "abc123..."
+  ogImage = '/default-og-image.jpg', // Open Graph Image
+  ogUrl = window.location.href,      // Current URL by default
+  twitterCard = 'summary_large_image',
+  twitterSite = '@yoursite',         // Replace with your Twitter handle
+  twitterCreator = '@creator'        // Replace with creator handle if needed
 }) => {
   useEffect(() => {
     // Update document title
@@ -56,7 +61,22 @@ const SEO = ({
       updateMetaTag('google-site-verification', googleSiteVerification);
     }
 
-  }, [title, description, keywords, sitemapUrl, googleSiteVerification]);
+    // Open Graph tags
+    updateMetaTag('og:title', title, 'property');
+    updateMetaTag('og:description', description, 'property');
+    updateMetaTag('og:image', ogImage, 'property');
+    updateMetaTag('og:url', ogUrl, 'property');
+    updateMetaTag('og:type', 'website', 'property');
+
+    // Twitter Card tags
+    updateMetaTag('twitter:card', twitterCard);
+    updateMetaTag('twitter:title', title);
+    updateMetaTag('twitter:description', description);
+    updateMetaTag('twitter:image', ogImage);
+    updateMetaTag('twitter:site', twitterSite);
+    updateMetaTag('twitter:creator', twitterCreator);
+
+  }, [title, description, keywords, sitemapUrl, googleSiteVerification, ogImage, ogUrl, twitterCard, twitterSite, twitterCreator]);
 
   return null; // This component doesn't render anything
 };

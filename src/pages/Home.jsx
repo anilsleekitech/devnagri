@@ -313,7 +313,11 @@ const Home = () => {
         description="Devnagri, India's #1 AI-powered translation engine, helps brands to localize their content 5x faster and more accurately."
         keywords="Devnagri, Devnagri AI"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/campaigns/Case-Study-EdTech.png"
+        ogUrl="https://devnagri.com"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section className="hero-home bg-img overflow-hidden">

@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ChatBots from './pages/ChatBots';
-import Industry from './pages/Industry';
 import Resources from './pages/Resources';
 import ResourcesDetail from './pages/ResourcesDetail';
 import TextTotext from './components/textTotext';
@@ -200,7 +199,6 @@ function App() {
               <Route path="/chatbot" element={<ChatBots />} />
               <Route path="/ocr" element={<Ocr />} />
               <Route path="/voice-bot" element={<Voicebot />} />
-              <Route path="/industry" element={<Industry />} />
               <Route path="/blogs" element={<Resources />} />
               <Route path="/book-a-demo" element={<BookDemo />} />
               <Route path="/terms-and-conditions" element={<TermsandConditions />} />
@@ -208,6 +206,10 @@ function App() {
               <Route path="/refund-and-cancellation-policy" element={<RefundPolicy />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/pricing" element={<Navigate to="https://devnagri.com/pricing" replace />} />
+
+               {/* Redirect old URLs to new URLs */}
+              <Route path="/machine-translation-api"  element={<Navigate to="/translation-api" replace />} />
+              <Route path="/multilingual-conversational-ai-bot" element={<Navigate to="/voice-bot" replace />} />
 
               {/* Translation routes */}
               <Route path="/english-to-hindi-translation" element={<TextTotext />} />

@@ -11,7 +11,11 @@ export default function PrivacyPolicy() {
           description="Read our privacy policy to understand how we collect, use, and protect your personal information."
           keywords="privacy policy, data protection, personal information, GDPR compliance"
           sitemapUrl=""
-          googleSiteVerification="google27ddb4200087c5a5"
+          googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+          ogImage="privacy-policy"
+          ogUrl="https://devnagri.com/privacy-policy"
+          twitterSite="@DevnagriAI"
+          twitterCreator="@DevnagriTeam"
         />
         {/* Hero Section */}
         <section

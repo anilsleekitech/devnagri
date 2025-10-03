@@ -23,7 +23,11 @@ const BookDemo = () => {
         description="Book Your Free Demo"
         keywords="Book a Demo"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/book-a-demo.png"
+        ogUrl="https://devnagri.com/book-a-demo"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       <section className="book-demo-section">
         <div className="container">

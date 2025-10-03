@@ -42,7 +42,11 @@ const BankingFinanceTranslation = () => {
         description="Devnagri provides professional banking and finance translations in Indian languages online. Localize your banking and finance websites and apps in real-time. Explore Devnagri now."
         keywords="Banking Finance Translation"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/industry-icons/BFSI/BFSI.png"
+        ogUrl="https://devnagri.com/banking-finance-translation"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
 
       {/* Hero Section */}

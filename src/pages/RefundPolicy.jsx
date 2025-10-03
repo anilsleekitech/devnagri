@@ -11,7 +11,11 @@ export default function RefundPolicy() {
           description="Our refund and cancellation policy for Devnagri translation services and subscriptions."
           keywords="refund policy, cancellation policy, money back guarantee, service refund"
           sitemapUrl=""
-          googleSiteVerification="google27ddb4200087c5a5"
+          googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+          ogImage="Refund and Cancellation policy"
+          ogUrl="https://devnagri.com/refund-and-cancellation-policy"
+          twitterSite="@DevnagriAI"
+          twitterCreator="@DevnagriTeam"
         />
         {/* Hero Section */}
         <section

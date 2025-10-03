@@ -61,7 +61,11 @@ const DocumentTranslationWorkflow = () => {
         description="Document translation is very necessary for doing business globally. Translate your documents word to word according to your requirements."
         keywords="Document Translation"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/document-translation/document-translation-cta.png"
+        ogUrl="https://devnagri.com/document-translation"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
   {/* Hero Section */}
   <section

@@ -190,7 +190,13 @@ const Resources = () => {
         description="Why Language translation is important for business growth? Browse Devnagri blog now."
         keywords="resources, case studies, translation insights, localization guides"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage={
+          getCurrentPageItems()[0]?.image || "/images/career-images/team-1.jpg"
+        }
+        ogUrl="https://devnagri.com/blogs"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Banner */}
       <section className="resources-hero">
@@ -249,68 +255,51 @@ const Resources = () => {
                 {getCurrentPageItems().length > 0 ? (
                   getCurrentPageItems().map((item) => (
                     <div className="col-md-4" key={item.id}>
-                      <div
-                        className="resource-card wow fadeInUp"
-                        onClick={() => {
-                          // Check if this is a translation or transliteration resource
-                          if (
-                            item.translation === true ||
-                            item.type === "translation"
-                          ) {
-                            // Get language pairs from item or use defaults
-                            const fromLang = item.fromLanguage || "english";
-                            const toLang = item.toLanguage || "hindi";
-
-                            // Regular translation URL
-                            navigate(`/${fromLang}-to-${toLang}-translation`);
-                            return;
-                          }
-
-                          // Handle regular resources
-                          const link = (
-                            item.link ||
-                            item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
-                          ).replace(/^\/+|\/+$/g, ""); // Remove leading/trailing slashes
-                          navigate(`/${link}`, {
-                            state: {
-                              item: {
-                                ...item,
-                                link, // Ensure the generated link is included in the state
-                              },
-                            },
-                          });
-                        }}
+                      <Link
+                        to={
+                          item.translation || item.type === "translation"
+                            ? `/${item.fromLanguage || "english"}-to-${
+                                item.toLanguage || "hindi"
+                              }-translation`
+                            : `/${(
+                                item.link ||
+                                item.title
+                                  .toLowerCase()
+                                  .replace(/[^a-z0-9]+/g, "-")
+                              ).replace(/^\/+|\/+$/g, "")}`
+                        }
+                        state={{ item }}
+                        className="resource-card-link"
+                        target="_blank" // optional: opens in new tab by default if user ctrl+clicks
+                        rel="noopener noreferrer"
                       >
-                        <img
-                          src={item.image || null}
-                          alt={item.title}
-                          className="resource-img"
-                        />
-                        <div className="p-4">
-                          <span
-                            className={`f-500 resource-tag tag-${item.type}`}
-                          >
-                            {contentTypes[item.type].name}
-                          </span>
-                          <h3 className="f-20 f-600 black mb-2">
-                            {item.title}
-                          </h3>
-                          <p className="f-16 f-400 para-color mb-0">
-                            {item.description}
-                          </p>
-                          <div className="resource-meta">
-                            <span className="f-400">
-                              <i className="far fa-calendar" />{" "}
-                              {formatDate(item.date)}
+                        <div className="resource-card wow fadeInUp">
+                          <img
+                            src={item.image || null}
+                            alt={item.title}
+                            className="resource-img"
+                          />
+                          <div className="p-4">
+                            <span
+                              className={`f-500 resource-tag tag-${item.type}`}
+                            >
+                              {contentTypes[item.type].name}
                             </span>
-                            {/* {item.duration && (
-                              <span>
-                                <i className="far fa-clock" /> {item.duration}
+                            <h3 className="f-20 f-600 black mb-2">
+                              {item.title}
+                            </h3>
+                            <p className="f-16 f-400 para-color mb-0">
+                              {item.description}
+                            </p>
+                            <div className="resource-meta">
+                              <span className="f-400">
+                                <i className="far fa-calendar" />{" "}
+                                {formatDate(item.date)}
                               </span>
-                            )} */}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   ))
                 ) : (

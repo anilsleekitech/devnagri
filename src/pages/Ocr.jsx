@@ -84,7 +84,11 @@ const Ocr = () => {
         description="The Devnagri OCR translation automation tool allows one to upload files, pdf of the documents, images and convert into text or word easily."
         keywords="OCR, OCR Solution"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/ocr/OCR-Turn-Scanned-Docs-into-Multilingual-Text.png"
+        ogUrl="https://devnagri.com/ocr"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

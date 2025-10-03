@@ -4581,6 +4581,12 @@ textarea {
   .rating-stars {
     font-size: 18px;
   }
+
+  .campaign-content {
+    position: relative;
+    padding: 12px;
+    background: transparent;
+}
 }
 
 @media (max-width: 576px) {
@@ -4923,7 +4929,7 @@ html :where(img[class*=wp-image-]) {
 }
 
 .recognition-img {
-  height: 140px;    /* fixed height for all logos */
+  max-height: 120px;    /* fixed height for all logos */
   width: auto;     /* keep proportions */
   object-fit: contain;
   display: block;
@@ -5025,3 +5031,8 @@ html :where(img[class*=wp-image-]) {
   }
 }
 
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+.sub-menu-nested h5.f-14 {
+    font-size: 12px;
+}
+}

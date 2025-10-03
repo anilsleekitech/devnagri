@@ -83,7 +83,11 @@ const MachineTranslationApi = () => {
         description="Translate your bulk content fast into Indian languages with Devnagri machine translation API. Try Devnagri today."
         keywords="Machine Translation API"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/translation-api/Translation-API-Fast-Scalable-Translation-for-Any-Platform.png"
+        ogUrl="https://devnagri.com/translation-api"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

@@ -83,7 +83,11 @@ const DotaWeb = () => {
         description="Expand globally with professional website translation and localization. Accurate translations by a trusted website translation company."
         keywords="website translator, website translation, website translation company, website localization"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/dota-web/dota-web-cta.png"
+        ogUrl="https://devnagri.com/website-translation"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

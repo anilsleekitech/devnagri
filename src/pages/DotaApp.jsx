@@ -62,7 +62,11 @@ const DotaApp = () => {
         description="Devnagri is the ideal choice for mobile app translation solutions. Translate your mobile app into regional languages with ultra-high accuracy. Try Devnagri today"
         keywords="App Localization, Mobile App Localization"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/dota-app/Why-Get-the-DOTA-App-by-Devnagri.png"
+        ogUrl="https://devnagri.com/app-localization"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

@@ -43,7 +43,11 @@ const EcommerceTranslation = () => {
         description="Devnagri offers eCommerce translation solutions for retailers of any size. Translate product descriptions and user reviews in a single click."
         keywords="eCommerce Translation"
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/industry-icons/ecommerce/e-commerce.png"
+        ogUrl="https://devnagri.com/ecommerce-translation"
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
       {/* Hero Section */}
       <section

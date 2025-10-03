@@ -492,8 +492,13 @@ const TextTotext = ({ fromResources }) => {
           "AI Translation, Transliteration"
         }
         sitemapUrl=""
-        googleSiteVerification="google27ddb4200087c5a5"
+        googleSiteVerification="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        ogImage="/assets/images/products-images/Hindi-8.png"
+        ogUrl={`https://devnagri.com/english-to-${selectedLanguage}-translation`}
+        twitterSite="@DevnagriAI"
+        twitterCreator="@DevnagriTeam"
       />
+
       <div className="translation-page">
         {/* Add back button if coming from resources */}
         {fromResources && (
