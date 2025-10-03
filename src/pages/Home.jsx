@@ -240,7 +240,7 @@ const Home = () => {
   };
 
   // Combine all content
-  const contentTabs = [ocrContent, ...leftTabs];
+  const contentTabs = [ocrContent];
 
   const activeContent = contentTabs.find((tab) => tab.id === activeTab);
 
