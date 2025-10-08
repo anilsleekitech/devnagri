@@ -49,6 +49,8 @@ const SEO = ({
       }
     };
 
+    const imageUrl = ogImage.startsWith('https') ? ogImage : `https://devnagri.com${ogImage}`;
+
     // Update meta tags
     updateMetaTag('description', description);
     updateMetaTag('keywords', keywords);
@@ -64,7 +66,7 @@ const SEO = ({
     // Open Graph tags
     updateMetaTag('og:title', title, 'property');
     updateMetaTag('og:description', description, 'property');
-    updateMetaTag('og:image', `https://devnagri.com/${ogImage}`, 'property');
+    updateMetaTag('og:image', imageUrl, 'property');
     updateMetaTag('og:url', ogUrl, 'property');
     updateMetaTag('og:type', 'website', 'property');
     updateMetaTag('og:site_name', 'Devnagri AI', 'property');
@@ -73,7 +75,7 @@ const SEO = ({
     updateMetaTag('twitter:card', twitterCard);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
-    updateMetaTag('twitter:image', `https://devnagri.com${ogImage}`);
+    updateMetaTag('twitter:image', imageUrl);
     updateMetaTag('twitter:site', twitterSite);
     // updateMetaTag('twitter:creator', twitterCreator);
 

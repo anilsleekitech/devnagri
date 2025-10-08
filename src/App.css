@@ -4586,7 +4586,11 @@ textarea {
     position: relative;
     padding: 12px;
     background: transparent;
-}
+ }
+
+ .recognition-img{
+  max-height: 62px !important;
+ }
 }
 
 @media (max-width: 576px) {
