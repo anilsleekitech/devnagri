@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 
-const SEO = ({ 
-  title, 
-  description, 
+const SEO = ({
+  title,
+  description,
   keywords = 'website',
   sitemapUrl = 'https://devnagri.com/sitemap.xml',
+  canonicalUrl = window.location.href, // Canonical URL, defaults to current URL
   googleSiteVerification, // pass your GSC code like: "abc123..."
   ogImage ,
   ogUrl = window.location.href,      // Current URL by default
-  twitterCard = 'summary',
+  twitterCard = 'summary_large_image',
   twitterSite = '@devnagriai',         // Replace with your Twitter handle
   // twitterCreator = '@creator'        // Replace with creator handle if needed
 }) => {
@@ -57,6 +58,7 @@ const SEO = ({
 
     // Add sitemap
     updateLinkTag('sitemap', sitemapUrl);
+    updateLinkTag('canonical', canonicalUrl);
 
     // Add Google Search Console verification
     if (googleSiteVerification) {
@@ -79,7 +81,7 @@ const SEO = ({
     updateMetaTag('twitter:site', twitterSite);
     // updateMetaTag('twitter:creator', twitterCreator);
 
-  }, [title, description, keywords, sitemapUrl, googleSiteVerification, ogImage, ogUrl, twitterCard, twitterSite, 
+  }, [title, description, keywords, sitemapUrl, canonicalUrl, googleSiteVerification, ogImage, ogUrl, twitterCard, twitterSite,
     // twitterCreator
   ]);
 
