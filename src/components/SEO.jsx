@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 const SEO = ({
   title,
@@ -13,79 +13,30 @@ const SEO = ({
   twitterSite = '@devnagriai',         // Replace with your Twitter handle
   // twitterCreator = '@creator'        // Replace with creator handle if needed
 }) => {
-  useEffect(() => {
-    // Update document title
-    if (title) {
-      document.title = title;
-    }
+  const imageUrl = ogImage && ogImage.startsWith('https') ? ogImage : ogImage ? `https://devnagri.com${ogImage}` : '';
 
-    // Function to update or create meta/link tag
-    const updateMetaTag = (name, content, attribute = 'name') => {
-      if (!content) return;
-      
-      let element = document.querySelector(`meta[${attribute}="${name}"]`);
-      
-      if (element) {
-        element.setAttribute('content', content);
-      } else {
-        element = document.createElement('meta');
-        element.setAttribute(attribute, name);
-        element.setAttribute('content', content);
-        document.head.appendChild(element);
-      }
-    };
-
-    const updateLinkTag = (rel, href) => {
-      if (!href) return;
-
-      let element = document.querySelector(`link[rel="${rel}"]`);
-      
-      if (element) {
-        element.setAttribute('href', href);
-      } else {
-        element = document.createElement('link');
-        element.setAttribute('rel', rel);
-        element.setAttribute('href', href);
-        document.head.appendChild(element);
-      }
-    };
-
-    const imageUrl = ogImage.startsWith('https') ? ogImage : `https://devnagri.com${ogImage}`;
-
-    // Update meta tags
-    updateMetaTag('description', description);
-    updateMetaTag('keywords', keywords);
-
-    // Add sitemap
-    updateLinkTag('sitemap', sitemapUrl);
-    updateLinkTag('canonical', canonicalUrl);
-
-    // Add Google Search Console verification
-    if (googleSiteVerification) {
-      updateMetaTag('google-site-verification', googleSiteVerification);
-    }
-
-    // Open Graph tags
-    updateMetaTag('og:title', title, 'property');
-    updateMetaTag('og:description', description, 'property');
-    updateMetaTag('og:image', imageUrl, 'property');
-    updateMetaTag('og:url', ogUrl, 'property');
-    updateMetaTag('og:type', 'website', 'property');
-    updateMetaTag('og:site_name', 'Devnagri AI', 'property');
-
-    // Twitter Card tags
-    updateMetaTag('twitter:card', twitterCard);
-    updateMetaTag('twitter:title', title);
-    updateMetaTag('twitter:description', description);
-    updateMetaTag('twitter:image', imageUrl);
-    updateMetaTag('twitter:site', twitterSite);
-    // updateMetaTag('twitter:creator', twitterCreator);
-
-  }, [title, description, keywords, sitemapUrl, canonicalUrl, googleSiteVerification, ogImage, ogUrl, twitterCard, twitterSite,
-    // twitterCreator
-  ]);
-
-  return null; // This component doesn't render anything
+  return ReactDOM.createPortal(
+    <>
+      {title && <title>{title}</title>}
+      {description && <meta name="description" content={description} />}
+      {keywords && <meta name="keywords" content={keywords} />}
+      {sitemapUrl && <link rel="sitemap" href={sitemapUrl} />}
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
+      {title && <meta property="og:title" content={title} />}
+      {description && <meta property="og:description" content={description} />}
+      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {ogUrl && <meta property="og:url" content={ogUrl} />}
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Devnagri AI" />
+      {twitterCard && <meta name="twitter:card" content={twitterCard} />}
+      {title && <meta name="twitter:title" content={title} />}
+      {description && <meta name="twitter:description" content={description} />}
+      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+    </>,
+    document.head
+  );
 };
 
 export default SEO;
