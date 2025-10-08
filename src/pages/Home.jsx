@@ -240,7 +240,9 @@ const Home = () => {
   };
 
   // Combine all content
-  const contentTabs = [ocrContent];
+  // const contentTabs = [ocrContent];
+  const contentTabs = [ocrContent, ...leftTabs];
+  const contentTabs2 = [ocrContent];
 
   const activeContent = contentTabs.find((tab) => tab.id === activeTab);
 
@@ -2489,7 +2491,7 @@ const Home = () => {
                     OCR Workflow
                   </h4>
                   <div className="accordion" id="servicesAccordion">
-                    {contentTabs.map((tab) => (
+                    {contentTabs2.map((tab) => (
                       <div className="accordion-item" key={tab.id}>
                         <h2
                           className="accordion-header"
