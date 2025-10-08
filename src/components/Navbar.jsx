@@ -180,24 +180,24 @@ const Navbar = () => {
   const languageRef = useRef(null);
   const navbarRef = useRef(null);
 
+  // Function to get language code from hostname
+  const getLangFromHostname = () => {
+    const hostname = window.location.hostname;
+    if (hostname === 'devnagri.com' || hostname === 'www.devnagri.com') return 'en';
+    const parts = hostname.split('.');
+    if (parts.length >= 3 && parts[1] === 'devnagri' && parts[2] === 'com') {
+      return parts[0];
+    }
+    return 'en';
+  };
+
   // const isMobileView = () => window.innerWidth < 992;
 
   useEffect(() => {
-    const savedLangCode = localStorage.getItem("selectedLangCode");
-    const savedLanguage = JSON.parse(localStorage.getItem("selectedLanguage"));
-  
-    let langCode, langData;
-  
-    if (savedLanguage && savedLangCode) {
-      // Case 1: Use saved language from localStorage
-      langCode = savedLangCode;
-      langData = indianLanguages[langCode] || internationalLanguages[langCode];
-    } else {
-      // Case 2: Fallback to <html lang="">
-      langCode = document.documentElement.lang || "en";
-      langData = indianLanguages[langCode] || internationalLanguages[langCode];
-    }
-  
+    // Prioritize language from hostname
+    let langCode = getLangFromHostname();
+    let langData = indianLanguages[langCode] || internationalLanguages[langCode];
+
     // Final fallback to English if still no data
     if (!langData) {
       langData = {
@@ -207,14 +207,14 @@ const Navbar = () => {
       };
       langCode = "en";
     }
-  
+
     const newLanguage = {
       code: langCode,
       flag: langData.flag,
       displayCode: langData.displayCode ?? langCode.toUpperCase(),
       displayName: langData.name,
     };
-  
+
     setCurrentLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", JSON.stringify(newLanguage));
     localStorage.setItem("selectedLangCode", langCode);
