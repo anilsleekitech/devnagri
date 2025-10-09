@@ -30,27 +30,27 @@ const ResourcesDetail = () => {
       schemaType = "Article";
     } else if (item.type === "announcements" || item.type === "news") {
       schemaType = "NewsArticle";
-    } else if(item.type === "blogs") {
+    } else if (item.type === "blogs") {
       schemaType = "BlogPosting";
     }
 
     return {
       "@context": "https://schema.org",
       "@type": schemaType,
-      "headline": item.title,
-      "description": item.description,
-      "image": item.image,
-      "datePublished": item.date,
-      "author": {
+      headline: item.title,
+      description: item.description,
+      image: item.image,
+      datePublished: item.date,
+      author: {
         "@type": "Person",
-        "name": item.author
+        name: item.author,
       },
-      "publisher": {
+      publisher: {
         "@type": "Organization",
-        "name": "Devnagri",
-        "logo": "https://devnagri.com/assets/images/Devnagri-Logo.png"
+        name: "Devnagri",
+        logo: "https://devnagri.com/assets/images/Devnagri-Logo.png",
       },
-      "url": `https://devnagri.com${item.link}`
+      url: `https://devnagri.com${item.link}`,
     };
   };
 
@@ -66,14 +66,14 @@ const ResourcesDetail = () => {
   useEffect(() => {
     if (item) {
       const schema = generateSchema(item);
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
       script.text = JSON.stringify(schema);
-      script.id = 'schema-org-script'; // Add id to identify and remove later
+      script.id = "schema-org-script"; // Add id to identify and remove later
       document.head.appendChild(script);
 
       return () => {
-        const existingScript = document.getElementById('schema-org-script');
+        const existingScript = document.getElementById("schema-org-script");
         if (existingScript) {
           document.head.removeChild(existingScript);
         }
@@ -222,7 +222,7 @@ const ResourcesDetail = () => {
 
     try {
       findItem();
-    } catch (error) {
+    } catch (err) {
       setIsLoading(false);
       navigate("/english-to-hindi-translation");
     }
@@ -302,7 +302,6 @@ const ResourcesDetail = () => {
         ogImage={item?.image || "/assets/images/career-images/team-1.jpg"}
         ogUrl={`https://devnagri.com${item?.link || ""}`}
         twitterSite="@DevnagriAI"
-         
       />
       {/* Hero Section */}
       <section
@@ -371,6 +370,52 @@ const ResourcesDetail = () => {
                   <ShareButton platform="facebook" url={currentUrl} />
                   <ShareButton platform="twitter" url={currentUrl} />
                   <ShareButton platform="linkedin" url={currentUrl} />
+                </div>
+                <div className="mt-4 p-4 md:p-6 bg-white">
+                  <h3 className="sidebar-title text-lg md:text-xl font-semibold text-blue-600 mb-4">
+                    Author Bio
+                  </h3>
+
+                  <div
+                    className="latest-post-item flex flex-col sm:flex-row items-start sm:items-center gap-4 cursor-pointer"
+                    role="button"
+                    tabIndex={0}
+                  >
+                    {/* <img
+                            src="/assets/images/aboutus-image/Our-Story.jpg" // Add author image URL here
+                            alt="Gurpreet"
+                            className="latest-post-img w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover"
+                        /> */}
+
+                    <div className="latest-post-content flex-1">
+                      <h4 className="text-md md:text-lg font-medium text-black mb-2">
+                        Gurpreet
+                      </h4>
+
+                      <p className="text-sm md:text-base text-gray-800 leading-relaxed">
+                        Gurpreet is a technical content writer at Devnagri with
+                        over 6 years of experience, blending analytical and
+                        strategic expertise in technical writing. Holding a
+                        Bachelor's in Science and a Master's in Marketing,
+                        Gurpreet crafts impactful content across advanced
+                        technology domains including language models, software
+                        and web development, cloud computing, VAPT, artificial
+                        intelligence, and machine learning. Their portfolio also
+                        covers cybersecurity, SaaS solutions, IoT, API
+                        integration, UI/UX, e-commerce platforms, edge
+                        computing, and digital transformation trends — making
+                        complex topics accessible to readers from all
+                        backgrounds.
+                      </p>
+                      <div className="col-lg-3">
+                        <Link to="https://www.linkedin.com/in/gurpreet-singh-56955a1ab/">
+                          <div className="social-icons share-btn linkedin">
+                            <i className="bi bi-linkedin f-18" />
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </article>
             </div>
