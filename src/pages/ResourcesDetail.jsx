@@ -37,20 +37,20 @@ const ResourcesDetail = () => {
     return {
       "@context": "https://schema.org",
       "@type": schemaType,
-      headline: item.title,
-      description: item.description,
-      image: item.image,
-      datePublished: item.date,
-      author: {
+      "headline": item.title,
+      "description": item.description,
+      "image": item.image,
+      "datePublished": item.date,
+      "author": {
         "@type": "Person",
-        name: item.author,
+        "name": item.author,
       },
-      publisher: {
+      "publisher": {
         "@type": "Organization",
-        name: "Devnagri",
-        logo: "https://devnagri.com/assets/images/Devnagri-Logo.png",
+        "name": "Devnagri",
+        "logo": "https://devnagri.com/assets/images/Devnagri-Logo.png",
       },
-      url: `https://devnagri.com${item.link}`,
+      "url": `https://devnagri.com${item.link}`,
     };
   };
 
