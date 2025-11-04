@@ -1,0 +1,165 @@
+{
+  "toRemove": [
+    {
+      "name": "react-router-dom",
+      "version": "^7.6.2",
+      "note": "Next.js has built-in routing, remove react-router-dom"
+    }
+  ],
+  "toKeep": [
+    {
+      "name": "@fortawesome/fontawesome-free",
+      "version": "^6.7.2",
+      "note": "Keep as is"
+    },
+    {
+      "name": "@fortawesome/free-brands-svg-icons",
+      "version": "^6.7.2",
+      "note": "Keep as is"
+    },
+    {
+      "name": "@fortawesome/free-solid-svg-icons",
+      "version": "^6.7.2",
+      "note": "Keep as is"
+    },
+    {
+      "name": "@fortawesome/react-fontawesome",
+      "version": "^0.2.2",
+      "note": "Keep as is"
+    },
+    {
+      "name": "@popperjs/core",
+      "version": "^2.11.8",
+      "note": "Keep as is"
+    },
+    {
+      "name": "animate.css",
+      "version": "^4.1.1",
+      "note": "Keep as is"
+    },
+    {
+      "name": "axios",
+      "version": "^1.10.0",
+      "note": "Keep as is"
+    },
+    {
+      "name": "bootstrap",
+      "version": "^5.3.7",
+      "note": "Keep as is"
+    },
+    {
+      "name": "bootstrap-icons",
+      "version": "^1.13.1",
+      "note": "Keep as is"
+    },
+    {
+      "name": "countup.js",
+      "version": "^2.9.0",
+      "note": "Keep as is"
+    },
+    {
+      "name": "jquery",
+      "version": "^3.7.1",
+      "note": "Keep as is"
+    },
+    {
+      "name": "owl.carousel",
+      "version": "^2.3.4",
+      "note": "Keep as is"
+    },
+    {
+      "name": "react",
+      "version": "^19.1.0",
+      "note": "Keep as is"
+    },
+    {
+      "name": "react-dom",
+      "version": "^19.1.0",
+      "note": "Keep as is"
+    },
+    {
+      "name": "react-google-recaptcha",
+      "version": "^3.1.0",
+      "note": "Keep as is"
+    },
+    {
+      "name": "react-slick",
+      "version": "^0.30.3",
+      "note": "Keep as is"
+    },
+    {
+      "name": "slick-carousel",
+      "version": "^1.8.1",
+      "note": "Keep as is"
+    },
+    {
+      "name": "swiper",
+      "version": "^11.2.8",
+      "note": "Keep as is"
+    },
+    {
+      "name": "wow.js",
+      "version": "^1.2.2",
+      "note": "Keep as is"
+    },
+    {
+      "name": "@eslint/js",
+      "version": "^9.25.0",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "@types/react",
+      "version": "^19.1.2",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "^19.1.2",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "version": "^4.4.1",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "eslint",
+      "version": "^9.25.0",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "eslint-plugin-react-hooks",
+      "version": "^5.2.0",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "eslint-plugin-react-refresh",
+      "version": "^0.4.19",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "globals",
+      "version": "^16.0.0",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "path",
+      "version": "^0.12.7",
+      "note": "Unknown dependency - review manually"
+    },
+    {
+      "name": "vite",
+      "version": "^6.3.5",
+      "note": "Unknown dependency - review manually"
+    }
+  ],
+  "toReplace": [
+    {
+      "name": "react-metatags-hook",
+      "version": "^2.0.0",
+      "replacement": "next/head",
+      "note": "Use Next.js Head component or Metadata API"
+    }
+  ],
+  "toAdd": []
+}
