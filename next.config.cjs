@@ -2,14 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  trailingSlash: false, // ✅ Force all routes to not end with a "/"
   images: {
-    domains: ['devnagri.com'], // Add any external image domains if needed
+    domains: ['devnagri.com'],
   },
   experimental: {
     esmExternals: false,
   },
   async redirects() {
     return [
+      // Custom redirects
       {
         source: '/machine-translation-api',
         destination: '/translation-api',
@@ -22,11 +24,11 @@ const nextConfig = {
       },
       {
         source: '/pricing',
-        destination: 'https://devnagri.com/pricing', // Assuming live pricing page URL
+        destination: 'https://devnagri.com/pricing',
         permanent: false,
       },
     ];
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
